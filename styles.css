@@ -1,7 +1,46 @@
-.text-box{
+/*.text-box{
     font-size:20px;
-}
+}*/
 
 #ominous-countdown{
     background-color: #000000;
+}
+
+/*change this later to be more accurate but it'll do for now*/
+@font-face {
+    font-family: DEP;
+    src: local("DEP.ttf") format("truetype");
+    src: url(https://codehs.com/uploads/dae692d9ff24763f38a8f05dd7880be1) format("truetype");
+}
+
+
+:root{
+--green1: #e0f8cf;
+--green2: #86c06c;
+--green3: #306850;
+--green4: #071821;
+}
+
+/*
+var(--green1)
+var(--green2)
+var(--green3)
+var(--green4)
+*/
+
+body{
+    background-color: var(--green2);
+    font-family: DEP;
+    font-size: 24px;
+    color: var(--green1);
+}
+
+.text-box{
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--green1);
+    background-color: black;
+    color: var(--green1);
+    margin: 2px 2px 2px 2px;
+    padding: 3px 5px 7px 12px;
 }
