@@ -20,17 +20,6 @@
                 );
             });
         </script>-->
-        <script>
-            const d = new Date();
-            let diff = d.getTimezoneOffset();
-            if ((getDay()==1||getDay()==2||getDay()==3||getDay()==4)) {
-                document.getElementById("date").innerHTML = "Yo! I'm currently in school right now!";
-            } else if (getDay==5) {
-                document.getElementById("date").innerHTML = "Yo! I'm currently in school right now! (Friday text box)";
-            } else if (getDay==6||getDay==0) {
-                document.getElementById("date").innerHTML = "Yo! I'm not in school!";
-            }
-        </script>
 
 
         <!-- Bootstrap CSS -->
@@ -42,6 +31,30 @@
 
     </head>
     <body>
+        <script>
+            const d = new Date();
+            diff = (d.getTimezoneOffset()/60)-7;
+            if ((d.getDay()==1||d.getDay()==2||d.getDay()==3||d.getDay()==4)) {
+                if(((d.getHours()==(6-diff))&&(d.getMinutes()>=30)||d.getHours()>=(7-diff))&&((d.getHours()==(13-diff))&&(d.getMinutes()<=25))||(d.getHours()<=(12-diff))){
+                    if((d.getHours()>=(9-diff))&&(d.getMinutes()>=48)&&(d.getHours()<=(10-diff))&&(d.getMinutes()<=17)){
+                        document.getElementById("date").innerHTML = "Yo! I'm currently in school right now, but it's lunch for me.";
+                    } else {
+                        document.getElementById("date").innerHTML = "Yo! I'm currently in school right now!";
+                    }
+                } else {
+                    document.getElementById("date").innerHTML = "Yo! I'm not in school right now!";
+                }
+            } else if (d.getDay()==5) {
+                if(((d.getHours()==(6+diff))&&(d.getMinutes()>=30)||d.getHours()>=(7+diff))&&((d.getHours()==(10+diff))&&(d.getMinutes()<=30))||(d.getHours()<=(9+diff))){
+                    document.getElementById("date").innerHTML = "Yo! I'm currently in school right now!";
+                } else {
+                    document.getElementById("date").innerHTML = "Yo! I'm not in school right now!";
+                }
+            } else if (d.getDay()==6||d.getDay()==0) {
+                document.getElementById("date").innerHTML = "Yo! I'm not in school! (It's literally the weekend bro.)";
+            }
+            //d.toLocaleString('en-US', {timeZone: 'America/Denver'});
+        </script>
         <p class="text-box" id="date">
                 <img src="
             images/spax/Smirk.png
