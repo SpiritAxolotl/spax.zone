@@ -48,7 +48,7 @@ p{
     font-family: DEP;
     color: var(--green1);
     margin: 5px 25% 5px 25%;
-    padding: 0px 15px 15px 15px;
+    padding: 5px 15px 15px 15px;
     font-size: 24px;
     border-radius: 3px;
 }
