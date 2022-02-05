@@ -12,14 +12,26 @@
         <link rel="icon" href="/images/yoki/Dizzy.png"></link>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="jquery.countdown.min.js"></script>
-        <script>
+        <!--<script>
             $('#ominous-countdown')
             .countdown("2022/03/06", function(event) {
                 $(this).text(
                     event.strftime('%D:%H:%M:%S')
                 );
             });
+        </script>-->
+        <script>
+            const d = new Date();
+            let diff = d.getTimezoneOffset();
+            if ((getDay()==1||getDay()==2||getDay()==3||getDay()==4)) {
+                document.getElementById("date").innerHTML = "Yo! I'm currently in school right now!";
+            } else if (getDay==5) {
+                document.getElementById("date").innerHTML = "Yo! I'm currently in school right now! (Friday text box)";
+            } else if (getDay==6||getDay==0) {
+                document.getElementById("date").innerHTML = "Yo! I'm not in school!";
+            }
         </script>
+
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -30,70 +42,11 @@
 
     </head>
     <body>
-        <p class="alt-text-box">
-            <a href="isspaxatschool.html">Click here</a> to see if I'm at school! (Doesn't currently work.)
-        </p>
-        <p class="text-box">
-                <!--<img src="
-            images/claire/Neutral.png
-                "></img>-->
-            Hey nerds. It's me, Claire.
-        </p>
-        <p class="text-box">
+        <p class="text-box" id="date">
                 <img src="
-            images/claire/Happy.png
+            images/spax/Smirk.png
                 "></img>
-            I am now on a poggers website. Woo!</p>
-        <p class="text-box">
-                <img src="
-            images/claire/Look.png
-                "></img>
-            Sadly it's Spax's...</p>
-        <p class="text-box">
-            <img src="
-        images/claire/Sigh.png
-            "></img>
-        Anyways it's time for some fucking debugging.</p>
-        <p class="text-box">
-            <img src="
-        images/aimottle/Unsure.png
-            "></img>
-        Spax, you don't know what you're doing at all, do you?</p>
-        <p class="text-box">
-            <img src="
-        images/spax/Worried.png
-            "></img>
-        Well no... but-</p>
-        <p class="text-box">
-            <img src="
-        images/spax/Worried.png
-            "></img>
-        ...</p>
-        <p class="text-box">
-            <img src="
-        images/spax/Pensive.png
-            "></img>
-        </p>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <p class="text-box">
-            <img src="
-        images/yoki/Sweat_Drop.png
-            "></img>
-        (Where the <i>fuck</i> am I?!)
-        </p>
-        <div class="ominous-countdown"></div>
-        </p>
+            Javascript goes here lmao
+        </p> 
     </body>
 </html>
