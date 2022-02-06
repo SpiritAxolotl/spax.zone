@@ -43,7 +43,7 @@ body{
     background-color: black;
     font-family: DEP;
     color: var(--green1);
-    margin: 0px 25% 5px 25%;
+    margin: 2.5px 25% 2.5px 25%;
     padding: 5px 15px 5px 15px;
     font-size: 24px;
     border-radius: 3px;
@@ -86,4 +86,13 @@ body{
     flex-wrap: wrap;
     height: 138px;
     width: 50%;
+}
+
+@media only screen and (max-width: 647px) {
+  .text-box {
+    margin: 2.5px 5% 2.5px 5%;
+  }
+  .flex-container{
+    width: 90%;
+  }
 }
