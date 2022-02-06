@@ -36,10 +36,6 @@ body{
     color: var(--green1);
 }
 
-p{
-    background-color: var(--green2);
-}
-
 .text-box{
     border-width: 4px;
     border-style: solid;
