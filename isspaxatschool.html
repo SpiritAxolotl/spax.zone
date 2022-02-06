@@ -38,32 +38,48 @@
                 "></img>
             </div>
             <div id="date">
-                This should be replaced by the js
+                This text should be replaced by the js. I think it's broken rn. :(
             </div>
         </div>
         <script>
             const d = new Date();
             diff = (d.getTimezoneOffset()/60)-7;
+            //if during mon-thurs (school days)
             if ((d.getDay()==1||d.getDay()==2||d.getDay()==3||d.getDay()==4)) {
-                if(((d.getHours()==(6-diff))&&(d.getMinutes()>=30)||d.getHours()>=(7-diff))&&((d.getHours()==(13-diff))&&(d.getMinutes()<=25))||(d.getHours()<=(12-diff))){
+                //if time is between 7:30 and 2:30 (school hours)
+                if(((d.getHours()==(6-diff))&&(d.getMinutes()>=29)||d.getHours()>=(7-diff))&&((d.getHours()==(13-diff))&&(d.getMinutes()<=24))||(d.getHours()<=(12-diff))){
+                    //if time is between 10:48 and 11:17 (lunch break)
                     if((d.getHours()>=(9-diff))&&(d.getMinutes()>=48)&&(d.getHours()<=(10-diff))&&(d.getMinutes()<=17)){
+                        //sets html for lunch
                         document.getElementById("date").innerHTML = "Yo! I'm currently in school right now, but it's lunch for me.";
                     } else {
+                        //sets html for school
                         document.getElementById("date").innerHTML = "Yo! I'm currently in school right now!";
                     }
+                //if time is between 8:30pm and 6:30am
+                } else if (((d.getHours()==(19-diff))&&(d.getMinutes()>=(29))||(getHours()>=(23-diff)))||((d.getHours()==(0-diff))&&(d.getMinutes()>=(29))||(getHours()<=(5-diff)))) {
+                    //sleeping html
+                    document.getElementById("date").innerHTML = "Yo! I may not be in school right now, but I'm probably asleep. But don't let that stop you from DMing me!";
                 } else {
                     document.getElementById("date").innerHTML = "Yo! I'm not in school right now!";
                 }
             } else if (d.getDay()==5) {
                 if(((d.getHours()==(6+diff))&&(d.getMinutes()>=30)||d.getHours()>=(7+diff))&&((d.getHours()==(10+diff))&&(d.getMinutes()<=30))||(d.getHours()<=(9+diff))){
                     document.getElementById("date").innerHTML = "Yo! I'm currently in school right now!";
+                } else if (((d.getHours()==(19-diff))&&(d.getMinutes()>=(29))||(getHours()>=(23-diff)))||((d.getHours()==(0-diff))&&(d.getMinutes()>=(29))||(getHours()<=(5-diff)))) {
+                    //sleeping html
+                    document.getElementById("date").innerHTML = "Yo! I may not be in school right now, but I'm probably asleep. But don't let that stop you from DMing me!";
                 } else {
                     document.getElementById("date").innerHTML = "Yo! I'm not in school right now!";
                 }
             } else if (d.getDay()==6||d.getDay()==0) {
+                if (((d.getHours()==(19-diff))&&(d.getMinutes()>=(29))||(getHours()>=(23-diff)))||((d.getHours()==(0-diff))&&(d.getMinutes()>=(29))||(getHours()<=(5-diff)))) {
+                    //sleeping html
+                    document.getElementById("date").innerHTML = "Yo! I may not be in school right now, but I'm probably asleep. But don't let that stop you from DMing me!";
+                } else {
                 document.getElementById("date").innerHTML = "Yo! I'm not in school! (It's literally the weekend bro.)";
+                }
             }
-            //d.toLocaleString('en-US', {timeZone: 'America/Denver'});
         </script>
     </body>
 </html>
