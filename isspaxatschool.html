@@ -33,9 +33,7 @@
     <body>
         <div class="text-box flex-container">
             <div>
-                <img src="
-            images/spax/Smirk.png
-                "></img>
+                
             </div>
             <div id="date">
                 This should be replaced by the js
@@ -61,7 +59,7 @@
                     document.getElementById("date").innerHTML = "Yo! I'm not in school right now!";
                 }
             } else if (d.getDay()==6||d.getDay()==0) {
-                document.getElementById("date").innerHTML = "Yo! I'm not in school! (It's literally the weekend bro.)";
+                document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm not in school! (It's literally the weekend bro.)";
             }
             //d.toLocaleString('en-US', {timeZone: 'America/Denver'});
         </script>
