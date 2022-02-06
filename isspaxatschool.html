@@ -57,7 +57,7 @@
                         document.getElementById("date").innerHTML = "Yo! I'm currently in school right now!";
                     }
                 //if time is between 8:30pm and 6:30am
-                } else if (((d.getHours()==(19-diff))&&(d.getMinutes()>=(29))||(getHours()>=(23-diff)))||((d.getHours()==(0-diff))&&(d.getMinutes()>=(29))||(getHours()<=(5-diff)))) {
+                } else if (((d.getHours()==(19-diff))&&(d.getMinutes()>=(29))||(d.getHours()>=(23-diff)))||((d.getHours()==(0-diff))&&(d.getMinutes()>=(29))||(d.getHours()<=(5-diff)))) {
                     //sleeping html
                     document.getElementById("date").innerHTML = "Yo! I may not be in school right now, but I'm probably asleep. But don't let that stop you from DMing me!";
                 } else {
@@ -66,14 +66,14 @@
             } else if (d.getDay()==5) {
                 if(((d.getHours()==(6+diff))&&(d.getMinutes()>=30)||d.getHours()>=(7+diff))&&((d.getHours()==(10+diff))&&(d.getMinutes()<=30))||(d.getHours()<=(9+diff))){
                     document.getElementById("date").innerHTML = "Yo! I'm currently in school right now!";
-                } else if (((d.getHours()==(19-diff))&&(d.getMinutes()>=(29))||(getHours()>=(23-diff)))||((d.getHours()==(0-diff))&&(d.getMinutes()>=(29))||(getHours()<=(5-diff)))) {
+                } else if (((d.getHours()==(19-diff))&&(d.getMinutes()>=(29))||(d.getHours()>=(23-diff)))||((d.getHours()==(0-diff))&&(d.getMinutes()>=(29))||(d.getHours()<=(5-diff)))) {
                     //sleeping html
                     document.getElementById("date").innerHTML = "Yo! I may not be in school right now, but I'm probably asleep. But don't let that stop you from DMing me!";
                 } else {
                     document.getElementById("date").innerHTML = "Yo! I'm not in school right now!";
                 }
             } else if (d.getDay()==6||d.getDay()==0) {
-                if (((d.getHours()==(19-diff))&&(d.getMinutes()>=(29))||(getHours()>=(23-diff)))||((d.getHours()==(0-diff))&&(d.getMinutes()>=(29))||(getHours()<=(5-diff)))) {
+                if (((d.getHours()==(19-diff))&&(d.getMinutes()>=(29))||(d.getHours()>=(23-diff)))||((d.getHours()==(0-diff))&&(d.getMinutes()>=(29))||(d.getHours()<=(5-diff)))) {
                     //sleeping html
                     document.getElementById("date").innerHTML = "Yo! I may not be in school right now, but I'm probably asleep. But don't let that stop you from DMing me!";
                 } else {
