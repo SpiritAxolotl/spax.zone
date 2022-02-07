@@ -90,7 +90,7 @@ body{
 
 @media only screen and (max-width: 647px) {
   .text-box {
-    margin: 2.5px 5% 2.5px 5%;
+    margin: 2.5px 1% 2.5px 1%;
   }
   .flex-container{
     width: 90%;
