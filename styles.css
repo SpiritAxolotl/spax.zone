@@ -48,6 +48,8 @@ body{
     font-size: 24px;
     border-radius: 3px;
     float: right;
+    word-wrap: break-word;
+    letter-spacing: 1px;
 }
 
 .text-box img{
@@ -70,6 +72,8 @@ body{
     font-size: 24px;
     border-radius: 3px;
     float: right;
+    word-wrap: break-word;
+    letter-spacing: 1px;
 }
 
 .alt-text-box img{
@@ -84,7 +88,7 @@ body{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    height: 138px;
+    min-height: 138px;
     width: 50%;
 }
 
@@ -98,5 +102,9 @@ body{
   .alt-text-box{
     margin: 5px 5px 5px 0px;
     padding: 5px 5px 5px 15px;
+  }
 }
+
+#date{
+    float:right;
 }

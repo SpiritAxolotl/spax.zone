@@ -34,11 +34,9 @@
         <div class="text-box flex-container">
             <div>
                     <img src="
-            images/spax/Smirk.png
-                "></img>
-            </div>
-            <div id="date">
-                This text should be replaced by the js. I think it's broken rn. :(
+                images/spax/Smirk.png
+                    "></img>
+                This text should be replaced by the js.
             </div>
         </div>
         <script>
@@ -51,33 +49,33 @@
                     //if time is between 10:48 and 11:17 (lunch break)
                     if((d.getHours()>=(9-diff))&&(d.getMinutes()>=48)&&(d.getHours()<=(10-diff))&&(d.getMinutes()<=17)){
                         //sets html for lunch
-                        document.getElementById("date").innerHTML = "Yo! I'm currently in school right now, but it's lunch for me.";
+                        document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm currently in school right now, but it's lunch for me.";
                     } else {
                         //sets html for school
-                        document.getElementById("date").innerHTML = "Yo! I'm currently in school right now!";
+                        document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm currently in school right now!";
                     }
                 //if time is between 8:30pm and 6:30am
                 } else if (((d.getHours()==(19-diff))&&(d.getMinutes()>=(29))||(d.getHours()>=(23-diff)))||((d.getHours()==(0-diff))&&(d.getMinutes()>=(29))||(d.getHours()<=(5-diff)))) {
                     //sleeping html
-                    document.getElementById("date").innerHTML = "Yo! I may not be in school right now, but I'm probably asleep. But don't let that stop you from DMing me!";
+                    document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I may not be in school right now, but I'm probably asleep. But don't let that stop you from DMing me!";
                 } else {
-                    document.getElementById("date").innerHTML = "Yo! I'm not in school right now!";
+                    document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm not in school right now!";
                 }
             } else if (d.getDay()==5) {
                 if(((d.getHours()==(6+diff))&&(d.getMinutes()>=30)||d.getHours()>=(7+diff))&&((d.getHours()==(10+diff))&&(d.getMinutes()<=30))||(d.getHours()<=(9+diff))){
-                    document.getElementById("date").innerHTML = "Yo! I'm currently in school right now!";
+                    document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm currently in school right now!";
                 } else if (((d.getHours()==(19-diff))&&(d.getMinutes()>=(29))||(d.getHours()>=(23-diff)))||((d.getHours()==(0-diff))&&(d.getMinutes()>=(29))||(d.getHours()<=(5-diff)))) {
                     //sleeping html
-                    document.getElementById("date").innerHTML = "Yo! I may not be in school right now, but I'm probably asleep. But don't let that stop you from DMing me!";
+                    document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I may not be in school right now, but I'm probably asleep. But don't let that stop you from DMing me!";
                 } else {
-                    document.getElementById("date").innerHTML = "Yo! I'm not in school right now!";
+                    document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm not in school right now!";
                 }
             } else if (d.getDay()==6||d.getDay()==0) {
                 if (((d.getHours()==(19-diff))&&(d.getMinutes()>=(29))||(d.getHours()>=(23-diff)))||((d.getHours()==(0-diff))&&(d.getMinutes()>=(29))||(d.getHours()<=(5-diff)))) {
                     //sleeping html
-                    document.getElementById("date").innerHTML = "Yo! I may not be in school right now, but I'm probably asleep. But don't let that stop you from DMing me!";
+                    document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I may not be in school right now, but I'm probably asleep. But don't let that stop you from DMing me!";
                 } else {
-                document.getElementById("date").innerHTML = "Yo! I'm not in school! (It's literally the weekend bro.)";
+                document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm not in school! (It's literally the weekend bro.)";
                 }
             }
         </script>
