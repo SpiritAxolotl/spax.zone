@@ -89,10 +89,14 @@ body{
 }
 
 @media only screen and (max-width: 647px) {
-  .text-box {
+  .text-box{
     margin: 2.5px 1% 2.5px 1%;
   }
   .flex-container{
     width: 98%;
   }
+  .alt-text-box{
+    margin: 5px 5px 5px 0px;
+    padding: 5px 5px 5px 15px;
+}
 }
