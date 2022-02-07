@@ -42,6 +42,11 @@
         <script>
             const d = new Date();
             diff = (d.getTimezoneOffset()/60)-7;
+            /*if (diff<0){
+            d.setDate(d.getDate-1)
+            d.setHour(d.getHour-diff)
+            }*/
+            d
             //if during mon-thurs (school days)
             if ((d.getDay()==1||d.getDay()==2||d.getDay()==3||d.getDay()==4)) {
                 //if time is between 7:30 and 2:30 (school hours)
