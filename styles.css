@@ -43,14 +43,12 @@ body{
     background-color: black;
     font-family: DEP;
     color: var(--green1);
-    margin: 2.5px 33% 2.5px 33%;
+    margin: 0 auto;
     padding: 5px 15px 5px 15px;
     font-size: 24px;
     border-radius: 3px;
-    float: right;
     word-wrap: break-word;
     letter-spacing: 1px;
-    transform: translate(33%, 0%);
     min-width: 587px;
 }
 
@@ -73,7 +71,6 @@ body{
     padding: 5px 5px 5px 5px;
     font-size: 24px;
     border-radius: 3px;
-    float: right;
     word-wrap: break-word;
     letter-spacing: 1px;
 }
