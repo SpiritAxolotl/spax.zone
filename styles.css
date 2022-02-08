@@ -99,10 +99,9 @@ body{
     min-width:0px;
   }
   .flex-container{
-    width: 98%;
+    width: 100%;
   }
   .alt-text-box{
-    margin: 5px 5px 5px 0px;
     padding: 5px 5px 5px 15px;
   }
 }
