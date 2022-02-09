@@ -49,6 +49,11 @@
             const cm = d.getUTCMinutes();
             const m = ((d.getUTCHours()-7)*60)+d.getUTCMinutes();
             const f = d.getUTCDay();
+            const sh = "s";
+            const sm = "s";
+            const dh = "hours";
+            const dm = "minutes";
+            const dand = " and ";
 
             time();
             convertTime();
@@ -59,8 +64,13 @@
             let d = Date();
             if ((d.getUTCHours()-7)<0){
                     let m = ((23+(d.getUTCHours()-7))*60)+d.getUTCMinutes();
+                    if(cm==0){
+                    let ch = ch+1;
+                    let cm = 0;
+                    } else {
                     let ch = 23+d.getUTCHours()-7;
                     let cm = d.getUTCMinutes();
+                    }
                     if ((d.getUTCDay()-1)<0){
                         let f = 6+d.getUTCDay()-1;
                     };
@@ -69,7 +79,26 @@
                     let f = d.getUTCDay();
                     let ch = d.getUTCHours()-7;
                     let cm = d.getUTCMinutes();
-                };
+                }
+                if (ch==0){
+                    let sh=""
+                } else if (ch==23){
+                    let dh=""
+                    let sh=""
+                } else {
+                    let sh="s"
+                }
+                if (cm==0){
+                    let sm=""
+                } else if (cm==59){
+                    let dm=""
+                    let sm=""
+                } else {
+                    let sm="s"
+                }
+                if (ch==0){
+                    let 
+                }
             }
 
             function time(){
@@ -85,7 +114,7 @@
                         document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm currently in school right now! But I'll be out in"+(60-cm)+" minutes!";
                     } else {
                         //sets html for school
-                        document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm currently in school right now! But I'll be out in "+(13-ch)+" hours and "+(60-cm)+" minutes!";
+                        document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm currently in school right now! But I'll be out in "+(13-ch)+" hour"+sh+" and "+(60-cm)+" minute"+sm+"!";
                     }
 
                 //if time is between 8:30pm and 6:30am
