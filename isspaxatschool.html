@@ -25,8 +25,7 @@
     <body>
         <div class="text-box flex-container">
             <div style="color:red;">
-                (Note for Mathew:)<br>
-                (I want the text to refresh every minute. It currently refreshes, but I can't figure out why it won't update the time correctly.)<br>
+                Current status: Broken.<br>
                 -Spax
             </div>
         </div>
@@ -43,44 +42,30 @@
                 (And <a href="index.html">click here</a> to go back to the main page!)
             </div>
         </div>
+        <div class="text-box flex-container">
+            <div id="debug">
+            </div>
+        </div>
+        <!--<div class="text-box flex-container">
+            <div id="debug2">
+            </div>
+        </div>-->
         <script>
             const d = new Date();
-            const ch = d.getUTCHours()-7;
-            const cm = d.getUTCMinutes();
-            const m = ((d.getUTCHours()-7)*60)+d.getUTCMinutes();
-            const f = d.getUTCDay();
-            const sh = "s";
-            const sm = "s";
-            const dh = "hours";
-            const dm = "minutes";
-            const dand = " and ";
-
+            let ch = d.getUTCHours()-7;
+            let cm = d.getUTCMinutes();
+            let m = ((d.getUTCHours()-7)*60)+d.getUTCMinutes();
+            //let m = d.getUTCMinutes();
+            let h = (d.getUTCHours()-7)
+            let f = d.getUTCDay();
+            let sh = "s";
+            let sm = "s";
+            let dh = " hour";
+            let dm = " minute";
+            let dand = " and ";
+            document.getElementById("debug").innerHTML = "Haha debug console go brrrrrrrrr<br>"+"<span style='color:green;'>"+m+"<br>"+ch+"</span>";
             time();
-            convertTime();
-            setInterval(time, 1000)
-            setInterval(convertTime, 500)
-            
-            function convertTime(){
-            let d = Date();
-            if ((d.getUTCHours()-7)<0){
-                    let m = ((23+(d.getUTCHours()-7))*60)+d.getUTCMinutes();
-                    if(cm==0){
-                    let ch = ch+1;
-                    let cm = 0;
-                    } else {
-                    let ch = 23+d.getUTCHours()-7;
-                    let cm = d.getUTCMinutes();
-                    }
-                    if ((d.getUTCDay()-1)<0){
-                        let f = 6+d.getUTCDay()-1;
-                    };
-                } else {
-                    let m = ((d.getUTCHours()-7)*60)+d.getUTCMinutes();
-                    let f = d.getUTCDay();
-                    let ch = d.getUTCHours()-7;
-                    let cm = d.getUTCMinutes();
-                }
-                if (ch==0){
+            if (ch==0||ch==12){
                     let sh=""
                 } else if (ch==23){
                     let dh=""
@@ -96,10 +81,59 @@
                 } else {
                     let sm="s"
                 }
-                if (ch==0){
-                    let 
+                if ((ch==0||ch==12)&&(cm==0)){
+                    let dand = ""
+                }
+            setInterval(time, 1000);
+            //setInterval(convertTime, 2000);
+            
+            function convertTime(){
+            document.getElementById("debug2").innerHTML = "";
+            let d = new Date();
+                if ((d.getUTCHours()-7)<0){
+                    let m = ((23+(d.getUTCHours()-7))*60)+d.getUTCMinutes();
+
+                    if(cm==0){
+                    let ch = ch+1;
+                    let cm = 0;
+                    document.getElementById("debug2").innerHTML = "f";
+                    } else {
+                    let ch = 23+d.getUTCHours()-7;
+                    let cm = d.getUTCMinutes();
+                    document.getElementById("debug2").innerHTML = "g";
+                    }
+                    if ((d.getUTCDay()-1)<0){
+                        let f = 6+d.getUTCDay()-1;
+                        document.getElementById("debug2").innerHTML = document.getElementById("debug2").innerHTML+"h";
+                    }
+                } else {
+                    let m = ((d.getUTCHours()-7)*60)+d.getUTCMinutes();
+                    let f = d.getUTCDay();
+                    let ch = d.getUTCHours()-7;
+                    let cm = d.getUTCMinutes();
+                    document.getElementById("debug2").innerHTML = "j";
+                }
+                if (ch==0||ch==12){
+                    let sh=""
+                } else if (ch==23){
+                    let dh=""
+                    let sh=""
+                } else {
+                    let sh="s"
+                }
+                if (cm==0){
+                    let sm=""
+                } else if (cm==59){
+                    let dm=""
+                    let sm=""
+                } else {
+                    let sm="s"
+                }
+                if ((ch==0||ch==12)&&(cm==0)){
+                    let dand = ""
                 }
             }
+
 
             function time(){
             //if during mon-thurs (school days)
@@ -107,14 +141,12 @@
                 //if time is between 7:30 and 2:30 (school hours)
                 if(m>=450&&m<810){
                     //if time is between 10:48 and 11:17 (lunch break)
-                    if(m>=588&&m<617){
+                    if(m>=548&&m<677){
                         //sets html for lunch
                         document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm currently in school right now, but it's lunch for me.";
-                    } else if (m>=750){
-                        document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm currently in school right now! But I'll be out in"+(60-cm)+" minutes!";
                     } else {
                         //sets html for school
-                        document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm currently in school right now! But I'll be out in "+(13-ch)+" hour"+sh+" and "+(60-cm)+" minute"+sm+"!";
+                        document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm currently in school right now! But I'll be out in "+(13-ch)+" hours and "+(60-cm)+dm+sm+"!";
                     }
 
                 //if time is between 8:30pm and 6:30am
