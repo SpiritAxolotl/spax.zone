@@ -71,6 +71,7 @@
                         //sets html for school
                         document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm currently in school right now! But I'll be out in "+(13-ch)+" hours and "+(60-cm)+" minutes!";
                     }
+
                 //if time is between 8:30pm and 6:30am
                 } else if (m>=1170||m<330) {
                     //sleeping html
@@ -79,6 +80,8 @@
                     } else {
                     document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I may not be in school right now, but I'm probably asleep. I'll be awake in about "+(5-ch)+" hours and "+(60-cm)+" minutes!";
                     }
+                } else if (m>=330){
+                    document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm not in school right now, but I will be in about "+(60-cm)+" minutes. (I just woke up and I'm going to school.)";
                 } else {
                     document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm not in school right now!";
                 }
