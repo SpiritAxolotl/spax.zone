@@ -46,6 +46,8 @@
 
             time();
             setInterval(time, 1000)
+            setInterval(convertTime, 500)
+            
             /*if ((d.getUTCHours()-7)<0){
                     let m = ((23+(d.getUTCHours()-7))*60)+d.getUTCMinutes();
                     let ch = 23+d.getUTCHours()-7;
@@ -69,8 +71,7 @@
                     let t = 1
                 }
             }*/
-            
-            function time(){
+            function convertTime(){
             if ((d.getUTCHours()-7)<0){
                     let m = ((23+(d.getUTCHours()-7))*60)+d.getUTCMinutes();
                     let ch = 23+d.getUTCHours()-7;
@@ -84,7 +85,9 @@
                     let ch = d.getUTCHours()-7;
                     let cm = d.getUTCMinutes();
                 };
+            }
 
+            function time(){
             //if during mon-thurs (school days)
             if ((f==1||f==2||f==3||f==4)) {
                 //if time is between 7:30 and 2:30 (school hours)
