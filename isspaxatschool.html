@@ -42,7 +42,8 @@
             const cm = d.getUTCMinutes();
             const m = ((d.getUTCHours()-7)*60)+d.getUTCMinutes();
             const f = d.getUTCDay();
-            
+            setInterval(time, 1000)
+            function time(){
                 if ((d.getUTCHours()-7)<0){
                     let m = ((23+(d.getUTCHours()-7))*60)+d.getUTCMinutes();
                     let ch = 23+d.getUTCHours()-7;
@@ -114,6 +115,7 @@
                 } else {
                 document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm not in school! (It's literally the weekend bro.)";
                 }
+            }
             }
         </script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
