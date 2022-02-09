@@ -33,17 +33,23 @@
         </div>
         <script>
             const d = new Date();
-            diff = (d.getTimezoneOffset()/60)-7;
-            /*if (diff<0){
-            d.setDate(d.getDate-1)
-            d.setHour(d.getHour-diff)
-            }*/
+            const m
+            const f
+            if ((d.getUTCHours()-7)<0){
+                m = ((23+(d.getUTCHours()-7))*60)+d.getUTCMinutes()
+                if ((d.getUTCDay()-1)<0){
+                    f = 6+d.getUTCDay()-1
+                }
+            } else {
+                m = ((d.getUTCHours()-7)*60)+d.getUTCMinutes()
+                f = d.getUTCDay()
+            }
             //if during mon-thurs (school days)
-            if ((d.getDay()==1||d.getDay()==2||d.getDay()==3||d.getDay()==4)) {
+            if ((f==1||f==2||f==3||f==4)) {
                 //if time is between 7:30 and 2:30 (school hours)
-                if(((d.getHours()==(6-diff))&&(d.getMinutes()>=29)||d.getHours()>=(7-diff))&&((d.getHours()==(13-diff))&&(d.getMinutes()<=24))||(d.getHours()<=(12-diff))){
+                if(m>390&&m<810){
                     //if time is between 10:48 and 11:17 (lunch break)
-                    if((d.getHours()>=(9-diff))&&(d.getMinutes()>=48)&&(d.getHours()<=(10-diff))&&(d.getMinutes()<=17)){
+                    if(m>588&&m<617){
                         //sets html for lunch
                         document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm currently in school right now, but it's lunch for me.";
                     } else {
@@ -51,7 +57,7 @@
                         document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm currently in school right now!";
                     }
                 //if time is between 8:30pm and 6:30am
-                } else if (((d.getHours()==(19-diff))&&(d.getMinutes()>=(29))||(d.getHours()>=(23-diff)))||((d.getHours()==(0-diff))&&(d.getMinutes()>=(29))||(d.getHours()<=(5-diff)))) {
+                } else if (m>1170||m<330) {
                     //sleeping html
                     document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I may not be in school right now, but I'm probably asleep. But don't let that stop you from DMing me!";
                 } else {
