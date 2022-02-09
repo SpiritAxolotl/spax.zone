@@ -42,7 +42,7 @@
             const cm = d.getUTCMinutes();
             const m = ((d.getUTCHours()-7)*60)+d.getUTCMinutes();
             const f = d.getUTCDay();
-
+            
                 if ((d.getUTCHours()-7)<0){
                     let m = ((23+(d.getUTCHours()-7))*60)+d.getUTCMinutes();
                     let ch = 23+d.getUTCHours()-7;
@@ -56,10 +56,11 @@
                     let ch = d.getUTCHours()-7;
                     let cm = d.getUTCMinutes();
                 };
+
             //if during mon-thurs (school days)
             if ((f==1||f==2||f==3||f==4)) {
                 //if time is between 7:30 and 2:30 (school hours)
-                if(m>=390&&m<810){
+                if(m>=450&&m<810){
                     //if time is between 10:48 and 11:17 (lunch break)
                     if(m>=588&&m<617){
                         //sets html for lunch
@@ -82,7 +83,7 @@
                     document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm not in school right now!";
                 }
             } else if (f==5) {
-                if(m>=390&&m<630){
+                if(m>=450&&m<630){
                     if (m>=570){
                         document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm currently in school right now! But I'll be out in"+(60-cm)+" minutes!";
                     } else {
