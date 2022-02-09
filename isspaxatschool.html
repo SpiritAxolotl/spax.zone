@@ -33,47 +33,69 @@
         </div>
         <script>
             const d = new Date();
-            const m = 0;
-            const f = 0;
-            if ((d.getUTCHours()-7)<0){
-                let m = ((23+(d.getUTCHours()-7))*60)+d.getUTCMinutes()
-                if ((d.getUTCDay()-1)<0){
-                    let f = 6+d.getUTCDay()-1
+            const ch = d.getUTCHours()-7;
+            const cm = d.getUTCMinutes();
+            const m = ((d.getUTCHours()-7)*60)+d.getUTCMinutes();
+            const f = d.getUTCDay();
+
+                if ((d.getUTCHours()-7)<0){
+                    let m = ((23+(d.getUTCHours()-7))*60)+d.getUTCMinutes();
+                    let ch = 23+d.getUTCHours()-7;
+                    let cm = d.getUTCMinutes();
+                    if ((d.getUTCDay()-1)<0){
+                        let f = 6+d.getUTCDay()-1;
+                    };
+                } else {
+                    let m = ((d.getUTCHours()-7)*60)+d.getUTCMinutes();
+                    let f = d.getUTCDay();
+                    let ch = d.getUTCHours()-7;
+                    let cm = d.getUTCMinutes();
                 };
-            } else {
-                let m = ((d.getUTCHours()-7)*60)+d.getUTCMinutes()
-                let f = d.getUTCDay()
-            };
             //if during mon-thurs (school days)
             if ((f==1||f==2||f==3||f==4)) {
                 //if time is between 7:30 and 2:30 (school hours)
-                if(m>390&&m<810){
+                if(m>=390&&m<810){
                     //if time is between 10:48 and 11:17 (lunch break)
-                    if(m>588&&m<617){
+                    if(m>=588&&m<617){
                         //sets html for lunch
                         document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm currently in school right now, but it's lunch for me.";
+                    } else if (m>=750){
+                        document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm currently in school right now! But I'll be out in"+(60-cm)+" minutes!";
                     } else {
                         //sets html for school
-                        document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm currently in school right now!";
+                        document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm currently in school right now! But I'll be out in "+(13-ch)+" hours and "+(60-cm)+" minutes!";
                     }
                 //if time is between 8:30pm and 6:30am
-                } else if (m>1170||m<330) {
+                } else if (m>=1170||m<330) {
                     //sleeping html
-                    document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I may not be in school right now, but I'm probably asleep. But don't let that stop you from DMing me!";
+                    if (m>=270){
+                    document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I may not be in school right now, but I'm probably asleep. But don't let that stop you from DMing me! But I'll be awake in about "+(60-cm)+" minutes!";
+                    } else {
+                    document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I may not be in school right now, but I'm probably asleep. But don't let that stop you from DMing me! But I'll be awake in about "+(5-ch)+" hours and "+(60-cm)+" minutes!";
+                    }
                 } else {
                     document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm not in school right now!";
                 }
             } else if (f==5) {
-                if(m>390&&m<630){
-                    document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm currently in school right now!";
-                } else if (m>1170||m<330) {
+                if(m>=390&&m<630){
+                    if (m>=570){
+                        document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm currently in school right now! But I'll be out in"+(60-cm)+" minutes!";
+                    } else {
+                        //sets html for school
+                        document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm currently in school right now! But I'll be out in "+(10-ch)+" hours and "+(60-cm)+" minutes!";
+                    }
+                } else if (m>=1170||m<330) {
                     //sleeping html
-                    document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I may not be in school right now, but I'm probably asleep. But don't let that stop you from DMing me!";
+                    if (m>=270){
+                    document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I may not be in school right now, but I'm probably asleep. But don't let that stop you from DMing me! But I'll be awake in about "+(60-cm)+" minutes!";
+                    } else {
+                    document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I may not be in school right now, but I'm probably asleep. But don't let that stop you from DMing me! But I'll be awake in about "+(5-ch)+" hours and "+(60-cm)+" minutes!";
+                    }
                 } else {
                     document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm not in school right now!";
                 }
             } else if (f==6||f==0) {
-                if (m>1170||m<330) {
+                if (m>=1170||m<330) {
                     //sleeping html
                     document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I may not be in school right now, but I'm probably asleep. But don't let that stop you from DMing me!";
                 } else {
