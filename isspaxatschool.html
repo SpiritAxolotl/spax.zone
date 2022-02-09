@@ -36,13 +36,13 @@
             const m = 0;
             const f = 0;
             if ((d.getUTCHours()-7)<0){
-                m = ((23+(d.getUTCHours()-7))*60)+d.getUTCMinutes()
+                let m = ((23+(d.getUTCHours()-7))*60)+d.getUTCMinutes()
                 if ((d.getUTCDay()-1)<0){
-                    f = 6+d.getUTCDay()-1
+                    let f = 6+d.getUTCDay()-1
                 };
             } else {
-                m = ((d.getUTCHours()-7)*60)+d.getUTCMinutes()
-                f = d.getUTCDay()
+                let m = ((d.getUTCHours()-7)*60)+d.getUTCMinutes()
+                let f = d.getUTCDay()
             };
             //if during mon-thurs (school days)
             if ((f==1||f==2||f==3||f==4)) {
