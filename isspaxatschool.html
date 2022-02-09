@@ -44,7 +44,9 @@
             const f = d.getUTCDay();
             const t = 1;
 
-            if ((d.getUTCHours()-7)<0){
+            time();
+            setInterval(time, 1000)
+            /*if ((d.getUTCHours()-7)<0){
                     let m = ((23+(d.getUTCHours()-7))*60)+d.getUTCMinutes();
                     let ch = 23+d.getUTCHours()-7;
                     let cm = d.getUTCMinutes();
@@ -66,7 +68,7 @@
                 } else {
                     let t = 1
                 }
-            }
+            }*/
             
             function time(){
             if ((d.getUTCHours()-7)<0){
