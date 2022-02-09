@@ -42,7 +42,6 @@
             const cm = d.getUTCMinutes();
             const m = ((d.getUTCHours()-7)*60)+d.getUTCMinutes();
             const f = d.getUTCDay();
-            const t = 1;
 
             time();
             setInterval(time, 1000)
@@ -72,6 +71,7 @@
                 }
             }*/
             function convertTime(){
+            let d = new Date();
             if ((d.getUTCHours()-7)<0){
                     let m = ((23+(d.getUTCHours()-7))*60)+d.getUTCMinutes();
                     let ch = 23+d.getUTCHours()-7;
