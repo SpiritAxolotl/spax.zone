@@ -34,7 +34,7 @@ body{
     font-family: DEP;
     font-size: 20px;
     color: var(--green1);
-    line-height:23px;
+    line-height: 27px;
 }
 
 .text-box{
@@ -48,7 +48,7 @@ body{
     margin-top: 2.5px;
     margin-bottom: 2.5px;
     padding: 15px 15px 10px 15px;
-    font-size: 20px;
+    font-size: 19px;
     border-radius: 3px;
     word-wrap: break-word;
     letter-spacing: 1px;
@@ -58,7 +58,7 @@ body{
 .text-box img{
     width: 100px;
     height: 100px;
-    margin: 0px 15px 0px 0px;
+    margin: 0px 15px 5px 0px;
     padding: 0px 0px 0px 0px;
     float: left;
 }
