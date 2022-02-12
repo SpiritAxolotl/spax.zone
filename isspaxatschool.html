@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta property="og:title" content="Is Spax Currently At School?">
-        <meta property="og:description" content="Take this fun and quirky quiz to see how well you know me! (Or some shit.)">
+        <meta property="og:description" content="See if I'm currently at school or not!">
         <meta property="og:type" content="website">
         <meta name="og:image" itemprop="image" content="/images/spax/Smirk.png">
         <link rel="icon" href="Smirk_Circle.png"></link>
@@ -34,7 +34,7 @@
                     <img src="
                 images/spax/Worried.png
                     "></img>
-                This text should be replaced by the js. If you're seeing this, it means that my code is broken :<
+                This text should be replaced by the js. If you're seeing this, it means that my code is broken :(
             </div>
         </div>
         <div class="text-box flex-container">
@@ -66,51 +66,51 @@
             document.getElementById("debug").innerHTML = "Haha debug console go brrrrrrrrr<br>"+"<span style='color:green;'>"+m+"<br>"+ch+"</span>";
             time();
             if (ch==0||ch==12){
-                    let sh=""
+                    sh=""
                 } else if (ch==23){
-                    let dh=""
-                    let sh=""
+                    dh=""
+                    sh=""
                 } else {
-                    let sh="s"
+                    sh="s"
                 }
                 if (cm==0){
-                    let sm=""
+                    sm=""
                 } else if (cm==59){
-                    let dm=""
-                    let sm=""
+                    dm=""
+                    sm=""
                 } else {
-                    let sm="s"
+                    sm="s"
                 }
                 if ((ch==0||ch==12)&&(cm==0)){
-                    let dand = ""
+                    dand = ""
                 }
             setInterval(time, 1000);
-            //setInterval(convertTime, 2000);
+            setInterval(convertTime, 2000);
             
             function convertTime(){
             document.getElementById("debug2").innerHTML = "";
             let d = new Date();
                 if ((d.getUTCHours()-7)<0){
-                    let m = ((23+(d.getUTCHours()-7))*60)+d.getUTCMinutes();
+                    m = ((23+(d.getUTCHours()-7))*60)+d.getUTCMinutes();
 
                     if(cm==0){
-                    let ch = ch+1;
-                    let cm = 0;
+                    ch = ch+1;
+                    cm = 0;
                     document.getElementById("debug2").innerHTML = "f";
                     } else {
-                    let ch = 23+d.getUTCHours()-7;
-                    let cm = d.getUTCMinutes();
+                    ch = 23+d.getUTCHours()-7;
+                    cm = d.getUTCMinutes();
                     document.getElementById("debug2").innerHTML = "g";
                     }
                     if ((d.getUTCDay()-1)<0){
-                        let f = 6+d.getUTCDay()-1;
+                        f = 6+d.getUTCDay()-1;
                         document.getElementById("debug2").innerHTML = document.getElementById("debug2").innerHTML+"h";
                     }
                 } else {
-                    let m = ((d.getUTCHours()-7)*60)+d.getUTCMinutes();
-                    let f = d.getUTCDay();
-                    let ch = d.getUTCHours()-7;
-                    let cm = d.getUTCMinutes();
+                    m = ((d.getUTCHours()-7)*60)+d.getUTCMinutes();
+                    f = d.getUTCDay();
+                    ch = d.getUTCHours()-7;
+                    cm = d.getUTCMinutes();
                     document.getElementById("debug2").innerHTML = "j";
                 }
                 if (ch==0||ch==12){
@@ -133,7 +133,6 @@
                     let dand = ""
                 }
             }
-
 
             function time(){
             //if during mon-thurs (school days)
@@ -165,7 +164,7 @@
             } else if (f==5) {
                 if(m>=450&&m<630){
                     if (m>=570){
-                        document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm currently in school right now! But I'll be out in"+(60-cm)+" minutes!";
+                        document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm currently in school right now! But I'll be out in "+(60-cm)+" minutes!";
                     } else {
                         //sets html for school
                         document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm currently in school right now! But I'll be out in "+(10-ch)+" hours and "+(60-cm)+" minutes!";
