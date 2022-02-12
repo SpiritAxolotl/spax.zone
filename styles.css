@@ -10,7 +10,7 @@
 @font-face {
     font-family: DEP;
     src: local("DEP.ttf") format("truetype");
-    src: url(https://codehs.com/uploads/dae692d9ff24763f38a8f05dd7880be1) format("truetype");
+    src: url(https://codehs.com/uploads/290cc52b05a3c3dd86986ee8543ea860) format("truetype");
 }
 
 
@@ -32,7 +32,7 @@ var(--green4)
 body{
     background-color: var(--green2);
     font-family: DEP;
-    font-size: 24px;
+    font-size: 20px;
     color: var(--green1);
     line-height:23px;
 }
@@ -47,8 +47,8 @@ body{
     margin: 0 auto;
     margin-top: 2.5px;
     margin-bottom: 2.5px;
-    padding: 10px 15px 10px 15px;
-    font-size: 24px;
+    padding: 15px 15px 10px 15px;
+    font-size: 20px;
     border-radius: 3px;
     word-wrap: break-word;
     letter-spacing: 1px;
@@ -58,7 +58,7 @@ body{
 .text-box img{
     width: 100px;
     height: 100px;
-    margin: 5px 15px 5px 0px;
+    margin: 0px 15px 0px 0px;
     padding: 0px 0px 0px 0px;
     float: left;
 }
