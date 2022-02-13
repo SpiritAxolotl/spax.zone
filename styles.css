@@ -110,8 +110,13 @@ div .larger{
     background: linear-gradient(
             to right, var(--green1), #000, #000);
         -webkit-text-fill-color: transparent;
+        background-clip: text;
         -webkit-background-clip: text;
 }
+audio{
+    display: none;
+}
+
 /*background:linear-gradient(to right,var(--green1),#000,#000);-webkit-text-fill-color:transparent;-webkit-background-clip:text;*/
 
 @media only screen and (max-width: 647px) {
