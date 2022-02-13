@@ -95,14 +95,14 @@ body{
     width: 50%;
 }
 
-.small{
+div .small{
     font-size: 8px;
 }
-.large{
+div .large{
     font-size: 25px;
 }
 
-.larger{
+div .larger{
     font-size: 38px;
 }
 
