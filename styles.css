@@ -112,6 +112,7 @@ div .larger{
         -webkit-text-fill-color: transparent;
         -webkit-background-clip: text;
 }
+/*background:linear-gradient(to right,var(--green1),#000,#000);-webkit-text-fill-color:transparent;-webkit-background-clip:text;*/
 
 @media only screen and (max-width: 647px) {
   .text-box{
