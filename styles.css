@@ -48,7 +48,7 @@ body{
     margin: 0 auto;
     margin-top: 2.5px;
     margin-bottom: 2.5px;
-    padding: 15px 15px 10px 15px;
+    padding: 15px 15px 10px 17px;
     font-size: 19px;
     border-radius: 3px;
     word-wrap: break-word;
@@ -117,7 +117,7 @@ audio{
     display: none;
 }
 
-*.unselectable {
+*.unselectable{
    -moz-user-select: -moz-none;
    -khtml-user-select: none;
    -webkit-user-select: none;
