@@ -9,8 +9,9 @@
 /*change this later to be more accurate but it'll do for now*/
 @font-face {
     font-family: DEP;
-    /*src: local("DEP.ttf") format("truetype");*/
-    src: url(https://codehs.com/uploads/98892640bda8f3fe5654e3c6d20d5c8c) format("truetype");
+    src: url(https://codehs.com/uploads/98892640bda8f3fe5654e3c6d20d5c8c)format("truetype");
+    /*why the fuck does the local one not work WTF*/
+    src: local("DEP.ttf") format("truetype");
 }
 
 
@@ -92,6 +93,17 @@ body{
     flex-wrap: wrap;
     min-height: 138px;
     width: 50%;
+}
+
+.small{
+    font-size: 8px;
+}
+.large{
+    font-size: 25px;
+}
+
+.larger{
+    font-size: 38px;
 }
 
 @media only screen and (max-width: 647px) {
