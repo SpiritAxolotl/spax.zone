@@ -60,7 +60,7 @@ body{
     word-wrap: break-word;
     letter-spacing: 1px;
     min-width: 587px;
-    position: relative;
+    position: fixed;
 }
 
 .text-box img{
