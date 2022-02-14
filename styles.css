@@ -58,11 +58,6 @@ body{
     word-wrap: break-word;
     letter-spacing: 1px;
     min-width: 587px;
-   -moz-user-select: -moz-none;
-   -khtml-user-select: none;
-   -webkit-user-select: none;
-   -ms-user-select: none;
-    user-select: none;
 }
 
 .text-box img{
@@ -71,11 +66,6 @@ body{
     margin: 0px 15px 5px 0px;
     padding: 0px 0px 0px 0px;
     float: left;
-   -moz-user-select: -moz-none;
-   -khtml-user-select: none;
-   -webkit-user-select: none;
-   -ms-user-select: none;
-    user-select: none;
 }
 
 .alt-text-box{
