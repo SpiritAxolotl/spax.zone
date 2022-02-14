@@ -41,7 +41,7 @@ body{
     background-image: url("background_yoki.png");
     background-repeat: repeat;
     background-size: 100% 100%;
-    background-attachment: relative;
+    background-attachment: fixed;
 }
 
 .text-box{
@@ -60,7 +60,6 @@ body{
     word-wrap: break-word;
     letter-spacing: 1px;
     min-width: 587px;
-    position: fixed;
 }
 
 .text-box img{
@@ -144,21 +143,18 @@ audio{
 
 /*background:linear-gradient(to right,var(--green1),#000,#000);-webkit-text-fill-color:transparent;-webkit-background-clip:text;*/
 
-@media only screen and (max-width: 647px) {
+@media only screen and (max-width: 630px) {
   .text-box{
     transform: translate(0%, 0%);
-    min-width:0px;
+    min-width: 0px;
   }
   .flex-container{
     width: 100%;
   }
-  .alt-text-box{
-    padding: 5px 5px 5px 15px;
-  }
 }
 
 #date{
-    float:right;
+    float: right;
 }
 
 
