@@ -13,7 +13,7 @@
     src: local("fonts/DEP/DEP.ttf") format("truetype");
     src: local("fonts/DEP/DEP.woff") format("woff");
     src: local("fonts/DEP/DEP.otf") format("opentype");
-    /*src: url(https://codehs.com/uploads/98892640bda8f3fe5654e3c6d20d5c8c)format("truetype");*/
+    src: url(https://codehs.com/uploads/98892640bda8f3fe5654e3c6d20d5c8c)format("truetype");
     /*why the fuck does the local one not work WTF*/
 }
 
