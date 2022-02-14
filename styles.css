@@ -57,7 +57,7 @@ body{
     border-radius: 3px;
     word-wrap: break-word;
     letter-spacing: 1px;
-    min-width: 587px;
+    min-width: 600px;
 }
 
 .text-box img{
@@ -103,6 +103,15 @@ body{
     width: 50%;
 }
 
+.long-flex-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-height: 138px;
+    width: 60%;
+    min-width: 950px;
+}
+
 div .small{
     font-size: 8px;
 }
@@ -141,13 +150,23 @@ audio{
 
 /*background:linear-gradient(to right,var(--green1),#000,#000);-webkit-text-fill-color:transparent;-webkit-background-clip:text;*/
 
-@media only screen and (max-width: 630px) {
+@media only screen and (max-width: 650px) {
   .text-box{
     transform: translate(0%, 0%);
     min-width: 0px;
   }
   .flex-container{
     width: 100%;
+  }
+  .long-flex-container{
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .long-flex-container{
+    width: 100%;
+    min-width: 0px;
   }
 }
 
