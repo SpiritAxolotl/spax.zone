@@ -33,7 +33,7 @@ var(--green4)
 */
 
 body{
-    background-color: var(--green2);
+    background-color: var(--green3);
     font-family: DEP;
     font-size: 20px;
     color: var(--green1);
