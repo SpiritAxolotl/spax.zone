@@ -66,6 +66,8 @@ body{
     margin: 0px 16px 5px 0px;
     padding: 0px 0px 0px 0px;
     float: left;
+    pointer-events: none;
+    user-select: none;
 }
 
 .alt-text-box{
@@ -89,6 +91,8 @@ body{
     margin: 10px 10px 10px 0px;
     padding: 0px 0px 0px 0px;
     float: left;
+    pointer-events: none;
+    user-select: none;
 }
 
 .flex-container{
