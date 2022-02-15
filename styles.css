@@ -139,14 +139,10 @@ audio{
 
 #bg{
     background-image: url("background_yoki_2.png");
-    background-repeat: repeat;
-    background-attachment: fixed;
     z-index: -1;
-    background-size: auto;
-    background-position: center;
     position: fixed;
     width: 100vw;
-    height: 100vw;
+    height: 100%;
 }
 
 *.unselectable{
