@@ -41,13 +41,12 @@ body{
     font-size: 20px;
     color: var(--green1);
     line-height: 27px;
-    background-image: url("background_yoki_2.png");
     background-repeat: repeat;
     background-attachment: fixed;
     z-index: -5;
 }
 
-.text-box{
+body:nth-child(1), .text-box{
     border-width: 4px;
     border-style: solid;
     border-color: var(--green1);
@@ -141,7 +140,7 @@ audio{
 }
 
 #bg{
-    background-image: url("images/charles/Sweat_Drop.png");
+    background-image: url("background_yoki_2.png");
     background-repeat: repeat;
     background-attachment: fixed;
     background-position: center center;
@@ -158,8 +157,6 @@ audio{
      Introduced in IE 10.
      See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
    */
-   -ms-user-select: none;
-   user-select: none;
 }
 
 /*background:linear-gradient(to right,var(--green1),#000,#000);-webkit-text-fill-color:transparent;-webkit-background-clip:text;*/
