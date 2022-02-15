@@ -61,7 +61,6 @@ body{
     letter-spacing: 1px;
     min-width: 600px;
     z-index: 5;
-    float: top;
 }
 
 .text-box img{
@@ -142,10 +141,15 @@ audio{
     background-image: url("background_yoki_2.png");
     background-repeat: repeat;
     background-attachment: fixed;
-    z-index: -5;
+    z-index: -1;
+    background-size: auto;
+    background-position: center;
+    position: fixed;
+    width: 100vw;
+    height: 300%;
     margin: 0px;
-    padding: auto;
-    padding-bottom: 100%;
+    padding-top: 600%;
+    padding-bottom: 600%;
 }
 
 *.unselectable{
