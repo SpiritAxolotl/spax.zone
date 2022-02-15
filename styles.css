@@ -44,7 +44,7 @@ body{
     background-image: url("background_yoki_2.png");
     background-repeat: repeat;
     background-attachment: fixed;
-    z-index: -1;
+    z-index: -5;
 }
 
 .text-box{
@@ -63,6 +63,7 @@ body{
     word-wrap: break-word;
     letter-spacing: 1px;
     min-width: 600px;
+    z-index: 5;
 }
 
 .text-box img{
