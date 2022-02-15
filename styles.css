@@ -12,8 +12,12 @@
     font-family: DEP;
     src: url("fonts/DEP/DEP.ttf") format("truetype"),
          url("fonts/DEP/DEP.woff") format("woff"),
+         url("fonts/DEP/DEP.woff2") format("woff2"),
          url("fonts/DEP/DEP.otf") format("opentype"),
-         url(https://codehs.com/uploads/98892640bda8f3fe5654e3c6d20d5c8c)format("truetype");
+         url(https://codehs.com/uploads/4257a8914dc2a4a8dd7249e867265466)format("truetype"),
+         url(https://codehs.com/uploads/09b4d1f4aed115ff50ac56db70e468e0)format("woff"),
+         url(https://codehs.com/uploads/c497cacfdee567edf4bf8b11ece45e6d)format("woff2"),
+         url(https://codehs.com/uploads/845e82ab17047b3d2f91414457f6580f)format("opentype");
 }
 
 
