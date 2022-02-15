@@ -41,10 +41,7 @@ body{
     font-size: 20px;
     color: var(--green1);
     line-height: 27px;
-    background-image: url("background_yoki_2.png");
-    background-repeat: repeat;
-    background-attachment: fixed;
-    z-index: -5;
+    z-index: -10;
 }
 
 .text-box{
@@ -64,6 +61,7 @@ body{
     letter-spacing: 1px;
     min-width: 600px;
     z-index: 5;
+    float: top;
 }
 
 .text-box img{
@@ -144,8 +142,10 @@ audio{
     background-image: url("background_yoki_2.png");
     background-repeat: repeat;
     background-attachment: fixed;
-    background-position: center center;
-    z-index: 2;
+    z-index: -5;
+    margin: 0px;
+    padding: auto;
+    padding-bottom: 100%;
 }
 
 *.unselectable{
