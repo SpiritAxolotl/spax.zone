@@ -1,4 +1,4 @@
-//alert("Proof that the javascript linked properly");
+//alert("Proof that the javascript linked properly");//
 
 var body = document.querySelector("body");
 var bg = document.querySelector("#bg");
