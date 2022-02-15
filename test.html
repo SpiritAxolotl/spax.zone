@@ -1,107 +1,129 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta property="og:title" content="Spax's Site">
-        <meta property="og:description" content="I make dumb shit and spend most of my time on the things that don't matter.">
-        <meta property="og:type" content="website">
-        <meta name="og:image" itemprop="image" content="/images/spax/Smirk.png">
-        <link rel="icon" href="Smirk_Circle.png"></link>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <title>Spax's Test Site</title>
-
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-        <!-- Bootstrap JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="styles.css" type=text/css>
-
-    </head>
-    <body>
-        <div class="alt-text-box flex-container unselectable">
-            <div>
-                <a href="isspaxatschool.html">Click here</a> to see if I'm at school!
-            </div>
-        </div>
-        <div class="text-box flex-container unselectable">
-            <div>
-                    <img src="
-                images/claire/Neutral.png
-                    "></img>
-                Hey nerds. It's me, Claire.
-            </div>
-        </div>
-        <div class="text-box flex-container unselectable">
-            <div>
-                    <img src="
-                images/claire/Happy.png
-                    "></img>
-                I am now on a poggers website. Woo!
-            </div>
-        </div class="text-box flex-container unselectable">
-        <div class="text-box flex-container unselectable">
-            <div>
-                <img src="
-            images/claire/Sigh.png
-                "></img>
-            Anyways it's time for some fucking debugging.
-            </div>
-        </div>
-        <div class="text-box flex-container unselectable">
-            <div>
-                <img src="
-            images/aimottle/Unsure.png
-                "></img>
-            Spax, you don't know what you're doing at all, do you?
-            </div>
-        </div>
-        <div class="text-box flex-container unselectable">
-            <div>
-                <img src="
-            images/spax/Worried.png
-                "></img>
-            Well no... but-
-            </div>
-        </div>
-        <div class="text-box flex-container unselectable">
-            <div>
-                <img src="
-            images/spax/Worried.png
-                "></img>
-            ...
-            </div>
-        </div>
-        <div class="text-box flex-container unselectable">
-            <div>
-                <img src="
-            images/spax/Pensive.png
-                "></img>
-            </div>
-        </div>
-        <div>
-            <div class="text-box flex-container unselectable">
-                <div>
-                    <img src="
-                images/yoki/Sweat_Drop.png
-                    "></img>
-                (Where the <i>fuck</i> am I?!)
-                </div>
-            </div>
-        </div>
-        <div class="text-box flex-container unselectable" id="ominous-countdown">
-        The Final Countdown:tm:
-        </div>
-        <script src="jquery.countdown.min.js">
-            $('#ominous-countdown')
-            .countdown("2022/03/06", function(event) {
-                $(this).text(
-                    event.strftime('%D:%H:%M:%S')
-                );
-            });
-        </script>
-    </body>
+ 
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Parallax Scrolling Example</title>
+<style>
+    body {
+        background-color: #EEE;
+    }
+    #content {
+        padding: 50px;
+        margin: 40px;
+        background-color: rgba(255, 255, 255, .48);
+        text-align: center;
+    }
+    #content p {
+        font-family: Helvetica, sans-serif;
+        font-size: 28px;
+        line-height: 40px;
+        color: #111;
+    }
+    h1 {
+        text-transform: capitalize;
+        font-family: sans-serif;
+        font-size: 40px;
+        padding: 10px;
+        margin: 40px;
+        background-color: rgba(20, 20, 20, .8);
+        color: #FFF;
+    }
+    #bigYellowCircle {
+        background-image: url("https://www.kirupa.com/images/yellow_circle.svg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 90%;
+        position: fixed;
+        top: 0;
+        width: 100vw;
+        height: 100vw;
+        z-index: -1;
+        opacity: .75;
+    }
+    #blueSquare {
+        background-image: url("https://www.kirupa.com/images/blue_square.svg");
+        background-repeat: no-repeat;
+        background-position: 97% bottom;
+        background-size: 10%;
+        position: fixed;
+        top: 0;
+        width: 100vw;
+        height: 100vw;
+        z-index: -2;
+        opacity: .75;
+    }
+    #greenPentagon {
+        background-image: url("https://www.kirupa.com/images/green_pentagon.svg");
+        background-repeat: no-repeat;
+        background-position: 5% top;
+        background-size: 50%;
+        position: fixed;
+        top: 0;
+        width: 100vw;
+        height: 100vw;
+        z-index: -3;
+        opacity: .75;
+    }
+</style>
+</head>
+ 
+<body>
+ 
+<h1>Parallaxing!</h1>
+<div id="content">
+    <p>All work and no play makes Jack a dull boy</p>
+    <p>All work and no play makes Jack a dull boy</p>
+    <p>All work and no play makes Jack a dull boy</p>
+    <p>All work and no play makes Jack a dull boy</p>
+    <p>All work and no play makes Jack a dull boy</p>
+    <p>All work and no play makes Jack a dull boy</p>
+    <p>All work and no play makes Jack a dull boy</p>
+    <p>All work and no play makes Jack a dull boy</p>
+    <p>All work and no play makes Jack a dull boy</p>
+    <p>All work and no play makes Jack a dull boy</p>
+    <p>All work and no play makes Jack a dull boy</p>
+    <p>All work and no play makes Jack a dull boy</p>
+    <p>All work and no play makes Jack a dull boy</p>
+    <p>All work and no play makes Jack a dull boy</p>
+    <p>All work and no play makes Jack a dull boy</p>
+    <p>All work and no play makes Jack a dull boy</p>
+    <p>All work and no play makes Jack a dull boy</p>
+    <p>All work and no play makes Jack a dull boy</p>
+    <p>All work and no play makes Jack a dull boy</p>
+    <p>All work and no play makes Jack a dull boy</p>
+    <p>All work and no play makes Jack a dull boy</p>
+</div>
+ 
+<div id="bigYellowCircle"></div>
+<div id="blueSquare"></div>
+<div id="greenPentagon"></div>
+ 
+<script>
+    var bigYellowCircle = document.querySelector("#bigYellowCircle");
+    var blueSquare = document.querySelector("#blueSquare");
+    var greenPentagon = document.querySelector("#greenPentagon");
+ 
+    function setTranslate(xPos, yPos, el) {
+        el.style.transform = "translate3d(" + xPos + ", " + yPos + "px, 0)";
+    }
+ 
+    window.addEventListener("DOMContentLoaded", scrollLoop, false);
+ 
+    var xScrollPosition;
+    var yScrollPosition;
+ 
+    function scrollLoop() {
+        xScrollPosition = window.scrollX;
+        yScrollPosition = window.scrollY;
+ 
+        setTranslate(0, yScrollPosition * -0.2, bigYellowCircle);
+        setTranslate(0, yScrollPosition * -1.5, blueSquare);
+        setTranslate(0, yScrollPosition * .5, greenPentagon);
+ 
+        requestAnimationFrame(scrollLoop);
+    }
+ 
+</script>
+</body>
 </html>
