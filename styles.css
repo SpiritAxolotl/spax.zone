@@ -47,13 +47,6 @@ body{
     z-index: -1;
 }
 
-#bg{
-    background-image: url("images/charles/Sweat_Drop.png");
-    background-repeat: repeat;
-    background-attachment: fixed;
-    z-index: 1;
-}
-
 .text-box{
     border-width: 4px;
     border-style: solid;
@@ -144,6 +137,14 @@ div .larger{
 }
 audio{
     display: none;
+}
+
+#bg{
+    background-image: url("images/charles/Sweat_Drop.png");
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    z-index: 2;
 }
 
 *.unselectable{
