@@ -146,10 +146,7 @@ audio{
     background-position: center;
     position: fixed;
     width: 100vw;
-    height: 300%;
-    margin: 0px;
-    padding-top: 600%;
-    padding-bottom: 600%;
+    height: 100vw;
 }
 
 *.unselectable{
