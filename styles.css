@@ -14,10 +14,10 @@
          url("fonts/DEP/DEP.woff") format("woff"),
          url("fonts/DEP/DEP.woff2") format("woff2"),
          url("fonts/DEP/DEP.otf") format("opentype"),
-         url(https://codehs.com/uploads/4257a8914dc2a4a8dd7249e867265466)format("truetype"),
-         url(https://codehs.com/uploads/09b4d1f4aed115ff50ac56db70e468e0)format("woff"),
-         url(https://codehs.com/uploads/c497cacfdee567edf4bf8b11ece45e6d)format("woff2"),
-         url(https://codehs.com/uploads/845e82ab17047b3d2f91414457f6580f)format("opentype");
+         url(https://codehs.com/uploads/4d2c3cc140e62972eb1380601b6b2fdf)format("truetype"),
+         url(https://codehs.com/uploads/e8e39273ed929dc6ebc14d62ff4eeeb4)format("woff"),
+         url(https://codehs.com/uploads/f75b7eb56111f0c7fc5d1c5a7dcfad86)format("woff2"),
+         url(https://codehs.com/uploads/205ebfa74f5d5a6fdae2372b9986a370)format("opentype");
 }
 
 
@@ -185,7 +185,25 @@ audio{
     min-width: 0px;
   }
 }
-
+a{
+    text-decoration: underline;
+}
+/* unvisited link */
+      a:link {
+        color: var(--green2);
+      }
+      /* visited link */
+      a:visited {
+        color: var(--green2);
+      }
+      /* mouse over link */
+      a:hover {
+        color: var(--green1);
+      }
+      /* selected link */
+      a:active {
+        color: var(--green3);
+      }
 #date{
     float: right;
 }
