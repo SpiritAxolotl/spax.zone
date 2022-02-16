@@ -6,6 +6,7 @@ let SplitTime = [d.getUTCHours()-5,d.getUTCMinutes(),d.getUTCHours()+":"+d.getUT
 toTimezone(SpaxTime);
 toTimezone(PentaTime);
 toTimezone(SplitTime);
+updateText();
 
 function toTimezone(person){
     if ((person[0]<0)||(person[0]>23)){
@@ -24,6 +25,8 @@ function toTimezone(person){
     }
 }
 
+function updateText(){
 document.getElementById("date1").innerHTML = "Spax's current time is "+SpaxTime[2]+"! They're in MST.";
 document.getElementById("date2").innerHTML = "Pentaxel's current time is "+PentaTime[2]+"! He's in GMT+7.";
 document.getElementById("date3").innerHTML = "Splittikin's current time is "+SplitTime[2]+"! She's in EST.";
+}
