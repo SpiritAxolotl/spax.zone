@@ -20,6 +20,9 @@ d = new Date();
 }
 
 function toTimezone(person){
+    if (d.getUTCMinutes()<10){
+        person[1]="0"+person[1]
+    }
     if ((person[0]<0)||(person[0]>23)){
         person[0]=Math.abs(23-person[0])+1;
         if ((person[0])>13){
