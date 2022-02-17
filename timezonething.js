@@ -1,4 +1,4 @@
-const d = new Date();
+let d = new Date();
 let SpaxTime = [d.getUTCHours()-7,d.getUTCMinutes(),d.getUTCHours()+":"+d.getUTCMinutes()];
 let PentaTime = [d.getUTCHours()+7,d.getUTCMinutes(),d.getUTCHours()+":"+d.getUTCMinutes()];
 let SplitTime = [d.getUTCHours()-5,d.getUTCMinutes(),d.getUTCHours()+":"+d.getUTCMinutes()];
@@ -8,10 +8,15 @@ run();
 setInterval(run(), 5000);
 
 function run(){
+upDate();
 toTimezone(SpaxTime);
 toTimezone(PentaTime);
 toTimezone(SplitTime);
 updateText();
+}
+
+function upDate(){
+d = new Date();
 }
 
 function toTimezone(person){
