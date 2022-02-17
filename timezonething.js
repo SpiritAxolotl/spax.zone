@@ -10,7 +10,7 @@ updateText();
 
 function toTimezone(person){
     if ((person[0]<0)||(person[0]>23)){
-        person[0]=math.Abs(23-person[0])+1;
+        person[0]=Math.abs(23-person[0])+1;
         if ((person[0])>13){
             person[2]=(person[0]-12)+":"+person[1]+" PM";
         } else {
