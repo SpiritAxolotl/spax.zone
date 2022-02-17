@@ -43,6 +43,9 @@ body{
     line-height: 27px;
     z-index: -10;
     overscroll-behavior: none;
+    /*background-image: url("background_yoki_2.png");
+    background-repeat: repeat;
+    background-size: auto;*/
 }
 
 .text-box{
@@ -141,8 +144,8 @@ audio{
 #bg{
     background-image: url("background_yoki_2.png");
     background-repeat: repeat;
-    z-index: -1;
     background-size: auto;
+    z-index: -1;
     width: 100%;
     height: 100%;
 }
