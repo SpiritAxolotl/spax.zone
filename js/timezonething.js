@@ -5,14 +5,13 @@ let SplitTime = [d.getUTCHours()-5,d.getUTCMinutes(),d.getUTCHours()+":"+d.getUT
 
 run();
 
-setInterval(run(), 5000);
-
 function run(){
 upDate();
 toTimezone(SpaxTime);
 toTimezone(PentaTime);
 toTimezone(SplitTime);
 updateText();
+run();
 }
 
 function upDate(){

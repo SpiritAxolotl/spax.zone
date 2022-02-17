@@ -52,15 +52,15 @@ body{
     border-width: 4px;
     border-style: solid;
     border-color: var(--green1);
+    border-radius: 3px;
     background-color: black;
     font-family: DEP;
     color: var(--green1);
     margin: 0 auto;
     margin-top: 2.5px;
     margin-bottom: 2.5px;
-    padding: 15px 15px 10px 15px;
+    padding: 15px 15px 0px 15px;
     font-size: 19px;
-    border-radius: 3px;
     word-wrap: break-word;
     letter-spacing: 1px;
     min-width: 600px;
@@ -70,7 +70,7 @@ body{
 .text-box img{
     width: 100px;
     height: 100px;
-    margin: 0px 16px 5px 0px;
+    margin: 0px 15px 5px 0px;
     padding: 0px 0px 0px 0px;
     float: left;
     pointer-events: none;
@@ -145,6 +145,7 @@ audio{
     background-image: url("../images/bg/background_yoki_2.png");
     background-repeat: repeat;
     background-size: auto;
+    background-position: fixed;
     z-index: -1;
     width: 100%;
     height: 100%;
@@ -156,17 +157,9 @@ audio{
    -webkit-user-select: none;
    -ms-user-select: none;
     user-select: none;
-   /*
-     Introduced in IE 10.
-     See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
-   */
-   -ms-user-select: none;
-   user-select: none;
 }
 
-/*background:linear-gradient(to right,var(--green1),#000,#000);-webkit-text-fill-color:transparent;-webkit-background-clip:text;*/
-
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 600px) {
   .text-box{
     transform: translate(0%, 0%);
     min-width: 0px;
