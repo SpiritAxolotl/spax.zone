@@ -3,10 +3,16 @@ let SpaxTime = [d.getUTCHours()-7,d.getUTCMinutes(),d.getUTCHours()+":"+d.getUTC
 let PentaTime = [d.getUTCHours()+7,d.getUTCMinutes(),d.getUTCHours()+":"+d.getUTCMinutes()];
 let SplitTime = [d.getUTCHours()-5,d.getUTCMinutes(),d.getUTCHours()+":"+d.getUTCMinutes()];
 
+run();
+
+setInterval(run(), 5000);
+
+function run(){
 toTimezone(SpaxTime);
 toTimezone(PentaTime);
 toTimezone(SplitTime);
 updateText();
+}
 
 function toTimezone(person){
     if ((person[0]<0)||(person[0]>23)){
