@@ -130,6 +130,22 @@ div .larger{
     font-size: 38px;
 }
 
+.dnd-gray{
+    color:#737e8c;
+}
+
+.dnd-green{
+    color:#3ba55d;
+}
+
+.dnd-red{
+    color:#ed4245;
+}
+
+.dnd-yellow{
+    color:#faa81a;
+}
+
 .gradient{
     background: linear-gradient(
             to right, var(--green1), #000, #000);
