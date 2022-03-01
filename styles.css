@@ -10,14 +10,14 @@
 /*haha it's changed to be more accurate now gj me*/
 @font-face {
     font-family: DEP;
-    src: url("../fonts/DEP/DEP.ttf") format("truetype"),
-         url("../fonts/DEP/DEP.woff") format("woff"),
-         url("../fonts/DEP/DEP.woff2") format("woff2"),
-         url("../fonts/DEP/DEP.otf") format("opentype"),
-         url(https://codehs.com/uploads/7293cfb70c54a6ca002d938f6d8cdd6c)format("truetype"),
-         url(https://codehs.com/uploads/68e97f9c621ca0041453219e646366d5)format("woff"),
-         url(https://codehs.com/uploads/9f9510a768ee488a402ec028a17ff25b)format("woff2"),
-         url(https://codehs.com/uploads/2c77305abc98619c56b73cb4fd1f28e6)format("opentype");
+    src: url("fonts/DEP/DEP.ttf") format("truetype"),
+         url("fonts/DEP/DEP.woff") format("woff"),
+         url("fonts/DEP/DEP.woff2") format("woff2"),
+         url("fonts/DEP/DEP.otf") format("opentype"),
+         url(https://codehs.com/uploads/4d2c3cc140e62972eb1380601b6b2fdf)format("truetype"),
+         url(https://codehs.com/uploads/e8e39273ed929dc6ebc14d62ff4eeeb4)format("woff"),
+         url(https://codehs.com/uploads/f75b7eb56111f0c7fc5d1c5a7dcfad86)format("woff2"),
+         url(https://codehs.com/uploads/205ebfa74f5d5a6fdae2372b9986a370)format("opentype");
 }
 
 
@@ -43,7 +43,11 @@ body{
     line-height: 27px;
     z-index: -10;
     overscroll-behavior: none;
+<<<<<<< HEAD:css/styles.css
     /*background-image: url("../images/bg/background_yoki_2.png");
+=======
+    /*background-image: url("background_yoki_2.png");
+>>>>>>> parent of 8875fe6 (SITE OVERHAUL WOOOOOO):styles.css
     background-repeat: repeat;
     background-size: auto;*/
 }
@@ -142,7 +146,11 @@ audio{
 }
 
 #bg{
+<<<<<<< HEAD:css/styles.css
     background-image: url("../images/bg/background_yoki_2.png");
+=======
+    background-image: url("background_yoki_2.png");
+>>>>>>> parent of 8875fe6 (SITE OVERHAUL WOOOOOO):styles.css
     background-repeat: repeat;
     background-size: auto;
     background-position: fixed;
@@ -178,26 +186,25 @@ audio{
     min-width: 0px;
   }
 }
-
 a{
     text-decoration: underline;
 }
-  /* unvisited link */
-  a:link {
-      color: var(--green2);
-  }
-  /* visited link */
-  a:visited {
-      color: var(--green2);
-  }
-  /* mouse over link */
-  a:hover {
-      color: var(--green1);
-  }
-  /* selected link */
-  a:active {
-      color: var(--green3);
-  }
+/* unvisited link */
+      a:link {
+        color: var(--green2);
+      }
+      /* visited link */
+      a:visited {
+        color: var(--green2);
+      }
+      /* mouse over link */
+      a:hover {
+        color: var(--green1);
+      }
+      /* selected link */
+      a:active {
+        color: var(--green3);
+      }
 #date{
     float: right;
 }

@@ -7,17 +7,33 @@
         <meta property="og:title" content="Is Spax Currently At School?">
         <meta property="og:description" content="See if I'm currently at school or not!">
         <meta property="og:type" content="website">
+<<<<<<< HEAD:html/isspaxatschool.html
         <meta name="og:image" itemprop="image" content="/images/faces/spax/Smirk.png">
         <link rel="icon" href="../images/icons/Smirk_Circle.png"></link>
         <link rel="stylesheet" href="../css/styles.css" type=text/css>
+=======
+        <meta name="og:image" itemprop="image" content="/images/spax/Smirk.png">
+        <!--<meta http-equiv="Refresh" content="0; url='iwanttodie.html'"/>-->
+        <link rel="icon" href="Smirk_Circle.png"></link>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="jquery.countdown.min.js"></script>
+>>>>>>> parent of 8875fe6 (SITE OVERHAUL WOOOOOO):isspaxatschool.html
         <title>Is Spax At School?</title>
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Bootstrap JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="styles.css" type=text/css>
+
     </head>
     <body>
         <div id="bg">
             <div class="text-box flex-container unselectable">
                 <div>
                         <img src="
-                    images/faces/spax/Smirk.png
+                    images/spax/Smirk.png
                         "></img>
                     Yo. Spax here. The javascript I wrote for this website doesn't work at the moment, so I'll be updating this manually until I fix it.
                 </div>
@@ -25,7 +41,7 @@
             <div class="text-box flex-container unselectable">
                 <div>
                         <img src="
-                    images/faces/spax/Look.png
+                    images/spax/Look.png
                         "></img>
                     Currently I'm at school, but I'll be at lunch very soon!<br>
                     (Also note that I'm in a very bad-service area of my school.)
@@ -34,7 +50,7 @@
             <div class="text-box flex-container unselectable">
                 <div>
                         <img src="
-                    images/faces/spax/Blush.png
+                    images/spax/Blush.png
                         "></img>
                     Thanks for visiting my site!
                 </div>
@@ -54,7 +70,7 @@
         <div class="text-box flex-container unselectable">
             <div id="date">
                     <img src="
-                images/faces/spax/Worried.png
+                images/spax/Worried.png
                     "></img>
                 This text should be replaced by the js. If you're seeing this, it means that my code is broken :(
             </div>
@@ -164,57 +180,62 @@
                     //if time is between 10:48 and 11:17 (lunch break)
                     if(m>=548&&m<677){
                         //sets html for lunch
-                        document.getElementById("date").innerHTML = "<img src='images/faces/spax/Smirk.png'></img> Yo! I'm currently in school right now, but it's lunch for me.";
+                        document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm currently in school right now, but it's lunch for me.";
                     } else {
                         //sets html for school
-                        document.getElementById("date").innerHTML = "<img src='images/faces/spax/Smirk.png'></img> Yo! I'm currently in school right now! But I'll be out in "+(13-ch)+" hours and "+(60-cm)+dm+sm+"!";
+                        document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm currently in school right now! But I'll be out in "+(13-ch)+" hours and "+(60-cm)+dm+sm+"!";
                     }
 
                 //if time is between 8:30pm and 6:30am
                 } else if (m>=1170||m<330) {
                     //sleeping html
                     if (m>=270){
-                    document.getElementById("date").innerHTML = "<img src='images/faces/spax/Smirk.png'></img> Yo! I may not be in school right now, but I'm probably asleep. I'll be awake in about "+(60-cm)+" minutes!";
+                    document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I may not be in school right now, but I'm probably asleep. I'll be awake in about "+(60-cm)+" minutes!";
                     } else {
-                    document.getElementById("date").innerHTML = "<img src='images/faces/spax/Smirk.png'></img> Yo! I may not be in school right now, but I'm probably asleep. I'll be awake in about "+(5-ch)+" hours and "+(60-cm)+" minutes!";
+                    document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I may not be in school right now, but I'm probably asleep. I'll be awake in about "+(5-ch)+" hours and "+(60-cm)+" minutes!";
                     }
                 } else if (m>=330){
-                    document.getElementById("date").innerHTML = "<img src='images/faces/spax/Smirk.png'></img> Yo! I'm not in school right now, but I will be in about "+(60-cm)+" minutes. (I just woke up and I'm going to school.)";
+                    document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm not in school right now, but I will be in about "+(60-cm)+" minutes. (I just woke up and I'm going to school.)";
                 } else {
-                    document.getElementById("date").innerHTML = "<img src='images/faces/spax/Smirk.png'></img> Yo! I'm not in school right now!";
+                    document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm not in school right now!";
                 }
             } else if (f==5) {
                 if(m>=450&&m<630){
                     if (m>=570){
-                        document.getElementById("date").innerHTML = "<img src='images/faces/spax/Smirk.png'></img> Yo! I'm currently in school right now! But I'll be out in "+(60-cm)+" minutes!";
+                        document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm currently in school right now! But I'll be out in "+(60-cm)+" minutes!";
                     } else {
                         //sets html for school
-                        document.getElementById("date").innerHTML = "<img src='images/faces/spax/Smirk.png'></img> Yo! I'm currently in school right now! But I'll be out in "+(10-ch)+" hours and "+(60-cm)+" minutes!";
+                        document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm currently in school right now! But I'll be out in "+(10-ch)+" hours and "+(60-cm)+" minutes!";
                     }
                 } else if (m>=1170||m<330) {
                     //sleeping html
                     if (m>=270){
-                    document.getElementById("date").innerHTML = "<img src='images/faces/spax/Smirk.png'></img> Yo! I may not be in school right now, but I'm probably asleep. I'll be awake in about "+(60-cm)+" minutes!";
+                    document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I may not be in school right now, but I'm probably asleep. I'll be awake in about "+(60-cm)+" minutes!";
                     } else {
-                    document.getElementById("date").innerHTML = "<img src='images/faces/spax/Smirk.png'></img> Yo! I may not be in school right now, but I'm probably asleep. I'll be awake in about "+(5-ch)+" hours and "+(60-cm)+" minutes!";
+                    document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I may not be in school right now, but I'm probably asleep. I'll be awake in about "+(5-ch)+" hours and "+(60-cm)+" minutes!";
                     }
                 } else {
-                    document.getElementById("date").innerHTML = "<img src='images/faces/spax/Smirk.png'></img> Yo! I'm not in school right now!";
+                    document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm not in school right now!";
                 }
             } else if (f==6||f==0) {
                 if (m>=1170||m<330) {
                     //sleeping html
                     if (m>=270){
-                    document.getElementById("date").innerHTML = "<img src='images/faces/spax/Smirk.png'></img> Yo! I may not be in school right now (it's literally the weekend), but I'm probably asleep. I'll be awake in about "+(60-cm)+" minutes!";
+                    document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I may not be in school right now (it's literally the weekend), but I'm probably asleep. I'll be awake in about "+(60-cm)+" minutes!";
                     } else {
-                    document.getElementById("date").innerHTML = "<img src='images/faces/spax/Smirk.png'></img> Yo! I may not be in school right now (it's literally the weekend), but I'm probably asleep. I'll be awake in about "+(5-ch)+" hours and "+(60-cm)+" minutes!";
+                    document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I may not be in school right now (it's literally the weekend), but I'm probably asleep. I'll be awake in about "+(5-ch)+" hours and "+(60-cm)+" minutes!";
                     }
                 } else {
-                document.getElementById("date").innerHTML = "<img src='images/faces/spax/Smirk.png'></img> Yo! I'm not in school! (It's literally the weekend bro.)";
+                document.getElementById("date").innerHTML = "<img src='images/spax/Smirk.png'></img> Yo! I'm not in school! (It's literally the weekend bro.)";
                 }
             }
         }
         </script>
+<<<<<<< HEAD:html/isspaxatschool.html
         <script src="../js/scrollparallax.js" type=text/javascript></script>
+=======
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="scrollparallax.js"></script>
+>>>>>>> parent of 8875fe6 (SITE OVERHAUL WOOOOOO):isspaxatschool.html
     </body>
 </html>
