@@ -1,5 +1,5 @@
-#remove html file extension https://example.com/page.html
-# to https://example.com/page
+#remove html file extension https://spiritaxolotl.github.io/html/test.html
+# to https://spiritaxolotl.github.io/html/test
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
