@@ -95,6 +95,7 @@ body{
     letter-spacing: 1px;
     min-width: 600px;
     z-index: 5;
+    text-decoration: underline;
 }
 
 .title-text-box{
