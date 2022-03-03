@@ -208,14 +208,11 @@ audio{
 }
 
 @media only screen and (max-width: 650px) {
-  .text-box{
+  .text-box, .desc-text-box, .title-text-box{
     transform: translate(0%, 0%);
     min-width: 0px;
   }
-  .flex-container{
-    width: 100%;
-  }
-  .long-flex-container{
+  .flex-container, .desc-flex-container, .title-flex-container{
     width: 100%;
   }
 }
