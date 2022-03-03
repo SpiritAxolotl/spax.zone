@@ -207,7 +207,7 @@ audio{
     user-select: none;
 }
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 600px) {
   .text-box, .desc-text-box, .title-text-box{
     transform: translate(0%, 0%);
     min-width: 0px;
