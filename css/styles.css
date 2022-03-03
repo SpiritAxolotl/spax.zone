@@ -14,10 +14,10 @@
          url("../fonts/DEP/DEP.woff") format("woff"),
          url("../fonts/DEP/DEP.woff2") format("woff2"),
          url("../fonts/DEP/DEP.otf") format("opentype"),
-         url(https://codehs.com/uploads/7293cfb70c54a6ca002d938f6d8cdd6c)format("truetype"),
+         /*url(https://codehs.com/uploads/7293cfb70c54a6ca002d938f6d8cdd6c)format("truetype"),
          url(https://codehs.com/uploads/68e97f9c621ca0041453219e646366d5)format("woff"),
          url(https://codehs.com/uploads/9f9510a768ee488a402ec028a17ff25b)format("woff2"),
-         url(https://codehs.com/uploads/2c77305abc98619c56b73cb4fd1f28e6)format("opentype");
+         url(https://codehs.com/uploads/2c77305abc98619c56b73cb4fd1f28e6)format("opentype")*/;
 }
 
 
@@ -26,6 +26,7 @@
 --green2: #86c06c;
 --green3: #306850;
 --green4: #071821;
+--red:    #ff0000;
 }
 
 /*
@@ -77,29 +78,42 @@ body{
     user-select: none;
 }
 
-.alt-text-box{
+.desc-text-box{
     border-width: 4px;
     border-style: solid;
     border-color: var(--green1);
+    border-radius: 3px;
     background-color: black;
     font-family: DEP;
     color: var(--green1);
-    margin: 5px 33% 5px 0px;
-    padding: 5px 5px 5px 5px;
-    font-size: 24px;
-    border-radius: 3px;
+    margin: 0 auto;
+    margin-top: 2.5px;
+    margin-bottom: 2.5px;
+    padding: 15px 15px 7.5px 15px;
+    font-size: 19px;
     word-wrap: break-word;
     letter-spacing: 1px;
+    min-width: 600px;
+    z-index: 5;
 }
 
-.alt-text-box img{
-    width: 100px;
-    height: 100px;
-    margin: 10px 10px 10px 0px;
-    padding: 0px 0px 0px 0px;
-    float: left;
-    pointer-events: none;
-    user-select: none;
+.title-text-box{
+    border-width: 4px;
+    border-style: solid;
+    border-color: var(--green1);
+    border-radius: 3px;
+    background-color: black;
+    font-family: DEP;
+    color: var(--green1);
+    margin: 0 auto;
+    margin-top: 2.5px;
+    margin-bottom: 2.5px;
+    padding: 15px 15px 7.5px 15px;
+    font-size: 25px;
+    word-wrap: break-word;
+    letter-spacing: 1px;
+    min-width: 600px;
+    z-index: 5;
 }
 
 .flex-container{
@@ -107,6 +121,22 @@ body{
     flex-direction: row;
     flex-wrap: wrap;
     min-height: 138px;
+    width: 50%;
+}
+
+.desc-flex-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-height: 40px;
+    width: 50%;
+}
+
+.title-flex-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-height: 40px;
     width: 50%;
 }
 
@@ -145,6 +175,8 @@ div .larger{
 .dnd-yellow{
     color:#faa81a;
 }
+
+
 
 .gradient{
     background: linear-gradient(
