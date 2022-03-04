@@ -4,3 +4,7 @@ document.body.onscroll = function() {
 
 document.getElementById('bg').style.backgroundPositionY = (window.scrollY / 2) + "px"
 }
+
+document.body.onscroll = function() {
+document.getElementById('bg').style.backgroundPositionX = (window.scrollY / 2) + "px"
+}
