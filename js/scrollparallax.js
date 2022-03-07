@@ -6,7 +6,7 @@ document.getElementById('bg').style.backgroundPositionY = (window.scrollY / 2) +
 
 let pt = Date.time()
 let ct = Date.time()
-setInterval(xpos, 1)
+requestAnimationFrame(xpos, 1)
 function xpos() {
 document.getElementById('bg').style.backgroundPositionX = (ct-pt) + "px"
 }
