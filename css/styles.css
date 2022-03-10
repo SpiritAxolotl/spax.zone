@@ -36,14 +36,16 @@ var(--green3)
 var(--green4)
 */
 
+/*
 tb {
-  /* display: inline; Browsers display all unknown tags as inline, you can set it to whatever you want */
+   display: inline; Browsers display all unknown tags as inline, you can set it to whatever you want 
   font-family: 'DEP';
 }
 
 tb[name="gear"][face="gear"]:before {
   content: "<div>"; 
 }
+*/
 
 body{
     background-color: var(--green3);
@@ -186,7 +188,10 @@ div .larger{
     color:#faa81a;
 }
 
-
+iframe{
+    margin: 0 auto;
+    display: block;
+}
 
 .gradient{
     background: linear-gradient(
