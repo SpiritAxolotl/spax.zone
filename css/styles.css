@@ -36,17 +36,6 @@ var(--green3)
 var(--green4)
 */
 
-/*
-tb {
-   display: inline; Browsers display all unknown tags as inline, you can set it to whatever you want 
-  font-family: 'DEP';
-}
-
-tb[name="gear"][face="gear"]:before {
-  content: "<div>"; 
-}
-*/
-
 body{
     background-color: var(--green3);
     font-family: DEP;
