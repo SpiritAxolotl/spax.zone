@@ -1,3 +1,5 @@
+$('link[type*=icon]').detach().appendTo('head');
+
 var bg = document.querySelector("#bg");
 document.body.onscroll = function() {
 
