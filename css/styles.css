@@ -123,8 +123,8 @@ body{
     font-size: 19px;
     word-wrap: break-word;
     letter-spacing: 1px;
-    min-width: 450px;
-    max-width: 450px;
+    min-width: 400px;
+    max-width: 400px;
     z-index: 5;
 }
 
@@ -268,7 +268,7 @@ audio{
   }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 400px) {
   .fart-text-box{
     min-width: 0px;
   }
