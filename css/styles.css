@@ -78,7 +78,37 @@ body{
     user-select: none;
 }
 
+.fart-text-box img{
+    /*width: 100px;
+    height: 100px;*/
+    margin: 0px 15px 10px 0px;
+    padding: 0px 0px 0px 0px;
+    float: left;
+    pointer-events: none;
+    user-select: none;
+}
+
 .desc-text-box{
+    border-width: 4px;
+    border-style: solid;
+    border-color: var(--green1);
+    border-radius: 3px;
+    background-color: black;
+    font-family: DEP;
+    color: var(--green1);
+    margin: 0 auto;
+    margin-top: 2.5px;
+    margin-bottom: 2.5px;
+    padding: 15px 15px 7.5px 15px;
+    font-size: 19px;
+    word-wrap: break-word;
+    letter-spacing: 1px;
+    min-width: 600px;
+    z-index: 5;
+    text-decoration: underline;
+}
+
+.fart-text-box{
     border-width: 4px;
     border-style: solid;
     border-color: var(--green1);
@@ -130,6 +160,16 @@ body{
     flex-direction: row;
     flex-wrap: wrap;
     min-height: 40px;
+    width: 50%;
+}
+
+.fart-flex-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /*
+    min-height: 40px;
+    */
     width: 50%;
 }
 
@@ -212,11 +252,11 @@ audio{
 }
 
 @media only screen and (max-width: 600px) {
-  .text-box, .desc-text-box, .title-text-box{
+  .text-box, .desc-text-box, .fart-text-box, .title-text-box{
     transform: translate(0%, 0%);
     min-width: 0px;
   }
-  .flex-container, .desc-flex-container, .title-flex-container{
+  .flex-container, .desc-flex-container, .fart-flex-container, .title-flex-container{
     width: 100%;
   }
 }
