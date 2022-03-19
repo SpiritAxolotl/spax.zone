@@ -79,13 +79,13 @@ body{
 }
 
 .fart-text-box img{
-    /*width: 100px;
-    height: 100px;*/
+    width: 0 auto;
+    /*height: 100px;*/
     margin: 0px 15px 10px 0px;
     padding: 0px 0px 0px 0px;
-    float: left;
-    pointer-events: none;
-    user-select: none;
+    /*float: left;*/
+    /*pointer-events: none;
+    user-select: none;*/
 }
 
 .desc-text-box{
