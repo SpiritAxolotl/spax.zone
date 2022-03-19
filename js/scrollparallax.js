@@ -1,7 +1,3 @@
-$('meta[type*=og:image]').detach().appendTo('head');
-$('meta[type*=icon]').detach().appendTo('head');
-
-
 var bg = document.querySelector("#bg");
 document.body.onscroll = function() {
 
