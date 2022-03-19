@@ -117,14 +117,14 @@ body{
     font-family: DEP;
     color: var(--green1);
     margin: 0 auto;
-    margin-top: 2.5px;
-    margin-bottom: 2.5px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     padding: 15px 15px 7.5px 15px;
     font-size: 19px;
     word-wrap: break-word;
     letter-spacing: 1px;
-    min-width: 300px;
-    max-width: 300px;
+    min-width: 450px;
+    max-width: 450px;
     z-index: 5;
 }
 
@@ -268,7 +268,7 @@ audio{
   }
 }
 
-@media only screen and (max-width: 300px) {
+@media only screen and (max-width: 450px) {
   .fart-text-box{
     min-width: 0px;
   }
