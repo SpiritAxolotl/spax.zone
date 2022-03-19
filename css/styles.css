@@ -79,7 +79,7 @@ body{
 }
 
 .fart-text-box img{
-    width: 0 auto;
+    width: 100%;
     /*height: 100px;*/
     margin: 0px 15px 10px 0px;
     padding: 0px 0px 0px 0px;
@@ -123,9 +123,9 @@ body{
     font-size: 19px;
     word-wrap: break-word;
     letter-spacing: 1px;
-    min-width: 600px;
+    min-width: 300px;
+    max-width: 300px;
     z-index: 5;
-    text-decoration: underline;
 }
 
 .title-text-box{
@@ -170,7 +170,7 @@ body{
     /*
     min-height: 40px;
     */
-    width: 50%;
+    width: 25%;
 }
 
 .title-flex-container{
@@ -252,11 +252,11 @@ audio{
 }
 
 @media only screen and (max-width: 600px) {
-  .text-box, .desc-text-box, .fart-text-box, .title-text-box{
+  .text-box, .desc-text-box, .title-text-box{
     transform: translate(0%, 0%);
     min-width: 0px;
   }
-  .flex-container, .desc-flex-container, .fart-flex-container, .title-flex-container{
+  .flex-container, .desc-flex-container, .title-flex-container{
     width: 100%;
   }
 }
@@ -265,6 +265,15 @@ audio{
   .long-flex-container{
     width: 100%;
     min-width: 0px;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .fart-text-box{
+    min-width: 0px;
+  }
+  .fart-flex-container{
+    width: 100%;
   }
 }
 
