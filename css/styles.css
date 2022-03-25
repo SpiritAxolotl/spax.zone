@@ -76,6 +76,10 @@ body{
     float: left;
     pointer-events: none;
     user-select: none;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+    -ms-interpolation-mode: nearest-neighbor;
 }
 
 .fart-text-box img{
@@ -229,6 +233,7 @@ iframe{
         background-clip: text;
         -webkit-background-clip: text;
 }
+
 audio{
     display: none;
 }
