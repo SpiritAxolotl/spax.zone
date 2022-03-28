@@ -36,6 +36,11 @@ var(--green3)
 var(--green4)
 */
 
+html, body, .bg{
+   width: 100%;
+   height: 100%;
+}
+
 body{
     background-color: var(--green3);
     font-family: DEP;
