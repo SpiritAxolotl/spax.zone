@@ -42,7 +42,6 @@ html{
 }
 
 body{
-    height: auto;
     background-color: var(--green3);
     font-family: DEP;
     font-size: 20px;
