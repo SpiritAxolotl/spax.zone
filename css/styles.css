@@ -244,12 +244,14 @@ audio{
 }
 
 #bg{
+    position: absolute;
     background-image: url("../images/bg/background_yoki_2.png");
     background-repeat: repeat;
     background-size: auto;
     background-position: fixed;
     z-index: -1;
     width: 100%;
+    min-height: 100%;
     height: auto;
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
