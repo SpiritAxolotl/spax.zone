@@ -14,6 +14,10 @@
          url("../fonts/DEP/DEP.woff") format("woff"),
          url("../fonts/DEP/DEP.woff2") format("woff2"),
          url("../fonts/DEP/DEP.otf") format("opentype"),
+         url(https://spiritaxolotl.github.io/fonts/DEP/DEP.ttf)format("truetype"),
+         url(https://spiritaxolotl.github.io/fonts/DEP/DEP.woff)format("woff"),
+         url(https://spiritaxolotl.github.io/fonts/DEP/DEP.woff2)format("woff2"),
+         url(https://spiritaxolotl.github.io/fonts/DEP/DEP.otf)format("opentype");
 }
 
 
