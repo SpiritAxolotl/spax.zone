@@ -10,14 +10,19 @@
 /*haha it's changed to be more accurate now gj me*/
 @font-face {
     font-family: DEP;
-    src: url("../fonts/DEP/DEP.ttf") format("truetype"),
+    src: url("/fonts/DEP/DEP.ttf") format("truetype"),
+         url("/fonts/DEP/DEP.woff") format("woff"),
+         url("/fonts/DEP/DEP.woff2") format("woff2"),
+         url("/fonts/DEP/DEP.otf") format("opentype");
+         
+         /*url("../fonts/DEP/DEP.ttf") format("truetype"),
          url("../fonts/DEP/DEP.woff") format("woff"),
          url("../fonts/DEP/DEP.woff2") format("woff2"),
          url("../fonts/DEP/DEP.otf") format("opentype"),
          url(https://spiritaxolotl.github.io/fonts/DEP/DEP.ttf)format("truetype"),
          url(https://spiritaxolotl.github.io/fonts/DEP/DEP.woff)format("woff"),
          url(https://spiritaxolotl.github.io/fonts/DEP/DEP.woff2)format("woff2"),
-         url(https://spiritaxolotl.github.io/fonts/DEP/DEP.otf)format("opentype");
+         url(https://spiritaxolotl.github.io/fonts/DEP/DEP.otf)format("opentype");*/
 }
 
 
@@ -68,7 +73,7 @@ body{
     padding: 15px 15px 7.5px 15px;
     font-size: 19px;
     word-wrap: break-word;
-    letter-spacing: 1/*3*/px;
+    letter-spacing: 3px;
     min-width: 600px;
     z-index: 5;
 }
