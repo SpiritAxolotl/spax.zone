@@ -68,7 +68,7 @@ body{
     padding: 15px 15px 7.5px 15px;
     font-size: 19px;
     word-wrap: break-word;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     min-width: 600px;
     z-index: 5;
 }
