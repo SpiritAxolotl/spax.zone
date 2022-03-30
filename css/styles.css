@@ -10,10 +10,10 @@
 /*haha it's changed to be more accurate now gj me*/
 @font-face {
     font-family: DEP;
-    src: url("fonts/DEP/DEP.ttf") format("truetype"),
-         url("fonts/DEP/DEP.woff") format("woff"),
-         url("fonts/DEP/DEP.woff2") format("woff2"),
-         url("fonts/DEP/DEP.otf") format("opentype"),
+    src: url("../fonts/DEP/DEP.ttf") format("truetype"),
+         url("../fonts/DEP/DEP.woff") format("woff"),
+         url("../fonts/DEP/DEP.woff2") format("woff2"),
+         url("../fonts/DEP/DEP.otf") format("opentype"),
 }
 
 
