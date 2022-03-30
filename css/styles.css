@@ -14,10 +14,6 @@
          url("fonts/DEP/DEP.woff") format("woff"),
          url("fonts/DEP/DEP.woff2") format("woff2"),
          url("fonts/DEP/DEP.otf") format("opentype"),
-         url(https://spiritaxolotl.github.io/fonts/DEP/DEP.ttf)format("truetype"),
-         url(https://spiritaxolotl.github.io/fonts/DEP/DEP.woff)format("woff"),
-         url(https://spiritaxolotl.github.io/fonts/DEP/DEP.woff2)format("woff2"),
-         url(https://spiritaxolotl.github.io/fonts/DEP/DEP.otf)format("opentype");
 }
 
 
@@ -68,7 +64,7 @@ body{
     padding: 15px 15px 7.5px 15px;
     font-size: 19px;
     word-wrap: break-word;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     min-width: 600px;
     z-index: 5;
 }
