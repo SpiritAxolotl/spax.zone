@@ -296,7 +296,6 @@ audio{
 
 a{
     text-decoration: underline;
-    pointer-events: auto;
 }
   /* unvisited link */
   a:link {
