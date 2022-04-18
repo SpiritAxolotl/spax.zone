@@ -22,9 +22,9 @@ function run () {
 function upDate(){
     d = new Date();
     
-    SpaxTime = [d.getUTCHours()-7,d.getUTCMinutes(),d.getUTCHours()+":"+d.getUTCMinutes()];
+    SpaxTime = [d.getUTCHours()-6,d.getUTCMinutes(),d.getUTCHours()+":"+d.getUTCMinutes()];
     PentaTime = [d.getUTCHours()+7,d.getUTCMinutes(),d.getUTCHours()+":"+d.getUTCMinutes()];
-    SplitTime = [d.getUTCHours()-5,d.getUTCMinutes(),d.getUTCHours()+":"+d.getUTCMinutes()];
+    SplitTime = [d.getUTCHours()-4,d.getUTCMinutes(),d.getUTCHours()+":"+d.getUTCMinutes()];
     UTCTime = [d.getUTCHours(),d.getUTCMinutes(),d.getUTCHours()+":"+d.getUTCMinutes()];
 }
 
