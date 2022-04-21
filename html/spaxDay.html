@@ -1,5 +1,5 @@
 <!--
-Version : 1.03.9
+Version : 1.03.10
 Description : I hate working with audio
 Next Update : Spax's Birthday
 By CalmBubbles :)
@@ -584,10 +584,12 @@ haha now it's edited by spax :)
                         typeOnBox("Well no", 0.75, "spax", "Worried", function () {
                             typeOnBox("... ", 0.25, "spax", "Worried", function () {
                                 typeOnBox("but- ", 0.75, "spax", "Worried", function () {
+                                    diaNextValid = true;
                                     bgm.pause();
-                                    diaNextValid = true;
+                                    clearBox();
                                     typeOnBox("... ", 0.025, "spax", "Worried", function () {
-                                    diaNextValid = true;
+                                        diaNextValid = true;
+                                        clearBox();
                                         typeOnBox("", 0.025, "spax", "Pensive", function () {
                                         runScene(0);
                                         });
