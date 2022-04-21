@@ -520,7 +520,7 @@ haha now it's edited by spax :)
                     }, 125);
                 }
             }
-            
+            <!--holy fuck calm you literally made a whole-ass dialogue system-->
             function runDia (dialogueCode)
             {
                 diaNextValid = false;
@@ -1066,6 +1066,7 @@ haha now it's edited by spax :)
                                             resetBoxTo("Here's a gift, it took a lot ");
                                             typeOnBox("of effort to make.", 1, "zera", "Neutral", function () {
                                                 runScene(4);
+                                                <!--WOWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW>
                                             });
                                         });
                                     });
@@ -1159,35 +1160,40 @@ haha now it's edited by spax :)
                 var sndSrc;
                 
                 // TEXTBOX AUDIO IS PAIN IDK WHY IT DOESN'T WORK PROPERLY ON MOBILE
-                /*if (person == "yoki")
-                {
-                    sndSrc = "Dialogue_3";
+                // it's okay bro
+                // *casually un-comments the code*
+                // *also adds a phucking "for" loop*
+                var peeps = ["Claire", "Aimottle", "Spax", "Yoki", "Zera", "Woof", "Default"];
+                for (let i = 0; i < 7; i++) {
+                  if (person == peeps[i]) {
+                    sndSrc = peeps[i];
+                  }
                 }
                 
-                sndSrc = `https://calmbubbles.github.io/zerasGift/audio/se/${sndSrc}.ogg`;*/
+                sndSrc = "https://spiritaxolotl.github.io/audio/dialogue/${sndSrc}.ogg";
                 
-                textBox.querySelector("img").src = `/images/faces/${person}/${face}.png`;
+                textBox.querySelector("img").src = "/images/faces/${person}/${face}.png";
                 
                 bgm.volume = bgm.volume / 2;
                 
                 var interval = setInterval(function () {
-                    /*var textSnd = new Audio(sndSrc);
-                    textSnd.volume = 0.75;*/
+                    var textSnd = new Audio(sndSrc);
+                    textSnd.volume = 0.75;
                     
                     if (index < text.length)
                     {
-                        /*if (
+                        if (
                             text[index] != " "&&
                             text[index] != "."&&
                             text[index] != ","&&
                             text[index] != "?"&&
                             text[index] != "!"&&
                             text[index] != "'"&&
-                            text[index] != "-"
+                            text[index] != "_"
                             )
                         {
                             textSnd.play();
-                        }*/
+                        }
                         
                         textInBox.innerHTML += text[index];
                         
