@@ -580,21 +580,16 @@ haha now it's edited by spax :)
                         });
                         break;
                     case 6:
-                        clearBox();
+                    clearBox();
                         typeOnBox("Well no", 0.75, "spax", "Worried", function () {
-                            typeOnBox("... ", 0.25, "spax", "Worried", function () {
+                            typeOnBox("... ", 0.025, "spax", "Worried", function () {
                                 typeOnBox("but- ", 0.75, "spax", "Worried", function () {
-                                    diaNextValid = true;
                                     bgm.pause();
-                                    clearBox();
-                                    typeOnBox("... ", 0.025, "spax", "Worried", function () {
-                                        diaNextValid = true;
-                                        clearBox();
-                                        typeOnBox("", 0.025, "spax", "Pensive", function () {
-                                        runScene(0);
-                                        });
-                                    });
-                                }); 
+                                   clearBox();
+                                   typeOnBox("... ", 0.025, "spax", "Pensive", function () {
+                                       runScene(0);
+                                   });
+                               }); 
                             });
                         });
                         break;
