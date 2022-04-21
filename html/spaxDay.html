@@ -1158,7 +1158,7 @@ haha now it's edited by spax :)
                 
                 var index = 0;
                 var sndSrc;
-                
+                                
                 // TEXTBOX AUDIO IS PAIN IDK WHY IT DOESN'T WORK PROPERLY ON MOBILE
                 // it's okay bro
                 // *casually un-comments the code*
@@ -1170,11 +1170,11 @@ haha now it's edited by spax :)
                   }
                 }
                 
-                sndSrc = "https://spiritaxolotl.github.io/audio/dialogue/${sndSrc}.ogg";
+                sndSrc = "/audio/dialogue/${sndSrc}.ogg";
                 
                 textBox.querySelector("img").src = "/images/faces/${person}/${face}.png";
                 
-                bgm.volume = bgm.volume / 2;
+                // bgm.volume = bgm.volume / 2;
                 
                 var interval = setInterval(function () {
                     var textSnd = new Audio(sndSrc);
@@ -1202,7 +1202,7 @@ haha now it's edited by spax :)
                     
                     if (index == text.length)
                     {
-                        bgm.volume = bgm.volume * 2;
+                        // bgm.volume = bgm.volume * 2;
                         func();
                         clearInterval(interval);
                     }
