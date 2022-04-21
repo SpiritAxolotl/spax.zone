@@ -1,6 +1,6 @@
 <!--
 
-Version : 1.03.5
+Version : 1.03.6
 Description : I hate working with audio
 Next Update : Spax's Birthday
 
@@ -586,20 +586,23 @@ haha now it's edited by spax :)
                     case 6:
                         clearBox();
                         typeOnBox("Well no", 0.75, "spax", "Worried", function () {
-                            typeOnBox("... ", 0.025, "spax", "Worried", function () {
+                            typeOnBox("... ", 0.25, "spax", "Worried", function () {
                                 typeOnBox("but- ", 0.75, "spax", "Worried", function () {
                                     bgm.pause();
-                                   clearBox();
-                                   typeOnBox("... ", 0.025, "spax", "Pensive", function () {
-                                       runScene(0);
-                                   });
-                               }); 
+                                    diaNextValid = true;
+                                    typeOnBox("... ", 0.025, "spax", "Worried", function () {
+                                    diaNextValid = true;
+                                        typeOnBox("", 0.025, "spax", "Pensive", function () {
+                                        runScene(0);
+                                        });
+                                    });
+                                }); 
                             });
                         });
                         break;
                     case 7:
                         clearBox();
-                        typeOnBox("how tf- ", 0.125, "claire", "Aghast", function () {
+                        typeOnBox("how tf- ", 0.25, "claire", "Aghast", function () {
                             clearBox();
                             typeOnBox("I have no clue how I did ", 0.5, "spax", "Dizzy", function () {
                                 lineBreakBox(1);
