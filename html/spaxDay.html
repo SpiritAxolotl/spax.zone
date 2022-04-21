@@ -1,13 +1,9 @@
 <!--
-
-Version : 1.03.8
+Version : 1.03.9
 Description : I hate working with audio
 Next Update : Spax's Birthday
-
 By CalmBubbles :)
-
 haha now it's edited by spax :)
-
 -->
 
 <!DOCTYPE HTML>
@@ -882,10 +878,10 @@ haha now it's edited by spax :)
                         let intervalA = setInterval(function () {
                             if (varA >= 1 && varA <= 5)
                             {
-                                ElB.classList.remove("spaxDayEB${varA}");
+                                ElB.classList.remove(`spaxDayEB${varA}`);
                                 if (varA != 5)
                                 {
-                                    ElB.classList.add("spaxDayEB${varA + 1}");
+                                    ElB.classList.add(`spaxDayEB${varA + 1}`);
                                 }
                             }
                             else if (varA == 6)
@@ -965,12 +961,12 @@ haha now it's edited by spax :)
                                     
                                     se.play();
                                     
-                                    textbox.style.animation = "shake${varB} 0.25s infinite";
+                                    textbox.style.animation = `shake${varB} 0.25s infinite`;
                                     
                                     intervalC = setInterval(function () {
                                         bgPos += varB / 10;
                                         
-                                        bgImg.style.backgroundPositionY = "${bgPos}%";
+                                        bgImg.style.backgroundPositionY = `${bgPos}%`;
                                     }, 2);
                                 }
                                 else
@@ -1031,7 +1027,7 @@ haha now it's edited by spax :)
                         setTimeout(function () {
                             madeTextBox.setAttribute("data-disabled", "false");
                             madeTextBox.style.animation = "none";
-                            madeTextInBox.innerHTML = '(<a href="/html/main">Click here</a> to go back to the main page!)';
+                            madeTextInBox.innerHTML = `(<a href="/html/main">Click here</a> to go back to the main page!)`;
                         }, 125);
                         
                         setTimeout(function () {
@@ -1167,27 +1163,28 @@ haha now it's edited by spax :)
                 // *casually un-comments the code*
                 // *also adds a phucking "for" loop*
                 // nvm it breaks everything :<
+                // trying again with new knowledge
                 
-                /*var peeps = ["Claire", "Aimottle", "Spax", "Yoki", "Zera", "Woof", "Default"];
+                var peeps = ["Claire", "Aimottle", "Spax", "Yoki", "Zera", "Woof", "Default"];
                 for (let i = 0; i < 7; i++) {
                   if (person == peeps[i]) {
                     sndSrc = peeps[i];
                   }
                 }
                 
-                sndSrc = "/audio/dialogue/${sndSrc}.ogg";*/
+                sndSrc = `/audio/dialogue/${sndSrc}.ogg`;
                 
-                textBox.querySelector("img").src = "/images/faces/${person}/${face}.png";
+                textBox.querySelector("img").src = `/images/faces/${person}/${face}.png`;
                 
                 // bgm.volume = bgm.volume / 2;
                 
                 var interval = setInterval(function () {
-                    /*var textSnd = new Audio(sndSrc);
-                    textSnd.volume = 0.75;*/
+                    var textSnd = new Audio(sndSrc);
+                    textSnd.volume = 0.75;
                     
                     if (index < text.length)
                     {
-                        /*if (
+                        if (
                             text[index] != " "&&
                             text[index] != "."&&
                             text[index] != ","&&
@@ -1198,7 +1195,7 @@ haha now it's edited by spax :)
                             )
                         {
                             textSnd.play();
-                        }*/
+                        }
                         
                         textInBox.innerHTML += text[index];
                         
