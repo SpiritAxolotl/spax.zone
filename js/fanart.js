@@ -37,8 +37,8 @@ Fanart.setData = function ()
     for (let i = 0; i < this.fanartData.length; i++)
     {
         var creditText = this.fanartData[i].credit;
-        var descText;
-        var styleText;
+        var descText = "";
+        var styleText = "";
         
         if (!this.fanartData[i].visible)
         {
