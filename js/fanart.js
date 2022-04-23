@@ -55,11 +55,11 @@ Fanart.setData = function ()
             descText = `<br>${this.fanartData[i].desc}`;
         }
         
-        mainContent.innerHTML += `<div class="fart-text-box fart-flex-container unselectable"${styleText}><div>${this.fanartData[i].content}<br>${this.fanartData[i].type} by ${creditText}${descText}</div></div>`;
+        this.mainContent.innerHTML += `<div class="fart-text-box fart-flex-container unselectable"${styleText}><div>${this.fanartData[i].content}<br>${this.fanartData[i].type} by ${creditText}${descText}</div></div>`;
         
         if (i == this.fanartData.length - 1)
         {
-            mainContent.innerHTML += `<div class="text-box flex-container unselectable"><div>(<a href="/html/main">Click here</a> to go back to the main page!)</div></div>`;
+            this.mainContent.innerHTML += `<div class="text-box flex-container unselectable"><div>(<a href="/html/main">Click here</a> to go back to the main page!)</div></div>`;
         }
     }
 };
