@@ -15,7 +15,7 @@ Oh boy where do I even start. I had known Calm since the start of 2021 beause he
 ## Other Mentions
 Here are some other people who helped fix minor things on the site:
 - HeySora
-- CondorTalon
+- Sudospective
 - oatmealine
 - norom
 
