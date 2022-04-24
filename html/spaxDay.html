@@ -1,5 +1,5 @@
 <!--
-Version : 1.1.01
+Version : 1.1.1
 Description : I hate working with audio, also I love eating spaghetti code with a twist of headache
 Next Major Update : Spax's Birthday
 
@@ -1131,31 +1131,38 @@ haha now it's edited by spax :)
                     "spax"
                 ];
                 
+                var validPeep = false;
+                
                 for (let i = 0; i < peeps.length; i++)
                 {
                     if (person == peeps[i])
                     {
-                        var imageVar = "";
-                        
-                        if (!spaxFixed)
-                        {
-                            imageVar = ` class="spaxDayECtext-boximg spaxDayEA"`;
-                        }
-                        
-                        textBox.innerHTML = `<img${imageVar} src="/images/faces/${person}/${face}.png"><span></span>`;
-                        
-                        textInBox = textBox.querySelector("span");
-                        
-                        sndSrc = `/audio/dialogue/${person}.ogg`;
+                        validPeep = true;
                     }
-                    else
+                }
+                
+                if (validPeep)
+                {
+                    var imageVar = "";
+                    
+                    if (!spaxFixed)
                     {
-                        textBox.innerHTML = "<span></span>";
-                        
-                        textInBox = textBox.querySelector("span");
-                        
-                        sndSrc = `/audio/dialogue/default.ogg`;
+                        imageVar = ` class="spaxDayECtext-boximg spaxDayEA"`;
                     }
+                    
+                    textBox.innerHTML = `<img${imageVar} src="/images/faces/${person}/${face}.png"><span></span>`;
+                    
+                    textInBox = textBox.querySelector("span");
+                    
+                    sndSrc = `/audio/dialogue/${person}.ogg`;
+                }
+                else
+                {
+                    textBox.innerHTML = "<span></span>";
+                    
+                    textInBox = textBox.querySelector("span");
+                    
+                    sndSrc = `/audio/dialogue/default.ogg`;
                 }
                 
                 bgm.volume = bgm.volume / 2;
