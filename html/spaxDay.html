@@ -1,5 +1,5 @@
 <!--
-Version : 1.1.2
+Version : 1.1.22
 Description : I hate working with audio, also I love eating spaghetti code with a twist of headache
 Next Major Update : Spax's Birthday
 
@@ -1175,6 +1175,12 @@ haha now it's edited by spax :)
                     if (validPeep)
                     {
                         textBox.querySelector("img").src = `/images/faces/${person}/${face}.png`;
+                        
+                        sndSrc = `/audio/dialogue/${person}.ogg`;
+                    }
+                    else
+                    {
+                        sndSrc = `/audio/dialogue/default.ogg`;
                     }
                 }
                 
