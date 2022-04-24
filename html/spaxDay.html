@@ -1,5 +1,5 @@
 <!--
-Version : 1.1.25
+Version : 1.1.69
 Description : I hate working with audio, also I love eating spaghetti code with a twist of headache
 Next Major Update : Spax's Birthday
 
@@ -415,7 +415,7 @@ haha now it's edited by spax :)
                 <div id="textBox"></div>
             </div>
             
-            <!--<button onclick="incIndex();" style="position:relative; width:100%; height:250px;">NEXT</button>-->
+            <button onclick="incIndex();" style="position:relative; width:100%; height:250px;">NEXT</button>
         </div>
         
         <script>
@@ -466,10 +466,10 @@ haha now it's edited by spax :)
                     });
                 }, 1000);
                 
-                /*let btn = document.querySelector("button");
+                let btn = document.querySelector("button");
                 setInterval(function () {
-                    btn.innerHTML = bgm.volume;
-                }, 2);*/
+                    btn.innerHTML = diaIsActive;
+                }, 2);
             }
             
             function incIndex ()
@@ -969,6 +969,7 @@ haha now it's edited by spax :)
                                 {
                                     clearInterval(intervalB);
                                     mainContent.style.backgroundImage = "none";
+                                    clearInterval(intervalC);
                                     
                                     se.loop = false;
                                     se.src = "https://calmbubbles.github.io/zerasGift/audio/se/Crush 1.ogg";
@@ -1005,9 +1006,16 @@ haha now it's edited by spax :)
                         }, 1500)
                         break;
                     case 2:
-                        mainContent.innerHTML += `<div class="text-box flex-container unselectable text-box-modded newTextBox" data-disabled="true"><div></div></div>`;
+                        var newTextBox = document.createElement("div");
+                        var newTextInBox = document.createElement("div");
                         
-                        let madeTextBox = document.querySelector(".newTextBox");
+                        newTextBox.classList.add("text-box", "flex-container", "unselectable", "text-box-modded", "newTextBox");
+                        newTextBox.setAttribute("data-disabled", "true");
+                        newTextBox.appendChild(newTextInBox);
+                        
+                        mainContent.appendChild(newTextBox);
+                        
+                        let madeTextBox = mainContent.querySelector(".newTextBox");
                         let madeTextInBox = madeTextBox.querySelector("div");
                         
                         madeTextBox.style.animation = "loadTextBox linear 0.125s";
@@ -1117,10 +1125,7 @@ haha now it's edited by spax :)
             
             function typeOnBox (text, speed, person, face, func)
             {
-                if (diaIsActive = false)
-                {
-                    return null;
-                }
+                if (!diaIsActive) return;
                 
                 var index = 0;
                 var sndSrc;
@@ -1236,7 +1241,8 @@ haha now it's edited by spax :)
             
             function clearBox ()
             {
-                textInBox.innerHTML = "";
+                textBox.innerHTML = "";
+                SpecialBox = null;
             }
         </script>
         <script src="/js/scrollparallax.js"></script>
