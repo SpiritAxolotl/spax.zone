@@ -1,5 +1,5 @@
 <!--
-Version : 1.1.22
+Version : 1.1.25
 Description : I hate working with audio, also I love eating spaghetti code with a twist of headache
 Next Major Update : Spax's Birthday
 
@@ -484,6 +484,7 @@ haha now it's edited by spax :)
             function diaActive (state, func)
             {
                 let textbox = document.querySelector(".text-box");
+                SpecialBox = null;
                 
                 if (state == true)
                 {
@@ -500,7 +501,6 @@ haha now it's edited by spax :)
                 }
                 else
                 {
-                    SpecialBox = null;
                     diaIsActive = false;
                     
                     textBox.innerHTML = "";
@@ -928,6 +928,7 @@ haha now it's edited by spax :)
                         var bgPos = 0;
                         
                         textboxA.innerHTML = "";
+                        SpecialBox = null;
                         
                         bgm.pause();
                         bgm.src = "https://calmbubbles.github.io/zerasGift/audio/bgm/The Manor Sinking Into A Shadow_Game.ogg";
