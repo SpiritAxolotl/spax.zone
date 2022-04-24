@@ -1,5 +1,5 @@
 <!--
-Version : 1.1.1
+Version : 1.1.2
 Description : I hate working with audio, also I love eating spaghetti code with a twist of headache
 Next Major Update : Spax's Birthday
 
@@ -421,6 +421,7 @@ haha now it's edited by spax :)
         <script>
             let textBox = document.querySelector("#textBox");
             var textInBox;
+            var SpecialBox;
             var diaIndex = 0;
             var diaNextValid = false;
             var diaIsActive = false;
@@ -1141,28 +1142,40 @@ haha now it's edited by spax :)
                     }
                 }
                 
-                if (validPeep)
+                if (validPeep != SpecialBox)
                 {
-                    var imageVar = "";
-                    
-                    if (!spaxFixed)
+                    if (validPeep)
                     {
-                        imageVar = ` class="spaxDayECtext-boximg spaxDayEA"`;
+                        var imageVar = "";
+                        
+                        if (!spaxFixed)
+                        {
+                            imageVar = ` class="spaxDayECtext-boximg spaxDayEA"`;
+                        }
+                        
+                        textBox.innerHTML = `<img${imageVar} src="/images/faces/${person}/${face}.png"><span></span>`;
+                        
+                        textInBox = textBox.querySelector("span");
+                        
+                        sndSrc = `/audio/dialogue/${person}.ogg`;
+                    }
+                    else
+                    {
+                        textBox.innerHTML = "<span></span>";
+                        
+                        textInBox = textBox.querySelector("span");
+                        
+                        sndSrc = `/audio/dialogue/default.ogg`;
                     }
                     
-                    textBox.innerHTML = `<img${imageVar} src="/images/faces/${person}/${face}.png"><span></span>`;
-                    
-                    textInBox = textBox.querySelector("span");
-                    
-                    sndSrc = `/audio/dialogue/${person}.ogg`;
+                    SpecialBox = validPeep;
                 }
                 else
                 {
-                    textBox.innerHTML = "<span></span>";
-                    
-                    textInBox = textBox.querySelector("span");
-                    
-                    sndSrc = `/audio/dialogue/default.ogg`;
+                    if (validPeep)
+                    {
+                        textBox.querySelector("img").src = `/images/faces/${person}/${face}.png`;
+                    }
                 }
                 
                 bgm.volume = bgm.volume / 2;
