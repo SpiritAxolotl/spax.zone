@@ -1,7 +1,8 @@
 <!--
-Version : 1.03.10
+Version : 1.1
 Description : I hate working with audio, also I love eating spaghetti code with a twist of headache
-Next Update : Spax's Birthday
+Next Major Update : Spax's Birthday
+
 By CalmBubbles :)
 haha now it's edited by spax :)
 -->
@@ -28,9 +29,18 @@ haha now it's edited by spax :)
         <link rel="preload" href="/images/faces/zera/Smile.png" as="image">
         <link rel="preload" href="/images/faces/zera/Pout.png" as="image">
         <link rel="preload" href="/images/faces/woof/Look.png" as="image">
+        
         <link rel="preload" href="https://calmbubbles.github.io/zerasGift/img/gift.png" as="image">
         
-        <link rel="preload" href="https://calmbubbles.github.io/zerasGift/audio/se/Dialogue_3.ogg" as="audio">
+        
+        <link rel="preload" href="/audio/dialogue/yoki.ogg" as="audio">
+        <link rel="preload" href="/audio/dialogue/claire.ogg" as="audio">
+        <link rel="preload" href="/audio/dialogue/aimottle.ogg" as="audio">
+        <link rel="preload" href="/audio/dialogue/zera.ogg" as="audio">
+        <link rel="preload" href="/audio/dialogue/woof.ogg" as="audio">
+        <link rel="preload" href="/audio/dialogue/este.ogg" as="audio">
+        <link rel="preload" href="/audio/dialogue/spax.ogg" as="audio">
+        
         <link rel="preload" href="https://calmbubbles.github.io/zerasGift/audio/se/Low_rumble_1.ogg" as="audio">
         <link rel="preload" href="https://calmbubbles.github.io/zerasGift/audio/se/Low_rumble_2.ogg" as="audio">
         <link rel="preload" href="https://calmbubbles.github.io/zerasGift/audio/se/Static_01.ogg" as="audio">
@@ -482,20 +492,6 @@ haha now it's edited by spax :)
                         textbox.setAttribute("data-disabled", "false");
                         textbox.style.animation = "none";
                         
-                        let textboximg = document.createElement("img");
-                        let textboxspan = document.createElement("span");
-                        
-                        if (!spaxFixed)
-                        {
-                            textboximg.classList.add("spaxDayECtext-boximg");
-                            textboximg.classList.add("spaxDayEA");
-                        }
-                        
-                        textBox.appendChild(textboximg);
-                        textBox.appendChild(textboxspan);
-                        
-                        textInBox = textBox.querySelector("span");
-                        
                         diaIsActive = true;
                         
                         func();
@@ -863,10 +859,11 @@ haha now it's edited by spax :)
             
             function runScene (sceneCode)
             {
+                let mainContent = document.querySelector("#bg");
                 let ElA = document.querySelectorAll(".spaxDayEA");
                 let ElB = document.body;
-                var varA = 1;
                 
+                var varA = 1;
                 var varB = 1;
                 
                 switch (sceneCode)
@@ -923,7 +920,6 @@ haha now it's edited by spax :)
                     case 1:
                         let textbox = document.querySelector(".text-box");
                         let textboxA = document.querySelector("#textBox");
-                        let bgImg = document.querySelector("#bg");
                         var intervalB;
                         var intervalC;
                         
@@ -963,13 +959,13 @@ haha now it's edited by spax :)
                                     intervalC = setInterval(function () {
                                         bgPos += varB / 10;
                                         
-                                        bgImg.style.backgroundPositionY = `${bgPos}%`;
+                                        mainContent.style.backgroundPositionY = `${bgPos}%`;
                                     }, 2);
                                 }
                                 else
                                 {
                                     clearInterval(intervalB);
-                                    bgImg.style.backgroundImage = "none";
+                                    mainContent.style.backgroundImage = "none";
                                     
                                     se.loop = false;
                                     se.src = "https://calmbubbles.github.io/zerasGift/audio/se/Crush 1.ogg";
@@ -1006,18 +1002,10 @@ haha now it's edited by spax :)
                         }, 1500)
                         break;
                     case 2:
-                        let contentLocation = document.querySelector("#bg");
-                        var newTextBox = document.createElement("div");
-                        var newTextInBox = document.createElement("div");
-                        
-                        newTextBox.classList.add("text-box", "flex-container", "unselectable", "text-box-modded", "newTextBox");
-                        newTextBox.setAttribute("data-disabled", "true");
-                        newTextBox.appendChild(newTextInBox);
-                        
-                        contentLocation.appendChild(newTextBox);
+                        mainContent.innerHTML += `<div class="text-box flex-container unselectable text-box-modded newTextBox" data-disabled="true"><div></div></div>`;
                         
                         let madeTextBox = document.querySelector(".newTextBox");
-                        let madeTextInBox = newTextBox.querySelector("div");
+                        let madeTextInBox = madeTextBox.querySelector("div");
                         
                         madeTextBox.style.animation = "loadTextBox linear 0.125s";
                         
@@ -1071,28 +1059,7 @@ haha now it's edited by spax :)
                         }, 20000);
                         break;
                     case 4:
-                        let mainContent = document.querySelector("#bg");
-                        let giftDivMain = document.createElement("div");
-                        let giftDivA = document.createElement("div");
-                        let giftDivB = document.createElement("div");
-                        let giftImgA = document.createElement("img");
-                        let giftImgB = document.createElement("img");
-                        
-                        giftDivMain.classList.add("giftDivMain", "unselectable");
-                        
-                        giftDivA.classList.add("giftDiv");
-                        giftDivB.classList.add("giftDivB");
-                        
-                        giftImgA.src = "https://calmbubbles.github.io/zerasGift/img/gift.png";
-                        giftImgB.src = "https://calmbubbles.github.io/zerasGift/img/gift.png";
-                        
-                        giftDivA.appendChild(giftImgA);
-                        giftDivB.appendChild(giftImgB);
-                        
-                        giftDivMain.appendChild(giftDivA);
-                        giftDivMain.appendChild(giftDivB);
-                        
-                        mainContent.appendChild(giftDivMain);
+                        mainContent.innerHTML += `<div class="giftDivMain unselectable"><div class="giftDiv"><img src="https://calmbubbles.github.io/zerasGift/img/gift.png"></div><div class="giftDivB"><img src="https://calmbubbles.github.io/zerasGift/img/gift.png"></div></div>`;
                         
                         var giftBox = document.querySelector(".giftDivMain");
                         var giftBoxTop = giftBox.querySelector(".giftDiv");
@@ -1154,26 +1121,46 @@ haha now it's edited by spax :)
                 
                 var index = 0;
                 var sndSrc;
-                                
-                // TEXTBOX AUDIO IS PAIN IDK WHY IT DOESN'T WORK PROPERLY ON MOBILE
-                // it's okay bro
-                // *casually un-comments the code*
-                // *also adds a phucking "for" loop*
-                // nvm it breaks everything :<
-                // trying again with new knowledge
+                var peeps = [
+                    "yoki",
+                    "claire",
+                    "aimottle",
+                    "zera",
+                    "woof",
+                    "este",
+                    "spax"
+                ];
                 
-                var peeps = ["Claire", "Aimottle", "Spax", "Yoki", "Zera", "Woof", "Default"];
-                for (let i = 0; i < 7; i++) {
-                  if (person == peeps[i]) {
-                    sndSrc = peeps[i];
-                  }
+                for (let i = 0; i < peeps.length; i++)
+                {
+                    if (person == peeps[i])
+                    {
+                        var imageVar = "";
+                        
+                        if (!spaxFixed)
+                        {
+                            imageVar = ` class="spaxDayECtext-boximg spaxDayEA"`;
+                        }
+                        
+                        textBox.innerHTML = `<img${imageVar} src="/images/faces/${person}/${face}.png"><span></span>`;
+                        
+                        textInBox = textBox.querySelector("span");
+                        
+                        sndSrc = `/audio/dialogue/${person}.ogg`;
+                    }
+                    else
+                    {
+                        textBox.innerHTML = "<span></span>";
+                        
+                        textInBox = textBox.querySelector("span");
+                        
+                        sndSrc = `/audio/dialogue/default.ogg`;
+                    }
                 }
                 
-                sndSrc = `/audio/dialogue/${sndSrc}.ogg`;
+                textBox.querySelector("img").src = ``;
                 
-                textBox.querySelector("img").src = `/images/faces/${person}/${face}.png`;
-                
-                // bgm.volume = bgm.volume / 2;
+                bgm.volume = bgm.volume / 2;
                 
                 var interval = setInterval(function () {
                     var textSnd = new Audio(sndSrc);
@@ -1201,7 +1188,7 @@ haha now it's edited by spax :)
                     
                     if (index == text.length)
                     {
-                        // bgm.volume = bgm.volume * 2;
+                        bgm.volume = bgm.volume * 2;
                         func();
                         clearInterval(interval);
                     }
