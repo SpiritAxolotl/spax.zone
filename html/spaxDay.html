@@ -1,5 +1,5 @@
 <!--
-Version : 1.1.7
+Version : 1.2.03
 Description : I hate working with audio, also I love eating spaghetti code with a twist of headache
 Next Major Update : Spax's Birthday
 
@@ -61,7 +61,7 @@ haha now it's edited by spax :)
         <link rel="icon" href="https://calmbubbles.github.io/zerasGift/img/giftBox.png">
         
         <link rel="stylesheet" href="/css/bootstrap.min.css">
-        <script src="https://spiritaxolotl.github.io/js/bootstrap.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
         
         <link rel="stylesheet" href="/css/styles.css" type=text/css>
         <link rel="canonical" href="https://spiritaxolotl.github.io/html/spaxDay"/>
@@ -411,20 +411,38 @@ haha now it's edited by spax :)
                 </div>
             </div>
             
-            <div class="text-box flex-container unselectable spaxDayECtext-body text-box-modded" data-disabled="true">
-                <div id="textBox"></div>
-            </div>
+            <div id="textBox" class="text-box flex-container unselectable spaxDayECtext-body text-box-modded"></div>
             
-            <!--For Debugging on mobile <button onclick="incIndex();" style="position:relative; width:100%; height:250px;">NEXT</button>-->
+            <!--For Debugging on mobile --><button onclick="incIndex();" style="position:relative; width:100%; height:250px;">NEXT</button>
         </div>
         
+        <script src="https://calmbubbles.github.io/js-plugins/modified/spax/dialogueSys.js"></script>
         <script>
             let textBox = document.querySelector("#textBox");
-            var textInBox;
-            var SpecialBox;
+            
+            var blockedText = [
+                ".",
+                ",",
+                "?",
+                "!",
+                "'",
+                "_"
+            ];
+            
+            var peeps = [
+                "yoki",
+                "claire",
+                "aimottle",
+                "zera",
+                "woof",
+                "este",
+                "spax"
+            ];
+            
+            var diaSys = new dialogueSys(textBox, blockedText, peeps, "loadTextBox linear", 0.125, "reverse loadTextBox linear", 0.125, "/images/faces", "/audio/dialogue");
+            
             var diaIndex = 0;
             var diaNextValid = false;
-            var diaIsActive = false;
             var spaxFixed = false;
             var bgm = new Audio("https://calmbubbles.github.io/zerasGift/audio/bgm/Yoki's House_Game.ogg");
             bgm.loop = true;
@@ -461,7 +479,7 @@ haha now it's edited by spax :)
                 bgm.play();
                 
                 setTimeout(function () {
-                    diaActive(true, function () {
+                    diaSys.SetActive(true, function () {
                         runDia(diaIndex);
                     });
                 }, 1000);
@@ -481,39 +499,6 @@ haha now it's edited by spax :)
                 }
             }
             
-            function diaActive (state, func)
-            {
-                let textbox = document.querySelector(".text-box");
-                SpecialBox = null;
-                
-                if (state == true)
-                {
-                    textbox.style.animation = "loadTextBox linear 0.125s";
-                    
-                    setTimeout(function () {
-                        textbox.setAttribute("data-disabled", "false");
-                        textbox.style.animation = "none";
-                        
-                        diaIsActive = true;
-                        
-                        func();
-                    }, 125);
-                }
-                else
-                {
-                    diaIsActive = false;
-                    
-                    textBox.innerHTML = "";
-                    
-                    textbox.style.animation = "reverse loadTextBox linear 0.125s";
-                    
-                    setTimeout(function () {
-                        textbox.setAttribute("data-disabled", "true");
-                        textbox.style.animation = "none";
-                        func();
-                    }, 125);
-                }
-            }
             // holy fuck calm you literally made a whole-ass dialogue system-
             function runDia (dialogueCode)
             {
@@ -522,69 +507,75 @@ haha now it's edited by spax :)
                 switch (dialogueCode)
                 {
                     case 0:
-                        typeOnBox("Hey nerds. ", 1, "claire", "Neutral", function () {
+                        diaSys.typeOnBox("Hey nerds. ", 1, "claire", "Neutral", function () {
                             diaNextValid = true;
                         });
                         break;
                     case 1:
                         bgm.play();
-                        typeOnBox("It's me, ", 1, "claire", "Neutral", function () {
-                            lineBreakBox(1);
-                            setTimeout(typeOnBox, 750, "Claire.", 1, "claire", "Neutral", function () {
-                                diaNextValid = true;
-                            });
+                        diaSys.typeOnBox("It's me, ", 1, "claire", "Neutral", function () {
+                            diaSys.lineBreakBox(1);
+                            setTimeout(function () {
+                                diaSys.typeOnBox("Claire.", 1, "claire", "Neutral", function () {
+                                    diaNextValid = true;
+                                });
+                            }, 750);
                         });
                         break;
                     case 2:
-                        clearBox();
-                        typeOnBox("I am now on a poggers ", 1, "claire", "Happy", function () {
-                            lineBreakBox(1);
-                            typeOnBox("website. ", 1, "claire", "Happy", function () {
+                        diaSys.clearBox();
+                        diaSys.typeOnBox("I am now on a poggers ", 1, "claire", "Happy", function () {
+                            diaSys.lineBreakBox(1);
+                            diaSys.typeOnBox("website. ", 1, "claire", "Happy", function () {
                                 diaNextValid = true;
                             });
                         });
                         break;
                     case 3:
-                        typeOnBox("Woo!", 1, "claire", "Happy", function () {
+                        diaSys.typeOnBox("Woo!", 1, "claire", "Happy", function () {
                             diaNextValid = true;
                         });
                         break;
                     case 4:
-                        clearBox();
-                        typeOnBox("Anyways it's time for ", 1, "claire", "Sigh", function () {
-                            lineBreakBox(1);
-                            typeOnBox("some ", 1, "claire", "Sigh", function () {
-                                resetBoxTo("Anyways it's time for some ");
-                                typeOnBox("fucking debugging.", 1, "claire", "Sigh", function () {
+                        diaSys.clearBox();
+                        diaSys.typeOnBox("Anyways it's time for ", 1, "claire", "Sigh", function () {
+                            diaSys.lineBreakBox(1);
+                            diaSys.typeOnBox("some ", 1, "claire", "Sigh", function () {
+                                diaSys.resetBoxTo("Anyways it's time for some ");
+                                diaSys.typeOnBox("fucking debugging.", 1, "claire", "Sigh", function () {
                                     diaNextValid = true;
                                 });
                             });
                         });
                         break;
                     case 5:
-                        clearBox();
-                        typeOnBox("Spax, ", 1, "aimottle", "Unsure", function () {
-                            setTimeout(typeOnBox, 670, "you don't know ", 1, "aimottle", "Unsure", function () {
-                                lineBreakBox(1);
-                                typeOnBox("what ", 1, "aimottle", "Unsure", function () {
-                                    resetBoxTo("Spax, you don't know what ");
-                                    typeOnBox("you're doing at all, ", 1, "aimottle", "Unsure", function () {
-                                        setTimeout(typeOnBox, 500, "do you?", 1, "aimottle", "Unsure", function () {
-                                            diaNextValid = true;
+                        diaSys.clearBox();
+                        diaSys.typeOnBox("Spax, ", 1, "aimottle", "Unsure", function () {
+                            setTimeout(function () {
+                                diaSys.typeOnBox("you don't know ", 1, "aimottle", "Unsure", function () {
+                                    diaSys.lineBreakBox(1);
+                                    diaSys.typeOnBox("what ", 1, "aimottle", "Unsure", function () {
+                                        diaSys.resetBoxTo("Spax, you don't know what ");
+                                        diaSys.typeOnBox("you're doing at all, ", 1, "aimottle", "Unsure", function () {
+                                            setTimeout(function () {
+                                                diaSys.typeOnBox("do you?", 1, "aimottle", "Unsure", function () {
+                                                    diaNextValid = true;
+                                                });
+                                            }, 500);
                                         });
                                     });
                                 });
-                            });
+                            }, 670);
                         });
                         break;
                     case 6:
-                    clearBox();
-                        typeOnBox("Well no", 0.75, "spax", "Worried", function () {
-                            typeOnBox("... ", 0.025, "spax", "Worried", function () {
-                                typeOnBox("but- ", 0.75, "spax", "Worried", function () {
+                    diaSys.clearBox();
+                        diaSys.typeOnBox("Well no", 0.75, "spax", "Worried", function () {
+                            diaSys.typeOnBox("... ", 0.025, "spax", "Worried", function () {
+                                diaSys.typeOnBox("but- ", 0.75, "spax", "Worried", function () {
                                     bgm.pause();
-                                   clearBox();
-                                   typeOnBox("... ", 0.025, "spax", "Pensive", function () {
+                                   diaSys.clearBox();
+                                   diaSys.typeOnBox("... ", 0.025, "spax", "Pensive", function () {
                                        runScene(0);
                                    });
                                }); 
@@ -592,30 +583,30 @@ haha now it's edited by spax :)
                         });
                         break;
                     case 7:
-                        clearBox();
-                        typeOnBox("how tf- ", 0.25, "claire", "Aghast", function () {
-                            clearBox();
-                            typeOnBox("I have no clue how I did ", 0.5, "spax", "Dizzy", function () {
-                                lineBreakBox(1);
-                                typeOnBox("it I'm so tired now", 0.5, "spax", "Dizzy", function () {
+                        diaSys.clearBox();
+                        diaSys.typeOnBox("how tf- ", 0.25, "claire", "Aghast", function () {
+                            diaSys.clearBox();
+                            diaSys.typeOnBox("I have no clue how I did ", 0.5, "spax", "Dizzy", function () {
+                                diaSys.lineBreakBox(1);
+                                diaSys.typeOnBox("it I'm so tired now", 0.5, "spax", "Dizzy", function () {
                                     diaNextValid = true;
                                 });
                             });
                         });
                         break;
                     case 8:
-                        clearBox();
-                        typeOnBox("(I still don't know where the ", 1, "yoki", "Sweat_Drop", function () {
-                            resetBoxTo("(I still don't know where the <i>");
-                            typeOnBox("fuck", 1, "yoki", "Sweat_Drop", function () {
-                                resetBoxTo("(I still don't know where the <i>fuck</i> ");
-                                typeOnBox("I am-) ", 1, "yoki", "Sweat_Drop", function () {
-                                    clearBox();
-                                    typeOnBox("Wait", 1, "yoki", "Sweat_Drop", function () {
-                                        typeOnBox("... ", 0.05, "yoki", "Sweat_Drop", function () {
-                                            typeOnBox("I can talk more ", 1, "yoki", "Surprised", function () {
-                                                lineBreakBox(1);
-                                                typeOnBox("freely?", 1, "yoki", "Surprised", function () {
+                        diaSys.clearBox();
+                        diaSys.typeOnBox("(I still don't know where the ", 1, "yoki", "Sweat_Drop", function () {
+                            diaSys.resetBoxTo("(I still don't know where the <i>");
+                            diaSys.typeOnBox("fuck", 1, "yoki", "Sweat_Drop", function () {
+                                diaSys.resetBoxTo("(I still don't know where the <i>fuck</i> ");
+                                diaSys.typeOnBox("I am-) ", 1, "yoki", "Sweat_Drop", function () {
+                                    diaSys.clearBox();
+                                    diaSys.typeOnBox("Wait", 1, "yoki", "Sweat_Drop", function () {
+                                        diaSys.typeOnBox("... ", 0.05, "yoki", "Sweat_Drop", function () {
+                                            diaSys.typeOnBox("I can talk more ", 1, "yoki", "Surprised", function () {
+                                                diaSys.lineBreakBox(1);
+                                                diaSys.typeOnBox("freely?", 1, "yoki", "Surprised", function () {
                                                     diaNextValid = true;
                                                 });
                                             });
@@ -626,53 +617,53 @@ haha now it's edited by spax :)
                         });
                         break;
                     case 9:
-                        clearBox();
-                        typeOnBox("Cool right?", 1, "claire", "Happy", function () {
+                        diaSys.clearBox();
+                        diaSys.typeOnBox("Cool right?", 1, "claire", "Happy", function () {
                             diaNextValid = true;
                         });
                         break;
                     case 10:
-                        clearBox();
-                        typeOnBox("There was going to be ", 1, "claire", "Sigh", function () {
-                            lineBreakBox(1);
-                            typeOnBox("more than these ", 1, "claire", "Sigh", function () {
-                                lineBreakBox(1);
-                                typeOnBox("dialogues.", 1, "claire", "Sigh", function () {
+                        diaSys.clearBox();
+                        diaSys.typeOnBox("There was going to be ", 1, "claire", "Sigh", function () {
+                            diaSys.lineBreakBox(1);
+                            diaSys.typeOnBox("more than these ", 1, "claire", "Sigh", function () {
+                                diaSys.lineBreakBox(1);
+                                diaSys.typeOnBox("dialogues.", 1, "claire", "Sigh", function () {
                                     diaNextValid = true;
                                 });
                             });
                         });
                         break;
                     case 11:
-                        clearBox();
-                        typeOnBox("But we were too busy.", 1, "claire", "Sigh", function () {
+                        diaSys.clearBox();
+                        diaSys.typeOnBox("But we were too busy.", 1, "claire", "Sigh", function () {
                             diaNextValid = true;
                         });
                         break;
                     case 12:
-                        clearBox();
-                        typeOnBox("I was getting chased by a wild dog!", 1, "aimottle", "Angry", function () {
+                        diaSys.clearBox();
+                        diaSys.typeOnBox("I was getting chased by a wild dog!", 1, "aimottle", "Angry", function () {
                             diaNextValid = true;
                         });
                         break;
                     case 13:
-                        clearBox();
-                        typeOnBox("TAAAAASSSTTY", 0.5, "woof", "Awake", function () {
-                            lineBreakBox(1);
-                            typeOnBox("RAAABBIIITT!", 0.5, "woof", "Awake", function () {
+                        diaSys.clearBox();
+                        diaSys.typeOnBox("TAAAAASSSTTY", 0.5, "woof", "Awake", function () {
+                            diaSys.lineBreakBox(1);
+                            diaSys.typeOnBox("RAAABBIIITT!", 0.5, "woof", "Awake", function () {
                                 diaNextValid = true;
                             });
                         });
                         break;
                     case 14:
-                        clearBox();
-                        typeOnBox("About that, ", 1, "aimottle", "Unsure", function () {
+                        diaSys.clearBox();
+                        diaSys.typeOnBox("About that, ", 1, "aimottle", "Unsure", function () {
                             setTimeout(function () {
-                                typeOnBox("I'm gonna ", 1, "aimottle", "Unsure", function () {
-                                    lineBreakBox(1);
-                                    typeOnBox("go", 1, "aimottle", "Unsure", function () {
-                                        typeOnBox("... ", 0.25, "aimottle", "Unsure", function () {
-                                            typeOnBox("and run.", 1, "aimottle", "Neutral", function () {
+                                diaSys.typeOnBox("I'm gonna ", 1, "aimottle", "Unsure", function () {
+                                    diaSys.lineBreakBox(1);
+                                    diaSys.typeOnBox("go", 1, "aimottle", "Unsure", function () {
+                                        diaSys.typeOnBox("... ", 0.25, "aimottle", "Unsure", function () {
+                                            diaSys.typeOnBox("and run.", 1, "aimottle", "Neutral", function () {
                                                 diaNextValid = true;
                                             });
                                         });
@@ -682,24 +673,24 @@ haha now it's edited by spax :)
                         });
                         break;
                     case 15:
-                        clearBox();
-                        typeOnBox("Wait for me", 1, "yoki", "Sweat_Drop", function () {
-                            typeOnBox("...", 0.5, "yoki", "Sweat_Drop", function () {
+                        diaSys.clearBox();
+                        diaSys.typeOnBox("Wait for me", 1, "yoki", "Sweat_Drop", function () {
+                            diaSys.typeOnBox("...", 0.5, "yoki", "Sweat_Drop", function () {
                                 diaNextValid = true;
                             });
                         });
                         break;
                     case 16:
-                        clearBox();
-                        typeOnBox("These boxes looks awful on mobile.", 1, "claire", "Sigh", function () {
+                        diaSys.clearBox();
+                        diaSys.typeOnBox("These boxes looks awful on mobile.", 1, "claire", "Sigh", function () {
                             diaNextValid = true;
                         });
                         break;
                     case 17:
-                        clearBox();
-                        typeOnBox("Also happy birthday ", 1, "claire", "Happy", function () {
-                            lineBreakBox(1);
-                            typeOnBox("Spax!", 1, "claire", "Happy", function () {
+                        diaSys.clearBox();
+                        diaSys.typeOnBox("Also happy birthday ", 1, "claire", "Happy", function () {
+                            diaSys.lineBreakBox(1);
+                            diaSys.typeOnBox("Spax!", 1, "claire", "Happy", function () {
                                 diaNextValid = true;
                             });
                         });
@@ -707,92 +698,92 @@ haha now it's edited by spax :)
                     case 18:
                         bgm.pause();
                         bgm.src = "https://calmbubbles.github.io/zerasGift/audio/bgm/Zera_Game.ogg";
-                        clearBox();
-                        typeOnBox("What did I miss?", 1, "zera", "Neutral", function () {
+                        diaSys.clearBox();
+                        diaSys.typeOnBox("What did I miss?", 1, "zera", "Neutral", function () {
                             diaNextValid = true;
                         });
                         break;
                     case 19:
                         bgm.play();
-                        clearBox();
-                        typeOnBox("Can you just leave?", 1, "claire", "Mad", function () {
+                        diaSys.clearBox();
+                        diaSys.typeOnBox("Can you just leave?", 1, "claire", "Mad", function () {
                             diaNextValid = true;
                         });
                         break;
                     case 20:
-                        clearBox();
-                        typeOnBox("I want to, ", 1, "zera", "Neutral", function () {
+                        diaSys.clearBox();
+                        diaSys.typeOnBox("I want to, ", 1, "zera", "Neutral", function () {
                             setTimeout(function () {
-                                typeOnBox("but I also want screen time.", 1, "zera", "Neutral", function () {
+                                diaSys.typeOnBox("but I also want screen time.", 1, "zera", "Neutral", function () {
                                     diaNextValid = true;
                                 });
                             }, 370);
                         });
                         break;
                     case 21:
-                        clearBox();
-                        typeOnBox("Am I not allowed to have screen time?", 1, "zera", "Look", function () {
+                        diaSys.clearBox();
+                        diaSys.typeOnBox("Am I not allowed to have screen time?", 1, "zera", "Look", function () {
                             diaNextValid = true;
                         });
                         break;
                     case 22:
-                        clearBox();
-                        typeOnBox("... ", 0.025, "claire", "Aghast", function () {
+                        diaSys.clearBox();
+                        diaSys.typeOnBox("... ", 0.025, "claire", "Aghast", function () {
                             diaNextValid = true;
                         });
                         break;
                     case 23:
-                        clearBox();
-                        typeOnBox("You know what. ", 1, "zera", "Neutral", function () {
+                        diaSys.clearBox();
+                        diaSys.typeOnBox("You know what. ", 1, "zera", "Neutral", function () {
                             diaNextValid = true;
                         });
                         break;
                     case 24:
-                        typeOnBox("I'm ", 1, "zera", "Neutral", function () {
-                            lineBreakBox(1);
-                            typeOnBox("bringing", 1, "zera", "Neutral", function () {
-                                resetBoxTo("You know what. I'm bringing ");
-                                typeOnBox("this with me.", 1, "zera", "Neutral", function () {
+                        diaSys.typeOnBox("I'm ", 1, "zera", "Neutral", function () {
+                            diaSys.lineBreakBox(1);
+                            diaSys.typeOnBox("bringing", 1, "zera", "Neutral", function () {
+                                diaSys.resetBoxTo("You know what. I'm bringing ");
+                                diaSys.typeOnBox("this with me.", 1, "zera", "Neutral", function () {
                                     diaNextValid = true;
                                 });
                             });
                         });
                         break;
                     case 25:
-                        clearBox();
-                        typeOnBox("Wait no- ", 1.5, "claire", "Aghast", function () {
+                        diaSys.clearBox();
+                        diaSys.typeOnBox("Wait no- ", 1.5, "claire", "Aghast", function () {
                             runScene(1);
                         });
                         break;
                     case 26:
-                        clearBox();
-                        typeOnBox("Anyways, ", 1, "zera", "Neutral", function () {
+                        diaSys.clearBox();
+                        diaSys.typeOnBox("Anyways, ", 1, "zera", "Neutral", function () {
                             setTimeout(function () {
-                                typeOnBox("happy birthday Spax.", 1, "zera", "Smile", function () {
+                                diaSys.typeOnBox("happy birthday Spax.", 1, "zera", "Smile", function () {
                                     runScene(2);
                                 });
                             }, 370);
                         });
                         break;
                     case 27:
-                        clearBox();
-                        typeOnBox("Have you seen the tasty rabbit around?", 1, "woof", "Look", function () {
+                        diaSys.clearBox();
+                        diaSys.typeOnBox("Have you seen the tasty rabbit around?", 1, "woof", "Look", function () {
                             diaNextValid = true;
                         });
                         break;
                     case 28:
-                        clearBox();
-                        typeOnBox("They were with Yoki.", 1, "woof", "Look", function () {
+                        diaSys.clearBox();
+                        diaSys.typeOnBox("They were with Yoki.", 1, "woof", "Look", function () {
                             diaNextValid = true;
                         });
                         break;
                     case 29:
-                        clearBox();
-                        typeOnBox("I haven't seen them, ", 1, "zera", "Smile", function () {
+                        diaSys.clearBox();
+                        diaSys.typeOnBox("I haven't seen them, ", 1, "zera", "Smile", function () {
                             setTimeout(function () {
-                                typeOnBox("you should probably keep ", 1, "zera", "Smile", function () {
-                                    lineBreakBox(1);
-                                    typeOnBox("looking.", 1, "zera", "Smile", function () {
+                                diaSys.typeOnBox("you should probably keep ", 1, "zera", "Smile", function () {
+                                    diaSys.lineBreakBox(1);
+                                    diaSys.typeOnBox("looking.", 1, "zera", "Smile", function () {
                                         diaNextValid = true;
                                     });
                                 });
@@ -800,31 +791,31 @@ haha now it's edited by spax :)
                         });
                         break;
                     case 30:
-                        clearBox();
-                        typeOnBox("What that weird fish that looks like a lizard?", 1, "woof", "Look", function () {
+                        diaSys.clearBox();
+                        diaSys.typeOnBox("What that weird fish that looks like a lizard?", 1, "woof", "Look", function () {
                             diaNextValid = true;
                         });
                         break;
                     case 31:
-                        clearBox();
-                        typeOnBox("It's called an axolotl.", 1, "zera", "Smile", function () {
+                        diaSys.clearBox();
+                        diaSys.typeOnBox("It's called an axolotl.", 1, "zera", "Smile", function () {
                             diaNextValid = true;
                         });
                         break;
                     case 32:
-                        clearBox();
-                        typeOnBox("Can I eat it?", 1, "woof", "Awake", function () {
+                        diaSys.clearBox();
+                        diaSys.typeOnBox("Can I eat it?", 1, "woof", "Awake", function () {
                             diaNextValid = true;
                         });
                         break;
                     case 33:
-                        clearBox();
-                        typeOnBox("It's the axolotl's ", 1, "zera", "Neutral", function () {
-                            lineBreakBox(1);
-                            typeOnBox("birthday, ", 1, "zera", "Neutral", function () {
-                                resetBoxTo("It's the axolotl's birthday, ");
+                        diaSys.clearBox();
+                        diaSys.typeOnBox("It's the axolotl's ", 1, "zera", "Neutral", function () {
+                            diaSys.lineBreakBox(1);
+                            diaSys.typeOnBox("birthday, ", 1, "zera", "Neutral", function () {
+                                diaSys.resetBoxTo("It's the axolotl's birthday, ");
                                 setTimeout(function () {
-                                    typeOnBox("so we let it live another day.", 1, "zera", "Smile", function () {
+                                    diaSys.typeOnBox("so we let it live another day.", 1, "zera", "Smile", function () {
                                         diaNextValid = true;
                                     });
                                 }, 370);
@@ -832,12 +823,12 @@ haha now it's edited by spax :)
                         });
                         break;
                     case 34:
-                        clearBox();
-                        typeOnBox("Oh, ", 1, "woof", "Look", function () {
+                        diaSys.clearBox();
+                        diaSys.typeOnBox("Oh, ", 1, "woof", "Look", function () {
                             setTimeout(function () {
-                                typeOnBox("I guess I'll keep on ", 1, "woof", "Awake", function () {
-                                    lineBreakBox(1);
-                                    typeOnBox("looking.", 1, "woof", "Awake", function () {
+                                diaSys.typeOnBox("I guess I'll keep on ", 1, "woof", "Awake", function () {
+                                    diaSys.lineBreakBox(1);
+                                    diaSys.typeOnBox("looking.", 1, "woof", "Awake", function () {
                                         diaNextValid = true;
                                     });
                                 });
@@ -845,14 +836,14 @@ haha now it's edited by spax :)
                         });
                         break;
                     case 35:
-                        clearBox();
-                        typeOnBox("Happy birthday axolotl!", 1, "woof", "Awake", function () {
+                        diaSys.clearBox();
+                        diaSys.typeOnBox("Happy birthday axolotl!", 1, "woof", "Awake", function () {
                             diaNextValid = true;
                         });
                         break;
                     case 36:
-                        clearBox();
-                        typeOnBox("... ", 0.05, "zera", "Smile", function () {
+                        diaSys.clearBox();
+                        diaSys.typeOnBox("... ", 0.05, "zera", "Smile", function () {
                             runScene(3);
                         });
                         break;
@@ -894,16 +885,16 @@ haha now it's edited by spax :)
                                 ElA[1].classList.remove("spaxDayECtext-boximg");
                                 spaxFixed = true;
                                 
-                                diaActive(false, function () {
+                                diaSys.SetActive(false, function () {
                                     setTimeout(function () {
                                         bgm.play();
-                                        diaActive(true, function () {
-                                            typeOnBox("HOLY SHIT THEY ", 1, "aimottle", "Neutral", function () {
-                                                lineBreakBox(1);
-                                                typeOnBox("ACTUALLY ", 1, "aimottle", "Neutral", function () {
-                                                    resetBoxTo("HOLY SHIT THEY ACTUALLY ");
-                                                    typeOnBox("FIXED MOST OF ", 1, "aimottle", "Neutral", function () {
-                                                        typeOnBox("THE CODE", 1, "aimottle", "Neutral", function () {
+                                        diaSys.SetActive(true, function () {
+                                            diaSys.typeOnBox("HOLY SHIT THEY ", 1, "aimottle", "Neutral", function () {
+                                                diaSys.lineBreakBox(1);
+                                                diaSys.typeOnBox("ACTUALLY ", 1, "aimottle", "Neutral", function () {
+                                                    diaSys.resetBoxTo("HOLY SHIT THEY ACTUALLY ");
+                                                    diaSys.typeOnBox("FIXED MOST OF ", 1, "aimottle", "Neutral", function () {
+                                                        diaSys.typeOnBox("THE CODE", 1, "aimottle", "Neutral", function () {
                                                             diaNextValid = true;
                                                         });
                                                     });
@@ -920,14 +911,13 @@ haha now it's edited by spax :)
                         }, 1000);
                         break;
                     case 1:
-                        let textbox = document.querySelector(".text-box");
-                        let textboxA = document.querySelector("#textBox");
                         var intervalB;
                         var intervalC;
                         
                         var bgPos = 0;
                         
-                        textboxA.innerHTML = "";
+                        diaSys.diaBoxLine.innerHTML = "";
+                        
                         SpecialBox = null;
                         
                         bgm.pause();
@@ -957,7 +947,7 @@ haha now it's edited by spax :)
                                     
                                     se.play();
                                     
-                                    textbox.style.animation = `shake${varB} 0.25s infinite`;
+                                    textBox.style.animation = `shake${varB} 0.25s infinite`;
                                     
                                     intervalC = setInterval(function () {
                                         bgPos += varB / 10;
@@ -975,21 +965,21 @@ haha now it's edited by spax :)
                                     se.src = "https://calmbubbles.github.io/zerasGift/audio/se/Crush 1.ogg";
                                     se.play();
                                     
-                                    textbox.setAttribute("data-disabled", true);
-                                    textbox.style.animation = "none";
+                                    textBox.setAttribute("data-disabled", true);
+                                    textBox.style.animation = "none";
                                     setTimeout(function () {
-                                        diaActive(true, function () {
+                                        diaSys.SetActive(true, function () {
                                             bgm.play();
-                                            clearBox();
-                                            typeOnBox("Now I have you, ", 1, "zera", "Neutral", function () {
+                                            diaSys.clearBox();
+                                            diaSys.typeOnBox("Now I have you, ", 1, "zera", "Neutral", function () {
                                                 setTimeout(function () {
-                                                    typeOnBox("I can ", 1, "zera", "Neutral", function () {
-                                                        lineBreakBox(1);
-                                                        typeOnBox("have ", 1, "zera", "Neutral", function () {
-                                                            resetBoxTo("Now I have you, I can have ");
-                                                            typeOnBox("all the screen time I ", 1, "zera", "Neutral", function () {
-                                                                lineBreakBox(1);
-                                                                typeOnBox("want.", 1, "zera", "Neutral", function () {
+                                                    diaSys.typeOnBox("I can ", 1, "zera", "Neutral", function () {
+                                                        diaSys.lineBreakBox(1);
+                                                        diaSys.typeOnBox("have ", 1, "zera", "Neutral", function () {
+                                                            diaSys.resetBoxTo("Now I have you, I can have ");
+                                                            diaSys.typeOnBox("all the screen time I ", 1, "zera", "Neutral", function () {
+                                                                diaSys.lineBreakBox(1);
+                                                                diaSys.typeOnBox("want.", 1, "zera", "Neutral", function () {
                                                                     diaNextValid = true;
                                                                 });
                                                             });
@@ -1027,19 +1017,19 @@ haha now it's edited by spax :)
                         }, 125);
                         
                         setTimeout(function () {
-                            clearBox();
-                            typeOnBox("I'm going to send ", 1, "zera", "Pout", function () {
-                                lineBreakBox(1);
-                                typeOnBox("someone ", 1, "zera", "Pout", function () {
-                                    resetBoxTo("I'm going to send someone ");
-                                    typeOnBox("to hunt Calm if ", 1, "zera", "Pout", function () {
-                                        lineBreakBox(1);
-                                        typeOnBox("he ", 1, "zera", "Pout", function () {
-                                            resetBoxTo("I'm going to send someone to hunt Calm if he ");
-                                            typeOnBox("sends this to you late.", 1, "zera", "Pout", function () {
+                            diaSys.clearBox();
+                            diaSys.typeOnBox("I'm going to send ", 1, "zera", "Pout", function () {
+                                diaSys.lineBreakBox(1);
+                                diaSys.typeOnBox("someone ", 1, "zera", "Pout", function () {
+                                    diaSys.resetBoxTo("I'm going to send someone ");
+                                    diaSys.typeOnBox("to hunt Calm if ", 1, "zera", "Pout", function () {
+                                        diaSys.lineBreakBox(1);
+                                        diaSys.typeOnBox("he ", 1, "zera", "Pout", function () {
+                                            diaSys.resetBoxTo("I'm going to send someone to hunt Calm if he ");
+                                            diaSys.typeOnBox("sends this to you late.", 1, "zera", "Pout", function () {
                                                 setTimeout(function () {
-                                                    clearBox();
-                                                    typeOnBox("Zera!", 1, "woof", "Awake", function () {
+                                                    diaSys.clearBox();
+                                                    diaSys.typeOnBox("Zera!", 1, "woof", "Awake", function () {
                                                         diaNextValid = true;
                                                     });
                                                 }, 15000);
@@ -1052,14 +1042,14 @@ haha now it's edited by spax :)
                         break;
                     case 3:
                         setTimeout(function () {
-                            clearBox();
-                            typeOnBox("Here's a gift, ", 1, "zera", "Smile", function () {
+                            diaSys.clearBox();
+                            diaSys.typeOnBox("Here's a gift, ", 1, "zera", "Smile", function () {
                                 setTimeout(function () {
-                                    typeOnBox("it took a ", 1, "zera", "Neutral", function () {
-                                        lineBreakBox(1);
-                                        typeOnBox("lot ", 1, "zera", "Neutral", function () {
-                                            resetBoxTo("Here's a gift, it took a lot ");
-                                            typeOnBox("of effort to make.", 1, "zera", "Neutral", function () {
+                                    diaSys.typeOnBox("it took a ", 1, "zera", "Neutral", function () {
+                                        diaSys.lineBreakBox(1);
+                                        diaSys.typeOnBox("lot ", 1, "zera", "Neutral", function () {
+                                            diaSys.resetBoxTo("Here's a gift, it took a lot ");
+                                            diaSys.typeOnBox("of effort to make.", 1, "zera", "Neutral", function () {
                                                 runScene(4);
                                                 //WOWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
                                             });
@@ -1121,128 +1111,6 @@ haha now it's edited by spax :)
                         }, 750);
                         break;
                 }
-            }
-            
-            function typeOnBox (text, speed, person, face, func)
-            {
-                if (!diaIsActive) return;
-                
-                var index = 0;
-                var sndSrc;
-                var peeps = [
-                    "yoki",
-                    "claire",
-                    "aimottle",
-                    "zera",
-                    "woof",
-                    "este",
-                    "spax"
-                ];
-                
-                var validPeep = false;
-                
-                for (let i = 0; i < peeps.length; i++)
-                {
-                    if (person == peeps[i])
-                    {
-                        validPeep = true;
-                    }
-                }
-                
-                if (validPeep != SpecialBox)
-                {
-                    if (validPeep)
-                    {
-                        var imageVar = "";
-                        
-                        if (!spaxFixed)
-                        {
-                            imageVar = ` class="spaxDayECtext-boximg spaxDayEA"`;
-                        }
-                        
-                        textBox.innerHTML = `<img${imageVar} src="/images/faces/${person}/${face}.png"><span></span>`;
-                        
-                        textInBox = textBox.querySelector("span");
-                        
-                        sndSrc = `/audio/dialogue/${person}.ogg`;
-                    }
-                    else
-                    {
-                        textBox.innerHTML = "<span></span>";
-                        
-                        textInBox = textBox.querySelector("span");
-                        
-                        sndSrc = `/audio/dialogue/default.ogg`;
-                    }
-                    
-                    SpecialBox = validPeep;
-                }
-                else
-                {
-                    if (validPeep)
-                    {
-                        textBox.querySelector("img").src = `/images/faces/${person}/${face}.png`;
-                        
-                        sndSrc = `/audio/dialogue/${person}.ogg`;
-                    }
-                    else
-                    {
-                        sndSrc = `/audio/dialogue/default.ogg`;
-                    }
-                }
-                
-                bgm.volume = bgm.volume / 2;
-                
-                var interval = setInterval(function () {
-                    var textSnd = new Audio(sndSrc);
-                    textSnd.volume = 0.75;
-                    
-                    if (index < text.length)
-                    {
-                        if (
-                            text[index] != " "&&
-                            text[index] != "."&&
-                            text[index] != ","&&
-                            text[index] != "?"&&
-                            text[index] != "!"&&
-                            text[index] != "'"&&
-                            text[index] != "_"
-                            )
-                        {
-                            textSnd.play();
-                        }
-                        
-                        textInBox.innerHTML += text[index];
-                        
-                        index++;
-                    }
-                    
-                    if (index == text.length)
-                    {
-                        bgm.volume = bgm.volume * 2;
-                        func();
-                        clearInterval(interval);
-                    }
-                }, (24 / speed));
-            }
-            
-            function lineBreakBox (amount)
-            {
-                for (let i = 0; i < amount; i++)
-                {
-                    textInBox.innerHTML += "<br>";
-                }
-            }
-            
-            function resetBoxTo (text)
-            {
-                textInBox.innerHTML = text;
-            }
-            
-            function clearBox ()
-            {
-                textBox.innerHTML = "";
-                SpecialBox = null;
             }
         </script>
         <script src="/js/scrollparallax.js"></script>
