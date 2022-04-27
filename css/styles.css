@@ -69,6 +69,7 @@ body{
     font-size: 21px;
     word-wrap: break-word;
     letter-spacing: 4.5px;
+    min-width: 600px;
     max-width: 600px;
     z-index: 5;
 }
@@ -110,6 +111,7 @@ body{
     font-size: 19px;
     word-wrap: break-word;
     letter-spacing: 1px;
+    min-width: 600px;
     max-width: 600px;
     z-index: 5;
     text-decoration: underline;
@@ -150,6 +152,7 @@ body{
     font-size: 25px;
     word-wrap: break-word;
     letter-spacing: 1px;
+    min-width: 600px;
     max-width: 600px;
     z-index: 5;
 }
