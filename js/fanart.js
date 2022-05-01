@@ -11,17 +11,15 @@ Fanart.load = function ()
 {
     let request = new XMLHttpRequest();
     
-    request.onload = function ()
-    {
+    request.onload = () => {
         if (request.status < 400)
         {
-            Fanart.fanartData = JSON.parse(this.responseText);
-            Fanart.setData();
+            this.fanartData = JSON.parse(request.responseText);
+            this.setData();
         }
     };
     
-    request.onerror = function ()
-    {
+    request.onerror = () => {
         ThrowError(3);
     };
     
