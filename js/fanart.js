@@ -53,7 +53,7 @@ Fanart.setData = function ()
             descText = `<br>${this.fanartData[i].desc}`;
         }
         
-        this.mainContent.innerHTML += `<div class="fart-text-box fart-flex-container unselectable"${styleText}><div>${this.fanartData[i].content}<br>${this.fanartData[i].type} by ${creditText}${descText}</div></div>`;
+        this.mainContent.innerHTML += `<div class="fart-text-box unselectable"${styleText}><div>${this.fanartData[i].content}<br>${this.fanartData[i].type} by ${creditText}${descText}</div></div>`;
         
         if (i == this.fanartData.length - 1)
         {
