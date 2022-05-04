@@ -1,15 +1,14 @@
 [
-    /*
-    template:
-    {
-        "visible" : t/f,
-        "content" : "<img src='/images/fanart/{filename}'>",
-        "type" : "Drawn",
-        "credit" : "{person}",
-        "link" : "https://discord.com/users/{user_id}/",
-        "desc" : null
-    },
-    */
+    //template:
+    //{
+    //    "visible" : t/f,
+    //    "content" : "<img src='/images/fanart/{filename}'>",
+    //    "type" : "Drawn",
+    //    "credit" : "{person}",
+    //    "link" : "https://discord.com/users/{user_id}/",
+    //    "desc" : null
+    //},
+    
     {
         "visible" : true,
         "content" : "<img src='/images/fanart/nahua_ryo_pose.png'>",
