@@ -4,7 +4,7 @@
         "content" : "<img src='/images/fanart/nahua_ryo_pose.png'>",
         "type" : "Drawn",
         "credit" : "Ryo",
-        "link" : "https://discord.com/users/IDK/",
+        "link" : "https://discord.com/users/326882748490973185/",
         "desc" : "(art jumpscared)"
     },
     {
@@ -12,7 +12,7 @@
         "content" : "<img src='/images/fanart/nahua_z_pose.png'>",
         "type" : "Drawn",
         "credit" : "Z",
-        "link" : "https://discord.com/users/IDK/",
+        "link" : "https://discord.com/users/488852646858326027/",
         "desc" : "(partially requested)"
     },
     {
@@ -20,7 +20,7 @@
         "content" : "<img src='/images/fanart/spax-anthro_zuka_headshotstuff.png'>",
         "type" : "Drawn",
         "credit" : "Zuka",
-        "link" : "https://discord.com/users/IDK/",
+        "link" : "https://discord.com/users/614853980375220224/",
         "desc" : null
     },
     {
@@ -28,7 +28,7 @@
         "content" : "<img src='/images/fanart/nahua_skooptroop_bday.png'>",
         "type" : "Drawn",
         "credit" : "skooptroop!",
-        "link" : "https://discord.com/users/IDK/",
+        "link" : "https://discord.com/users/552428712126316544/",
         "desc" : "(birthday gift)"
     },
     {
@@ -73,6 +73,14 @@
     },
     {
         "visible" : true,
+        "content" : "<img src='/images/fanart/nahua_timber_pose.png'>",
+        "type" : "Drawn",
+        "credit" : "Timber",
+        "link" : "https://discord.com/users/650333611475730433/",
+        "desc" : null
+    },
+    {
+        "visible" : true,
         "content" : "<img src='/images/fanart/nahua_bananas_lewd.png'>",
         "type" : "Drawn",
         "credit" : "1LikeBananas",
@@ -92,7 +100,7 @@
         "content" : "<img src='/images/fanart/nahua_slima_pose.png'>",
         "type" : "Drawn",
         "credit" : "Slima11",
-        "link" : "https://discord.com/users/IDK/",
+        "link" : "https://discord.com/users/570344477177151490/",
         "desc" : null
     },
     {
@@ -112,7 +120,7 @@
         "desc" : null
     },
     {
-        "visible" : false,
+        "visible" : true,
         "content" : "<img src='/images/fanart/nahua_bean_couch.png'>",
         "type" : "Drawn",
         "credit" : "bean",
@@ -161,14 +169,6 @@
     },
     {
         "visible" : true,
-        "content" : "<img src='/images/fanart/nahua_timber_pose.png'>",
-        "type" : "Drawn",
-        "credit" : "Timber",
-        "link" : "https://discord.com/users/650333611475730433/",
-        "desc" : null
-    },
-    {
-        "visible" : true,
         "content" : "<img src='/images/fanart/spax_bananas_3D.jpg'>",
         "type" : "Modelled/3D-printed",
         "credit" : "1LikeBananas",
@@ -212,7 +212,7 @@
         "content" : "<img src='/images/fanart/spax-beta_veternum_float.png'>",
         "type" : "Drawn",
         "credit" : "Veternum",
-        "link" : "https://discord.com/users/IDK/",
+        "link" : "https://discord.com/users/744465217316061195/",
         "desc" : "(requested)"
     },
     {
