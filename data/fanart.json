@@ -105,7 +105,7 @@
     },
     {
         "visible" : true,
-        "content" : "<img src='/images/fanart/minty_nahua.png'>",
+        "content" : "<img src='/images/fanart/nahua_minty_headshot.png'>",
         "type" : "Drawn",
         "credit" : "minty",
         "link" : "https://discord.com/users/667471786560061440/",
@@ -149,14 +149,6 @@
         "type" : "Drawn",
         "credit" : "Cyus",
         "link" : "https://discord.com/users/284123108212867074/",
-        "desc" : null
-    },
-    {
-        "visible" : false,
-        "content" : "<img src='/images/fanart/nahua_minty_headshot.png'>",
-        "type" : "Drawn",
-        "credit" : "minty",
-        "link" : "https://discord.com/users/667471786560061440/",
         "desc" : null
     },
     {
