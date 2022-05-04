@@ -82,7 +82,7 @@ body{
     float: left;
     pointer-events: none;
     user-select: none;
-    image-rendering: -webkit-optimize-contrast, crisp-edges, pixelated;
+    image-rendering: -webkit-optimize-contrast, pixelated;
     -ms-interpolation-mode: nearest-neighbor;
 }
 
@@ -91,6 +91,8 @@ body{
     /*height: 100px;*/
     margin: 0px 17.5px 7.5px 0px;
     padding: 0px 0px 0px 0px;
+    image-rendering: auto;
+    -ms-interpolation-mode: bilinear;
     /*float: left;*/
     /*pointer-events: none;
     user-select: none;*/
