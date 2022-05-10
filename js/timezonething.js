@@ -8,7 +8,7 @@ var UTCTime ;
 var updateInterval;
 
 window.onload = () => {
-    updateInterval = setInterval(run, 2);
+    updateInterval = setInterval(run, 16.67);
 };
 
 function run () {
