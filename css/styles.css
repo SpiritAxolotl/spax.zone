@@ -272,8 +272,10 @@ audio{
 }
 
 .pixelated{
-    image-rendering: -webkit-optimize-contrast, pixelated;
-    -ms-interpolation-mode: nearest-neighbor;
+    image-rendering : -webkit-optimize-contrast;
+    image-rendering : crisp-edges;
+    image-rendering : pixelated;
+    -ms-interpolation-mode : nearest-neighbor;
 }
 
 @media only screen and (max-width: 600px) {
