@@ -49,7 +49,7 @@
     },
     {
         "visible" : true,
-        "content" : "<img src='/images/fanart/nahua_minty_bday.png'>",
+        "content" : "<img class='pixelated' src='/images/fanart/nahua_minty_bday.png'>",
         "type" : "Drawn",
         "credit" : "minty",
         "link" : "https://discord.com/users/667471786560061440/",
@@ -113,7 +113,7 @@
     },
     {
         "visible" : true,
-        "content" : "<img src='/images/fanart/nahua_minty_headshot.png'>",
+        "content" : "<img class='pixelated' src='/images/fanart/nahua_minty_headshot.png'>",
         "type" : "Drawn",
         "credit" : "minty",
         "link" : "https://discord.com/users/667471786560061440/",
@@ -217,7 +217,7 @@
     },
     {
         "visible" : true,
-        "content" : "<!--Hi person reading this for some reason! As you'll see below this, I have vectorized the artwork, however I linked the rasterized one for simplicity. If you wanna download the actual vector art, go here! | (g o n e  for now) | Enjoy! -Spax--><img src='/images/fanart/spax_wasabi_original.png'>",
+        "content" : "<!--Hi person reading this for some reason! As you'll see below this, I have vectorized the artwork, however I linked the rasterized one for simplicity. If you wanna download the actual vector art, go here! | (g o n e  for now) | Enjoy! -Spax--><img class='pixelated' src='/images/fanart/spax_wasabi_original.png'>",
         "type" : "Drawn",
         "credit" : "Wasabi",
         "link" : "https://discord.com/users/801843375102885888/",
