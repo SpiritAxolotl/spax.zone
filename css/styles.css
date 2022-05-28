@@ -55,6 +55,8 @@ body{
 }
 
 .text-box{
+    position: relative; /*  Needed to set this otherwise the arrow would go to the bottom of the bg id  */
+
     border-width: 3px;
     border-style: solid;
     border-color: var(--green1);
@@ -86,6 +88,38 @@ body{
     -ms-interpolation-mode: nearest-neighbor;
 }
 
+
+.text-box .arrow {
+    position: absolute; /* Needed to center the arrow image in the first place */
+    margin:0; /* Needed so the arrow image centers properly without being offset by the margin */
+
+    /* Tweak this if you can or want to. The current settings don't look right atm.  */
+    width: 12px;
+    height: 12px;
+
+    top: 89.5%; /* Use this to tweak the height of the arrow from the bottom of the text box */
+    left: 50%; /* DONT TOUCHA THE CHILD */
+    transform: translateX(-50%) translateY(-50%); /* YOU A TOUCHA THE CHILD?! */
+
+    animation: arrowGlide 1s; /* setting the speed of the animation */
+    animation-iteration-count: infinite; /* infinity */
+}
+
+/* Animation for arrow stuff */
+@keyframes arrowGlide {
+    0% {
+        transform: translateY(-1px);
+    }
+
+    50% {
+        transform: translateY(1px);
+    }
+
+    100% {
+        transform: translateY(-1px);
+    }
+}
+
 .fart-text-box img{
     width: 100%;
     /*height: 100px;*/
@@ -97,6 +131,8 @@ body{
     /*pointer-events: none;
     user-select: none;*/
 }
+
+
 
 .desc-text-box{
     border-width: 4px;
@@ -158,6 +194,7 @@ body{
     max-width: 600px;
     z-index: 5;
 }
+
 
 .flex-container{
     display: flex;
