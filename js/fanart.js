@@ -48,7 +48,7 @@ Fanart.setData = function ()
         
         let innerContent = document.createElement("div");
         
-        innerContent.innerHTML = `${this.fanartData[i].content}<br>${this.fanartData[i].type} by ${creditText}${descText}`;
+        innerContent.innerHTML = `${this.fanartData[i].content}<br>${this.fanartData[i].type} by ${credit}${desc}`;
         
         output.append(innerContent);
         this.mainContent.append(output);
