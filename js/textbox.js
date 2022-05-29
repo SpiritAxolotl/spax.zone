@@ -50,3 +50,14 @@ class r extends HTMLElement{constructor(){super(),this.setAttribute("role","main
 class o extends HTMLElement{constructor(){super(),this.setAttribute("role","banner")}}
 customElements.define("logo-text",class extends e{constructor(){super(),this.setAttribute("aria-level",1),this.setAttribute("id","logo-text")}}),
 customElements.define("content-header",class extends e{constructor(){super(),this.setAttribute("aria-level",2)}}),customElements.define("content-paragraph",class extends t{}),customElements.define("content-wrapper",r),customElements.define("main-menu",class extends s{}),customElements.define("page-branding",o),customElements.define("site-logo",class extends n{constructor(){super(),this.setAttribute("aria-labelledby","logo-text")}});
+
+
+let Switcher = document.getElementById('Switcher');
+
+Switcher.addEventListener ('click', function() {
+
+var TheSelect = document.getElementsByClassName("text-box").classList;
+
+TheSelect.toggle('unselectable');
+
+}
