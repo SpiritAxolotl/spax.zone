@@ -34,30 +34,30 @@ Fanart.setData = function ()
     
     for (let i = 0; i < this.fanartData.length; i++)
     {
-        var creditText = this.fanartData[i].credit;
-        var descText = "";
-        var styleText = "";
+        let output = document.createElement("div");
+        var credit = this.fanartData[i].credit;
+        var desc = "";
         
-        if (!this.fanartData[i].visible)
-        {
-            styleText = ` style="display:none;"`;
-        }
+        output.classList.add("fart-text-box", "unselectable");
         
-        if (this.fanartData[i].link != null)
-        {
-            creditText = `<a href="${this.fanartData[i].link}" target="_blank">${this.fanartData[i].credit}</a>`;
-        }
+        if (!this.fanartData[i].visible) output.style.display = "none";
         
-        if (this.fanartData[i].desc != null)
-        {
-            descText = `<br>${this.fanartData[i].desc}`;
-        }
+        if (this.fanartData[i].link != null) credit = `<a href="${this.fanartData[i].link}" target="_blank">${this.fanartData[i].credit}</a>`;
         
-        this.mainContent.innerHTML += `<div class="fart-text-box unselectable"${styleText}><div>${this.fanartData[i].content}<br>${this.fanartData[i].type} by ${creditText}${descText}</div></div>`;
+        if (this.fanartData[i].desc != null) desc = `<br>${this.fanartData[i].desc}`;
         
-        if (i == this.fanartData.length - 1)
-        {
-            this.mainContent.innerHTML += `<div class="text-box flex-container unselectable"><div>(<a href="/html/main">Click here</a> to go back to the main page!)</div></div>`;
-        }
+        let innerContent = document.createElement("div");
+        
+        innerContent.innerHTML = `${this.fanartData[i].content}<br>${this.fanartData[i].type} by ${credit}${desc}`;
+        
+        output.append(innerContent);
+        this.mainContent.append(output);
     }
+    
+    let lastBox = document.createElement("div");
+    
+    lastBox.classList.add("text-box flex-container unselectable");
+    lastBox.innerHTML = `<div>(<a href="/html/main">Click here</a> to go back to the main page!)</div>`;
+    
+    this.mainContent.append(lastBox);
 };
