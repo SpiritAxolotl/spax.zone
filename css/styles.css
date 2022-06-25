@@ -54,6 +54,18 @@ body{
     background-size: auto;*/
 }
 
+pre { 
+    /* Sort of fixes issue #40. 
+    Thing is, this causes overflow to occur in 
+    textboxes with more than 1 space, 
+    and the horizontal scrollbar is shown. */
+
+    /* This also overwrites font-size in bootstrap.min.css:6 */
+    font-family: DEP;
+    font-size: 21px; /* Same as textbox's width*/
+    line-height: 21px;
+}
+
 .text-box{
     position: relative; /*  Needed to set this otherwise the arrow would go to the bottom of the bg id  */
 
@@ -200,7 +212,8 @@ body{
 
 
 .flex-container{
-    display: flex;
+   /* | Fixes issue #13 */ 
+    /* display: flex; */
     flex-direction: row;
     flex-wrap: wrap;
     min-height: 133px;
