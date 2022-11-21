@@ -1,9 +1,9 @@
 var d;
 
 var SpaxTime;
-var PentaTime;
-var SplitTime;
-var UTCTime ;
+var MathewTime;
+var CalmTime;
+var UTCTime;
 
 var updateInterval;
 
@@ -11,20 +11,20 @@ window.onload = () => {
     updateInterval = setInterval(run, 16.67);
 };
 
-function run () {
+function run() {
     upDate();
     toTimezone(SpaxTime);
-    toTimezone(PentaTime);
-    toTimezone(SplitTime);
+    toTimezone(MathewTime);
+    toTimezone(CalmTime);
     updateText();
 }
 
 function upDate(){
     d = new Date();
     
-    SpaxTime = [d.getUTCHours()-6,d.getUTCMinutes(),d.getUTCHours()+":"+d.getUTCMinutes()];
-    PentaTime = [d.getUTCHours()+7,d.getUTCMinutes(),d.getUTCHours()+":"+d.getUTCMinutes()];
-    SplitTime = [d.getUTCHours()-4,d.getUTCMinutes(),d.getUTCHours()+":"+d.getUTCMinutes()];
+    SpaxTime = [d.getUTCHours()-7,d.getUTCMinutes(),d.getUTCHours()+":"+d.getUTCMinutes()];
+    MathewTime = [d.getUTCHours()+2,d.getUTCMinutes(),d.getUTCHours()+":"+d.getUTCMinutes()];
+    CalmTime = [d.getUTCHours()+8,d.getUTCMinutes(),d.getUTCHours()+":"+d.getUTCMinutes()];
     UTCTime = [d.getUTCHours(),d.getUTCMinutes(),d.getUTCHours()+":"+d.getUTCMinutes()];
 }
 
@@ -51,8 +51,8 @@ function toTimezone(person){
 }
 
 function updateText () {
-    document.getElementById("date1").innerHTML = "Spax's current time is "+SpaxTime[2]+"! They're in MST.";
-    document.getElementById("date2").innerHTML = "Pentaxel's current time is "+PentaTime[2]+"! He's in GMT+7.";
-    document.getElementById("date3").innerHTML = "Splittikin's current time is "+SplitTime[2]+"! She's in EST.";
+    document.getElementById("date1").innerHTML = "Spax's current time is "+SpaxTime[2]+"! He's in UTC-7 (MST).";
+    document.getElementById("date2").innerHTML = "Mathew's current time is "+MathewTime[2]+"! He's in UTC+2 (EET).";
+    document.getElementById("date3").innerHTML = "Calm's current time is "+CalmTime[2]+"! He's in UTC+8 (PHST).";
     //document.getElementById("date4").innerHTML = "UTC time is currently "+UTCTime[2]+".";
 }
