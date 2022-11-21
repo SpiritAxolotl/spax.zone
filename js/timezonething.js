@@ -48,6 +48,4 @@ function updateText () {
     document.getElementById("date1").innerHTML = "Spax's current time is "+SpaxTime+"! He's in UTC-7 (MST).";
     document.getElementById("date2").innerHTML = "Mathew's current time is "+MathewTime+"! He's in UTC+2 (EET).";
     document.getElementById("date3").innerHTML = "Calm's current time is "+CalmTime+"! He's in UTC+8 (PHST).";
-}
-
-
+} 
