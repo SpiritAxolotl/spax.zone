@@ -3,7 +3,7 @@ var d;
 var SpaxTime;
 var MathewTime;
 var CalmTime;
-var UTCTime;
+var minutes;
 
 var updateInterval;
 
@@ -22,37 +22,36 @@ function run() {
 function upDate(){
     d = new Date();
     
-    SpaxTime = [d.getUTCHours()-7,d.getUTCMinutes(),d.getUTCHours()+":"+d.getUTCMinutes()];
-    MathewTime = [d.getUTCHours()+2,d.getUTCMinutes(),d.getUTCHours()+":"+d.getUTCMinutes()];
-    CalmTime = [d.getUTCHours()+8,d.getUTCMinutes(),d.getUTCHours()+":"+d.getUTCMinutes()];
-    UTCTime = [d.getUTCHours(),d.getUTCMinutes(),d.getUTCHours()+":"+d.getUTCMinutes()];
+    SpaxTime   = d.getUTCHours()-7;
+    MathewTime = d.getUTCHours()+2;
+    CalmTime   = d.getUTCHours()+8;
+    minutes    = d.getUTCMinutes();
 }
 
 function toTimezone(person){
-    if (person[1]=="0"||person[1]=="1"||person[1]=="2"||person[1]=="3"||person[1]=="4"||person[1]=="5"||person[1]=="6"||person[1]=="7"||person[1]=="8"||person[1]=="9"){
-        person[1]="0"+person[1]
-    }
-    if (person[0]<1) {
-        person[0]=24+person[0];
-    } else if (person[0]>24) {
-        person[0]=24-person[0];
-    }
-    if (person[0]==12) {
-        person[2]=person[0]+":"+person[1]+" PM";
-    } else if (person[0]==24) {
-        person[2]=(person[0]-12)+":"+person[1]+" AM";
+    //adds a zero if the minutes section is 1 digit long (so "1:01" instead of "1:1")
+    if (minutes>=0 && minutes<10)
+        minutes="0"+minutes;
+    
+    //makes sure that the time is always positive if it's not between 1 and 24
+    person%=24;
+    
+    //decides the AM/PM stuff
+    if (person==12) {
+        person=person+":"+minutes+" PM";
+    } else if (person==24) {
+        person=person-12+":"+minutes+" AM";
     } else {
-        if ((person[0])>12) {
-            person[2]=(person[0]-12)+":"+person[1]+" PM";
+        if (person>12) {
+            person=person-12+":"+minutes+" PM";
         } else {
-            person[2]=person[0]+":"+person[1]+" AM";
+            person=person+":"+minutes+" AM";
         }
     }
 }
 
 function updateText () {
-    document.getElementById("date1").innerHTML = "Spax's current time is "+SpaxTime[2]+"! He's in UTC-7 (MST).";
-    document.getElementById("date2").innerHTML = "Mathew's current time is "+MathewTime[2]+"! He's in UTC+2 (EET).";
-    document.getElementById("date3").innerHTML = "Calm's current time is "+CalmTime[2]+"! He's in UTC+8 (PHST).";
-    //document.getElementById("date4").innerHTML = "UTC time is currently "+UTCTime[2]+".";
+    document.getElementById("date1").innerHTML = "Spax's current time is "+SpaxTime+"! He's in UTC-7 (MST).";
+    document.getElementById("date2").innerHTML = "Mathew's current time is "+MathewTime+"! He's in UTC+2 (EET).";
+    document.getElementById("date3").innerHTML = "Calm's current time is "+CalmTime+"! He's in UTC+8 (PHST).";
 }
