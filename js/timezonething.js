@@ -4,10 +4,8 @@ var SpaxTime;
 var MathewTime;
 var CalmTime;
 var minutes;
+var ghlf = true;
 var final;
-var final1;
-var final2;
-var final3;
 
 var updateInterval;
 
@@ -34,8 +32,10 @@ function upDate(){
 
 function toTimezone(hour){
     //adds a zero if the minutes section is 1 digit long (so "1:01" instead of "1:1")
-    if (minutes>=0 && minutes<10)
+    if (minutes>=0 && minutes<10 && ghlf){
         minutes="0"+minutes;
+        ghlf = false;
+    }
     
     //makes sure that the time is always positive if it's not between 0 and 23
     hour%=24;
