@@ -5,6 +5,7 @@ var MathewTime;
 var CalmTime;
 var minutes;
 var ghlf = true;
+var oldmins;
 var final;
 
 var updateInterval;
@@ -28,6 +29,7 @@ function upDate(){
     MathewTime = d.getUTCHours()+2;
     CalmTime   = d.getUTCHours()+8;
     minutes    = d.getUTCMinutes();
+    oldmins    = d.getUTCMinutes();
 }
 
 function toTimezone(hour){
@@ -35,6 +37,9 @@ function toTimezone(hour){
     if (minutes>=0 && minutes<10 && ghlf){
         minutes="0"+minutes;
         ghlf = false;
+    } else if (minutes>=10 && !ghlf){
+        minutes=oldmins;
+        ghlf = true;
     }
     
     //makes sure that the time is always positive if it's not between 0 and 23
