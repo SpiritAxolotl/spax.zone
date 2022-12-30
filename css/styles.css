@@ -48,6 +48,7 @@ body{
     line-height: 21px;
     color: var(--green1);
     z-index: -10;
+    height: 100%;
     /*overscroll-behavior: none;*/
     /*background-image: url("../images/bg/background_yoki_2.png");
     background-repeat: repeat;
