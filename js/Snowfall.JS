@@ -1,3 +1,9 @@
+var canvas = document.getElementById("snow");
+ 
+canvas.width  = window.innerWidth;
+canvas.height = window.innerHeight;
+
+
 var Snow = {
     el: "#snow", 
     density: 10000, // higher = fewer bits
