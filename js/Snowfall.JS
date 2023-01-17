@@ -14,13 +14,17 @@ var Snow = {
       this.ctx = this.canvas.getContext("2d");
       this.reset();
       requestAnimationFrame(this.render.bind(this));
-      window.addEventListener("resize", this.reset.bind(this));
+      window.addEventListener("resize", () => { this.updateSize(); });
     },
-    reset(){
+    updateSize(){
       this.w = window.innerWidth;
       this.h = window.innerHeight;
       this.canvas.width = this.w;
       this.canvas.height = this.h;
+    },
+    
+    reset(){
+      this.updateSize();
       this.particles = [];
       this.mp = Math.ceil(this.w * this.h / this.density);
           for(var i = 0; i < this.mp; i++)
