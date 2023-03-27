@@ -1,0 +1,1523 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Globals &#8212; NotITG 4.2.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/nature.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style/style.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Message commands" href="../message_commands.html" />
+    <link rel="prev" title="Enumerations" href="enumerations.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../lua-modindex.html" title="Lua Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../message_commands.html" title="Message commands"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="enumerations.html" title="Enumerations"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">NotITG 4.2.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Lua API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Globals</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="globals">
+<h1>Globals<a class="headerlink" href="#globals" title="Permalink to this heading">¶</a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#description" id="id1">Description</a></p></li>
+<li><p><a class="reference internal" href="#module-global" id="id2">API reference</a></p></li>
+</ul>
+</nav>
+<section id="description">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Description</a><a class="headerlink" href="#description" title="Permalink to this heading">¶</a></h2>
+<p>Global constants and singletons are accessible from anywhere in Lua.</p>
+<p>This list is not complete - there are also globals for enumeration variants. See <a class="reference internal" href="enumerations.html"><span class="doc">Enumerations</span></a> for a list
+of those constants (Note that only UPPERCASE enum variants have global constants).</p>
+</section>
+<section id="module-global">
+<span id="api-reference"></span><h2><a class="toc-backref" href="#id2" role="doc-backlink">API reference</a><a class="headerlink" href="#module-global" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.global.FILEMAN" title="global.global.FILEMAN"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">FILEMAN</span></code></a></p></td>
+<td><p>The <a class="reference internal" href="rage_file_manager.html#RageFileManager" title="RageFileManager"><code class="xref lua lua-class docutils literal notranslate"><span class="pre">RageFileManager</span></code></a> singleton</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.global.GAMESTATE" title="global.global.GAMESTATE"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">GAMESTATE</span></code></a></p></td>
+<td><p>The <a class="reference internal" href="game_state.html#GameState" title="GameState"><code class="xref lua lua-class docutils literal notranslate"><span class="pre">GameState</span></code></a> singleton</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.global.SOUND" title="global.global.SOUND"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">SOUND</span></code></a></p></td>
+<td><p>The <a class="reference internal" href="game_sound_manager.html#GameSoundManager" title="GameSoundManager"><code class="xref lua lua-class docutils literal notranslate"><span class="pre">GameSoundManager</span></code></a> singleton</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.global.MEMCARDMAN" title="global.global.MEMCARDMAN"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">MEMCARDMAN</span></code></a></p></td>
+<td><p>The <a class="reference internal" href="memory_card_manager.html#MemoryCardManager" title="MemoryCardManager"><code class="xref lua lua-class docutils literal notranslate"><span class="pre">MemoryCardManager</span></code></a> singleton</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.global.MESSAGEMAN" title="global.global.MESSAGEMAN"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">MESSAGEMAN</span></code></a></p></td>
+<td><p>The <a class="reference internal" href="message_manager.html#MessageManager" title="MessageManager"><code class="xref lua lua-class docutils literal notranslate"><span class="pre">MessageManager</span></code></a> singleton</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.global.NOTESKIN" title="global.global.NOTESKIN"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">NOTESKIN</span></code></a></p></td>
+<td><p>The <a class="reference internal" href="note_skin_manager.html#NoteSkinManager" title="NoteSkinManager"><code class="xref lua lua-class docutils literal notranslate"><span class="pre">NoteSkinManager</span></code></a> singleton</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.global.PREFSMAN" title="global.global.PREFSMAN"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">PREFSMAN</span></code></a></p></td>
+<td><p>The <a class="reference internal" href="prefs_manager.html#PrefsManager" title="PrefsManager"><code class="xref lua lua-class docutils literal notranslate"><span class="pre">PrefsManager</span></code></a> singleton</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.global.PROFILEMAN" title="global.global.PROFILEMAN"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">PROFILEMAN</span></code></a></p></td>
+<td><p>The <a class="reference internal" href="profile_manager.html#ProfileManager" title="ProfileManager"><code class="xref lua lua-class docutils literal notranslate"><span class="pre">ProfileManager</span></code></a> singleton</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.global.DISPLAY" title="global.global.DISPLAY"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">DISPLAY</span></code></a></p></td>
+<td><p>The <a class="reference internal" href="rage_display.html#RageDisplay" title="RageDisplay"><code class="xref lua lua-class docutils literal notranslate"><span class="pre">RageDisplay</span></code></a> singleton</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.global.INPUTMAN" title="global.global.INPUTMAN"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">INPUTMAN</span></code></a></p></td>
+<td><p>The <a class="reference internal" href="rage_input.html#RageInput" title="RageInput"><code class="xref lua lua-class docutils literal notranslate"><span class="pre">RageInput</span></code></a> singleton</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.global.SCREENMAN" title="global.global.SCREENMAN"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">SCREENMAN</span></code></a></p></td>
+<td><p>The <a class="reference internal" href="screen_manager.html#ScreenManager" title="ScreenManager"><code class="xref lua lua-class docutils literal notranslate"><span class="pre">ScreenManager</span></code></a> singleton</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.global.SONGMAN" title="global.global.SONGMAN"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">SONGMAN</span></code></a></p></td>
+<td><p>The <a class="reference internal" href="song_manager.html#SongManager" title="SongManager"><code class="xref lua lua-class docutils literal notranslate"><span class="pre">SongManager</span></code></a> singleton</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.global.STATSMAN" title="global.global.STATSMAN"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">STATSMAN</span></code></a></p></td>
+<td><p>The <a class="reference internal" href="stats_manager.html#StatsManager" title="StatsManager"><code class="xref lua lua-class docutils literal notranslate"><span class="pre">StatsManager</span></code></a> singleton</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.global.THEME" title="global.global.THEME"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">THEME</span></code></a></p></td>
+<td><p>The <a class="reference internal" href="theme_manager.html#ThemeManager" title="ThemeManager"><code class="xref lua lua-class docutils literal notranslate"><span class="pre">ThemeManager</span></code></a> singleton</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.global.UNLOCKMAN" title="global.global.UNLOCKMAN"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">UNLOCKMAN</span></code></a></p></td>
+<td><p>The <a class="reference internal" href="unlock_manager.html#UnlockManager" title="UnlockManager"><code class="xref lua lua-class docutils literal notranslate"><span class="pre">UnlockManager</span></code></a> singleton</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.global.SCREEN_WIDTH" title="global.global.SCREEN_WIDTH"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">SCREEN_WIDTH</span></code></a></p></td>
+<td><p>The window width, scaled</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.global.SCREEN_HEIGHT" title="global.global.SCREEN_HEIGHT"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">SCREEN_HEIGHT</span></code></a></p></td>
+<td><p>The window height, scaled</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.global.SCREEN_LEFT" title="global.global.SCREEN_LEFT"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">SCREEN_LEFT</span></code></a></p></td>
+<td><p>The leftmost coordinate of the window - always zero</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.global.SCREEN_RIGHT" title="global.global.SCREEN_RIGHT"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">SCREEN_RIGHT</span></code></a></p></td>
+<td><p>The rightmost coordinate of the window - equal to <a class="reference internal" href="#global.global.SCREEN_WIDTH" title="global.global.SCREEN_WIDTH"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">global.SCREEN_WIDTH</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.global.SCREEN_TOP" title="global.global.SCREEN_TOP"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">SCREEN_TOP</span></code></a></p></td>
+<td><p>The topmost coordinate of the window - always zero</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.global.SCREEN_BOTTOM" title="global.global.SCREEN_BOTTOM"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">SCREEN_BOTTOM</span></code></a></p></td>
+<td><p>The bottommost coordinate of the window - equal to <a class="reference internal" href="#global.global.SCREEN_HEIGHT" title="global.global.SCREEN_HEIGHT"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">global.SCREEN_HEIGHT</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.global.SCREEN_CENTER_X" title="global.global.SCREEN_CENTER_X"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">SCREEN_CENTER_X</span></code></a></p></td>
+<td><p>The middle X coordinate of the window</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.global.SCREEN_CENTER_Y" title="global.global.SCREEN_CENTER_Y"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">SCREEN_CENTER_Y</span></code></a></p></td>
+<td><p>The middle Y coordinate of the window</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.global.DISPLAY_WIDTH" title="global.global.DISPLAY_WIDTH"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">DISPLAY_WIDTH</span></code></a></p></td>
+<td><p>The monitor width</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.global.DISPLAY_HEIGHT" title="global.global.DISPLAY_HEIGHT"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">DISPLAY_HEIGHT</span></code></a></p></td>
+<td><p>The monitor height</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.global.DISPLAY_LEFT" title="global.global.DISPLAY_LEFT"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">DISPLAY_LEFT</span></code></a></p></td>
+<td><p>The leftmost coordinate of the monitor - always zero</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.global.DISPLAY_RIGHT" title="global.global.DISPLAY_RIGHT"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">DISPLAY_RIGHT</span></code></a></p></td>
+<td><p>The rightmost coordinate of the monitor - equal to <a class="reference internal" href="#global.global.DISPLAY_WIDTH" title="global.global.DISPLAY_WIDTH"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">global.DISPLAY_WIDTH</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.global.DISPLAY_TOP" title="global.global.DISPLAY_TOP"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">DISPLAY_TOP</span></code></a></p></td>
+<td><p>The topmost coordinate of the monitor - always zero</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.global.DISPLAY_BOTTOM" title="global.global.DISPLAY_BOTTOM"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">DISPLAY_BOTTOM</span></code></a></p></td>
+<td><p>The bottommost coordinate of the monitor - equal to <a class="reference internal" href="#global.global.DISPLAY_HEIGHT" title="global.global.DISPLAY_HEIGHT"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">global.DISPLAY_HEIGHT</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.global.DISPLAY_CENTER_X" title="global.global.DISPLAY_CENTER_X"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">DISPLAY_CENTER_X</span></code></a></p></td>
+<td><p>The middle X coordinate of the monitor</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.global.DISPLAY_CENTER_Y" title="global.global.DISPLAY_CENTER_Y"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">DISPLAY_CENTER_Y</span></code></a></p></td>
+<td><p>The middle Y coordinate of the monitor</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.global.PLAYER_1" title="global.global.PLAYER_1"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">PLAYER_1</span></code></a></p></td>
+<td><p>Equal to <code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.global.PLAYER_2" title="global.global.PLAYER_2"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">PLAYER_2</span></code></a></p></td>
+<td><p>Equal to <code class="docutils literal notranslate"><span class="pre">1</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.global.OPENITG" title="global.global.OPENITG"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">OPENITG</span></code></a></p></td>
+<td><p>Equal to <code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.global.OPENITG_VERSION" title="global.global.OPENITG_VERSION"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">OPENITG_VERSION</span></code></a></p></td>
+<td><p>The current OpenITG version</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.global.FUCK_EXE" title="global.global.FUCK_EXE"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">FUCK_EXE</span></code></a></p></td>
+<td><p>Equal to <code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.global.FUCK_VERSION_1" title="global.global.FUCK_VERSION_1"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">FUCK_VERSION_1</span></code></a></p></td>
+<td><p>Equal to <code class="docutils literal notranslate"><span class="pre">20161226</span></code> (The release date of <img alt="notitg_v1_icon_16" src="../_images/notitg_v1_logo_16.png" /> NotITG v1)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.global.FUCK_VERSION_2" title="global.global.FUCK_VERSION_2"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">FUCK_VERSION_2</span></code></a></p></td>
+<td><p>Equal to <code class="docutils literal notranslate"><span class="pre">20170405</span></code> (The release date of <img alt="notitg_v2_icon_16" src="../_images/notitg_v2_logo_16.png" /> NotITG v2)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.global.FUCK_VERSION_3" title="global.global.FUCK_VERSION_3"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">FUCK_VERSION_3</span></code></a></p></td>
+<td><p>Equal to <code class="docutils literal notranslate"><span class="pre">20180609</span></code> (The release date of <img alt="notitg_v3_icon_16" src="../_images/notitg_v3_logo_16.png" /> NotITG v3)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.global.FUCK_VERSION_3_1" title="global.global.FUCK_VERSION_3_1"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">FUCK_VERSION_3_1</span></code></a></p></td>
+<td><p>Equal to <code class="docutils literal notranslate"><span class="pre">20180826</span></code> (The release date of <img alt="notitg_v3_icon_16" src="../_images/notitg_v3_logo_16.png" /> NotITG v3.1)</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.AllFailed" title="global.AllFailed"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">AllFailed()</span></code></a></p></td>
+<td><p>Returns whether all active players failed the current stage</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.ConnectToServer" title="global.ConnectToServer"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">ConnectToServer()</span></code></a></p></td>
+<td><p>Attempts to connect to a server</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.IsNetConnected" title="global.IsNetConnected"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">IsNetConnected()</span></code></a></p></td>
+<td><p>Returns whether the game is connected to a server or not</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.IsNetSMOnline" title="global.IsNetSMOnline"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">IsNetSMOnline()</span></code></a></p></td>
+<td><p>Returns whether the game is connected to StepMania Online or not</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.IsSMOnlineLoggedIn" title="global.IsSMOnlineLoggedIn"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">IsSMOnlineLoggedIn(player)</span></code></a></p></td>
+<td><p>Returns whether the specified player is logged in to StepMania Online</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.ReportStyle" title="global.ReportStyle"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">ReportStyle()</span></code></a></p></td>
+<td><p>Sends the current style to the StepMania Online server</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.DifficultyToThemedString" title="global.DifficultyToThemedString"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">DifficultyToThemedString(difficulty)</span></code></a></p></td>
+<td><p>Converts a difficulty to a human-readable string</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.CourseDifficultyToThemedString" title="global.CourseDifficultyToThemedString"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">CourseDifficultyToThemedString(courseDifficulty)</span></code></a></p></td>
+<td><p>Converts a course difficulty to a human-readable string</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.CourseSongIndex" title="global.CourseSongIndex"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">CourseSongIndex()</span></code></a></p></td>
+<td><p>Returns the index of the current song in the course (0 indexed)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.CurStyleName" title="global.CurStyleName"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">CurStyleName()</span></code></a></p></td>
+<td><p>Returns the name of the current style</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.DayOfMonth" title="global.DayOfMonth"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">DayOfMonth()</span></code></a></p></td>
+<td><p>Returns the current day of the month (1 indexed)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.MonthOfMonth" title="global.MonthOfMonth"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">MonthOfMonth()</span></code></a></p></td>
+<td><p>Returns the current month of the year (1 indexed)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.DayOfYear" title="global.DayOfYear"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">DayOfYear()</span></code></a></p></td>
+<td><p>Returns the current day of the year (0 indexed)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.Weekday" title="global.Weekday"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">Weekday()</span></code></a></p></td>
+<td><p>Returns the current weekday (0 - 6)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.Year" title="global.Year"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">Year()</span></code></a></p></td>
+<td><p>Returns the current year</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.Hour" title="global.Hour"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">Hour()</span></code></a></p></td>
+<td><p>Returns the current hour</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.Minute" title="global.Minute"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">Minute()</span></code></a></p></td>
+<td><p>Returns the current minute</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.Second" title="global.Second"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">Second()</span></code></a></p></td>
+<td><p>Returns the current second</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.MonthToString" title="global.MonthToString"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">MonthToString()</span></code></a></p></td>
+<td><p>Converts a month number to a human-readable string</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.SecondsToMMSS" title="global.SecondsToMMSS"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">SecondsToMMSS(seconds)</span></code></a></p></td>
+<td><p>Returns a human-readable string in the format <code class="docutils literal notranslate"><span class="pre">MM:SS</span></code> for a given number of seconds</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.SecondsToMMSSMsMs" title="global.SecondsToMMSSMsMs"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">SecondsToMMSSMsMs(seconds)</span></code></a></p></td>
+<td><p>Returns a human-readable string in the format <code class="docutils literal notranslate"><span class="pre">MM:SS.MsMs</span></code> for a given number of seconds</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.SecondsToMMSSMsMsMs" title="global.SecondsToMMSSMsMsMs"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">SecondsToMMSSMsMsMs(seconds)</span></code></a></p></td>
+<td><p>Returns a human-readable string in the format <code class="docutils literal notranslate"><span class="pre">MM:SS.MsMsMs</span></code> for a given number of seconds</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.SecondsToMSSMsMs" title="global.SecondsToMSSMsMs"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">SecondsToMSSMsMs(seconds)</span></code></a></p></td>
+<td><p>Returns a human-readable string in the format <code class="docutils literal notranslate"><span class="pre">M:SS.MsMs</span></code> for a given number of seconds</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.Debug" title="global.Debug"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">Debug(message)</span></code></a></p></td>
+<td><p>Logs a message</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.Trace" title="global.Trace"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">Trace(message)</span></code></a></p></td>
+<td><p>Logs a message to the console log</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.FormatPercentScore" title="global.FormatPercentScore"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">FormatPercentScore(score)</span></code></a></p></td>
+<td><p>Formats a dance points score into a human-readable percentage score string</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.GetBestFinalGrade" title="global.GetBestFinalGrade"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">GetBestFinalGrade()</span></code></a></p></td>
+<td><p>Returns the best final grade</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.GetDiskSpaceFree" title="global.GetDiskSpaceFree"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">GetDiskSpaceFree()</span></code></a></p></td>
+<td><p>Returns the amount of free space available on the partition the game is installed on</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.GetDiskSpaceTotal" title="global.GetDiskSpaceTotal"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">GetDiskSpaceTotal()</span></code></a></p></td>
+<td><p>Returns the capacity of the partition the game is installed on</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.GetEasiestNotesDifficulty" title="global.GetEasiestNotesDifficulty"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">GetEasiestNotesDifficulty()</span></code></a></p></td>
+<td><p>Returns the easiest difficulty chosen from the current song</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.GetGradeFromPercent" title="global.GetGradeFromPercent"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">GetGradeFromPercent(percent)</span></code></a></p></td>
+<td><p>Returns the grade for a given percentage score</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.GetIP" title="global.GetIP"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">GetIP()</span></code></a></p></td>
+<td><p>Returns the internal IP and netmask of the machine</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.GetInputType" title="global.GetInputType"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">GetInputType()</span></code></a></p></td>
+<td><p>Returns the input type</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.GetNumCrashLogs" title="global.GetNumCrashLogs"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">GetNumCrashLogs()</span></code></a></p></td>
+<td><p>Returns the number of crash logs stored</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.GetNumIOErrors" title="global.GetNumIOErrors"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">GetNumIOErrors()</span></code></a></p></td>
+<td><p>Returns the number drive IO errors</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.GetNumMachineEdits" title="global.GetNumMachineEdits"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">GetNumMachineEdits()</span></code></a></p></td>
+<td><p>Returns the number of edits registered in the machine</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.GetNumMachineScores" title="global.GetNumMachineScores"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">GetNumMachineScores()</span></code></a></p></td>
+<td><p>Returns the number of scored saved on the machine</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.GetNumMachineScores" title="global.GetNumMachineScores"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">GetNumMachineScores()</span></code></a></p></td>
+<td><p>Returns the number of players enabled</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.GetProductName" title="global.GetProductName"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">GetProductName()</span></code></a></p></td>
+<td><p>Returns the name (and version if applicable) of the executable</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.GetProductVer" title="global.GetProductVer"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">GetProductVer()</span></code></a></p></td>
+<td><p>Returns the version of the executable</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.GetRevision" title="global.GetRevision"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">GetRevision()</span></code></a></p></td>
+<td><p>Returns the revision number of the executable</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.GetSerialNumber" title="global.GetSerialNumber"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">GetSerialNumber()</span></code></a></p></td>
+<td><p>Returns the serial number of the installation</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.GetStageText" title="global.GetStageText"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">GetStageText()</span></code></a></p></td>
+<td><p>Returns the text of the current stage</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.GetUptime" title="global.GetUptime"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">GetUptime()</span></code></a></p></td>
+<td><p>Returns the length the game has been running for</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.Grade" title="global.Grade"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">Grade(name)</span></code></a></p></td>
+<td><p>Returns a grade’s name</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.GradeToString" title="global.GradeToString"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">GradeToString(grade)</span></code></a></p></td>
+<td><p>Returns a grade name from a grade</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.HubIsConnected" title="global.HubIsConnected"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">HubIsConnected()</span></code></a></p></td>
+<td><p>Returns whether the ITG hub is connected</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.IsUsingMemoryCard" title="global.IsUsingMemoryCard"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">IsUsingMemoryCard(player)</span></code></a></p></td>
+<td><p>Returns whether a given player has a memory card connected</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.IsAnyPlayerUsingMemoryCard" title="global.IsAnyPlayerUsingMemoryCard"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">IsAnyPlayerUsingMemoryCard()</span></code></a></p></td>
+<td><p>Returns whether any player has a memory card connected</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.NumStagesLeft" title="global.NumStagesLeft"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">NumStagesLeft()</span></code></a></p></td>
+<td><p>Returns the number of stages remaining</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.IsExtraStage" title="global.IsExtraStage"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">IsExtraStage()</span></code></a></p></td>
+<td><p>Returns whether the current stage is the extra stage</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.IsExtraStage2" title="global.IsExtraStage2"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">IsExtraStage2()</span></code></a></p></td>
+<td><p>Returns whether the current stage is the second extra stage</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.IsFinalStage" title="global.IsFinalStage"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">IsFinalStage()</span></code></a></p></td>
+<td><p>Returns whether the current stage is the final stage</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#global.OnePassed" title="global.OnePassed"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">OnePassed()</span></code></a></p></td>
+<td><p>Returns whether at least one player passed the current song</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#global.PlayModeName" title="global.PlayModeName"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">PlayModeName()</span></code></a></p></td>
+<td><p>Returns the name of the current play mode</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.FILEMAN">
+<span class="sig-name descname"><span class="pre">FILEMAN</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">RageFileManager</span><a class="headerlink" href="#global.global.FILEMAN" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference internal" href="rage_file_manager.html#RageFileManager" title="RageFileManager"><code class="xref lua lua-class docutils literal notranslate"><span class="pre">RageFileManager</span></code></a> singleton</p>
+<p>Introduced in <img alt="notitg_v3_icon_16" src="../_images/notitg_v3_logo_16.png" /> NotITG v3</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.GAMESTATE">
+<span class="sig-name descname"><span class="pre">GAMESTATE</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">GameState</span><a class="headerlink" href="#global.global.GAMESTATE" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference internal" href="game_state.html#GameState" title="GameState"><code class="xref lua lua-class docutils literal notranslate"><span class="pre">GameState</span></code></a> singleton</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.SOUND">
+<span class="sig-name descname"><span class="pre">SOUND</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">GameSoundManager</span><a class="headerlink" href="#global.global.SOUND" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference internal" href="game_sound_manager.html#GameSoundManager" title="GameSoundManager"><code class="xref lua lua-class docutils literal notranslate"><span class="pre">GameSoundManager</span></code></a> singleton</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.MEMCARDMAN">
+<span class="sig-name descname"><span class="pre">MEMCARDMAN</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">MemoryCardManager</span><a class="headerlink" href="#global.global.MEMCARDMAN" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference internal" href="memory_card_manager.html#MemoryCardManager" title="MemoryCardManager"><code class="xref lua lua-class docutils literal notranslate"><span class="pre">MemoryCardManager</span></code></a> singleton</p>
+<p>Doesn’t seem to exist when testing in <img alt="notitg_v4_icon_16" src="../_images/notitg_v4_logo_16.png" /> NotITG v4?</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.MESSAGEMAN">
+<span class="sig-name descname"><span class="pre">MESSAGEMAN</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">MessageManager</span><a class="headerlink" href="#global.global.MESSAGEMAN" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference internal" href="message_manager.html#MessageManager" title="MessageManager"><code class="xref lua lua-class docutils literal notranslate"><span class="pre">MessageManager</span></code></a> singleton</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.NOTESKIN">
+<span class="sig-name descname"><span class="pre">NOTESKIN</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">NoteSkinManager</span><a class="headerlink" href="#global.global.NOTESKIN" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference internal" href="note_skin_manager.html#NoteSkinManager" title="NoteSkinManager"><code class="xref lua lua-class docutils literal notranslate"><span class="pre">NoteSkinManager</span></code></a> singleton</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.PREFSMAN">
+<span class="sig-name descname"><span class="pre">PREFSMAN</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">PrefsManager</span><a class="headerlink" href="#global.global.PREFSMAN" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference internal" href="prefs_manager.html#PrefsManager" title="PrefsManager"><code class="xref lua lua-class docutils literal notranslate"><span class="pre">PrefsManager</span></code></a> singleton</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.PROFILEMAN">
+<span class="sig-name descname"><span class="pre">PROFILEMAN</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">ProfileManager</span><a class="headerlink" href="#global.global.PROFILEMAN" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference internal" href="profile_manager.html#ProfileManager" title="ProfileManager"><code class="xref lua lua-class docutils literal notranslate"><span class="pre">ProfileManager</span></code></a> singleton</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.DISPLAY">
+<span class="sig-name descname"><span class="pre">DISPLAY</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">RageDisplay</span><a class="headerlink" href="#global.global.DISPLAY" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference internal" href="rage_display.html#RageDisplay" title="RageDisplay"><code class="xref lua lua-class docutils literal notranslate"><span class="pre">RageDisplay</span></code></a> singleton</p>
+<p>Introduced in <img alt="notitg_v1_icon_16" src="../_images/notitg_v1_logo_16.png" /> NotITG v1</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.INPUTMAN">
+<span class="sig-name descname"><span class="pre">INPUTMAN</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">RageInput</span><a class="headerlink" href="#global.global.INPUTMAN" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference internal" href="rage_input.html#RageInput" title="RageInput"><code class="xref lua lua-class docutils literal notranslate"><span class="pre">RageInput</span></code></a> singleton</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.SCREENMAN">
+<span class="sig-name descname"><span class="pre">SCREENMAN</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">ScreenManager</span><a class="headerlink" href="#global.global.SCREENMAN" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference internal" href="screen_manager.html#ScreenManager" title="ScreenManager"><code class="xref lua lua-class docutils literal notranslate"><span class="pre">ScreenManager</span></code></a> singleton</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.SONGMAN">
+<span class="sig-name descname"><span class="pre">SONGMAN</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">SongManager</span><a class="headerlink" href="#global.global.SONGMAN" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference internal" href="song_manager.html#SongManager" title="SongManager"><code class="xref lua lua-class docutils literal notranslate"><span class="pre">SongManager</span></code></a> singleton</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.STATSMAN">
+<span class="sig-name descname"><span class="pre">STATSMAN</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">StatsManager</span><a class="headerlink" href="#global.global.STATSMAN" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference internal" href="stats_manager.html#StatsManager" title="StatsManager"><code class="xref lua lua-class docutils literal notranslate"><span class="pre">StatsManager</span></code></a> singleton</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.THEME">
+<span class="sig-name descname"><span class="pre">THEME</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">ThemeManager</span><a class="headerlink" href="#global.global.THEME" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference internal" href="theme_manager.html#ThemeManager" title="ThemeManager"><code class="xref lua lua-class docutils literal notranslate"><span class="pre">ThemeManager</span></code></a> singleton</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.UNLOCKMAN">
+<span class="sig-name descname"><span class="pre">UNLOCKMAN</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">UnlockManager</span><a class="headerlink" href="#global.global.UNLOCKMAN" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference internal" href="unlock_manager.html#UnlockManager" title="UnlockManager"><code class="xref lua lua-class docutils literal notranslate"><span class="pre">UnlockManager</span></code></a> singleton</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.SCREEN_WIDTH">
+<span class="sig-name descname"><span class="pre">SCREEN_WIDTH</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">number</span><a class="headerlink" href="#global.global.SCREEN_WIDTH" title="Permalink to this definition">¶</a></dt>
+<dd><p>The window width, scaled</p>
+<p>This is set by the theme - typically <code class="docutils literal notranslate"><span class="pre">640</span></code> with a 4:3 aspect ratio</p>
+<p>If you want the width of the game window, see <a class="reference internal" href="rage_display.html#RageDisplay.GetWindowWidth" title="RageDisplay.GetWindowWidth"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">RageDisplay.GetWindowWidth()</span></code></a>.</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.SCREEN_HEIGHT">
+<span class="sig-name descname"><span class="pre">SCREEN_HEIGHT</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">number</span><a class="headerlink" href="#global.global.SCREEN_HEIGHT" title="Permalink to this definition">¶</a></dt>
+<dd><p>The window height, scaled</p>
+<p>This is set by the theme - typically <code class="docutils literal notranslate"><span class="pre">480</span></code></p>
+<p>If you want the height of the game window, see <a class="reference internal" href="rage_display.html#RageDisplay.GetWindowHeight" title="RageDisplay.GetWindowHeight"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">RageDisplay.GetWindowHeight()</span></code></a>.</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.SCREEN_LEFT">
+<span class="sig-name descname"><span class="pre">SCREEN_LEFT</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">number</span><a class="headerlink" href="#global.global.SCREEN_LEFT" title="Permalink to this definition">¶</a></dt>
+<dd><p>The leftmost coordinate of the window - always zero</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.SCREEN_RIGHT">
+<span class="sig-name descname"><span class="pre">SCREEN_RIGHT</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">number</span><a class="headerlink" href="#global.global.SCREEN_RIGHT" title="Permalink to this definition">¶</a></dt>
+<dd><p>The rightmost coordinate of the window - equal to <a class="reference internal" href="#global.global.SCREEN_WIDTH" title="global.global.SCREEN_WIDTH"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">global.SCREEN_WIDTH</span></code></a></p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.SCREEN_TOP">
+<span class="sig-name descname"><span class="pre">SCREEN_TOP</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">number</span><a class="headerlink" href="#global.global.SCREEN_TOP" title="Permalink to this definition">¶</a></dt>
+<dd><p>The topmost coordinate of the window - always zero</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.SCREEN_BOTTOM">
+<span class="sig-name descname"><span class="pre">SCREEN_BOTTOM</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">number</span><a class="headerlink" href="#global.global.SCREEN_BOTTOM" title="Permalink to this definition">¶</a></dt>
+<dd><p>The bottommost coordinate of the window - equal to <a class="reference internal" href="#global.global.SCREEN_HEIGHT" title="global.global.SCREEN_HEIGHT"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">global.SCREEN_HEIGHT</span></code></a></p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.SCREEN_CENTER_X">
+<span class="sig-name descname"><span class="pre">SCREEN_CENTER_X</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">number</span><a class="headerlink" href="#global.global.SCREEN_CENTER_X" title="Permalink to this definition">¶</a></dt>
+<dd><p>The middle X coordinate of the window</p>
+<p>Equal to <code class="docutils literal notranslate"><span class="pre">SCREEN_WIDTH</span> <span class="pre">/</span> <span class="pre">2</span></code></p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.SCREEN_CENTER_Y">
+<span class="sig-name descname"><span class="pre">SCREEN_CENTER_Y</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">number</span><a class="headerlink" href="#global.global.SCREEN_CENTER_Y" title="Permalink to this definition">¶</a></dt>
+<dd><p>The middle Y coordinate of the window</p>
+<p>Equal to <code class="docutils literal notranslate"><span class="pre">SCREEN_HEIGHT</span> <span class="pre">/</span> <span class="pre">2</span></code></p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.DISPLAY_WIDTH">
+<span class="sig-name descname"><span class="pre">DISPLAY_WIDTH</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">number</span><a class="headerlink" href="#global.global.DISPLAY_WIDTH" title="Permalink to this definition">¶</a></dt>
+<dd><p>The monitor width</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.DISPLAY_HEIGHT">
+<span class="sig-name descname"><span class="pre">DISPLAY_HEIGHT</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">number</span><a class="headerlink" href="#global.global.DISPLAY_HEIGHT" title="Permalink to this definition">¶</a></dt>
+<dd><p>The monitor height</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.DISPLAY_LEFT">
+<span class="sig-name descname"><span class="pre">DISPLAY_LEFT</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">number</span><a class="headerlink" href="#global.global.DISPLAY_LEFT" title="Permalink to this definition">¶</a></dt>
+<dd><p>The leftmost coordinate of the monitor - always zero</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.DISPLAY_RIGHT">
+<span class="sig-name descname"><span class="pre">DISPLAY_RIGHT</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">number</span><a class="headerlink" href="#global.global.DISPLAY_RIGHT" title="Permalink to this definition">¶</a></dt>
+<dd><p>The rightmost coordinate of the monitor - equal to <a class="reference internal" href="#global.global.DISPLAY_WIDTH" title="global.global.DISPLAY_WIDTH"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">global.DISPLAY_WIDTH</span></code></a></p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.DISPLAY_TOP">
+<span class="sig-name descname"><span class="pre">DISPLAY_TOP</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">number</span><a class="headerlink" href="#global.global.DISPLAY_TOP" title="Permalink to this definition">¶</a></dt>
+<dd><p>The topmost coordinate of the monitor - always zero</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.DISPLAY_BOTTOM">
+<span class="sig-name descname"><span class="pre">DISPLAY_BOTTOM</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">number</span><a class="headerlink" href="#global.global.DISPLAY_BOTTOM" title="Permalink to this definition">¶</a></dt>
+<dd><p>The bottommost coordinate of the monitor - equal to <a class="reference internal" href="#global.global.DISPLAY_HEIGHT" title="global.global.DISPLAY_HEIGHT"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">global.DISPLAY_HEIGHT</span></code></a></p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.DISPLAY_CENTER_X">
+<span class="sig-name descname"><span class="pre">DISPLAY_CENTER_X</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">number</span><a class="headerlink" href="#global.global.DISPLAY_CENTER_X" title="Permalink to this definition">¶</a></dt>
+<dd><p>The middle X coordinate of the monitor</p>
+<p>Equal to <code class="docutils literal notranslate"><span class="pre">DISPLAY_WIDTH</span> <span class="pre">/</span> <span class="pre">2</span></code></p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.DISPLAY_CENTER_Y">
+<span class="sig-name descname"><span class="pre">DISPLAY_CENTER_Y</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">number</span><a class="headerlink" href="#global.global.DISPLAY_CENTER_Y" title="Permalink to this definition">¶</a></dt>
+<dd><p>The middle Y coordinate of the monitor</p>
+<p>Equal to <code class="docutils literal notranslate"><span class="pre">DISPLAY_HEIGHT</span> <span class="pre">/</span> <span class="pre">2</span></code></p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.PLAYER_1">
+<span class="sig-name descname"><span class="pre">PLAYER_1</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">number</span><a class="headerlink" href="#global.global.PLAYER_1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Equal to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.PLAYER_2">
+<span class="sig-name descname"><span class="pre">PLAYER_2</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">number</span><a class="headerlink" href="#global.global.PLAYER_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Equal to <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.OPENITG">
+<span class="sig-name descname"><span class="pre">OPENITG</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">boolean</span><a class="headerlink" href="#global.global.OPENITG" title="Permalink to this definition">¶</a></dt>
+<dd><p>Equal to <code class="docutils literal notranslate"><span class="pre">true</span></code></p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.OPENITG_VERSION">
+<span class="sig-name descname"><span class="pre">OPENITG_VERSION</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">number</span><a class="headerlink" href="#global.global.OPENITG_VERSION" title="Permalink to this definition">¶</a></dt>
+<dd><p>The current OpenITG version</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.FUCK_EXE">
+<span class="sig-name descname"><span class="pre">FUCK_EXE</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">boolean</span><a class="headerlink" href="#global.global.FUCK_EXE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Equal to <code class="docutils literal notranslate"><span class="pre">true</span></code></p>
+<p>Introduced in <img alt="notitg_v1_icon_16" src="../_images/notitg_v1_logo_16.png" /> NotITG v1</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.FUCK_VERSION_1">
+<span class="sig-name descname"><span class="pre">FUCK_VERSION_1</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">number</span><a class="headerlink" href="#global.global.FUCK_VERSION_1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Equal to <code class="docutils literal notranslate"><span class="pre">20161226</span></code> (The release date of <img alt="notitg_v1_icon_16" src="../_images/notitg_v1_logo_16.png" /> NotITG v1)</p>
+<p>Introduced in <img alt="notitg_v3_icon_16" src="../_images/notitg_v3_logo_16.png" /> NotITG v3 (yes really)</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.FUCK_VERSION_2">
+<span class="sig-name descname"><span class="pre">FUCK_VERSION_2</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">number</span><a class="headerlink" href="#global.global.FUCK_VERSION_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Equal to <code class="docutils literal notranslate"><span class="pre">20170405</span></code> (The release date of <img alt="notitg_v2_icon_16" src="../_images/notitg_v2_logo_16.png" /> NotITG v2)</p>
+<p>Introduced in <img alt="notitg_v3_icon_16" src="../_images/notitg_v3_logo_16.png" /> NotITG v3 (yes really)</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.FUCK_VERSION_3">
+<span class="sig-name descname"><span class="pre">FUCK_VERSION_3</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">number</span><a class="headerlink" href="#global.global.FUCK_VERSION_3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Equal to <code class="docutils literal notranslate"><span class="pre">20180609</span></code> (The release date of <img alt="notitg_v3_icon_16" src="../_images/notitg_v3_logo_16.png" /> NotITG v3)</p>
+<p>Introduced in <img alt="notitg_v4_icon_16" src="../_images/notitg_v4_logo_16.png" /> NotITG v4 (yes really)</p>
+</dd></dl>
+
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="global.global.FUCK_VERSION_3_1">
+<span class="sig-name descname"><span class="pre">FUCK_VERSION_3_1</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">number</span><a class="headerlink" href="#global.global.FUCK_VERSION_3_1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Equal to <code class="docutils literal notranslate"><span class="pre">20180826</span></code> (The release date of <img alt="notitg_v3_icon_16" src="../_images/notitg_v3_logo_16.png" /> NotITG v3.1)</p>
+<p>Introduced in <img alt="notitg_v4_icon_16" src="../_images/notitg_v4_logo_16.png" /> NotITG v4 (yes really)</p>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.AllFailed">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">AllFailed</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.AllFailed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns whether all active players failed the current stage</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">boolean</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.ConnectToServer">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">ConnectToServer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.ConnectToServer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempts to connect to a server</p>
+<p>Returns a boolean depending on whether connection succeeded or not… apparently… even though trying to connect to
+a non-existent server returns <code class="docutils literal notranslate"><span class="pre">true</span></code> before a system message appears saying connection failed.</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">boolean</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.IsNetConnected">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">IsNetConnected</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.IsNetConnected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns whether the game is connected to a server or not</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">boolean</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.IsNetSMOnline">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">IsNetSMOnline</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.IsNetSMOnline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns whether the game is connected to StepMania Online or not</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">boolean</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.IsSMOnlineLoggedIn">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">IsSMOnlineLoggedIn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">player:</span> <span class="pre">number</span></em><span class="sig-paren">)</span><a class="headerlink" href="#global.IsSMOnlineLoggedIn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns whether the specified player is logged in to StepMania Online</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>player</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The player number (0 indexed)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">boolean</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.ReportStyle">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">ReportStyle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.ReportStyle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends the current style to the StepMania Online server</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">boolean</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.DifficultyToThemedString">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">DifficultyToThemedString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">difficulty:</span> <span class="pre">number</span></em><span class="sig-paren">)</span><a class="headerlink" href="#global.DifficultyToThemedString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a difficulty to a human-readable string</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>difficulty</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The difficulty - see <a class="reference internal" href="enumerations.html#_CPPv410Difficulty" title="Difficulty"><code class="xref cpp cpp-enum docutils literal notranslate"><span class="pre">Difficulty</span></code></a></p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.CourseDifficultyToThemedString">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">CourseDifficultyToThemedString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">courseDifficulty:</span> <span class="pre">number</span></em><span class="sig-paren">)</span><a class="headerlink" href="#global.CourseDifficultyToThemedString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a course difficulty to a human-readable string</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>courseDifficulty</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The course difficulty - see <a class="reference internal" href="enumerations.html#_CPPv416CourseDifficulty" title="CourseDifficulty"><code class="xref cpp cpp-enum docutils literal notranslate"><span class="pre">CourseDifficulty</span></code></a></p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.CourseSongIndex">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">CourseSongIndex</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.CourseSongIndex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the index of the current song in the course (0 indexed)</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.CurStyleName">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">CurStyleName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.CurStyleName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the name of the current style</p>
+<p>Eg: <code class="docutils literal notranslate"><span class="pre">versus</span></code></p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.DayOfMonth">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">DayOfMonth</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.DayOfMonth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current day of the month (1 indexed)</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.MonthOfMonth">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">MonthOfMonth</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.MonthOfMonth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current month of the year (1 indexed)</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.DayOfYear">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">DayOfYear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.DayOfYear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current day of the year (0 indexed)</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.Weekday">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">Weekday</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.Weekday" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current weekday (0 - 6)</p>
+<p>This assumes the week starts on a Sunday</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.Year">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">Year</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.Year" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current year</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.Hour">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">Hour</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.Hour" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current hour</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.Minute">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">Minute</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.Minute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current minute</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.Second">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">Second</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.Second" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current second</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.MonthToString">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">MonthToString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.MonthToString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a month number to a human-readable string</p>
+<p>Returns an empty string for an invalid month</p>
+<p>Eg: <code class="docutils literal notranslate"><span class="pre">1</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">January</span></code></p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.SecondsToMMSS">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">SecondsToMMSS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">seconds:</span> <span class="pre">number</span></em><span class="sig-paren">)</span><a class="headerlink" href="#global.SecondsToMMSS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a human-readable string in the format <code class="docutils literal notranslate"><span class="pre">MM:SS</span></code> for a given number of seconds</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>seconds</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The number of seconds</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.SecondsToMMSSMsMs">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">SecondsToMMSSMsMs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">seconds:</span> <span class="pre">number</span></em><span class="sig-paren">)</span><a class="headerlink" href="#global.SecondsToMMSSMsMs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a human-readable string in the format <code class="docutils literal notranslate"><span class="pre">MM:SS.MsMs</span></code> for a given number of seconds</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>seconds</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The number of seconds</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.SecondsToMMSSMsMsMs">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">SecondsToMMSSMsMsMs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">seconds:</span> <span class="pre">number</span></em><span class="sig-paren">)</span><a class="headerlink" href="#global.SecondsToMMSSMsMsMs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a human-readable string in the format <code class="docutils literal notranslate"><span class="pre">MM:SS.MsMsMs</span></code> for a given number of seconds</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>seconds</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The number of seconds</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.SecondsToMSSMsMs">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">SecondsToMSSMsMs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">seconds:</span> <span class="pre">number</span></em><span class="sig-paren">)</span><a class="headerlink" href="#global.SecondsToMSSMsMs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a human-readable string in the format <code class="docutils literal notranslate"><span class="pre">M:SS.MsMs</span></code> for a given number of seconds</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>seconds</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The number of seconds</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.Debug">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">Debug</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">message:</span> <span class="pre">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#global.Debug" title="Permalink to this definition">¶</a></dt>
+<dd><p>Logs a message</p>
+<p>Like <code class="xref lua lua-func docutils literal notranslate"><span class="pre">global.global.Trace()</span></code>, but shows even if the <code class="docutils literal notranslate"><span class="pre">ShowLogOutput</span></code> preference is disabled</p>
+<p>Also returns <code class="docutils literal notranslate"><span class="pre">true</span></code> for whatever reason</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>message</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The message to log</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">boolean</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.Trace">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">Trace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">message:</span> <span class="pre">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#global.Trace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Logs a message to the console log</p>
+<p>Also returns <code class="docutils literal notranslate"><span class="pre">true</span></code> for whatever reason</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>message</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The message to log</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">boolean</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.FormatPercentScore">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">FormatPercentScore</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">score:</span> <span class="pre">number</span></em><span class="sig-paren">)</span><a class="headerlink" href="#global.FormatPercentScore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Formats a dance points score into a human-readable percentage score string</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>score</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The dance points score</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.GetBestFinalGrade">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">GetBestFinalGrade</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.GetBestFinalGrade" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the best final grade</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<p>See <a class="reference internal" href="enumerations.html#_CPPv45Grade" title="Grade"><code class="xref cpp cpp-enum docutils literal notranslate"><span class="pre">Grade</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.GetDiskSpaceFree">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">GetDiskSpaceFree</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.GetDiskSpaceFree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the amount of free space available on the partition the game is installed on</p>
+<p>Eg: <code class="docutils literal notranslate"><span class="pre">12.51</span> <span class="pre">GB</span></code></p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.GetDiskSpaceTotal">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">GetDiskSpaceTotal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.GetDiskSpaceTotal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the capacity of the partition the game is installed on</p>
+<p>Eg: <code class="docutils literal notranslate"><span class="pre">786.44</span> <span class="pre">GB</span></code></p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.GetEasiestNotesDifficulty">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">GetEasiestNotesDifficulty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.GetEasiestNotesDifficulty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the easiest difficulty chosen from the current song</p>
+<p>See <a class="reference internal" href="enumerations.html#_CPPv410Difficulty" title="Difficulty"><code class="xref cpp cpp-enum docutils literal notranslate"><span class="pre">Difficulty</span></code></a></p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.GetGradeFromPercent">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">GetGradeFromPercent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">percent:</span> <span class="pre">number</span></em><span class="sig-paren">)</span><a class="headerlink" href="#global.GetGradeFromPercent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the grade for a given percentage score</p>
+<p>See <a class="reference internal" href="enumerations.html#_CPPv45Grade" title="Grade"><code class="xref cpp cpp-enum docutils literal notranslate"><span class="pre">Grade</span></code></a></p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>percent</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The percentage score</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.GetIP">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">GetIP</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.GetIP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the internal IP and netmask of the machine</p>
+<p>Eg: <code class="docutils literal notranslate"><span class="pre">192.168.1.10,</span> <span class="pre">Netmask:</span> <span class="pre">255.255.255.0</span></code> - as tested on <img alt="notitg_v4_icon_16" src="../_images/notitg_v4_logo_16.png" /> NotITG v4.0.1 though, this function seems to return <code class="docutils literal notranslate"><span class="pre">Not</span> <span class="pre">implemented</span></code>.</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.GetInputType">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">GetInputType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.GetInputType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the input type</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.GetNumCrashLogs">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">GetNumCrashLogs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.GetNumCrashLogs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of crash logs stored</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.GetNumIOErrors">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">GetNumIOErrors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.GetNumIOErrors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number drive IO errors</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.GetNumMachineEdits">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">GetNumMachineEdits</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.GetNumMachineEdits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of edits registered in the machine</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.GetNumMachineScores">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">GetNumMachineScores</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.GetNumMachineScores" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of scored saved on the machine</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">GetNumMachineScores</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Returns the number of players enabled</p>
+<p>This is an alias for <a class="reference internal" href="game_state.html#GameState.GetNumPlayersEnabled" title="GameState.GetNumPlayersEnabled"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">GameState.GetNumPlayersEnabled()</span></code></a></p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.GetProductName">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">GetProductName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.GetProductName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the name (and version if applicable) of the executable</p>
+<p>Eg: <code class="docutils literal notranslate"><span class="pre">NotITG</span> <span class="pre">v4.0.1</span></code></p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.GetProductVer">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">GetProductVer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.GetProductVer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the version of the executable</p>
+<p>Eg: <code class="docutils literal notranslate"><span class="pre">v4.0.1</span></code></p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.GetRevision">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">GetRevision</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.GetRevision" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the revision number of the executable</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.GetSerialNumber">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">GetSerialNumber</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.GetSerialNumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the serial number of the installation</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.GetStageText">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">GetStageText</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.GetStageText" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the text of the current stage</p>
+<p>Eg: <code class="docutils literal notranslate"><span class="pre">event</span></code></p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.GetUptime">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">GetUptime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.GetUptime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the length the game has been running for</p>
+<p>Returns a <code class="docutils literal notranslate"><span class="pre">HH:MM:SS</span></code> string</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.Grade">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">Grade</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">name:</span> <span class="pre">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#global.Grade" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a grade’s name</p>
+<p>See <a class="reference internal" href="enumerations.html#_CPPv45Grade" title="Grade"><code class="xref cpp cpp-enum docutils literal notranslate"><span class="pre">Grade</span></code></a></p>
+<p>Eg: <code class="docutils literal notranslate"><span class="pre">A</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">3</span></code>, <code class="docutils literal notranslate"><span class="pre">Tier04</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">3</span></code></p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The grade name</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.GradeToString">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">GradeToString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">grade:</span> <span class="pre">number</span></em><span class="sig-paren">)</span><a class="headerlink" href="#global.GradeToString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a grade name from a grade</p>
+<p>See <a class="reference internal" href="enumerations.html#_CPPv45Grade" title="Grade"><code class="xref cpp cpp-enum docutils literal notranslate"><span class="pre">Grade</span></code></a></p>
+<p>Unfortunately, it’s not a very useful string. For example, <code class="docutils literal notranslate"><span class="pre">GradeToString(GRADE_TIER03)</span></code> returns… <code class="docutils literal notranslate"><span class="pre">Tier03</span></code>.</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>grade</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The grade</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.HubIsConnected">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">HubIsConnected</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.HubIsConnected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns whether the ITG hub is connected</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">boolean</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.IsUsingMemoryCard">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">IsUsingMemoryCard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">player:</span> <span class="pre">number</span></em><span class="sig-paren">)</span><a class="headerlink" href="#global.IsUsingMemoryCard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns whether a given player has a memory card connected</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>player</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The player number (0 indexed)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">boolean</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.IsAnyPlayerUsingMemoryCard">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">IsAnyPlayerUsingMemoryCard</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.IsAnyPlayerUsingMemoryCard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns whether any player has a memory card connected</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">boolean</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.NumStagesLeft">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">NumStagesLeft</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.NumStagesLeft" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of stages remaining</p>
+<p>Returns <code class="docutils literal notranslate"><span class="pre">999</span></code> if event mode is enabled</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.IsExtraStage">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">IsExtraStage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.IsExtraStage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns whether the current stage is the extra stage</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">boolean</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.IsExtraStage2">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">IsExtraStage2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.IsExtraStage2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns whether the current stage is the second extra stage</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">boolean</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.IsFinalStage">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">IsFinalStage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.IsFinalStage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns whether the current stage is the final stage</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">boolean</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.OnePassed">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">OnePassed</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.OnePassed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns whether at least one player passed the current song</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">boolean</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua function">
+<dt class="sig sig-object lua" id="global.PlayModeName">
+<em class="property"> </em><span class="sig-prename descclassname"><span class="pre">global.</span></span><span class="sig-name descname"><span class="pre">PlayModeName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#global.PlayModeName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the name of the current play mode</p>
+<p>Eg: <code class="docutils literal notranslate"><span class="pre">Regular</span></code></p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/notitg_v4_logo_256.png" alt="Logo"/>
+            </a></p>
+<h3><a href="../index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../versions.html">NotITG versions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Lua API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="actor.html">Actor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actor_frame.html">ActorFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actor_frame_texture.html">ActorFrameTexture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actor_proxy.html">ActorProxy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actor_scroller.html">ActorScroller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actor_sound.html">ActorSound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bitmap_text.html">BitmapText</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course.html">Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="difficulty_meter.html">DifficultyMeter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fading_banner.html">FadingBanner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game.html">Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game_sound_manager.html">GameSoundManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game_state.html">GameState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="help_display.html">HelpDisplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="high_score.html">HighScore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="high_score_list.html">HighScoreList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="memory_card_manager.html">MemoryCardManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message_manager.html">MessageManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html">Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="note_skin_manager.html">NoteSkinManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player.html">Player</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player_stage_stats.html">PlayerStageStats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polygon.html">Polygon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prefs_manager.html">PrefsManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profile.html">Profile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profile_manager.html">ProfileManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="radar_values.html">RadarValues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rage_display.html">RageDisplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rage_file_manager.html">RageFileManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rage_input.html">RageInput</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rage_shader_program.html">RageShaderProgram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rage_sound.html">RageSound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rage_texture.html">RageTexture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rage_texture_render_target.html">RageTextureRenderTarget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="screen_gameplay.html">ScreenGameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="screen_manager.html">ScreenManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="song.html">Song</a></li>
+<li class="toctree-l2"><a class="reference internal" href="song_manager.html">SongManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sprite.html">Sprite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stage_stats.html">StageStats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stats_manager.html">StatsManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="steps.html">Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theme_manager.html">ThemeManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trail.html">Trail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unlock_manager.html">UnlockManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumerations.html">Enumerations</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Globals</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../message_commands.html">Message commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modifiers.html">Modifiers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgements.html">Acknowledgements</a></li>
+</ul>
+
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="enumerations.html"
+                          title="previous chapter">Enumerations</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="../message_commands.html"
+                          title="next chapter">Message commands</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/lua_api/globals.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../lua-modindex.html" title="Lua Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../message_commands.html" title="Message commands"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="enumerations.html" title="Enumerations"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">NotITG 4.2.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Lua API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Globals</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+      Last updated on Mar 27, 2023.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.3.
+    </div>
+  </body>
+</html>

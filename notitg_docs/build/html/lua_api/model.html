@@ -1,0 +1,801 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Model &#8212; NotITG 4.2.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/nature.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style/style.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="NoteSkinManager" href="note_skin_manager.html" />
+    <link rel="prev" title="MessageManager" href="message_manager.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../lua-modindex.html" title="Lua Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="note_skin_manager.html" title="NoteSkinManager"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="message_manager.html" title="MessageManager"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">NotITG 4.2.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Lua API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Model</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="model">
+<h1>Model<a class="headerlink" href="#model" title="Permalink to this heading">¶</a></h1>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#description" id="id1">Description</a></p></li>
+<li><p><a class="reference internal" href="#xml-attributes" id="id2">XML attributes</a></p></li>
+<li><p><a class="reference internal" href="#api-reference" id="id3">API reference</a></p></li>
+</ul>
+</nav>
+<section id="description">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Description</a><a class="headerlink" href="#description" title="Permalink to this heading">¶</a></h2>
+<p>An 3D model</p>
+</section>
+<section id="xml-attributes">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">XML attributes</a><a class="headerlink" href="#xml-attributes" title="Permalink to this heading">¶</a></h2>
+<p><strong>File</strong></p>
+<p>A filepath to the initial Milkshape 3D ASCII model to load</p>
+</section>
+<section id="api-reference">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">API reference</a><a class="headerlink" href="#api-reference" title="Permalink to this heading">¶</a></h2>
+<dl class="lua class">
+<dt class="sig sig-object lua" id="Model">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Model</span></span><em class="property"><span class="pre">:</span> </em><a class="reference internal" href="actor.html#Actor" title="Actor"><span class="pre">Actor</span></a><a class="headerlink" href="#Model" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#Model.__index" title="Model.__index"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">__index</span></code></a></p></td>
+<td><p>Gives you the <code class="docutils literal notranslate"><span class="pre">Model</span></code> table again</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#Model.playanimation" title="Model.playanimation"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">playanimation(name,</span> <span class="pre">rate)</span></code></a></p></td>
+<td><p>Plays a specified animation</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Model.playanimationframe" title="Model.playanimationframe"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">playanimationframe(name,</span> <span class="pre">rate,</span> <span class="pre">frame)</span></code></a></p></td>
+<td><p>?</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Model.GetTotalFrames" title="Model.GetTotalFrames"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">GetTotalFrames()</span></code></a></p></td>
+<td><p>Returns the number of animation frames the model has</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Model.GetCurrentFrame" title="Model.GetCurrentFrame"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">GetCurrentFrame()</span></code></a></p></td>
+<td><p>Returns the current animation frame (as a floating point number)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Model.SetAnimationRate" title="Model.SetAnimationRate"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">SetAnimationRate(rate)</span></code></a></p></td>
+<td><p>Returns the animation rate</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Model.setstate" title="Model.setstate"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">setstate(state)</span></code></a></p></td>
+<td><p>Sets the current frame for all animated textures</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Model.setstateone" title="Model.setstateone"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">setstateone(state,</span> <span class="pre">index)</span></code></a></p></td>
+<td><p>Sets the current frame for one animated texture</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Model.animateone" title="Model.animateone"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">animateone(enable,</span> <span class="pre">index)</span></code></a></p></td>
+<td><p>Enables/disables animation for one animated texture</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Model.SetUseZBuffer" title="Model.SetUseZBuffer"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">SetUseZBuffer(enable)</span></code></a></p></td>
+<td><p>Sets whether the model should use the depth/Z buffer</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Model.SetTexture" title="Model.SetTexture"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">SetTexture(index,</span> <span class="pre">texture)</span></code></a></p></td>
+<td><p>Sets a texture on the model</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Model.ResetTexture" title="Model.ResetTexture"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">ResetTexture(index)</span></code></a></p></td>
+<td><p>Removes a texture from the model</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Model.SetAlphaTexture" title="Model.SetAlphaTexture"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">SetAlphaTexture(index,</span> <span class="pre">texture)</span></code></a></p></td>
+<td><p>Sets an alpha texture on the model</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Model.ResetAlphaTexture" title="Model.ResetAlphaTexture"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">ResetAlphaTexture(index)</span></code></a></p></td>
+<td><p>Removes an alpha texture from the model</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Model.SetTextureTranslateX" title="Model.SetTextureTranslateX"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">SetTextureTranslateX(index,</span> <span class="pre">x)</span></code></a></p></td>
+<td><p>Sets the X translation for a texture</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Model.SetTextureTranslateY" title="Model.SetTextureTranslateY"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">SetTextureTranslateY(index,</span> <span class="pre">y)</span></code></a></p></td>
+<td><p>Sets the Y translation for a texture</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Model.SetTextureRotate" title="Model.SetTextureRotate"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">SetTextureRotate(index,</span> <span class="pre">rotation)</span></code></a></p></td>
+<td><p>Sets the rotation for a texture</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Model.SetTextureScaleX" title="Model.SetTextureScaleX"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">SetTextureScaleX(index,</span> <span class="pre">x)</span></code></a></p></td>
+<td><p>Sets the X scale for a texture</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Model.SetTextureScaleY" title="Model.SetTextureScaleY"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">SetTextureScaleY(index,</span> <span class="pre">y)</span></code></a></p></td>
+<td><p>Sets the Y scale for a texture</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Model.SetTextureScale" title="Model.SetTextureScale"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">SetTextureScale(index,</span> <span class="pre">scale)</span></code></a></p></td>
+<td><p>Sets the X and Y scale for a texture</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Model.LoadMilkshapeAscii" title="Model.LoadMilkshapeAscii"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">LoadMilkshapeAscii(path)</span></code></a></p></td>
+<td><p>Sets this model’s mesh</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Model.LoadMilkshapeAsciiBones" title="Model.LoadMilkshapeAsciiBones"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">LoadMilkshapeAsciiBones(aniName,</span> <span class="pre">path)</span></code></a></p></td>
+<td><p>Load a skeleton for a 3D model</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Model.LoadMilkshapeAsciiMaterials" title="Model.LoadMilkshapeAsciiMaterials"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">LoadMilkshapeAsciiMaterials(path)</span></code></a></p></td>
+<td><p>Load materials for a 3D model</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Model.SetPolygonMode" title="Model.SetPolygonMode"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">SetPolygonMode(mode)</span></code></a></p></td>
+<td><p>Sets the polygon drawing mode</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Model.SetLineWidth" title="Model.SetLineWidth"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">SetLineWidth(width)</span></code></a></p></td>
+<td><p>Sets the outline width</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Model.SetLineColor" title="Model.SetLineColor"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">SetLineColor(r,</span> <span class="pre">g,</span> <span class="pre">b,</span> <span class="pre">a)</span></code></a></p></td>
+<td><p>Sets the outline color</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Model.SetOutlinesOnTop" title="Model.SetOutlinesOnTop"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">SetOutlinesOnTop(enable)</span></code></a></p></td>
+<td><p>Sets whether outlines should be drawn on top</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Model.SetCelShaded" title="Model.SetCelShaded"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">SetCelShaded(enable)</span></code></a></p></td>
+<td><p>Sets whether the model should use cel shading</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Model.SetInvertCelPass" title="Model.SetInvertCelPass"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">SetInvertCelPass(enable)</span></code></a></p></td>
+<td><p>Sets whether the cel shading should be inverted</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Model.__tostring" title="Model.__tostring"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">__tostring()</span></code></a></p></td>
+<td><p>Returns an <code class="docutils literal notranslate"><span class="pre">Model</span> <span class="pre">(MemoryAddress)</span></code> string</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="Model.__index">
+<span class="sig-name descname"><span class="pre">__index</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">table</span><a class="headerlink" href="#Model.__index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gives you the <code class="docutils literal notranslate"><span class="pre">Model</span></code> table again</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt class="sig sig-object lua" id="Model.playanimation">
+<em class="property"> </em><span class="sig-name descname"><span class="pre">playanimation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">name:</span> <span class="pre">str</span></em>, <em class="sig-param"><span class="pre">rate:</span> <span class="pre">number</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">void</span></span></span><a class="headerlink" href="#Model.playanimation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plays a specified animation</p>
+<p>Introduced in <img alt="notitg_v2_icon_16" src="../_images/notitg_v2_logo_16.png" /> NotITG v2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The animation name</p></li>
+<li><p><strong>rate</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The playback speed</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">void</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt class="sig sig-object lua" id="Model.playanimationframe">
+<em class="property"> </em><span class="sig-name descname"><span class="pre">playanimationframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">name:</span> <span class="pre">str</span></em>, <em class="sig-param"><span class="pre">rate:</span> <span class="pre">number</span></em>, <em class="sig-param"><span class="pre">frame:</span> <span class="pre">number</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">void</span></span></span><a class="headerlink" href="#Model.playanimationframe" title="Permalink to this definition">¶</a></dt>
+<dd><p>?</p>
+<p>Introduced in <img alt="notitg_v2_icon_16" src="../_images/notitg_v2_logo_16.png" /> NotITG v2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The animation name</p></li>
+<li><p><strong>rate</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The playback speed</p></li>
+<li><p><strong>frame</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – Frame?</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">void</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt class="sig sig-object lua" id="Model.GetTotalFrames">
+<em class="property"> </em><span class="sig-name descname"><span class="pre">GetTotalFrames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">number</span></span></span><a class="headerlink" href="#Model.GetTotalFrames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of animation frames the model has</p>
+<p>Introduced in <img alt="notitg_v2_icon_16" src="../_images/notitg_v2_logo_16.png" /> NotITG v2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt class="sig sig-object lua" id="Model.GetCurrentFrame">
+<em class="property"> </em><span class="sig-name descname"><span class="pre">GetCurrentFrame</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">number</span></span></span><a class="headerlink" href="#Model.GetCurrentFrame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current animation frame (as a floating point number)</p>
+<p>Introduced in <img alt="notitg_v2_icon_16" src="../_images/notitg_v2_logo_16.png" /> NotITG v2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt class="sig sig-object lua" id="Model.SetAnimationRate">
+<em class="property"> </em><span class="sig-name descname"><span class="pre">SetAnimationRate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">rate:</span> <span class="pre">number</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">number</span></span></span><a class="headerlink" href="#Model.SetAnimationRate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the animation rate</p>
+<p>Introduced in <img alt="notitg_v2_icon_16" src="../_images/notitg_v2_logo_16.png" /> NotITG v2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>rate</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The new rate to set</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt class="sig sig-object lua" id="Model.setstate">
+<em class="property"> </em><span class="sig-name descname"><span class="pre">setstate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">state:</span> <span class="pre">number</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">void</span></span></span><a class="headerlink" href="#Model.setstate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the current frame for all animated textures</p>
+<p>Overridden from <a class="reference internal" href="actor.html#Actor.setstate" title="Actor.setstate"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">Actor.setstate()</span></code></a></p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The frame to show (0 indexed)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">void</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt class="sig sig-object lua" id="Model.setstateone">
+<em class="property"> </em><span class="sig-name descname"><span class="pre">setstateone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">state:</span> <span class="pre">number</span></em>, <em class="sig-param"><span class="pre">index:</span> <span class="pre">number</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">void</span></span></span><a class="headerlink" href="#Model.setstateone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the current frame for one animated texture</p>
+<p>Introduced in <img alt="notitg_v1_icon_16" src="../_images/notitg_v1_logo_16.png" /> NotITG v1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The frame to show (0 indexed)</p></li>
+<li><p><strong>index</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The texture index (0 indexed)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">void</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt class="sig sig-object lua" id="Model.animateone">
+<em class="property"> </em><span class="sig-name descname"><span class="pre">animateone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">enable:</span> <span class="pre">boolean</span></em>, <em class="sig-param"><span class="pre">index:</span> <span class="pre">number</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">void</span></span></span><a class="headerlink" href="#Model.animateone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enables/disables animation for one animated texture</p>
+<p>Introduced in <img alt="notitg_v1_icon_16" src="../_images/notitg_v1_logo_16.png" /> NotITG v1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>enable</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">boolean</span></code></span>) – Whether animation should be enabled</p></li>
+<li><p><strong>index</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The texture index (0 indexed)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">void</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt class="sig sig-object lua" id="Model.SetUseZBuffer">
+<em class="property"> </em><span class="sig-name descname"><span class="pre">SetUseZBuffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">enable:</span> <span class="pre">boolean</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">void</span></span></span><a class="headerlink" href="#Model.SetUseZBuffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets whether the model should use the depth/Z buffer</p>
+<p>This defaults to <code class="docutils literal notranslate"><span class="pre">true</span></code> in an <code class="docutils literal notranslate"><span class="pre">FGCHANGES</span></code> and <code class="docutils literal notranslate"><span class="pre">BETTERBGCHANGES</span></code> layer, and <code class="docutils literal notranslate"><span class="pre">false</span></code> in a <code class="docutils literal notranslate"><span class="pre">BGCHANGES</span></code> layer.</p>
+<p>Introduced in <img alt="notitg_v1_icon_16" src="../_images/notitg_v1_logo_16.png" /> NotITG v1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>enable</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">boolean</span></code></span>) – Whether the depth buffer should be used</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">void</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt class="sig sig-object lua" id="Model.SetTexture">
+<em class="property"> </em><span class="sig-name descname"><span class="pre">SetTexture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">index:</span> <span class="pre">number</span></em>, <em class="sig-param"><span class="pre">texture:</span> <span class="pre">RageTexture</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">void</span></span></span><a class="headerlink" href="#Model.SetTexture" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets a texture on the model</p>
+<p>Introduced in <img alt="notitg_v1_icon_16" src="../_images/notitg_v1_logo_16.png" /> NotITG v1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The texture slot index (0 indexed)</p></li>
+<li><p><strong>texture</strong> (<a class="reference internal" href="rage_texture.html#RageTexture" title="RageTexture"><code class="xref lua lua-class docutils literal notranslate"><span class="pre">RageTexture</span></code></a>) – The texture to set in the slot</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">void</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt class="sig sig-object lua" id="Model.ResetTexture">
+<em class="property"> </em><span class="sig-name descname"><span class="pre">ResetTexture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">index:</span> <span class="pre">number</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">void</span></span></span><a class="headerlink" href="#Model.ResetTexture" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes a texture from the model</p>
+<p>Introduced in <img alt="notitg_v1_icon_16" src="../_images/notitg_v1_logo_16.png" /> NotITG v1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The texture slot to clear (0 indexed)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">void</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt class="sig sig-object lua" id="Model.SetAlphaTexture">
+<em class="property"> </em><span class="sig-name descname"><span class="pre">SetAlphaTexture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">index:</span> <span class="pre">number</span></em>, <em class="sig-param"><span class="pre">texture:</span> <span class="pre">RageTexture</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">void</span></span></span><a class="headerlink" href="#Model.SetAlphaTexture" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets an alpha texture on the model</p>
+<p>Introduced in <img alt="notitg_v1_icon_16" src="../_images/notitg_v1_logo_16.png" /> NotITG v1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The texture slot index (0 indexed)</p></li>
+<li><p><strong>texture</strong> (<a class="reference internal" href="rage_texture.html#RageTexture" title="RageTexture"><code class="xref lua lua-class docutils literal notranslate"><span class="pre">RageTexture</span></code></a>) – The texture to set in the slot</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">void</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt class="sig sig-object lua" id="Model.ResetAlphaTexture">
+<em class="property"> </em><span class="sig-name descname"><span class="pre">ResetAlphaTexture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">index:</span> <span class="pre">number</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">void</span></span></span><a class="headerlink" href="#Model.ResetAlphaTexture" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes an alpha texture from the model</p>
+<p>Introduced in <img alt="notitg_v1_icon_16" src="../_images/notitg_v1_logo_16.png" /> NotITG v1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The texture slot to clear (0 indexed)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">void</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt class="sig sig-object lua" id="Model.SetTextureTranslateX">
+<em class="property"> </em><span class="sig-name descname"><span class="pre">SetTextureTranslateX</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">index:</span> <span class="pre">number</span></em>, <em class="sig-param"><span class="pre">x:</span> <span class="pre">number</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">void</span></span></span><a class="headerlink" href="#Model.SetTextureTranslateX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the X translation for a texture</p>
+<p>Introduced in <img alt="notitg_v1_icon_16" src="../_images/notitg_v1_logo_16.png" /> NotITG v1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The texture slot (0 indexed)</p></li>
+<li><p><strong>x</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The X translation to apply, in pixels</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">void</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt class="sig sig-object lua" id="Model.SetTextureTranslateY">
+<em class="property"> </em><span class="sig-name descname"><span class="pre">SetTextureTranslateY</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">index:</span> <span class="pre">number</span></em>, <em class="sig-param"><span class="pre">y:</span> <span class="pre">number</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">void</span></span></span><a class="headerlink" href="#Model.SetTextureTranslateY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the Y translation for a texture</p>
+<p>Introduced in <img alt="notitg_v1_icon_16" src="../_images/notitg_v1_logo_16.png" /> NotITG v1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The texture slot (0 indexed)</p></li>
+<li><p><strong>y</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The Y translation to apply, in pixels</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">void</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt class="sig sig-object lua" id="Model.SetTextureRotate">
+<em class="property"> </em><span class="sig-name descname"><span class="pre">SetTextureRotate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">index:</span> <span class="pre">number</span></em>, <em class="sig-param"><span class="pre">rotation:</span> <span class="pre">number</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">void</span></span></span><a class="headerlink" href="#Model.SetTextureRotate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the rotation for a texture</p>
+<p>Introduced in <img alt="notitg_v1_icon_16" src="../_images/notitg_v1_logo_16.png" /> NotITG v1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The texture slot (0 indexed)</p></li>
+<li><p><strong>rotation</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The rotation to apply, in degrees</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">void</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt class="sig sig-object lua" id="Model.SetTextureScaleX">
+<em class="property"> </em><span class="sig-name descname"><span class="pre">SetTextureScaleX</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">index:</span> <span class="pre">number</span></em>, <em class="sig-param"><span class="pre">x:</span> <span class="pre">number</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">void</span></span></span><a class="headerlink" href="#Model.SetTextureScaleX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the X scale for a texture</p>
+<p>Introduced in <img alt="notitg_v1_icon_16" src="../_images/notitg_v1_logo_16.png" /> NotITG v1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The texture slot (0 indexed)</p></li>
+<li><p><strong>x</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The X scale to apply</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">void</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt class="sig sig-object lua" id="Model.SetTextureScaleY">
+<em class="property"> </em><span class="sig-name descname"><span class="pre">SetTextureScaleY</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">index:</span> <span class="pre">number</span></em>, <em class="sig-param"><span class="pre">y:</span> <span class="pre">number</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">void</span></span></span><a class="headerlink" href="#Model.SetTextureScaleY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the Y scale for a texture</p>
+<p>Introduced in <img alt="notitg_v1_icon_16" src="../_images/notitg_v1_logo_16.png" /> NotITG v1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The texture slot (0 indexed)</p></li>
+<li><p><strong>y</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The Y scale to apply</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">void</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt class="sig sig-object lua" id="Model.SetTextureScale">
+<em class="property"> </em><span class="sig-name descname"><span class="pre">SetTextureScale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">index:</span> <span class="pre">number</span></em>, <em class="sig-param"><span class="pre">scale:</span> <span class="pre">number</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">void</span></span></span><a class="headerlink" href="#Model.SetTextureScale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the X and Y scale for a texture</p>
+<p>Introduced in <img alt="notitg_v1_icon_16" src="../_images/notitg_v1_logo_16.png" /> NotITG v1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The texture slot (0 indexed)</p></li>
+<li><p><strong>scale</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The scale to apply</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">void</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt class="sig sig-object lua" id="Model.LoadMilkshapeAscii">
+<em class="property"> </em><span class="sig-name descname"><span class="pre">LoadMilkshapeAscii</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">path:</span> <span class="pre">str</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">void</span></span></span><a class="headerlink" href="#Model.LoadMilkshapeAscii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets this model’s mesh</p>
+<p>Eg: <code class="docutils literal notranslate"><span class="pre">world.earth:LoadMilkshapeAscii(GAMESTATE:GetCurrentSong():GetSongDir()</span> <span class="pre">..</span> <span class="pre">'fg/model/circle_outline.obj.txt')</span></code></p>
+<p>Introduced in <img alt="notitg_v2_icon_16" src="../_images/notitg_v2_logo_16.png" /> NotITG v2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The path to the model to load</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">void</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt class="sig sig-object lua" id="Model.LoadMilkshapeAsciiBones">
+<em class="property"> </em><span class="sig-name descname"><span class="pre">LoadMilkshapeAsciiBones</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">aniName:</span> <span class="pre">str</span></em>, <em class="sig-param"><span class="pre">path:</span> <span class="pre">str</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">void</span></span></span><a class="headerlink" href="#Model.LoadMilkshapeAsciiBones" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load a skeleton for a 3D model</p>
+<p>Introduced in <img alt="notitg_v2_icon_16" src="../_images/notitg_v2_logo_16.png" /> NotITG v2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aniName</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The animation name</p></li>
+<li><p><strong>path</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The path to the skeleton file to load</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">void</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt class="sig sig-object lua" id="Model.LoadMilkshapeAsciiMaterials">
+<em class="property"> </em><span class="sig-name descname"><span class="pre">LoadMilkshapeAsciiMaterials</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">path:</span> <span class="pre">str</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">void</span></span></span><a class="headerlink" href="#Model.LoadMilkshapeAsciiMaterials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load materials for a 3D model</p>
+<p>Introduced in <img alt="notitg_v2_icon_16" src="../_images/notitg_v2_logo_16.png" /> NotITG v2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The path to the materials file to load</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">void</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt class="sig sig-object lua" id="Model.SetPolygonMode">
+<em class="property"> </em><span class="sig-name descname"><span class="pre">SetPolygonMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">mode:</span> <span class="pre">number</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">void</span></span></span><a class="headerlink" href="#Model.SetPolygonMode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the polygon drawing mode</p>
+<p>Introduced in <img alt="notitg_v1_icon_16" src="../_images/notitg_v1_logo_16.png" /> NotITG v1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mode</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The new mode to set - see <a class="reference internal" href="enumerations.html#_CPPv411PolygonMode" title="PolygonMode"><code class="xref cpp cpp-enum docutils literal notranslate"><span class="pre">PolygonMode</span></code></a></p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">void</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt class="sig sig-object lua" id="Model.SetLineWidth">
+<em class="property"> </em><span class="sig-name descname"><span class="pre">SetLineWidth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">width:</span> <span class="pre">number</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">void</span></span></span><a class="headerlink" href="#Model.SetLineWidth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the outline width</p>
+<p>Introduced in <img alt="notitg_v1_icon_16" src="../_images/notitg_v1_logo_16.png" /> NotITG v1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>width</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The new width to set</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">void</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt class="sig sig-object lua" id="Model.SetLineColor">
+<em class="property"> </em><span class="sig-name descname"><span class="pre">SetLineColor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">r:</span> <span class="pre">number</span></em>, <em class="sig-param"><span class="pre">g:</span> <span class="pre">number</span></em>, <em class="sig-param"><span class="pre">b:</span> <span class="pre">number</span></em>, <em class="sig-param"><span class="pre">a:</span> <span class="pre">number</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">void</span></span></span><a class="headerlink" href="#Model.SetLineColor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the outline color</p>
+<p>Introduced in <img alt="notitg_v1_icon_16" src="../_images/notitg_v1_logo_16.png" /> NotITG v1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The red value (0 - 1)</p></li>
+<li><p><strong>g</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The green value (0 - 1)</p></li>
+<li><p><strong>b</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The blue value (0 - 1)</p></li>
+<li><p><strong>a</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span>) – The alpha value (0 - 1)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">void</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt class="sig sig-object lua" id="Model.SetOutlinesOnTop">
+<em class="property"> </em><span class="sig-name descname"><span class="pre">SetOutlinesOnTop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">enable:</span> <span class="pre">boolean</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">void</span></span></span><a class="headerlink" href="#Model.SetOutlinesOnTop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets whether outlines should be drawn on top</p>
+<p>Introduced in <img alt="notitg_v2_icon_16" src="../_images/notitg_v2_logo_16.png" /> NotITG v2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>enable</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">boolean</span></code></span>) – Whether outlines should be drawn on top</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">void</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt class="sig sig-object lua" id="Model.SetCelShaded">
+<em class="property"> </em><span class="sig-name descname"><span class="pre">SetCelShaded</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">enable:</span> <span class="pre">boolean</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">void</span></span></span><a class="headerlink" href="#Model.SetCelShaded" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets whether the model should use cel shading</p>
+<p>Introduced in <img alt="notitg_v1_icon_16" src="../_images/notitg_v1_logo_16.png" /> NotITG v1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>enable</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">boolean</span></code></span>) – Whether cel shading should be enabled</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">void</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt class="sig sig-object lua" id="Model.SetInvertCelPass">
+<em class="property"> </em><span class="sig-name descname"><span class="pre">SetInvertCelPass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">enable:</span> <span class="pre">boolean</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">void</span></span></span><a class="headerlink" href="#Model.SetInvertCelPass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets whether the cel shading should be inverted</p>
+<p>Introduced in <img alt="notitg_v2_icon_16" src="../_images/notitg_v2_logo_16.png" /> NotITG v2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>enable</strong> (<span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">boolean</span></code></span>) – Whether cel shading should be inverted</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">void</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt class="sig sig-object lua" id="Model.__tostring">
+<em class="property"> </em><span class="sig-name descname"><span class="pre">__tostring</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#Model.__tostring" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an <code class="docutils literal notranslate"><span class="pre">Model</span> <span class="pre">(MemoryAddress)</span></code> string</p>
+<p>Introduced in ???</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/notitg_v4_logo_256.png" alt="Logo"/>
+            </a></p>
+<h3><a href="../index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../versions.html">NotITG versions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Lua API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="actor.html">Actor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actor_frame.html">ActorFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actor_frame_texture.html">ActorFrameTexture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actor_proxy.html">ActorProxy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actor_scroller.html">ActorScroller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actor_sound.html">ActorSound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bitmap_text.html">BitmapText</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course.html">Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="difficulty_meter.html">DifficultyMeter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fading_banner.html">FadingBanner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game.html">Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game_sound_manager.html">GameSoundManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game_state.html">GameState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="help_display.html">HelpDisplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="high_score.html">HighScore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="high_score_list.html">HighScoreList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="memory_card_manager.html">MemoryCardManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message_manager.html">MessageManager</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="note_skin_manager.html">NoteSkinManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player.html">Player</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player_stage_stats.html">PlayerStageStats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polygon.html">Polygon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prefs_manager.html">PrefsManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profile.html">Profile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profile_manager.html">ProfileManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="radar_values.html">RadarValues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rage_display.html">RageDisplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rage_file_manager.html">RageFileManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rage_input.html">RageInput</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rage_shader_program.html">RageShaderProgram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rage_sound.html">RageSound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rage_texture.html">RageTexture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rage_texture_render_target.html">RageTextureRenderTarget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="screen_gameplay.html">ScreenGameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="screen_manager.html">ScreenManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="song.html">Song</a></li>
+<li class="toctree-l2"><a class="reference internal" href="song_manager.html">SongManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sprite.html">Sprite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stage_stats.html">StageStats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stats_manager.html">StatsManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="steps.html">Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theme_manager.html">ThemeManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trail.html">Trail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unlock_manager.html">UnlockManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumerations.html">Enumerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globals.html">Globals</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../message_commands.html">Message commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modifiers.html">Modifiers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgements.html">Acknowledgements</a></li>
+</ul>
+
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="message_manager.html"
+                          title="previous chapter">MessageManager</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="note_skin_manager.html"
+                          title="next chapter">NoteSkinManager</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/lua_api/model.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../lua-modindex.html" title="Lua Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="note_skin_manager.html" title="NoteSkinManager"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="message_manager.html" title="MessageManager"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">NotITG 4.2.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Lua API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Model</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+      Last updated on Mar 27, 2023.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.3.
+    </div>
+  </body>
+</html>

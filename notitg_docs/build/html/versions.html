@@ -1,0 +1,2635 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>NotITG versions &#8212; NotITG 4.2.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/nature.css" />
+    <link rel="stylesheet" type="text/css" href="_static/style/style.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Lua API" href="lua_api/index.html" />
+    <link rel="prev" title="Welcome to NotITG’s (unofficial) documentation!" href="index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="lua-modindex.html" title="Lua Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="lua_api/index.html" title="Lua API"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to NotITG’s (unofficial) documentation!"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">NotITG 4.2.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">NotITG versions</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="notitg-versions">
+<h1>NotITG versions<a class="headerlink" href="#notitg-versions" title="Permalink to this heading">¶</a></h1>
+<section id="downloads">
+<h2>Downloads<a class="headerlink" href="#downloads" title="Permalink to this heading">¶</a></h2>
+<p>The latest version of NotITG can be downloaded from <a class="reference external" href="https://notitg.heysora.net/">https://notitg.heysora.net/</a>. Older versions are available from the
+StepMania Builds Archive (<a class="reference external" href="https://josevarela.xyz/SMArchive/Builds/index.html">https://josevarela.xyz/SMArchive/Builds/index.html</a>).</p>
+</section>
+<section id="notitg-v4-icon-16-notitg-v4-2-0-2021-04-20">
+<h2><img alt="notitg_v4_icon_16" src="_images/notitg_v4_logo_16.png" /> NotITG v4.2.0 (2021-04-20)<a class="headerlink" href="#notitg-v4-icon-16-notitg-v4-2-0-2021-04-20" title="Permalink to this heading">¶</a></h2>
+<p>Quickstart download (Windows): <a class="reference external" href="https://notitg.heysora.net/files/NotITG-4.2.0-QuickStart.zip">https://notitg.heysora.net/files/NotITG-4.2.0-QuickStart.zip</a></p>
+<p>Program download (Windows): <a class="reference external" href="https://notitg.heysora.net/files/NotITG-4.2.0-Program.zip">https://notitg.heysora.net/files/NotITG-4.2.0-Program.zip</a></p>
+<p>Accompanying Simply Love theme: <a class="reference external" href="https://notitg.heysora.net/files/SimplyLove-4.2.0.zip">https://notitg.heysora.net/files/SimplyLove-4.2.0.zip</a></p>
+<section id="changelog">
+<h3>Changelog<a class="headerlink" href="#changelog" title="Permalink to this heading">¶</a></h3>
+<p><strong>💡 New Features!</strong></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Changed how Lua errors are displayed</dt><dd><ul>
+<li><p>They now point to the correct line in your xml or ini files</p></li>
+<li><p>They also tell you which file the error happened in</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Metamods</dt><dd><ul>
+<li><p>They mod your mods</p></li>
+<li><p>They can be applied only from the theme options, they can’t be toggled from a simfile!</p></li>
+<li><p>The “Flip” on the v4/1-april-fools build was a metamod</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">metaflip</span></code>, <code class="docutils literal notranslate"><span class="pre">metainvert</span></code>, <code class="docutils literal notranslate"><span class="pre">metaorient</span></code>, <code class="docutils literal notranslate"><span class="pre">metareverse</span></code>, <code class="docutils literal notranslate"><span class="pre">metastealth</span></code>, <code class="docutils literal notranslate"><span class="pre">metadizzy</span></code></p></li>
+<li><dl class="simple">
+<dt>They are just for fun, so they will disqualify your score</dt><dd><ul>
+<li><p>Imagine having MetaInvert on Red and Blue</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Drag and drop songs support</dt><dd><ul>
+<li><p>Drag a song folder onto the game window, the song will be loaded while the game is running!</p></li>
+<li><p>If you are in the song selection screen, the wheel will automatically go to the new song</p></li>
+<li><dl class="simple">
+<dt>The song will be placed in <code class="docutils literal notranslate"><span class="pre">/Songs/_drag_and_drop/</span></code></dt><dd><ul>
+<li><p>Configurable in NotITGPrefs.ini: <code class="docutils literal notranslate"><span class="pre">DragAndDropSongGroup</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Preference <code class="docutils literal notranslate"><span class="pre">Borderless</span></code></dt><dd><ul>
+<li><p>Can be freely used with <code class="docutils literal notranslate"><span class="pre">Windowed=0</span></code> or 1!</p></li>
+<li><p>Borderless + Windowed=0 will set the screen resolution to the wanted one, as usual, but clicking outside of the game won’t hide it, like a regular borderless fullscreen!</p></li>
+<li><p>Borderless + Windowed=1 will behave as usual, but the game will simply not have a border.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DISPLAY:SetBorderless(</span> <span class="pre">bool</span> <span class="pre">)</span></code> <strong>allow simfiles to toggle this!</strong> This is still controlled by the <code class="docutils literal notranslate"><span class="pre">AllowWindowPos</span></code> preference.</p></li>
+<li><p>If the borderless status has been changed by <code class="docutils literal notranslate"><span class="pre">DISPLAY:SetBorderless()</span></code>, it will reset at the end of the song, just like other Lua window manipulations.</p></li>
+<li><p>The status is also resetted by doing F3+8.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Preference <code class="docutils literal notranslate"><span class="pre">ShowComboInEditor</span></code> is fairly self explanatory!</dt><dd><ul>
+<li><p>Defaults to “on”, can be adjusted from the editor’s ESC -&gt; Preferences menu.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Set custom song end time via lua with <code class="docutils literal notranslate"><span class="pre">GAMESTATE:SetSongEndTime(</span> <span class="pre">seconds</span> <span class="pre">)</span></code></p></li>
+<li><dl class="simple">
+<dt>Preference <code class="docutils literal notranslate"><span class="pre">EditorPlayModeOffset</span></code> lets you choose how much time (seconds) behind the cursor the game will start playing from when you switch from editing mode to playtest mode.</dt><dd><ul>
+<li><p>Defaults to 1 to match normal StepMania behavior, but can be adjusted from the editor’s ESC -&gt; Preferences menu.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Added <code class="docutils literal notranslate"><span class="pre">ScreenReadyCommand</span></code> for gameplay</dt><dd><ul>
+<li><p>Runs before the songs starts</p></li>
+<li><p>TopScreen is guaranteed to be available</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xml</span> <span class="pre">&lt;Layer</span> <span class="pre">ScreenReadyCommand=&quot;%function(self)</span> <span class="pre">local</span> <span class="pre">s</span> <span class="pre">=</span> <span class="pre">SCREENMAN:GetTopScreen()</span> <span class="pre">--</span> <span class="pre">This</span> <span class="pre">will</span> <span class="pre">be</span> <span class="pre">ScreenGameplay</span> <span class="pre">end&quot;</span> <span class="pre">/&gt;</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Preference <code class="docutils literal notranslate"><span class="pre">SleepCpuWhenUnfocused</span></code></dt><dd><ul>
+<li><p>Defaults to 1 (old behaviour)</p></li>
+<li><p>Disable this if you want the game to run full speed at all times, including when you switch windows/alt-tab</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Preference <code class="docutils literal notranslate"><span class="pre">BothAtOnceAffectsDifficulties</span></code></dt><dd><ul>
+<li><p>Defaults to 1 (new behavior)</p></li>
+<li><p>If BothAtOnce is on, changing difficulty at song select will change difficulty for both players to ensure they have the same difficulty.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Preference <code class="docutils literal notranslate"><span class="pre">DisqualifyCover</span></code> allows you to choose whether “Cover” (Hide Background) mod disqualifies your score.</dt><dd><ul>
+<li><p>Set to 1 by default, to match the existing openITG behavior</p></li>
+<li><p>Will not have any effect if <code class="docutils literal notranslate"><span class="pre">Disqualification</span></code> preference is already 0</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Preference <code class="docutils literal notranslate"><span class="pre">FailOffForFirstStage</span></code> allows you specify whether or not the first stage of a credit has “FailOff” enabled.</p></li>
+<li><p>Preference <code class="docutils literal notranslate"><span class="pre">DiscardFailOffFailedScore</span></code> allows you to not save scores that were “failed” when playing using failoff.</p></li>
+<li><p>Preference <code class="docutils literal notranslate"><span class="pre">AutoDisableBothAtOnce</span></code> causes BothAtOnce to be disabled automatically on ScreenTitle init, for arcade purposes.</p></li>
+<li><p>New ScreenTitleMenu Code: <code class="docutils literal notranslate"><span class="pre">BothAtOnce</span></code>, that toggles the BothAtOnce, for arcade purposes.</p></li>
+<li><p>F3+0 now toggles between edit mode and song select</p></li>
+<li><dl class="simple">
+<dt>Add function <code class="docutils literal notranslate"><span class="pre">PlayerStageStats:GetCurPossibleDancePoints()</span></code></dt><dd><ul>
+<li><p>Which is very useful to calculate subtractive score in lua</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Add functions to get/delete scores of courses</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">profile:GetHighScoreForCourseAndTrail(course,</span> <span class="pre">difficulty,</span> <span class="pre">stepsType)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">profile:ClearHighScoresForCourseAndTrail(course,</span> <span class="pre">difficulty,</span> <span class="pre">stepsType)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">profile:ClearHighScoresForCourse(course)</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Add a method to get the stepsType of a trail</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">trail:GetStepsType()</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">actor:tween(t,</span> <span class="pre">f)</span></code> now accepts a function</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">xml</span> <span class="pre">&lt;Layer</span> <span class="pre">OnCommand=&quot;%function(self)</span> <span class="pre">self:tween(4,</span> <span class="pre">function(t)</span> <span class="pre">return</span> <span class="pre">someEase(t)</span> <span class="pre">end)</span> <span class="pre">end&quot;</span> <span class="pre">/&gt;</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Added <code class="docutils literal notranslate"><span class="pre">GAMESTATE:OnlyOpenITGMods(true/false)</span></code></dt><dd><ul>
+<li><p>This restricts the mods to only the ones available in OpenITG</p></li>
+<li><p>Will disqualify you</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">LUA_PATH</span></code> is now set by the game</dt><dd><ul>
+<li><p>This means you can now use <code class="docutils literal notranslate"><span class="pre">dofile</span></code>, <code class="docutils literal notranslate"><span class="pre">loadfile</span></code>, etc to load .lua files</p></li>
+<li><p>From anywhere in the game, it searches in the current theme folder</p></li>
+<li><p>From within a song, the current song folder takes priority</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>⚡ Enhancements</strong></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Project Outfox provided some updates and enhancements</dt><dd><ul>
+<li><p>Several math optimizations</p></li>
+<li><p>Library updates</p></li>
+<li><p>Render stats now show memory usage</p></li>
+<li><p>Thank you Project Outfox!</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Theme switcher has been modified and should switch themes without error</dt><dd><ul>
+<li><p>Even Simply Love based themes!</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ApplyModifiers</span></code> now throws a Lua error if you give it an invalid player number</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">NOTESKIN:GetPath</span></code> does not crash the game anymore</dt><dd><ul>
+<li><p>It returns the theme missing graphic if it can’t find the noteskin element</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Several memory leaks have been fixed. <code class="docutils literal notranslate"><span class="pre">bad</span> <span class="pre">allocation</span></code> errors should not happen anymore.</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">DISPLAY:SetWindowPosition[AndSize]()</span></code> have been fixed for accounting window borders!</dt><dd><ul>
+<li><p>They used to resize the window wrongly, e.g. having a 640x480 game could result in a 636x471 game (because it accounted for Windows 10 borders)</p></li>
+<li><p>They now resize the actual game, borderless or not!</p></li>
+<li><dl class="simple">
+<dt>They set the position relative to the actual game, and not the window (+ borders)</dt><dd><ul>
+<li><p>Their position is now accurate no matter if the game is borderless or not: the game will ALWAYS be at the same position, if we provide the same values to the methods. (So, a position of e.g. (40;40) will make the game be at the SAME place, borderless or not.)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Before this change, on Exschwasion’s ETERNALLY file : <a class="reference external" href="https://i.heysora.net/vEe25pEq.mp4">Video</a></p></li>
+<li><p>After this change (lua is unchanged): <a class="reference external" href="https://i.heysora.net/B66aeuLS.mp4">Video</a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GAMESTATE:GetRealPath()</span></code> has been slightly tweaked for accounting specific edge cases (noticeeably with the presence of patch.zip) and should now always work no matter the setup.</p></li>
+<li><p>The External memory (used by <code class="docutils literal notranslate"><span class="pre">GAMESTATE:GetExternal()</span></code> and <code class="docutils literal notranslate"><span class="pre">:SetExternal()</span></code>) got its size increased from 64 to 256.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Toasty</span></code> theme element is named</p></li>
+<li><dl class="simple">
+<dt>Lights had their indexes reverted to pre-v3.1</dt><dd><ul>
+<li><p>Parallel lights has been changed to account for this</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Song offset keys (F11/F12) in Edit mode has been swapped</dt><dd><ul>
+<li><p>It now matches syncing offset in ScreenGameplay</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Removed some very chatty log traces from FFmpeg</p></li>
+<li><dl class="simple">
+<dt>Several Edit Mode changes:</dt><dd><ul>
+<li><dl class="simple">
+<dt>Current Beat, BPM, Time and mods display in Edit Mode does not move with TopScreen anymore</dt><dd><ul>
+<li><p>This means you can screen bounce as much as you want, the mods display will stay in place</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Actor order for Edit Mode now matches actor order in Gameplay</p></li>
+<li><p>Player 2 steps are now set, fixes errors in scripts querying both players</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Attempts to use non-existing mods will print warnings to the Log</dt><dd><ul>
+<li><p>Edit Mode will also show a SystemMessage</p></li>
+<li><p>Enable NotITGPrefs <code class="docutils literal notranslate"><span class="pre">AlwaysShowUnknownModsSystemMessage</span></code> if you want the message to be shown outside of Edit Mode as well</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>The maximum texture size’s hardcoded limit has been increased from 2048 to 4096</p></li>
+<li><p>doing <code class="docutils literal notranslate"><span class="pre">SetTexture</span></code> on a Shader with an invalid texture no longer crashes the game with “Nice texture, idiot.”</p></li>
+<li><p>Editor’s “Jump to beat” text field now starts empty.</p></li>
+<li><dl class="simple">
+<dt>Score actors will no longer appear in the editor.</dt><dd><ul>
+<li><p>It is still possible to unhide them with <code class="docutils literal notranslate"><span class="pre">SCREENMAN:GetTopScreen():GetChild('ScoreP1'):playcommand('Show')</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BothAtOnce</span></code> being enabled counts as joint premium (one credit needed to join both sides) for coin purposes.</p></li>
+<li><p>Jump between spellcards in the editor using <code class="docutils literal notranslate"><span class="pre">Alt</span></code> + <code class="docutils literal notranslate"><span class="pre">,</span></code> / <code class="docutils literal notranslate"><span class="pre">Alt</span></code> + <code class="docutils literal notranslate"><span class="pre">.</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hidenoteflash</span></code> timing has been greatly improved so it’s now instant.</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">UpdateFunction</span></code> now shows a dialog on error, it also unsets the function to prevent getting stuck.</dt><dd><ul>
+<li><p>Patch provided by XeroOl</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">player:IsUsingReverse()</span></code> see whether the player is using reverse or not</dt><dd><ul>
+<li><p>It’s just seeing the reverse of column 0 (left in dance)</p></li>
+<li><p>Intended to be used by themes</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">sprite:GetNumStates()</span></code></p></li>
+<li><dl class="simple">
+<dt>Other Edit mode changes</dt><dd><ul>
+<li><p>Enabling <code class="docutils literal notranslate"><span class="pre">MetaReverse</span></code> lets you edit in reverse</p></li>
+<li><p>Render distance past the receptors has been increased</p></li>
+<li><p>Scroll animations are back, but are more snappier than before</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>All non-LGPL DLLs are now embedded in the .exe</p></li>
+</ul>
+<p><strong>⤴ New Mods</strong></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">randomvanish</span></code> has been split into two mods, <code class="docutils literal notranslate"><span class="pre">randomize</span></code> and <code class="docutils literal notranslate"><span class="pre">vanish</span></code>, which control the two aspects of the original mod seperately.</dt><dd><ul>
+<li><p>Vanish makes the arrows disappear for a bit at a spot in the middle of the screen.</p></li>
+<li><p>Randomize shuffles the notes while they are within the “invisibe” region created by Vanish.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">randomvanish</span></code> is now a macro that enables both.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vanishoffset</span></code> and <code class="docutils literal notranslate"><span class="pre">randomizeoffset</span></code> controls the location where the event takes place, <code class="docutils literal notranslate"><span class="pre">randomvanishoffset</span></code> controls both simultaneously.</p></li>
+<li><p>Choose which turn mod is being applied to each player during the “randomize” event with <code class="docutils literal notranslate"><span class="pre">Player:SetRandomVanishTransform(</span> <span class="pre">'swapupdown'</span> <span class="pre">)</span></code>.</p></li>
+<li><p>The default is <code class="docutils literal notranslate"><span class="pre">supershuffle</span></code>, to match the original <code class="docutils literal notranslate"><span class="pre">randomvanish</span></code> implementation.</p></li>
+<li><p>All existing turn modes are usable (<code class="docutils literal notranslate"><span class="pre">left</span></code>, <code class="docutils literal notranslate"><span class="pre">right</span></code>, <code class="docutils literal notranslate"><span class="pre">mirror</span></code>, <code class="docutils literal notranslate"><span class="pre">swapleftright</span></code>, <code class="docutils literal notranslate"><span class="pre">swapupdown</span></code>, <code class="docutils literal notranslate"><span class="pre">couplesmirror</span></code>, <code class="docutils literal notranslate"><span class="pre">couplesswapsides</span></code>, <code class="docutils literal notranslate"><span class="pre">shuffle</span></code>, <code class="docutils literal notranslate"><span class="pre">softshuffle</span></code>, <code class="docutils literal notranslate"><span class="pre">spookyshuffle</span></code> and <code class="docutils literal notranslate"><span class="pre">supershuffle</span></code>)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">scrollspeedmult&lt;n&gt;</span></code> multiply speed mod of a single column.</dt><dd><ul>
+<li><p>does not have a non-col specific version - attempting to apply it without a specified column will just apply all col specific versions.</p></li>
+<li><p>default value is 100%. 50% is half scroll speed.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">zigzag&lt;n&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">sawtooth&lt;n&gt;</span></code>, sawtooth and zigzag waves are finally column specific.</dt><dd><ul>
+<li><p>these naturally come with accompanying periods and offsets, i.e. <code class="docutils literal notranslate"><span class="pre">zigzagperiod&lt;n&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">zigzagoffset&lt;n&gt;</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dizzy&lt;n&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">twirl&lt;n&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">roll&lt;n&gt;</span></code> join the column-specific party! (notes that rotate in z, y and x axis over time as they approach, ending with a rotation of 0 at the targets)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">manualnoteflash</span></code> has a much better alias that more accurately describes what it does: <code class="docutils literal notranslate"><span class="pre">hidenotepress</span></code>. It’s also now column specific.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">drunk&lt;n&gt;</span></code> in all axes, along with all associated period, spacing, speed and offset is now column specific.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">beat&lt;n&gt;</span></code> in all axes, along with all associated mult, period, cap and offset is now column specific.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">boost&lt;n&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">brake&lt;n&gt;</span></code> are now column specific.</p></li>
+<li><p>Added aliases <code class="docutils literal notranslate"><span class="pre">tanbumpyz</span></code>, <code class="docutils literal notranslate"><span class="pre">tanbumpyzsize</span></code>, <code class="docutils literal notranslate"><span class="pre">tanbumpyzperiod</span></code>, <code class="docutils literal notranslate"><span class="pre">tanbumpyzoffset</span></code></p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">tanbumpysize&lt;n&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">tanbumpyzsize&lt;n&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">tanbumpyperiod&lt;n&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">tanbumpyzperiod&lt;n&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">tanbumpyoffset&lt;n&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">tanbumpyzoffset&lt;n&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">tanbumpyxsize&lt;n&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">tanbumpyxperiod&lt;n&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">tanbumpyxoffset&lt;n&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">tanbumpyysize&lt;n&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">tanbumpyyperiod&lt;n&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">tanbumpyyoffset&lt;n&gt;</span></code></p></li>
+<li><dl class="simple">
+<dt>Added <code class="docutils literal notranslate"><span class="pre">orientoffset</span></code></dt><dd><ul>
+<li><p>It changes the direction the <code class="docutils literal notranslate"><span class="pre">orient</span></code> mod should reference</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Added <code class="docutils literal notranslate"><span class="pre">noreorient</span></code></dt><dd><ul>
+<li><p>Disables the <code class="docutils literal notranslate"><span class="pre">orient</span></code> behavior optimized for reverse and SCAR families</p></li>
+<li><p>See bugfixes for more info</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>🐛 Bugfixes</strong></p>
+<ul class="simple">
+<li><p>Column specific wave works again</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">ScreenGameplay:SetLife(</span> <span class="pre">number</span> <span class="pre">)</span></code> actually works now</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">number</span></code> must be a value between 0 and 1 inclusive</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Theme elements in ScreenGameplay show up correctly again</dt><dd><ul>
+<li><p>Most notably the LifeMeter in the itg3 theme</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Preference <code class="docutils literal notranslate"><span class="pre">LastSeenVideoDriver</span></code> now shows the correct driver in use</dt><dd><ul>
+<li><p>The string may have changed from what it used to be</p></li>
+<li><p>This will make old modfiles using the old Nvidia checker work correctly on dual GPU (Intel+Nvidia) setups</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Opposite playfield on battle made has been fixed (Is this correct?)</p></li>
+<li><dl class="simple">
+<dt>Turn mods in <code class="docutils literal notranslate"><span class="pre">#ATTACKS</span></code> actually work as they should now!</dt><dd><ul>
+<li><p>Reported and test file supplied by PCBoyGames, thanks!</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Turn mods for Player 2 (and other aspects of Player 2 in general) in the editor are no longer completely broken.</p></li>
+<li><p>Rainbow effect on BitmapText updates correctly upon theme change</p></li>
+<li><p>SkewY is now properly reset in the editor.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GetRealPath</span></code> issue is probably dealt with</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GetTapNoteScoresForPlayer</span></code> with <code class="docutils literal notranslate"><span class="pre">TNS_HIT_MINE</span></code> fixed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NoteTypeMults</span></code> and <code class="docutils literal notranslate"><span class="pre">HiddenRegions</span></code> resets between songs in Course mode</p></li>
+<li><p>Ctrl-O/Reveal in Explorer in Edit mode works for AdditionalSongFolders and AdditionalFolders too now</p></li>
+<li><p>We don’t normally do this, but we fixed an issue happening on newer versions of Wine where keyboard bindings weren’t detected properly</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SetNoteTypeMults</span></code> now no longer requires an entry at beat 0 to work properly.</p></li>
+<li><p>Combo above 2147483647 no longer crashes the game.</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">orient</span></code> now reorients itself when when reverse and SCAR mods are enabled.</dt><dd><ul>
+<li><p>If you have used orient+reverse before, setting <code class="docutils literal notranslate"><span class="pre">314%</span> <span class="pre">confusionoffset</span></code> is no longer required.</p></li>
+<li><p>Several existing files are dependant of this change, a patch to affected files will follow</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Fixed substractive scoring calculation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RageShaderProgram:define</span></code> now works with #version directive</p></li>
+<li><p>Certain edgecases with DrawFunctions resulted in weird rendereing, they are now gone.</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">tanbumpyxoffset</span></code> actually works now</dt><dd><ul>
+<li><p>The old behavior was setting <code class="docutils literal notranslate"><span class="pre">tanbumpyyoffset</span></code> instead</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>👾 Known Issues</strong></p>
+<ul class="simple">
+<li><p>Reloading theme and textures (f3+r) still has the same issues as the old theme switcher</p></li>
+</ul>
+<p><strong>❤️ Simply Love changes</strong></p>
+<p>We are open for contributions! <a class="reference external" href="https://github.com/TaroNuke/Simply-Love-NotITG-ver.-/">https://github.com/TaroNuke/Simply-Love-NotITG-ver.-/</a></p>
+<ul class="simple">
+<li><p>Metamods! (Under “More Options” in the player options menu)</p></li>
+<li><p>Added Graphics options to the settings menu</p></li>
+</ul>
+</section>
+</section>
+<section id="notitg-v4-1-icon-16-notitg-v4-1-2020-04-01">
+<h2><img alt="notitg_v4_1_icon_16" src="_images/notitg_v4_1_logo_16.png" /> NotITG v4/1 (2020-04-01)<a class="headerlink" href="#notitg-v4-1-icon-16-notitg-v4-1-2020-04-01" title="Permalink to this heading">¶</a></h2>
+<p><strong>This is an April Fools release</strong></p>
+<p>Program download (Windows): <a class="reference external" href="https://objects-us-east-1.dream.io/smbuilds/OPENITG/Windows/NotITG%204.1%20AFD.zip">https://objects-us-east-1.dream.io/smbuilds/OPENITG/Windows/NotITG%204.1%20AFD.zip</a></p>
+<p>Accompanying Simply Love theme: <a class="reference external" href="https://www.dropbox.com/s/odtqkgtaujy2klk/SIMPLY%20LOVE%20%28NotITG%20ver%204.1%29.zip?dl=0">https://www.dropbox.com/s/odtqkgtaujy2klk/SIMPLY%20LOVE%20%28NotITG%20ver%204.1%29.zip?dl=0</a></p>
+</section>
+<section id="notitg-v4-icon-16-notitg-v4-0-1-2020-01-26">
+<h2><img alt="notitg_v4_icon_16" src="_images/notitg_v4_logo_16.png" /> NotITG v4.0.1 (2020-01-26)<a class="headerlink" href="#notitg-v4-icon-16-notitg-v4-0-1-2020-01-26" title="Permalink to this heading">¶</a></h2>
+<p>Quickstart download (Windows): <a class="reference external" href="https://notitg.heysora.net/files/NotITG-4.0.1-QuickStart.zip">https://notitg.heysora.net/files/NotITG-4.0.1-QuickStart.zip</a></p>
+<p>Program download (Windows): <a class="reference external" href="https://objects-us-east-1.dream.io/smbuilds/OPENITG/NotITG-4.0.1.zip">https://objects-us-east-1.dream.io/smbuilds/OPENITG/NotITG-4.0.1.zip</a></p>
+<p>Accompanying Simply Love theme: <a class="reference external" href="https://notitg.heysora.net/files/SimplyLove-4.0.1.zip">https://notitg.heysora.net/files/SimplyLove-4.0.1.zip</a></p>
+<section id="id1">
+<h3>Changelog<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
+<p><strong>🚨 BREAKING CHANGES</strong></p>
+<ul class="simple">
+<li><p>D3D has been removed</p></li>
+<li><dl class="simple">
+<dt>Anything that uses tanclip will behave differently</dt><dd><ul>
+<li><p>Tanclip now actually clips tan waves used by modifiers. 100%+ = no tan wave.</p></li>
+<li><p>Files that used tanclip in the past have been updated by Ky_Dash.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>💡 New Features!</strong></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">FailP1MessageCommand</span></code> and P2 has been added</dt><dd><ul>
+<li><p>This will also trigger with FailOff enabled when health reaches 0</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Added <code class="docutils literal notranslate"><span class="pre">GAMESTATE:GetCurBPM()</span> <span class="pre">:</span> <span class="pre">number</span></code></dt><dd><ul>
+<li><p>Returned value will be more accurate than <code class="docutils literal notranslate"><span class="pre">GAMESTATE:GetCurBPS()*60</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Added <code class="docutils literal notranslate"><span class="pre">Song:GetTimingData()</span> <span class="pre">:</span> <span class="pre">table</span> <span class="pre">BPMs,</span> <span class="pre">table</span> <span class="pre">stops</span></code></dt><dd><ul>
+<li><p>It returns two tables, each are sorted by beat.</p></li>
+<li><p>BPMs contains the beat and the new BPM</p></li>
+<li><p>stops contains the beat and the duration of the stop in seconds</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Profile:GetHighScoreForSongAndSteps</span></code>, <code class="docutils literal notranslate"><span class="pre">Profile:ClearHighScoresForSongAndSteps</span></code> and <code class="docutils literal notranslate"><span class="pre">Profile:ClearHighScoresForSong</span></code> also accept a Song instead of a String as its first argument</p></li>
+</ul>
+<p><strong>🐛 Bugfixes</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">GetEffectY</span></code> and <code class="docutils literal notranslate"><span class="pre">GetEffectZ</span></code> now returns the correct values</p></li>
+<li><p>MovieTextures no longer reset when looping or when showing a static image</p></li>
+<li><p>Vertex and fragment shaders behave again</p></li>
+<li><p>Multiple edits with the same steps, but with different names, show up again</p></li>
+<li><p>Hidden regions and note type mults are now cleared on ctrl+0</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UNLOCKSTEPS%d</span></code> no longer crashes on load.</p></li>
+<li><p>Graph on ScreenEvaluation fits within its frame now</p></li>
+<li><p>Graph on ScreenEvaluation now FINALLY properly unscales rate-mods.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tipsyoffset</span></code> has been fixed</p></li>
+<li><p>Report issue button on of the crash dialogs now points to the UKSRT Discord</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MonthToString</span></code> does bounds checking now, some more SM3.95 themes will function now</p></li>
+<li><p>Combo glow resets when getting a miss</p></li>
+<li><p>Entering mods menu transition has been restored</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">StepP1MenuStartPressMessageCommand</span></code> now works in both the Editor and ScreenGameplay. (Also for <code class="docutils literal notranslate"><span class="pre">StepP2</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Lift</span></code> instead of <code class="docutils literal notranslate"><span class="pre">Press</span></code>, naturally.)</p></li>
+</ul>
+<p><strong>⚡ Misc.</strong></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Increased priority of <code class="docutils literal notranslate"><span class="pre">WaveOut</span></code> for <code class="docutils literal notranslate"><span class="pre">SoundDrivers</span></code> preference (Thanks Lily/Staiain!)</dt><dd><ul>
+<li><p>Everything is so smooooooth, it’s almost uncanny</p></li>
+<li><p>Try playing Got More Raves on a high refresh rate monitor</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bumpyz</span></code> added as an alias for <code class="docutils literal notranslate"><span class="pre">bumpy</span></code></p></li>
+<li><p>Fonts created with the SM5 Texture Font Generator will now work as is</p></li>
+<li><p>NotITG executable is about 190 KB smaller</p></li>
+</ul>
+<p><strong>❤️ Simply Love changes</strong></p>
+<ul class="simple">
+<li><p>Miss combo is now colored red</p></li>
+<li><p>Fonts have been optimized (Thanks SENZOMODS!)</p></li>
+<li><dl class="simple">
+<dt>OverlayReadyMessageCommand trigger has been moved to a safer location</dt><dd><ul>
+<li><p>This fixes certain events going haywire, resulting in crashes.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Modularized FailOverlay</dt><dd><ul>
+<li><p>BREAKING CHANGE: config index starts at 1 now, not 0</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>By the way, we are open for contributions!</p>
+<p><a class="reference external" href="https://github.com/TaroNuke/Simply-Love-NotITG-ver.-/">https://github.com/TaroNuke/Simply-Love-NotITG-ver.-/</a></p>
+</section>
+</section>
+<section id="notitg-v4-icon-16-notitg-v4-2020-01-12">
+<h2><img alt="notitg_v4_icon_16" src="_images/notitg_v4_logo_16.png" /> NotITG v4 (2020-01-12)<a class="headerlink" href="#notitg-v4-icon-16-notitg-v4-2020-01-12" title="Permalink to this heading">¶</a></h2>
+<p>Quickstart download (Windows): <a class="reference external" href="https://notitg.heysora.net/files/quick-start-V4.0.zip">https://notitg.heysora.net/files/quick-start-V4.0.zip</a></p>
+<p>Program download (Windows): <a class="reference external" href="https://objects-us-east-1.dream.io/smbuilds/OPENITG/NotITG-V4.zip">https://objects-us-east-1.dream.io/smbuilds/OPENITG/NotITG-V4.zip</a></p>
+<p>Accompanying Simply Love theme: <a class="reference external" href="https://notitg.heysora.net/files/SLV4.zip">https://notitg.heysora.net/files/SLV4.zip</a></p>
+<section id="id2">
+<h3>Changelog<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
+<p><strong>🚨 BREAKING CHANGES</strong></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>YOU NEED A NEW SET OF .DLLs TO RUN NotITG v4</strong>, - previous <code class="docutils literal notranslate"><span class="pre">Program/</span></code> folder no longer works as a result of the new .dlls</dt><dd><ul>
+<li><dl class="simple">
+<dt>We’re distributing a full installation of the <code class="docutils literal notranslate"><span class="pre">Program/</span></code> directory this time, so what you’ll need to do is download the entire folder and put it in your NotITG install.</dt><dd><ul>
+<li><p>It’ll have the .exe, .vdi and the new .dlls bundled inside. You can safely merge them into the old <code class="docutils literal notranslate"><span class="pre">Program/</span></code> folder.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>This also includes a Noteskins folder to merge with your current one, as some have been updated! You can just merge these with your current iterations, if applicable.</dt><dd><ul>
+<li><p>Provided - <code class="docutils literal notranslate"><span class="pre">combination</span></code>, <code class="docutils literal notranslate"><span class="pre">cyber</span></code>, <code class="docutils literal notranslate"><span class="pre">default</span></code>, <code class="docutils literal notranslate"><span class="pre">divinentity</span></code>, <code class="docutils literal notranslate"><span class="pre">de-default</span></code>, <code class="docutils literal notranslate"><span class="pre">dunno</span></code>, <code class="docutils literal notranslate"><span class="pre">dunno2</span></code>, <code class="docutils literal notranslate"><span class="pre">proxynotes</span></code>, <code class="docutils literal notranslate"><span class="pre">randomhex</span></code>, <code class="docutils literal notranslate"><span class="pre">scalable</span></code>, <code class="docutils literal notranslate"><span class="pre">scalable2</span></code>, <code class="docutils literal notranslate"><span class="pre">sm3.9</span></code>, <code class="docutils literal notranslate"><span class="pre">Toshisan</span></code>, <code class="docutils literal notranslate"><span class="pre">vintage</span></code></p></li>
+<li><p>You will very likely have file conflicts with existing noteskins - it’s safe to just replace the conflicts, as they <em>need</em> to be overwritten.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">squareoffset</span></code> and <code class="docutils literal notranslate"><span class="pre">bounceoffset</span></code> revised, now you don’t have to multiply its value by 100</p></li>
+<li><dl class="simple">
+<dt>Player:GetNoteData() now returns the correct format for mines</dt><dd><ul>
+<li><dl class="simple">
+<dt>Formerly <code class="docutils literal notranslate"><span class="pre">100</span></code>, now <code class="docutils literal notranslate"><span class="pre">&quot;M&quot;</span></code></dt><dd><ul>
+<li><p>(This wasn’t actually documented beforehand so no one knew about this)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Mods like <code class="docutils literal notranslate"><span class="pre">drunkoffset</span></code> and <code class="docutils literal notranslate"><span class="pre">tipsyoffset</span></code>, including axis and tan variants, have new behaviors</dt><dd><ul>
+<li><p>Previous behavior can be found under the mod <code class="docutils literal notranslate"><span class="pre">drunkspacing</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>💡 New Features!</strong></p>
+<p>Editing</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">F3</span></code> + <code class="docutils literal notranslate"><span class="pre">9</span></code> in anywhere: Edit Last Edited Song</dt><dd><ul>
+<li><p>We now properly select the last edited chart (if it was an edit difficulty) by saving the description to the stepmania.ini file instead of the difficulty.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">F3</span></code> + <code class="docutils literal notranslate"><span class="pre">0</span></code> in ScreenSelectMusic or ScreenGameplay: Edit Currently Playing Song</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span></code> + <code class="docutils literal notranslate"><span class="pre">[</span></code> in edit: Music preview starts from here (start marker)</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">Ctrl</span></code> + <code class="docutils literal notranslate"><span class="pre">]</span></code> in edit: Music preview ends at here (end marker)</dt><dd><ul>
+<li><p>It’ll set the length of the preview automatically with this.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">Ctrl</span></code> + <code class="docutils literal notranslate"><span class="pre">O</span></code> in edit: Open song folder from edit mode</dt><dd><ul>
+<li><p>This opens the song folder in a new Explorer window.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Alt</span></code> + <code class="docutils literal notranslate"><span class="pre">Scroll</span></code> in editor now repositions the receptors on screen</p></li>
+<li><dl class="simple">
+<dt>Autoadvance mode selectable from editor preferences ( <code class="docutils literal notranslate"><span class="pre">ESC</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Preference</span></code> ) which moves the receptors down after placing down an arrow</dt><dd><ul>
+<li><p>This is turned off by default.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>ScreenEdit now shows current BPM along with Beat and Time</dt><dd><ul>
+<li><p>Toggle by <code class="docutils literal notranslate"><span class="pre">Esc</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Preferences</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Show</span> <span class="pre">Beat,</span> <span class="pre">Time</span> <span class="pre">and</span> <span class="pre">Attack</span> <span class="pre">List</span> <span class="pre">during</span> <span class="pre">play</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">#NOSHUFFLE</span></code>: zone in .sm, allows user to determine segments of the chart that cannot be affected by shuffles such as Mirror and SmartBlender</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">#NOSHUFFLE:&lt;StartBeat&gt;=&lt;EndBeat&gt;,&lt;StartBeat&gt;=&lt;EndBeat&gt;,&lt;StartBeat&gt;=&lt;EndBeat&gt;</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Transform option “Swap note players” allows you to switch which players are to hit which notes within a region, while in couples editing mode.</p></li>
+</ul>
+<p>Modding / Lua</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Actor Lua errors will no longer crash as often!!! (Thanks, NAYOTO!)</dt><dd><ul>
+<li><p>Feature of the decade,.,.,.,.,.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Fonts can be loaded relative to XML file now</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">skewy</span></code> tween as a mod</p></li>
+<li><dl class="simple">
+<dt>New mod: <code class="docutils literal notranslate"><span class="pre">orient</span></code></dt><dd><ul>
+<li><p>Additionally rotates arrows in the direction of travel relative to “upwards”.</p></li>
+<li><p>It can also be used in percentages, to increase or decrease or even invert the effect.</p></li>
+<li><p>For downwards scroll (e.g. with Reverse or splines), combine this mod with <code class="docutils literal notranslate"><span class="pre">314%</span> <span class="pre">ConfusionOffset</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">noteskewx</span></code> - Identical to <code class="docutils literal notranslate"><span class="pre">noteskew</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">noteskewy</span></code> - skewy for notes. noteskewx and y can also be column specific, e.g. <code class="docutils literal notranslate"><span class="pre">noteskewy2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">waveoffset</span></code> - Affects the waveform of <code class="docutils literal notranslate"><span class="pre">wave</span></code></p></li>
+<li><p>Column specific wave and waveperiod -<code class="docutils literal notranslate"><span class="pre">wave2</span></code>, <code class="docutils literal notranslate"><span class="pre">waveperiod3</span></code>, etc.</p></li>
+<li><dl class="simple">
+<dt>Updated Lua from 5.0.2 to 5.0.3 (with some modifications)</dt><dd><ul>
+<li><p>Enabled <code class="docutils literal notranslate"><span class="pre">debug</span></code> library.</p></li>
+<li><dl class="simple">
+<dt>Some Lua 5.1 features have been added as well;</dt><dd><ul>
+<li><dl class="simple">
+<dt>Long strings and comments (Thanks, XeroOl!)</dt><dd><ul>
+<li><p>You can use an arbitrary amount of <code class="docutils literal notranslate"><span class="pre">=</span></code> signs in the delimiters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[=[hello]=]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--[==[Im</span> <span class="pre">a</span> <span class="pre">comment]==]</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Added modulo operator <code class="docutils literal notranslate"><span class="pre">%</span></code></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">%</span> <span class="pre">3</span></code> is the same as <code class="docutils literal notranslate"><span class="pre">math.mod(5,3)</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Added length operator <code class="docutils literal notranslate"><span class="pre">#</span></code></dt><dd><ul>
+<li><p>works on both strings and tables</p></li>
+<li><p>example: <code class="docutils literal notranslate"><span class="pre">#myTable</span></code> is the same as <code class="docutils literal notranslate"><span class="pre">table.getn(myTable)</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Added hex number support: <code class="docutils literal notranslate"><span class="pre">0xA573</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Fixed various other logic errors listed on the <a class="reference external" href="https://www.lua.org/bugs.html">Lua bugs list</a>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Updated FFmpeg from 0.4.9-pre1 to 4.1.4</dt><dd><ul>
+<li><p>Added .mp4, .webm, .mkv, .flv video file support</p></li>
+<li><p>Added .apng, .webp image/anim file support</p></li>
+<li><p>.gifs are now animated!</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Actor:skewy(</span> <span class="pre">skew:</span> <span class="pre">number</span> <span class="pre">)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Actor:addaux(</span> <span class="pre">deltaaux:</span> <span class="pre">number</span> <span class="pre">)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Actor:GetParent():</span> <span class="pre">Actor</span></code></p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">Actor:GetTweenTimeLeft():</span> <span class="pre">number</span></code></dt><dd><ul>
+<li><p>The name explains itself - the number won’t go negative.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">Actor:SetRotationOrder():</span> <span class="pre">string</span></code> / <code class="docutils literal notranslate"><span class="pre">Actor:GetRotationOrder(</span> <span class="pre">order:</span> <span class="pre">string</span> <span class="pre">)</span></code></dt><dd><ul>
+<li><p>We’re now able to change its order of euler rotation</p></li>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">SetRotationOrder(</span> <span class="pre">&quot;xyz&quot;</span> <span class="pre">)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;zyx&quot;</span></code> by default</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ActorFrame:GetChildren():</span> <span class="pre">table</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ActorFrame:GetSharedBGA():</span> <span class="pre">ActorFrame</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ActorFrame:GetOverlayScreens():</span> <span class="pre">table</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SCREENMAN</span></code> and <code class="docutils literal notranslate"><span class="pre">ActorFrame</span></code> have metamethods now</p></li>
+</ul>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">af</span> <span class="o">=</span> <span class="n">SCREENMAN</span><span class="p">()</span> <span class="c1">-- GetTopScreen()</span>
+<span class="o">#</span><span class="n">SCREENMAN</span><span class="p">()</span> <span class="c1">-- GetTopScreen():GetNumChildren(), we get an ActorFrame first here</span>
+<span class="n">SCREENMAN</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1">-- GetTopScreen():GetChildAt(4) &lt;- notice the index</span>
+<span class="n">SCREENMAN</span><span class="p">(</span><span class="s2">&quot;Overlay&quot;</span><span class="p">)</span> <span class="c1">-- GetTopScreen():GetChild(&quot;Overlay&quot;)</span>
+
+<span class="n">af</span><span class="p">(</span><span class="s2">&quot;PlayerP1&quot;</span><span class="p">)</span> <span class="c1">-- same as above, but on the ActorFrame directly</span>
+<span class="n">af</span><span class="p">(</span><span class="s2">&quot;PlayerP1&quot;</span><span class="p">)(</span><span class="mi">2</span><span class="p">)</span> <span class="c1">-- chaining example, gets the second child on PlayerP1</span>
+<span class="o">#</span><span class="n">af</span> <span class="c1">-- GetNumChildren()</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Added input modes for screens</dt><dd><ul>
+<li><p>Can be used to control which screens receives game input.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ScreenManager:SetInputMode(</span> <span class="pre">INPUT_ALL</span> <span class="pre">=</span> <span class="pre">0</span> <span class="pre">|</span> <span class="pre">INPUT_OVERLAY</span> <span class="pre">=</span> <span class="pre">1</span> <span class="pre">|</span> <span class="pre">INPUT_NONE</span> <span class="pre">=</span> <span class="pre">2)</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">Song:GetNoteData(</span> <span class="pre">steps,</span> <span class="pre">[bool</span> <span class="pre">beatBased</span> <span class="pre">=</span> <span class="pre">true,]</span> <span class="pre">number</span> <span class="pre">startBeat</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">number</span> <span class="pre">endBeat</span> <span class="pre">=</span> <span class="pre">-1</span> <span class="pre">)</span></code></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Player:GetNoteData</span></code> already exists</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">sprite:getstate()</span></code></dt><dd><ul>
+<li><p>Returns the current state of sprite</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">sprite:looppoint(</span> <span class="pre">point:</span> <span class="pre">int</span> <span class="pre">)</span></code></dt><dd><ul>
+<li><p>This can be used to make multiple-state animations using a single spritesheet - such as having a run cycle set the loop point when starting/stopping a run.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">player:Reset&lt;type&gt;Splines(</span> <span class="pre">column:</span> <span class="pre">int</span> <span class="pre">)</span></code></dt><dd><ul>
+<li><p>Column specific reset splines</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">player:SetArrowPathShader()</span></code> works now</p></li>
+<li><dl class="simple">
+<dt>Added Song methods:</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">GetDisplaySubTitle()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GetTranslitSubTitle()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GetBackgroundPath()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GetMusicPath()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GetSampleStartSeconds()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GetSampleLengthSeconds()</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">GAMESTATE:GetCurrentNoteSkins()</span></code></dt><dd><ul>
+<li><p>returns a table of noteskin names that is currently in use</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">GAMESTATE:GetRealPath(</span> <span class="pre">string</span> <span class="pre">)</span></code></dt><dd><ul>
+<li><p>It works pretty well with AdditionalSongFolders</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Assuming AdditionalSongFolders is `D:/AdditionalSongFolder`</span>
+<span class="kd">local</span> <span class="n">songDir</span> <span class="o">=</span> <span class="n">GAMESTATE</span><span class="p">:</span><span class="n">GetCurrentSong</span><span class="p">():</span><span class="n">GetSongDir</span><span class="p">()</span>
+<span class="n">GAMESTATE</span><span class="p">:</span><span class="n">GetRealPath</span><span class="p">(</span><span class="n">songDir</span> <span class="o">..</span> <span class="s2">&quot;./fg/default.xml&quot;</span><span class="p">)</span> <span class="c1">-- Returns `D:/AdditionalSongFolder/Group/Song/fg/default.xml`</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Added Shader Methods:</dt><dd><ul>
+<li><dl class="simple">
+<dt>Uniform Arrays</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">uniform1iv(</span> <span class="pre">string</span> <span class="pre">name,</span> <span class="pre">table</span> <span class="pre">)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uniform1fv(</span> <span class="pre">string</span> <span class="pre">name,</span> <span class="pre">table</span> <span class="pre">)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uniform2fv(</span> <span class="pre">string</span> <span class="pre">name,</span> <span class="pre">table</span> <span class="pre">)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uniform3fv(</span> <span class="pre">string</span> <span class="pre">name,</span> <span class="pre">table</span> <span class="pre">)</span></code></p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">uniform4fv(</span> <span class="pre">string</span> <span class="pre">name,</span> <span class="pre">table</span> <span class="pre">)</span></code></dt><dd><ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">shader:uniform4fv(</span> <span class="pre">'v4Array',</span> <span class="pre">{</span> <span class="pre">0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0,</span> <span class="pre">1.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0,</span> <span class="pre">1.0</span> <span class="pre">}</span> <span class="pre">)</span></code> sends a vec4 array where its length is 2</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Uniform Matrices</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">uniformMatrix2fv(</span> <span class="pre">string</span> <span class="pre">name,</span> <span class="pre">table</span> <span class="pre">)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uniformMatrix3fv(</span> <span class="pre">string</span> <span class="pre">name,</span> <span class="pre">table</span> <span class="pre">)</span></code></p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">uniformMatrix4fv(</span> <span class="pre">string</span> <span class="pre">name,</span> <span class="pre">table</span> <span class="pre">)</span></code></dt><dd><ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">shader:uniformMatrix2fv(</span> <span class="pre">'mat2Rotate',</span> <span class="pre">{</span> <span class="pre">0.0,</span> <span class="pre">-1.0,</span> <span class="pre">1.0,</span> <span class="pre">0.0</span> <span class="pre">}</span> <span class="pre">)</span></code> sends a 2x2 matrix</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Defines</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">define(</span> <span class="pre">string</span> <span class="pre">name,</span> <span class="pre">string/bool/number/nil</span> <span class="pre">)</span></code></p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">clearDefine(</span> <span class="pre">string</span> <span class="pre">name</span> <span class="pre">)</span></code></dt><dd><ul>
+<li><p>Basically you can inject <code class="docutils literal notranslate"><span class="pre">#define</span> <span class="pre">HOGE</span> <span class="pre">4</span></code> on top of the shader code</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Compile Immediately</dt><dd><ul>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">compileImmediate()</span></code></dt><dd><ul>
+<li><p>calling <code class="docutils literal notranslate"><span class="pre">define()</span></code> or <code class="docutils literal notranslate"><span class="pre">clearDefine()</span></code> does not automatically compile the shader. Call this function to compile it immediately (or to make it automatically compile when it uses the shader for the first time)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>New MessageCommands:</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">WindowFocusMessageCommand</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">WindowFocusLostMessageCommand</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Profile:ClearHighScoresForSongAndSteps(</span> <span class="pre">song:</span> <span class="pre">string</span> <span class="pre">)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Profile:ClearHighScoresForSong(</span> <span class="pre">song:</span> <span class="pre">string</span> <span class="pre">)</span></code></p></li>
+<li><dl class="simple">
+<dt>Simfiles can now temporarily override user’s SmoothLines preference for one song with <code class="docutils literal notranslate"><span class="pre">GAMESTATE:ForceSmoothLines(</span> <span class="pre">0</span> <span class="pre">or</span> <span class="pre">1</span> <span class="pre">)</span></code></dt><dd><ul>
+<li><p>(used for the Groove Coaster lines in Line Delta and Got More Raves)</p></li>
+<li><p>Reset smoothlines back to user’s setting with <code class="docutils literal notranslate"><span class="pre">GAMESTATE:ForceSmoothLines(</span> <span class="pre">-1</span> <span class="pre">)</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>basezoomz can finally be set</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">actor:basezoomz(float)</span></code> or <code class="docutils literal notranslate"><span class="pre">basezoomz,float</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>actor:GetBaseZoomY() and actor:GetBaseZoomZ() added</p></li>
+<li><dl class="simple">
+<dt>New actor state getting methods, including the ability to get the current state of previously unknowable values, such as zoom and rotation</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">actor:GetRotationX()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">actor:GetRotationY()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">actor:GetRotationZ()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">actor:GetCurrentRotationX()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">actor:GetCurrentRotationY()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">actor:GetCurrentRotationZ()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">actor:GetCurrentZoomX()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">actor:GetCurrentZoomY()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">actor:GetCurrentZoomZ()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">actor:GetSkewX()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">actor:GetSkewY()</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Also available, current state of actors when taking into account active effects e.g. bob, wag and so on (Thanks, Melody!)</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">actor:GetEffectX()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">actor:GetEffectY()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">actor:GetEffectZ()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">actor:GetEffectRotationX()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">actor:GetEffectRotationY()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">actor:GetEffectRotationZ()</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>An additional layer for actor position/rotation/scaling is now available</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">actor:x2()</span></code>, <code class="docutils literal notranslate"><span class="pre">y2</span></code>, <code class="docutils literal notranslate"><span class="pre">z2</span></code>, <code class="docutils literal notranslate"><span class="pre">zoomx2</span></code>, <code class="docutils literal notranslate"><span class="pre">zoomy2</span></code>, <code class="docutils literal notranslate"><span class="pre">zoomz2</span></code>, <code class="docutils literal notranslate"><span class="pre">rotationx2</span></code>, <code class="docutils literal notranslate"><span class="pre">rotationy2</span></code>, <code class="docutils literal notranslate"><span class="pre">rotationz2</span></code>, <code class="docutils literal notranslate"><span class="pre">skewx2</span></code>, <code class="docutils literal notranslate"><span class="pre">skewy2</span></code> (these cannot be tweened, and must be set via an update loop)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Player:SetHiddenRegions(</span> <span class="pre">{{startBeat,endBeat,column},...}</span> <span class="pre">)</span></code> hides notes within the specified beat ranges. Omit the “column” parameter to hide all columns.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Player:SetNoteTypeMults(</span> <span class="pre">{{startBeat,multiplier},...})</span></code> multiplies the note type (timing color) of every note beyond startBeat.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Player:ClearHiddenRegions()</span></code> and <code class="docutils literal notranslate"><span class="pre">Player:ClearNoteTypeMults()</span></code> removes all sections of the specified type.</p></li>
+</ul>
+<p>Themes</p>
+<ul class="simple">
+<li><p>192nd quants for noteskins enabled, falls back to old behaviour if 192nd is missing</p></li>
+</ul>
+<p>Misc.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>#UNLOCK: A system is now in place for locking songs or certain charts behind conditions, that can be defined via lua.</dt><dd><ul>
+<li><p>Conditions can be based on things like arbitrary globals, or high scores on certain songs using <code class="docutils literal notranslate"><span class="pre">PROFILEMAN</span></code>.</p></li>
+<li><p>Song unlock conditions are set via <code class="docutils literal notranslate"><span class="pre">#UNLOCK:someunlock.lua;</span></code> in the .sm file</p></li>
+<li><p>Chart unlock conditions are set via <code class="docutils literal notranslate"><span class="pre">#UNLOCKSTEPS:</span></code></p></li>
+<li><p>Each chart can have a seperate unlock condition using <code class="docutils literal notranslate"><span class="pre">#UNLOCKSTEPS0:</span></code>, <code class="docutils literal notranslate"><span class="pre">#UNLOCKSTEPS2:</span></code> etc.,</p></li>
+<li><p>but note that <code class="docutils literal notranslate"><span class="pre">#UNLOCKSTEPS2:easy.lua;</span> <span class="pre">#UNLOCKSTEPS4:challenge.lua;</span></code> will be minified to <code class="docutils literal notranslate"><span class="pre">#UNLOCKSTEPS::easy.lua::challenge.lua::;</span></code></p></li>
+<li><p>Example: <a class="reference external" href="https://www.dropbox.com/s/sn8nn2tll8k5cjj/unlocktest.lua?dl=0">https://www.dropbox.com/s/sn8nn2tll8k5cjj/unlocktest.lua?dl=0</a></p></li>
+<li><p>Any lua can be used here. If the lua fails to compile, the song will be considered NOT locked and will show on the songwheel.</p></li>
+<li><dl class="simple">
+<dt>Lua unlocks: Unlock command now accepts:</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">THIS_SONG</span></code> to refer to the song itself</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">THIS_GROUP</span></code> the group the song belongs to</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">THIS_PACK</span></code> Identical to THIS_GROUP</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">song:GetUnlockMethod(</span> <span class="pre">difficulty</span> <span class="pre">)</span></code> can be used to get the path directly to the lua file.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">NotITGKeymaps.ini</span></code>, which has the same format as SM5 Keymaps</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">Data/NotITGPrefs.ini</span></code>:</dt><dd><ul>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">OnlySongFolders</span></code></dt><dd><ul>
+<li><p>You can now choose to ONLY load specific song folders. Seperate with a comma.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">FFmpegNumThreads</span></code></dt><dd><ul>
+<li><p>The amount of decode threads FFmpeg will use, defaults to 6,</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>GameState:Get/SetExternal address is printed into the log at startup.</p></li>
+</ul>
+<p><strong>💪 Behavior Changes</strong></p>
+<p>Gameplay</p>
+<ul class="simple">
+<li><p>A performance improvement on BitmapText (Thanks, Squirrel!)</p></li>
+<li><dl class="simple">
+<dt>Playing on Rate mods no longer un-syncs (Game now accounts for .009 ITG sync)</dt><dd><ul>
+<li><p>See <code class="docutils literal notranslate"><span class="pre">NotITGPrefs.ini</span></code>, <code class="docutils literal notranslate"><span class="pre">RateMods9msOffsetFix</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Notefields are reset between marathon songs</p></li>
+<li><p>Player 2 score saving is disabled when BothAtOnce is activated</p></li>
+<li><p>Rate mods no longer sound terrible! (Thanks, Fraxtil!)</p></li>
+<li><p>Fixed a bug where charts in the Edit difficulty slot sometimes fail to load correctly.</p></li>
+<li><dl class="simple">
+<dt>Autoplay being on at any point during an arrow being hit will now disqualify you, and this will be reflected on the results screen.</dt><dd><ul>
+<li><p>This basically means that you won’t get auto-disqualified if you have Autoplay on at the very start of the file - you’ll have a window of opportunity to turn it off before the chart actually starts.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Finishing a course no longer lets you select another course after - your ‘credit’ will end</p></li>
+<li><dl class="simple">
+<dt>USB songs now preloads entire song directory</dt><dd><ul>
+<li><p>Playing sound no longer crashes</p></li>
+<li><p>Custom courses now loads custom songs properly</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Song background now always loads, even if BGBrightness preference is set to 0</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PlayerStageStats:GetCurrentLife()</span></code> now returns 0.001 (instead of 0) if no notes or mines have been hit yet.</p></li>
+</ul>
+<p>Editing</p>
+<ul class="simple">
+<li><p>BetterBackgrounds loads before Foreground in the editor now</p></li>
+<li><p>FOV and vanishpoint resets when stopping in edit mode</p></li>
+</ul>
+<p>Modding / Lua</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>SCREEN_WIDTH and friends are more accurate, this affects widescreen play too</dt><dd><ul>
+<li><p>It fixes a bug where some AFT trails slightly drift on widescreen only - e.g., in widescreen (16:9 ratio) on SL-based themes, SCREEN_WIDTH is changed from 853 to 853.333… (or near enough)</p></li>
+<li><p>Simply Love is used as the example here because it defines width as 640 - this isn’t necessarily the case for other themes!</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Player:GetNoteData() now clamps to the last beat of the song</p></li>
+<li><dl class="simple">
+<dt>Proxied actors on ActorProxy can be disconnected</dt><dd><ul>
+<li><p>Just pass nothing to it, example: <code class="docutils literal notranslate"><span class="pre">proxy:SetTarget()</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>More XML attributes are scriptable</dt><dd><ul>
+<li><p>Attribute <code class="docutils literal notranslate"><span class="pre">Type</span></code> set through Lua</p></li>
+<li><p>Attribute <code class="docutils literal notranslate"><span class="pre">Font</span></code>/<code class="docutils literal notranslate"><span class="pre">File</span></code> of BitmapText can be set through Lua</p></li>
+<li><dl class="simple">
+<dt>Attribute <code class="docutils literal notranslate"><span class="pre">Frag</span></code> and <code class="docutils literal notranslate"><span class="pre">Vert</span></code> can be set through Lua</dt><dd><ul>
+<li><p>They work similar to how you use <code class="docutils literal notranslate"><span class="pre">Condition</span></code>, but you have to start the line with <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>.</p></li>
+<li><p>Example: <code class="docutils literal notranslate"><span class="pre">&lt;Layer</span> <span class="pre">Type=&quot;&#64;spriteOrModel()</span> <span class="pre">or</span> <span class="pre">'Sprite'&quot;</span> <span class="pre">/&gt;</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Misc.</p>
+<ul class="simple">
+<li><p>“Report crash” button now goes to the UKSRT Discord</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">log.txt</span></code> and <code class="docutils literal notranslate"><span class="pre">info.txt</span></code> are now written to the <code class="docutils literal notranslate"><span class="pre">Data/</span></code> folder</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">crashinfo-*.txt</span></code> is now written to the <code class="docutils literal notranslate"><span class="pre">Data/Crash/</span></code> folder</p></li>
+<li><p>Key oem102 is treated as a seperate key and not as a second backslash</p></li>
+<li><p>MonkeyInput displays a system message every time it presses a key.</p></li>
+<li><p>Serial now starts with <code class="docutils literal notranslate"><span class="pre">NITG-</span></code></p></li>
+</ul>
+<p><strong>🐛 Bugfixes</strong></p>
+<p>Gameplay</p>
+<ul class="simple">
+<li><p>Marathon mode no longer crashes if you fail with only one player enabled</p></li>
+<li><p>Battle mode no longer crashes</p></li>
+<li><p>Fixed ApproachType on music rates != 1.0x</p></li>
+<li><p>Highscore of USB songs no longer disappears</p></li>
+<li><p>Reset notefield between songs in marathon mode</p></li>
+<li><p>Autosync now works properly with BothAtOnce</p></li>
+<li><p>Miss Combo color now works properly.</p></li>
+</ul>
+<p>Editing</p>
+<ul class="simple">
+<li><p>Pressing <code class="docutils literal notranslate"><span class="pre">F3</span></code> + <code class="docutils literal notranslate"><span class="pre">0</span></code> while it’s greyed out/not selectable no longer crashes the game</p></li>
+<li><p>Couples editor crash when using 192nd notes has been fixed</p></li>
+<li><p>No longer crashes if moving to next note while in couples mode</p></li>
+<li><p>ScreenEdit shouldn’t crash anymore with DelayedScreenLoad enabled (theme dependent)</p></li>
+<li><p>Fixed hands count in Couples Mode</p></li>
+</ul>
+<p>Modding / Lua</p>
+<ul class="simple">
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">DISPLAY:ShaderFuck()</span></code></p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">GAMESTATE:GetFileStructure</span></code></p></li>
+<li><dl class="simple">
+<dt>Fixed <code class="docutils literal notranslate"><span class="pre">Ctrl</span></code> + <code class="docutils literal notranslate"><span class="pre">R</span></code> crashes</dt><dd><ul>
+<li><p>Crash had been seen in 10-1 and gat</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Fixed crash caused by <code class="docutils literal notranslate"><span class="pre">Var=&quot;&quot;</span></code> on xml actor loading</p></li>
+<li><p>Drunkoffset now affects the left arrow :takimeme2:</p></li>
+<li><dl class="simple">
+<dt>Recreate() method fixes AFT texture clearing on nvidia</dt><dd><ul>
+<li><p>NULCTRL (by Kaypooma) now works properly on nvidia</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ActorFrame:SetDrawFunction(</span> <span class="pre">function</span> <span class="pre">)</span></code> now works</p></li>
+<li><dl class="simple">
+<dt>Fixed edge case filename behavior</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">BitmapText</span></code>: <code class="docutils literal notranslate"><span class="pre">Foo</span> <span class="pre">[Bar]/Font</span> <span class="pre">[Page].png</span></code> now works properly, treated as <code class="docutils literal notranslate"><span class="pre">Font</span> <span class="pre">[Page]</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Texture</span></code>: <code class="docutils literal notranslate"><span class="pre">Foo</span> <span class="pre">Bar</span> <span class="pre">16x8/Texture</span> <span class="pre">sphere.png</span></code> now works properly, treated as <code class="docutils literal notranslate"><span class="pre">Texture</span> <span class="pre">sphere</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>Misc.</strong></p>
+<ul class="simple">
+<li><p>Fixed random AV on quit</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CustomsLoadTimeout</span></code> now works properly</p></li>
+</ul>
+<p><strong>👾 Known Issues</strong></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>We’ve found that <code class="docutils literal notranslate"><span class="pre">digital</span></code> and <code class="docutils literal notranslate"><span class="pre">digitalz</span></code> are slightly offsync with each other</dt><dd><ul>
+<li><p>We’ve prioritized its compatibility for now, and will review in a future update</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span></code> + <code class="docutils literal notranslate"><span class="pre">O</span></code> (Reveal Song Folder) currently does not work with AdditionalSongFolders</p></li>
+</ul>
+<p><strong>❤️ Simply Love (v4 compat. theme) changes</strong></p>
+<ul class="simple">
+<li><p>Window Title is now <code class="docutils literal notranslate"><span class="pre">NotITG</span> <span class="pre">&lt;build</span> <span class="pre">number&gt;</span> <span class="pre">-</span> <span class="pre">Simply</span> <span class="pre">Love</span></code></p></li>
+<li><dl class="simple">
+<dt>New options in the main menu</dt><dd><ul>
+<li><p>UKSRT Discord: This closes the game and opens a link to the UKSRT Discord</p></li>
+<li><p>Exit Game: Closes the game</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>New selection screen has been added after color selection</dt><dd><ul>
+<li><p>Selecting Quick Play takes you straight to the song select screen with two players and BothAtOnce enabled</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Survival has been added to the play mode selection screen</p></li>
+<li><p>Default Fail Type is now available in the Arcade Options menu</p></li>
+<li><dl class="simple">
+<dt>Added M-mod to the player options</dt><dd><ul>
+<li><p>M for Maximum; if you set the speed to M300, your scroll speed will be Max 300 if the chart has several BPM changes.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>OffsetPlot can now view detailed spellcard information data</p></li>
+<li><dl class="simple">
+<dt>OffsetPlot now has MineRow data</dt><dd><ul>
+<li><p>shows the exact noterow (<code class="docutils literal notranslate"><span class="pre">beat</span> <span class="pre">*</span> <span class="pre">48</span></code>) of every mine hit by player</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Added <code class="docutils literal notranslate"><span class="pre">Themes/SimplyLove/config.lua</span></code>, some newer theme properties are set in that</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">config.lua</span></code> can be copied to the <code class="docutils literal notranslate"><span class="pre">Data/</span></code> folder, any options set there will take priority over the ones in the Simply Love folder</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">Stitch.lua</span></code> has been added to the <code class="docutils literal notranslate"><span class="pre">Themes/SimplyLove/Scripts/</span></code> folder</dt><dd><ul>
+<li><p>Globals <code class="docutils literal notranslate"><span class="pre">stitch</span></code> and <code class="docutils literal notranslate"><span class="pre">stx</span></code> has been added</p></li>
+<li><p>Its purpose is to run and cache Lua files using the <code class="docutils literal notranslate"><span class="pre">Themes/SimplyLove/</span></code> folder as its base folder.</p></li>
+<li><p>Basic usage: <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">hello</span> <span class="pre">=</span> <span class="pre">stitch('screen.hello')</span></code> will load <code class="docutils literal notranslate"><span class="pre">SimplyLove/Screen/hello.lua</span></code>, cache and return its value.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>ArcticFqx’s console has been added to the theme</dt><dd><ul>
+<li><p>The console runs Lua directly and can be used to do quick maths, execute mods mid-file, receive prints from Traces or SystemMessages or just break the game completely.</p></li>
+<li><p>QwertyUS layout default keybind to open the console: <code class="docutils literal notranslate"><span class="pre">ctrl+9</span></code></p></li>
+<li><p>Keyboard layout and console key can be changed in <code class="docutils literal notranslate"><span class="pre">config.lua</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Lua heap viewer, enable with <code class="docutils literal notranslate"><span class="pre">ViewGC</span></code> in <code class="docutils literal notranslate"><span class="pre">config.lua</span></code></p></li>
+<li><p>(<em>OpenITG only</em>) If <code class="docutils literal notranslate"><span class="pre">DefaultModifiers</span></code> has the Scalable NoteSkin set, it switches over to <code class="docutils literal notranslate"><span class="pre">Cel</span></code> as you enter edit mode or song select for the first time.</p></li>
+<li><p>(<em>OpenITG only</em>) <code class="docutils literal notranslate"><span class="pre">EditorShowSongTitle</span></code> is available in <code class="docutils literal notranslate"><span class="pre">config.lua</span></code>, works exactly the same as the one in <code class="docutils literal notranslate"><span class="pre">NotITGPrefs.ini</span></code></p></li>
+</ul>
+<p>Misc.</p>
+<ul class="simple">
+<li><p>Deobfuscated various files</p></li>
+<li><p>Function <code class="docutils literal notranslate"><span class="pre">Player</span></code> defined by Simply Love has been localized to <code class="docutils literal notranslate"><span class="pre">Mods.lua</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="notitg-v3-icon-16-notitg-v3-1-2018-09-09">
+<h2><img alt="notitg_v3_icon_16" src="_images/notitg_v3_logo_16.png" /> NotITG v3.1 (2018-09-09)<a class="headerlink" href="#notitg-v3-icon-16-notitg-v3-1-2018-09-09" title="Permalink to this heading">¶</a></h2>
+<p>Quickstart download (Windows): <a class="reference external" href="https://notitg.heysora.net/files/quick-start-3.1.zip">https://notitg.heysora.net/files/quick-start-3.1.zip</a></p>
+<p>Program download (Windows): <a class="reference external" href="https://objects-us-east-1.dream.io/smbuilds/OPENITG/NotITG-V3.1.zip">https://objects-us-east-1.dream.io/smbuilds/OPENITG/NotITG-V3.1.zip</a></p>
+<p>EXE download (Windows): <a class="reference external" href="https://notitg.heysora.net/files/NotITG-V3.1.exe">https://notitg.heysora.net/files/NotITG-V3.1.exe</a></p>
+<p>VDI download (Windows): <a class="reference external" href="https://notitg.heysora.net/files/NotITG-V3.1.vdi">https://notitg.heysora.net/files/NotITG-V3.1.vdi</a></p>
+<section id="id3">
+<h3>Changelog<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
+<p>Also hosted on heysora.net: <a class="reference external" href="https://notitg.heysora.net/files/basic-changelog-3.1.txt">https://notitg.heysora.net/files/basic-changelog-3.1.txt</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Changes - current (v3.1)
+
+    [Huge]
+        + HUGE performance improvements across the entire game thanks to some openGL pipeline cleaning (HeySora)
+
+    [Bugfix]
+        + SmartBlender no longer adds random teal notes to the end of songs that end with lots of mines (BrotherMojo)
+        + Fix SmartBlender randomization for the first step (BrotherMojo)
+        + Fix SmartBlender Crashing in Marathon Mode on certain songs (BrotherMojo)
+        + Non auto-reloading P2 no longer offset in the editor
+        + Fix bug where loading a lot of noteskins crashes - it was actually an issue with negative attack time in course for attacks that happen after the song ends.
+        + Fix lag spike on heavy spline usage segments of files
+        + ActorFrame:GetChildAt( num ) can now access item 0 (HeySora)
+        + Fix editor Autoplay not working for P2
+        + Window manipulation helpers now work as intended
+            DISPLAY:GetWindowX( );
+            DISPLAY:GetWindowY( );
+            DISPLAY:GetWindowZoomX( );
+            DISPLAY:GetWindowZoomY( );
+            DISPLAY:GetWindowWidth( );
+            DISPLAY:GetWindowHeight( );
+
+            DISPLAY:SetWindow( x, y, w, h );
+            DISPLAY:SetWindowX( x );
+            DISPLAY:SetWindowY( y );
+            DISPLAY:SetWindowAddX( x );
+            DISPLAY:SetWindowAddY( y );
+            DISPLAY:SetWindowZoomX( x );
+            DISPLAY:SetWindowZoomY( y );
+            DISPLAY:SetWindowWidth( w );
+            DISPLAY:SetWindowHeight( h );
+
+        + Single player marathon mode now no longer crashes with Assertion &#39;pTrail&#39; failed
+        + Game accuracy improved (HeySora)
+            - On Windows, OpenITG&#39;s precision was just millisecond*1000, now it&#39;s true microseconds
+        + Great optimisations on Spline/Gradient functions (HeySora)
+        + Removed &quot;odd dimensions&quot; warning (HeySora)
+        + Improved ApplyGameCommands performance (HeySora)
+        + Fixed duplicate messages in an actor actually crashing (HeySora)
+            - Now it warns you with a (hideable) dialog, no more crashes!
+        + Replaced many &quot;Assertion &#39;0&#39;&quot; (HeySora)
+            - Either replaced it with a comprehensive message
+            - or actually avoided the crash
+        + Fixed Access Violations when reloading a texture on a Sprite (HeySora)
+        + Fixed UVs on SpiralHolds
+            - Negative spiralholds will use fixed UVs rather than original/bugged UVs
+        + Reset FOV between songs in a marathon
+        + Parallel lights driver fixed - ArcticFqx
+
+    [Feature]
+        + Lossless printscreen now saves .png instead of .bmp
+        + Allow players to disable HBT polling, to provide better CPU performance for those who don&#39;t have an impulse prototype from 2 years ago :weary:
+        + Remove ability to have a non-reloaded chart for player 2 in editor, and removing all menu items involved in reloading player 2&#39;s chart
+        + Move un-mappable input to 5th row
+        + NotITG Preference that lets players disable the &quot;STAGE #&quot; text
+        + NotITG Preference that lets players &quot;always show lifebar and score&quot; on songs/courses that disable them (be wary of topscreen movement)
+            AlwaysShowLifebar preference
+        + Allow lua to detect if an actor is hidden using actor:GetHidden()
+            the result is a bool
+        + set default keys for action buttons
+        + actor:addrotationx( float ) (and y and z) added
+            also works in Command=&quot;addrotationx,30&quot; format
+
+        + Player:Reset&lt;Type&gt;Splines() now exists
+
+        + Individual Judgments for Couples can now be collected using
+            PlayerStageStats:GetTapNoteScoresForPlayer( player (0 or 1), tapnotescore )
+            PlayerStageStats:GetHoldNoteScoresForPlayer( player (0 or 1), tapnotescore )
+        + Also, allowing user to SetTapNoteScoresForPlayer (and hold note score)
+            PlayerStageStats:SetTapNoteScoresForPlayer( player (0 or 1), tapnotescore, amount )
+
+            tap note scores here are 8 to 3 for fantastic to miss, with 1 being HitMine
+            hold note scores are 2 for OK and 1 for NG
+                (Yes I am aware it is backwards here... it&#39;s because similar functions have already been done this way in themes)
+
+        + ArrowCull mod
+            0% for normal (back) cull
+            0 to 100% for none cull
+            over 100% for front cull
+        + Added additional draw statistics to F3+6 (HeySora)
+        + Added ability to set NITGVersion from within editor
+
+    [Misc]
+        + Bullshit buttons renamed to Action buttons to fit the rest of the Action mappings
+        + #NITGVERSION no longer prints to the .sm file when writing if it&#39;s 0 (default)
+
+    [Player]
+        + Player:GetNoteData() now works finally
+            Player:GetNoteData( startbeat, endbeat ) also valid, for getting notedata between sections
+            usage example:
+                local nd = SCREENMAN:GetTopScreen():GetChild(&#39;PlayerP1&#39;):GetNoteData()
+</pre></div>
+</div>
+</section>
+</section>
+<section id="notitg-v3-icon-16-notitg-v3-2018-06-17">
+<h2><img alt="notitg_v3_icon_16" src="_images/notitg_v3_logo_16.png" /> NotITG v3 (2018-06-17)<a class="headerlink" href="#notitg-v3-icon-16-notitg-v3-2018-06-17" title="Permalink to this heading">¶</a></h2>
+<p>Quickstart download (Windows): <a class="reference external" href="https://notitg.heysora.net/files/quick-start.zip">https://notitg.heysora.net/files/quick-start.zip</a></p>
+<p>Program download (Windows): <a class="reference external" href="https://objects-us-east-1.dream.io/smbuilds/OPENITG/NotITG-V3.zip">https://objects-us-east-1.dream.io/smbuilds/OPENITG/NotITG-V3.zip</a></p>
+<p>EXE download (Windows): <a class="reference external" href="https://notitg.heysora.net/files/NotITG-V3.exe">https://notitg.heysora.net/files/NotITG-V3.exe</a></p>
+<p>VDI download (Windows): <a class="reference external" href="https://notitg.heysora.net/files/NotITG-V3.vdi">https://notitg.heysora.net/files/NotITG-V3.vdi</a></p>
+<p>Accompanying Simply Love theme: <a class="reference external" href="https://notitg.heysora.net/files/SLV3.zip">https://notitg.heysora.net/files/SLV3.zip</a></p>
+<section id="id4">
+<h3>Changelog<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h3>
+<p>Also hosted on heysora.net (The v3 changelog is part of the v3.1 changelog):
+<a class="reference external" href="https://notitg.heysora.net/files/basic-changelog-3.1.txt">https://notitg.heysora.net/files/basic-changelog-3.1.txt</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Changes - 17-jun-2018 (v3.0)
+
+    [Bugfix]
+        + Fix ratemods not affecting fg elements in editor
+        + disablemines now makes stepping on mines not reduce score (in addition to making them not explode)
+        + Gradients (arrow, stealth and arrowpath) no longer crash with malformed input
+        + Syntax on gradients now matches v3Splines
+        + Disable CTRL+R when not playing in event mode (prevents extra stage triggers and other weird stuff)
+        + Fix ScreenSelectMusic crash on default theme (uninitialized shader vals) -FMS_Cat
+        + Fix ScreenNameEntry traditional crash
+        + Fix meat boy theme
+        + Survival mode automatically unhides lifebar and score
+        + Ctrl+L to toggle visible life/score when they&#39;ve been hidden by modscripts
+        + Re-enable shader on BitmapText -FMS_Cat
+        + NoteData offsetvector now knows what song of a marathon each note was in. Used in Marathon scatterplot.
+        + Fix bug where duplicate edit data can sometimes crash -FMS_Cat
+        + Results screen Life graph now properly scales when using rate mods
+
+    [Feature]
+        + Proper gradients!!
+            VIDEO:
+                https://streamable.com/2jg94
+            EXAMPLE FILE:
+                https://www.dropbox.com/s/0mv7xwykbig12d8/TEST%20-%20PathGradient%202.rar?dl=0
+            HOWTO:
+                https://www.dropbox.com/s/t1trfks2xyckwzh/gradients.txt?dl=0 (thanks @halcyoniix)
+        + Add GetPossibleSongs and GetPlayedSongs to StageStats lua, to fix the offsetplot in marathon mode
+        + New Preference in Data/NotITGPrefs.ini
+            ShowStageNumberOnGameplayScreen (turn this off to remove EVENT MODE text)
+        + SmartBlender mod - intelligent shuffle! -BrotherMojo
+
+Changes - 03-apr-2018 (MM3 build)
+
+    [Bugfix]
+        + Fix bug where F1 Editor Help Menu Crashes. (USE THIS TO SEE THE KEYBOARD SHORTCUTS)
+        + Fix bug where jumps counted as two distinct points on scatter plot.
+        + Dude, where&#39;s my chart? (Editor sometimes deletes charts) FINALLY FIXED.
+        + Centered2 no longer kills holds on reverse
+        + Doubles playfield is now properly centered in the editor
+
+    [Editor]
+        + Add more keyboard shortcuts to the editor (PRESS F1 TO SEE THEM)
+        + Actual Couples support (3.95 couples with micro-stop style)
+            Couples toggle added to F menu (press F in editor)
+                Couples toggle also accessible from editor preferences in F menu.
+                Switching to couples editing also changes to the couples noteskin (if available)
+            More turn mods added to F menu
+                +SwapSides          (12345678 -&gt; 56781234)
+                +CouplesMirror      (12345678 -&gt; 86754231)
+                +SwapLeftRight      (12345678 -&gt; 42318675)
+                +SwapUpDown         (12345678 -&gt; 13245768)
+            Forward slash &quot;/&quot; key toggles between editor player 1 and editor player 2.
+            Couples conversion script (using tiny negative stops) internalized (accessed from F menu)
+                Regional [s]dialect[/s]couples conversion also available, if an area is highlighted.
+            Individual notecounts when in couples editing mode
+                Format is Player1 / Player2
+        + Ctrl + ,/.: Jump to previous/next label
+
+
+    [Player]
+        + New Splines v3! Forget everything you knew about splines before. This is the lowdown now:
+            https://www.dropbox.com/s/7gpmdml8o3ghz5v/splines.txt?dl=0
+            40 splines per column per player (with 2 players), 210 FPS.
+        + Arrow Path Gradients!!
+            VIDEO:
+                https://streamable.com/ukntb
+            EXAMPLE FILE:
+                https://www.dropbox.com/s/xia26i6e5ym97vn/TEST%20-%20PathGradient.rar?dl=0
+            HOWTO:
+                https://www.dropbox.com/s/t1trfks2xyckwzh/gradients.txt?dl=0 (thanks @halcyoniix)
+
+    [Actor]
+        + New Actor Effect type (pulseramp)
+            It&#39;s the same as diffuseramp (sawtooth wave applied to color) but on the size of an object.
+            Effectmagnitude controls max size and min size
+            Effectcolor1 and effectcolor2 controls the size difference in each axis at the beginning and end of each step
+
+Changes - 21-aug-2017 (UKSRT9 build)
+
+    [Player]
+        + Player:SetMineSound( path ); --Set custom player mine sound from simfile.
+        + fix access violation when using Player:SetMissCombo( amount ); in editor
+        + Send additionall judgment messages for early and late judgments, as well as distinguishing holds and rolls with another message
+            examples:
+                Fk_P1_W2_EarlyMessageCommand
+                Fk_P2_W4_LateMessageCommand
+                Fk_P3_OK_HoldMessageCommand
+                Fk_P4_NG_RollMessageCommand
+
+    [Misc]
+        + Custom tweening
+            actor:tween( time, &#39;lua expression&#39; );
+            Custom tweening lets you define a lua expression using &quot;%f&quot; to represent how far into the tween the object is currently.
+            For example, a linear tween would be actor:tween( 1, &#39;%f&#39; );
+
+            https://dl.dropboxusercontent.com/u/2526020/FUCK/secret/TEST%20-%20Custom%20Tween.rar
+
+        + SpellCard and Label system
+            Allow simfile writers to mark sections of songs.
+            These markers will also show up in the editor.
+            Press L in editor to add label.
+
+            Example:
+                https://dl.dropboxusercontent.com/u/2526020/FUCK/secret/whoa/%EF%BC%9F/get_fucked_spellcards.xml
+
+            Spellcards and Labels now added to simfiles
+            Labels can now be one of two types - song divider labels and comment labels
+            Comment labels won&#39;t show up in the scatter plot (unless written that way.
+
+        + Scatter plot stuff
+            Etterna&#39;s timing offset scatter plot from the results screen.
+            This will also render spellcards and labels (mentioned above) as shaded areas and bars.
+            Refer to https://dl.dropboxusercontent.com/u/2526020/FUCK/secret/whoa/%EF%BC%9F/OffsetPlot.xml
+
+        + New Actor type &quot;Actor&quot; (aliases Aux, Auxvar) for when you don&#39;t want to specify an invisible quad
+        + New XML Node &quot;Var&quot; lets you define a variable for the object
+            Leads to the shorthand of
+                &lt;Aux Var=&quot;test_object&quot;/&gt;
+            replacing
+                &lt;Quad InitCommand=&quot;%function(self) test_object = self end&quot; OnCommand=&quot;hidden,1&quot;/&gt;
+
+        + Remove &quot;Characters&quot; and all related code from main folder.
+        + &quot;ComboShowLeadingZeroes&quot; Preference lets you choose to display 4 combo as either &quot;4&quot; or &quot;004&quot;
+
+    [Holy shit]
+        + Major performance upgrades t. etterna
+        + FIXED PRINTSCREEN ON AFTS
+        + Courses can now have player specific mods
+            format is
+                #MODS:TIME=54.184:LEN=24.44:PLAYER=0:MODS=metal2;
+                #MODS:TIME=54.184:LEN=24.44:PLAYER=1:MODS=cel;
+
+    [Editor]
+        + CTRL+Up/Down now changes speed in 0.5x increments, rather than multiples of 2
+        + CTRL+&lt;comma&gt; or CTRL+&lt;period&gt; jump to prev/next label (comment)
+        + CTRL+backspace now deletes everything in a text entry field
+
+    [Bugfix]
+        + fixed bug where Ctrl+0 then reset didn&#39;t reload the FG
+        + fixed bug where Ctrl+R/Ctrl+0 didn&#39;t disable playfield shaders
+        + fixed bug where 0x breaks spiralholds (LDani2001)
+            crash was caused by zero division
+        + fixed bug where P3-P8 would send stepped messages for P1 and P2
+
+Changes - 6-jun-2017
+
+    [Player]
+        + PushNoteData
+            player:PushNoteData( varName, fStartBeat, fEndBeat );
+            pushes lua notedata into variable &quot;varName&quot;. Accounts for turn mods.
+            if fStartBeat is not specified, first beat of song is used.
+            if fEndBeat is not specified, last beat of song is used.
+
+    [Mods]
+        + &quot;holdtiny&quot; or &quot;holdtiny&lt;col&gt;&quot;
+            width of hold. similar formula to mini/tiny.
+        + &quot;holdgirth&quot; or &quot;holdgirth&lt;col&gt;&quot;
+            inverse alias of holdtiny
+        + &quot;drunky&quot;, &quot;tandrunky&quot; and all related wave modifier trimmings.
+            sure, why not -puuro
+            **these are not column specific
+
+
+Changes - 3-jun-2017
+
+    [Bugfix]
+        + Fix for holds
+
+    [Misc]
+        + Ctrl+V now works on all text entry boxes (NAYOTO)
+        + Large RageSound updates (HeySora)
+            Play
+            Pause
+            Stop
+            Load
+            IsPlaying
+            IsPaused
+            GetLengthSeconds
+            SetSoundPosition
+            GetVolume
+            GetPan
+            GetStartSecond
+            startsecond
+            GetStopMode
+            stopmode
+
+    [Player]
+        + &quot;SetAwake&quot; function can be used to wake up playfields that are still hidden, or set them back to sleep if re-hidden.
+            Provides small FPS boosts for those who need it.
+
+    [Mods]
+        + spline&lt;col&gt;&lt;axis&gt;reset
+            reset all splines instantly. Huge performance boost manually resetting each one.
+
+Changes - 29-may-2017
+
+    [Misc]
+        + Add Player:IsAwake() for debugging purposes
+        + Bugfix on misses in editor? (access violation???)
+
+    [Mods]
+        + &quot;hidenoteflash&quot; - hide the note flashes. Necessary for certain effects.
+            Can be column specific - e.g. &quot;hidenoteflash0&quot;
+
+Changes - 24-may-2017
+
+    [Bugfix]
+        + Access violations! Access violations everywhere ;-; (fixed)
+        + Performance update on existing code
+            check if unused players beyond P2 are &quot;sleeping&quot; before attempting to apply mods or update playerstate
+            (simply unhiding will &quot;wake&quot; a sleeping playfield)
+
+    [What the fuck]
+        + Player 3 and 4 added to ScreenGameplay/Editor.
+            Can have separate mods to players 1 and 2
+                GAMESTATE:ApplyGameCommand(&#39;mod, tornado&#39;,3);
+            Must be unhidden. They are hidden by default.
+            Apply noteskins using GAMESTATE:LaunchAttack()
+            Players 3 and 4 behave on AutoPlay in Gameplay, but are tied to &quot;BothAtOnce&quot; in editor. Perhaps this will be refined in future.
+                Thinking of making it so that if &quot;BothAtOnce&quot; is on, all players will be tied to the same thing,
+                otherwise tie P3 to P1 and P2 to P4 inputs.
+
+    [Misc]
+        + Fix mine behavior in &quot;BothAtOnce&quot; mode
+        + Fix hold behavior in &quot;BothAtOnce&quot; mode in editor.
+
+Changes - 22-may-2017
+
+    [Internal]
+        + Made Player accessible directly via lua
+            (e.g. P1: or v[1]: can now touch internal player attributes)
+
+        + GetMoveX/Y/Z added to GetX/Y/ZPos within ArrowEffects.cpp, original functions removed.
+            NoteDisplay, ArrowEffects and some other places modified to reflect this (much needed) change
+            If this breaks anything, please hit me with a large stick
+            This is going to speed the game up at least marginally, though.
+
+    [Misc]
+        + Spiral hold tails fixed in extreme cases
+        + Version globals added
+            FUCK_VERSION_1 = 20161226
+            FUCK_VERSION_2 = 20170405
+        + Make dialog box wider in loading window so song/folder titles don&#39;t get cut off
+        + P1:SetCombo( int ) --set the current combo
+        + P1:SetMissCombo( int ) --set the current miss combo
+        + P1:GetCombo( ) --get the current miss combo
+        + P1:GetMissCombo( ) --get the current miss combo
+        + P1:SendJudgment( int, isEarly, (optional, for scatter plot)timing deviation in ms, (optional, for scatter plot) beat ) --Send a judgment message to the actor. Note: must tell the game if it&#39;s early or late.
+        + &quot;SaltyReset&quot; message broadcast on press CTRL+R
+
+    [Editor]
+        + &quot;Edit steps information&quot; now shows the current meter before editing
+        + CTRL+PgUp/PgDn lets you jump to selected beat
+            Beat must be greater than 0
+        + CTRL+Home now doubles as &quot;End&quot; ...because I don&#39;t have an End key on this laptop.
+        + F1 to open Edit Help Menu restored and the crash has been fixed.
+            It now has a page 2! Press enter from this screen to go to page 2.
+            Page 2 contains all the notITG editor shortcuts.
+        + F2 now opens notITG editor shortcuts screen.
+        + Backing out of text entry no longer plays a lengthy transition
+
+    [Mods]
+        + SPLINE TYPE (!!!)
+            New mods of the format &quot;spline&lt;axis&gt;type&quot;, control how the spline behaves in that axis.
+                0 = default (linear interp),
+                1-100 = cosine interp (smooth in and out, always vertical at the control points),
+                101+ = cubic splines (curved based on the specified control points).
+            Different axes can have different interpolations, e.g. z can be cubic while x is cosine.
+
+        + Spline performance greatly improved (t. Daikyi, Telperion, Michael and everyone else who posted suggestions on improvements)
+
+        + &quot;attenuate&quot; (aka attenuatex) changed to be based on column position, rather than which column it is
+            &quot;attenuatez&quot; re-introduced, z attenuation is now based on z position to match attenuatex
+
+        + &quot;bumpyy&quot; with appropriate period and offset modifiers.
+            Period modifiers can now be column specific.
+            Example:
+
+                local str = &#39;&#39;
+                for i=0,3 do
+                    str = str..&#39;*10000 &#39;..(300 + 150*i)..&#39; bumpyy&#39;..i..&#39;,&#39;
+                    str = str..&#39;*10000 &#39;..(300 + 150*i)..&#39; bumpyx&#39;..i..&#39;,&#39;
+                    str = str..&#39;*10000 &#39;..(100*(3-i))..&#39; movex&#39;..i..&#39;,&#39;
+                    str = str..&#39;*10000 0 bumpyyoffset&#39;..i..&#39;,&#39;
+                    str = str..&#39;*10000 25 bumpyxoffset&#39;..i..&#39;,&#39;
+                end
+
+                m(0,999,str,&#39;end&#39;);
+            Bumpy is now one of the most powerful sets of mods.
+
+    [Window stuff]
+        + global variables added relating to window display (NAYOTO.)
+            LUA-&gt;SetGlobal( &quot;DISPLAY_WIDTH&quot;, (int) DISPLAY_WIDTH );
+            LUA-&gt;SetGlobal( &quot;DISPLAY_HEIGHT&quot;, (int) DISPLAY_HEIGHT );
+            LUA-&gt;SetGlobal( &quot;DISPLAY_LEFT&quot;, (int) DISPLAY_LEFT );
+            LUA-&gt;SetGlobal( &quot;DISPLAY_RIGHT&quot;, (int) DISPLAY_RIGHT );
+            LUA-&gt;SetGlobal( &quot;DISPLAY_TOP&quot;, (int) DISPLAY_TOP );
+            LUA-&gt;SetGlobal( &quot;DISPLAY_BOTTOM&quot;, (int) DISPLAY_BOTTOM );
+            LUA-&gt;SetGlobal( &quot;DISPLAY_CENTER_X&quot;, (int) DISPLAY_CENTER_X );
+            LUA-&gt;SetGlobal( &quot;DISPLAY_CENTER_Y&quot;, (int) DISPLAY_CENTER_Y );
+
+        + More window commands for ease of use (NAYOTO.)
+            ADD_METHOD( GetWindowX )
+            ADD_METHOD( GetWindowY )
+            ADD_METHOD( GetWindowZoomX )
+            ADD_METHOD( GetWindowZoomY )
+            ADD_METHOD( GetWindowWidth )
+            ADD_METHOD( GetWindowHeight )
+
+            ADD_METHOD( SetWindow )
+            ADD_METHOD( SetWindowX )
+            ADD_METHOD( SetWindowY )
+            ADD_METHOD( SetWindowAddX )
+            ADD_METHOD( SetWindowAddY )
+            ADD_METHOD( SetWindowZoom )
+            ADD_METHOD( SetWindowZoomX )
+            ADD_METHOD( SetWindowZoomY )
+            ADD_METHOD( SetWindowWidth )
+            ADD_METHOD( SetWindowHeight )
+
+Changes - 14-may-2017
+
+    [Misc]
+        Credit: NAYOTO.
+            + DISPLAY:SetWindowPosition( int x, int y )
+                Move the window around when in windowed mode, via simfile lua. oh no
+            + DISPLAY:SetWindowPositionAndSize( int x, int y, int width, int height )
+                will lag if using ReShade for anything
+        + DISPLAY:GetDesktopWidth()
+        + DISPLAY:GetDesktopHeight()
+            These are needed when using window position for simfile authors to make sure window is kept inbounds
+
+    [Addon]
+        + F3+8 is now Reset Window Position and Size
+        + Game now detects if window position has been changed at any point, and resets on exiting song
+        + &quot;AllowWindowPositionChange&quot; preference added to let users disable this functionality from StepMania.ini
+            (defaults to true, but... Just in case.)
+
+    [Mods]
+        + Fix bug caused by moveY not affecting stealth types
+
+Changes - 3-may-2017
+
+    [Nice]
+        + &quot;ShowComboGlowAtPercent&quot; now added as a preference in StepMania.ini
+            Default value is 0.25 (same as normal ITG/3.95)
+            Setting this to 0 lets you see if your combo is blue or gold right from the beginning of the song
+            Setting this value above 1 will entirely disable combo colors
+
+    [Misc]
+        + GAMESTATE:GetElapsedTimeFromBeat( beat ) added
+            ever wanted to work out the exact time in seconds that beat 188.75 happens? Now you can!
+        + GAMESTATE:GetBeatFromElapsedTime( time ) added because why not
+</pre></div>
+</div>
+</section>
+</section>
+<section id="notitg-v2-icon-16-notitg-v2-2017-04-05">
+<h2><img alt="notitg_v2_icon_16" src="_images/notitg_v2_logo_16.png" /> NotITG v2 (2017-04-05)<a class="headerlink" href="#notitg-v2-icon-16-notitg-v2-2017-04-05" title="Permalink to this heading">¶</a></h2>
+<p>Download (Windows): <a class="reference external" href="https://objects-us-east-1.dream.io/smbuilds/OPENITG/NotITG-V2.zip">https://objects-us-east-1.dream.io/smbuilds/OPENITG/NotITG-V2.zip</a></p>
+<p>EXE download (Windows): <a class="reference external" href="https://sm.heysora.net/NotITG-170405.exe">https://sm.heysora.net/NotITG-170405.exe</a></p>
+<p>VDI download (Windows): <a class="reference external" href="https://sm.heysora.net/NotITG-170405.vdi">https://sm.heysora.net/NotITG-170405.vdi</a></p>
+<section id="id5">
+<h3>Changelog<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h3>
+<p>Also hosted on heysora.net: <a class="reference external" href="https://sm.heysora.net/NotITG-v2-changelog.txt">https://sm.heysora.net/NotITG-v2-changelog.txt</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Changes - 18-mar-2017 (20170318-002) [Release candidate]
+
+    [Mods]
+        + &quot;longboys&quot; added as an alias to &quot;longboy&quot;
+
+    [Bugfix]
+        + fix straightholds when using reverse
+        + fix z position on spiral hold topcap when using straightholds
+        + fix hold tail caps on spiralholds when using negative longboys
+
+
+Changes - 13-mar-2017 (20170313-014)
+
+    [Mods]
+        + mod: &quot;ApproachType&quot;
+            when greater than 0, this changes mod activation rates such that *1 = 100% over 1 beat
+            (affected by bpm changes and stops)
+        + &quot;zoom&quot; added as a shortcut to control both &quot;zoomx&quot; and &quot;zoomy&quot; in tweens-as-mods system
+
+    [Nice]
+        + tested slight optimizations to PlayerOptions.cpp from 9-mar build
+            got a few extra fps on private caller
+
+
+Changes - 10-mar-2017 (20170310-010)
+
+    [General]
+        - Allow images to be made gray by appending &quot;(grayscale)&quot; to the filename
+        - Allow AFTs to be made gray by setting self:EnableGrayscale(true) before calling Create()
+
+    [Bugfix]
+        + Editor: Fix &quot;unable to move&quot; bug caused by uninitialized scrollmode memory
+
+Changes - 9-mar-2017 (20170309-024)
+
+    [Editor]
+        + CTRL+5 Switch to 20ths mode (10-9-10-9-10 scrolling)
+        + CTRL+6 Switch to 96ths mode (4th-&gt;96th-&gt;8th-&gt;96th scrolling)
+            press either button combo again to disable
+        + SoftShuffle and SpookyShuffle added to available editor turn mods/F menu turn mods
+        - Removed the old glitchy &quot;make20ths&quot; compress mod (and all related bad code)
+
+    [Bugfix]
+        + Editor: Fix crashes involving next/previous note
+        + Editor: FINALLY fix Compress options interacting with holds incorrectly in oITG.
+        + Editor: Don&#39;t overwrite BPM on ending beat when using compress options if one already exists
+        + Fix tweening notefield interior (don&#39;t worry about this)
+        + Make dummy quad on false condition invisible
+        + Small rewrite to playerOptions to make column specific mods faster/more efficient
+
+    [Mods]
+        - Remove &quot;attenuatey&quot; and &quot;attenuatez&quot; mods, they were pretty useless
+        - Reduced max # splines per column per value from 64 to 48 to free up some memory for other new mods
+
+Changes - 6-mar-2017 (20170306-024)
+
+    [Bugfix]
+        + Fix actorproxy to allow normal playfield to be drawn
+        + Fix move mods with straightholds
+        + Rename &quot;hidden&quot; tween to &quot;hide&quot; so there&#39;s no overlap with the actual hidden mod :I
+        + Fix &quot;copied&quot; actors being unable to draw (weird rarely-used actor type that shows up in default theme)
+
+    [Mods]
+        + size splines
+            officially now named &quot;tiny&quot;, so &quot;spline0tinyoffset0&quot; etc.
+            behavior changed so that they match tiny (200 = 0 size)
+            See other implementations of splines for more details
+
+Changes - 3-mar-2017 (20170303-026)
+
+    [Mods]
+        + *-1 activation speed is now a shortcut for &quot;instantaneous&quot;
+        + Fix bug where tan was not actually a tan wave
+            new mod &quot;glitchytan&quot; or &quot;cosec&quot; brings back old behavior when enabled
+        + Fix bug involving numerous tan mods (notably tanbumpyx)
+        + tweens are now available as mods.
+            syntax:
+                &#39;*1 200 zoomx&#39;
+                &#39;*2 50 skewx&#39;
+                &#39;*2 30 rotationz&#39;
+            -available tweens:
+                x, y, z, (1% = 1 pixel)
+                rotationx, rotationy, rotationz (degrees, 1% = 1 degree)
+                zoomx, zoomy, zoomz, (defaults to 100%, which is a zoom of 1. 200% = zoom,2)
+                skewx (100% = a skewx of 1)
+                hide (it&#39;s hidden, any nonzero % will enable)
+            -this solves the problem of syncing mods to playfield tweens
+            -this also allows mods that move the playfield to be used in .crs files
+
+Changes - 21-feb-2017 (20170221-003)
+    [Editor]
+        + When editing doubles chart, don&#39;t move one player off to side
+            (even if two player editor pref is enabled)
+
+    [General]
+        + Don&#39;t error out on negative tween time, just display a warning and continue
+        + Fix endless bugs with CTRL+R and CTRL+0
+
+    [Mods]
+        + &quot;straightholds&quot; --straightens out holds (like how PiU handles mods)
+            100% will completely straighten the hold.
+            Higher will make the hold perform the inverse of the default behavior.
+            Negative values will increase the hold&#39;s strength.
+
+Changes - 17-feb-2017
+    [General]
+        + Doubleres image support for high resolution textures
+            append &quot;(doubleres)&quot; on the end of your double res texture for the game to auto resize it
+        + SetTextureFiltering now works on models
+            choose whether you want zoomed models&#39; textures to be either pixellated (false) or blurred (true)
+        + Ctrl+R quick reset of any song.
+            This is notable because it resets all active mods and tweens when used in mod files
+            Fixed bug where quick reset crashes songs with AFT usage
+        + Ctrl+0 Gets rid of all on screen mods and graphics. Disqualifies you tho.
+        + New preference: &quot;RateModsAffectFGChanges&quot;
+            Allows automatic handling of rate mods on all mod files
+            (Updating both mod attack rates and foreground object animation and speeds)
+
+Changes - 14-feb-2017
+    [Mods]
+        + bring back 300 bpm beat cap to fix compatibility with files that relied on it
+        + &quot;beatcap&quot;
+            turn this mod on to disable the 300 bpm beat cap
+
+    [General]
+        + Input Mode (Preference = InputDuplication)
+            Press F3+5 to turn on &quot;both at once&quot; mode - either player presses buttons for both sides.
+        + Fix bug in &quot;both at once&quot; mode that causes the dummy player to be unable to hit holds
+        + GAMESTATE:SetInputMode(0 or 1) --0 for normal, 1 for &quot;both at once&quot;
+            Used to temporarily set &quot;both at once&quot; mode for one simfile.
+            This behavior resets on re-entering the gameplay screen.
+            Input Mode preference/F3+5 takes priority over in-simfile setting.
+        + Fixed bug causing ActorFrame-based receptors in noteskins to glow brightly instead of pulsing to the beat
+
+Changes - 10-feb-2017
+    [General]
+        + GAMESTATE:LaunchAttack(StartTime, Length(seconds), Mods, Player(optional) ) (NAYOTO.)
+            This can be used to launch NoteSkins mid song, but will disable any currently active lua mods
+            Recommend using LaunchAttack in &quot;InitCommand&quot;, as launching &quot;attacks&quot; generates lag spikes.
+
+    [Mods]
+        + &quot;SoftShuffle&quot; = random turn mod from either: SwapLeftRight, SwapUpDown, Mirror
+        + &quot;SpookyShuffle&quot; = new turn mod: L&lt;-&gt;(D or U) R&lt;-&gt;(U or D), introduces a lot of crossovers
+        + Column specific bumpy
+        + Column specific dark (hide targets)
+
+    [Simfile]
+        + Can load multiple #MODS:; tags, allowing basically a whole .crs to be pasted in (NAYOTO.)
+
+    [Edit Mode]
+        + Allow loading of #MODS tag similarly to #ATTACKS
+        + Allow #ATTACKS:; to work in Edit Mode. (NAYOTO.)
+        + Fixed a bug involving changing difficulty. (NAYOTO.)
+        + Edit Steps Meter changed from selection menu to Text Entry. (NAYOTO.)
+        + Reload from Disk doesn&#39;t load multiple copies of #FGCHANGES or #MODS (TaroNuke)
+
+Changes - 05-jan-2017
+
+    Editor: Fixed &quot;Edit Song Info&quot; FINALLY
+
+    #ATTACKS tag added to simfiles! (NAYOTO)
+        This brings support for crs stype mods to be embedded in simfiles
+        This also allows Noteskin changes to be performed mid-simfile! since they are just attacks
+        NOTE: This WILL NOT WORK in the editor.
+            Use a .crs file for testing this and then just mash it into the .sm when finished.
+
+    #BETTERBGCHANGES tag added to simfiles
+        BGChanges that support models, InitCommands and MessageCommands
+        note: Does not needs a sleeping quad to keep itself alive, like background
+
+    Negative attack times no longer permanently break mods
+        instead, a stern warning is issued and an attack rate of *0.01 is used
+
+    Boomerang: percentage now affects wave height
+
+    Save Area to Lua (time)
+        Accessed from &quot;press F&quot; menu
+        Same as the beats version, but gets the time of each step
+
+Changes - 28-dec-2016
+
+    HUGE performance boost on splines
+
+    Fixed blue note diffuse and arrow path diffuse being swapped (ty PCBoy)
+
+For the rest, see NotITG v1 changelog
+https://dl.dropboxusercontent.com/u/2526020/FUCK/NotITG-changelog.txt
+</pre></div>
+</div>
+</section>
+</section>
+<section id="notitg-v1-icon-16-notitg-v1-2016-12-24">
+<h2><img alt="notitg_v1_icon_16" src="_images/notitg_v1_logo_16.png" /> NotITG v1 (2016-12-24)<a class="headerlink" href="#notitg-v1-icon-16-notitg-v1-2016-12-24" title="Permalink to this heading">¶</a></h2>
+<p>Download (Windows): <a class="reference external" href="https://objects-us-east-1.dream.io/smbuilds/OPENITG/NotITG-V1.zip">https://objects-us-east-1.dream.io/smbuilds/OPENITG/NotITG-V1.zip</a></p>
+<section id="id6">
+<h3>Changelog<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h3>
+<p>Also hosted on heysora.net: <a class="reference external" href="https://sm.heysora.net/NotITG-v1-changelog.txt">https://sm.heysora.net/NotITG-v1-changelog.txt</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Changes (current build)
+
+    New splash screen and crash dialogs
+
+
+    &quot;Current second, unaffected by offset&quot; added to editor below &quot;Current second&quot;.
+        Preference &quot;SyncToRoxorHardware&quot; added. Current second, unaffected by offset has +0.009 added if this is true.
+
+    Reduced number of splines from 128 down to 64 to improve frame rate.
+        30 per column is sort of the upper bound for lag, anyway.
+
+    Column specific confusionoffset!!
+        confusionoffset0-n
+        confusionz/confusionzoffset now aliases for confusion/confusionoffset
+
+    Column specific tiny
+
+    Arrow rotational splines, works just like the arrow path splines but for the rotation of individual columns
+        format is spline&lt;col&gt;rotx&lt;num&gt;
+        only the y rotation spline affects holds
+
+
+    -stealthpastreceptors (enables stealth to be turned on past receptors)
+
+    ActorSound (UNFINISHED/GLITCHY)
+        Similar to SM5 implementation. See available commands below
+            self:start();
+            self:stop();
+            self:pause();
+            self:get():pitch(&lt;some value&gt;) --&#39;speed&#39; does the same thing
+            self:get():volume(&lt;some value&gt;) --between 0 and 1
+            self:get():pan(&lt;some value&gt;) --between -1 and 1
+            self:get():GetSoundPosition() --use this for syncing things to sounds!! This is not currently in SM5.
+
+Changes - 12-dec-2016
+
+    -arbitrary pathing! REDONE
+        format is &quot;spline&lt;col&gt;x&lt;num&gt;&quot;
+        Arrows move to specific points on the screen once they have reached specific distances from the receptors.
+            -combine this mod with drawsize as this can cut some size off the playfields
+            -The offset is defined as 100% per 64 pixels (ARROW_SIZE)
+            -both holds and notes follow the altered note paths
+            -Spiralholds changes the way y splines are drawn.
+
+                m(1,999,&#39;*1000 0 spline2xoffset0&#39;,&#39;end&#39;)
+                --the first offset (on UP column) - 0 means it&#39;s at the receptors
+
+                m(1,999,&#39;*1000 0 spline2x0,&#39;end&#39;)
+                --x position of all notes above the first offset - including receptors
+
+                https://dl.dropboxusercontent.com/u/2526020/FUCK/secret/splines0.png
+
+                m(1,999,&#39;*1000 100 spline2xoffset1&#39;,&#39;end&#39;)
+                --the second offset - 100 means it&#39;s 64 pixels down from the receptors
+
+                m(1,999,&#39;*1000 100 spline2x1,&#39;end&#39;)
+                --x position at offset 1. 100% = one column to the right.
+                --from 0 to 64 pixels, the path will be a straight line from dead center -&gt; one column right.
+
+                https://dl.dropboxusercontent.com/u/2526020/FUCK/secret/splines1.png
+
+                m(1,999,&#39;*1000 200 spline2xoffset2&#39;,&#39;end&#39;)
+                --the second offset - 200 means it&#39;s 128 pixels down from the receptors
+
+                m(1,999,&#39;*1000 -100 spline2x2,&#39;end&#39;)
+                --x position at offset 2. 100% = one column to the right.
+                --from 64 to 128 pixels, the path will be a straight line from one column right to one column left.
+
+                https://dl.dropboxusercontent.com/u/2526020/FUCK/secret/splines2.png
+
+
+
+
+    -new mod: &quot;zbuffer&quot;, turns on the zbuffer without needing to turn on e.g. 0.5% bumpy
+
+Changes - 2-dec-2016
+
+    Fix Original Simply love usage with FUCK.exe
+    Added &quot;spiralz&quot; (see spiralx and spiraly)
+
+    -expandperiod (finally, some controls for &quot;expand&quot;)
+    -tanexpand
+        tanexpandperiod
+
+    &quot;Randomvanish&quot; split into two mods, &quot;Randomize&quot; and &quot;Vanish&quot;
+
+    -randomize
+    -randomizemirror -mirrors notes on their way up the screen (doesn&#39;t affect holds)
+        randomizeoffset -controls when either of the above effects happens
+
+    -vanish (see pieces of a dream) - defaults to 128 pixels from the targets
+        vanishsize -how big is the vanish area
+        vanishoffset -move vanish point up or down
+
+    -&quot;xy&quot; new actorcommand that sets both x and y
+        use example:
+            self:xy(100,230)
+
+Changes - 11-nov-2016
+
+    Added shorthands for stealth, hidden, sudden, blink colors and stealthglow
+        sudden(r/g/b)(o)
+        for example,
+            stealthgg == stealthglowgreen
+            blinkr == blinkred
+            hiddeng == hiddengreen
+            *10 50 suddenbo == *10 50 suddenblueoffset
+
+    Made redirs not crash on invalid redirect
+
+Changes - 25-oct-2016
+
+    Brought back lua errors (rip the dream)
+    Removed some model crashes (replaced them with dialog boxes)
+    Revert loading window due to error complaints from some users
+
+Changes - 19-oct-2016
+
+    actor:cmd(&#39;cmd list&#39;) now a valid method
+        instead of
+            actor:x(100)
+            actor:linear(5)
+            actor:x(200)
+        we can say
+        actor:cmd(&#39;x,100;linear,5;x,200&#39;);
+
+    -tandigital
+        tandigitalperiod,tandigitalsteps,tandigitaloffset
+    -tandigitalz with all the trimmings
+
+Changes - 17-oct-2016
+
+    New program icon (Jose_Varela)
+    New Access Violation random messages
+    Necrodancer options in the &quot;F&quot; menu no longer crash
+    Insert/Delete options in the &quot;F&quot; menu no longer delete all the steps (...)
+    Updated program info
+    Added a discord link
+    New loading and error windows
+
+
+
+
+
+
+
+
+New Modifiers
+
+    -longboy (alias: longholds)
+        -Holds shrink as they approach the targets
+
+    -globalmodtimer (alias: modtimer, timer)
+        change the global mod timer for drunk,tipsy,beat etc.
+        0 = normal
+        100 = song time
+        200 = song beat (this will make drunk freeze e.g. during stops!)
+    -globalmodtimermult (alias: modtimermult, timermult)
+        multiplies the global timer by an amount
+        0 = 1x
+        -100 = 0x
+        100 = 2x
+        528 = 6.28x = 1 beat is 1 wave (important)
+    -globalmodtimeroffset (alias: modtimeroffset, timeroffset)
+        offsets the global timer by an amount (0=0, 100=1 etc)
+
+    -stealth0-n
+        stealth individual columns
+
+    -reverse0-n
+        reverse individual columns without split/alternate/cross, because seriously, who designed this? why??
+
+
+    -drunk
+        -drunkspeed
+        -drunkoffset (-100 on drunk or tipsy offset causes the whole thing to be in phase, it&#39;s also possible to get it to stop moving with these)
+        -drunkperiod (change the period of the oscillations of drunk)
+    -tandrunk (Drunk operates on a tan wave instead of a sine wave, holds periodically tend to infinity. Targets also warp around.)
+        -tandrunkspeed
+        -tandrunkoffset
+        -tandrunkperiod (change the period of the oscillations of tangent drunk)
+    -tipsy
+        -tipsyspeed
+        -tipsyoffset
+    -tantipsy
+        -tantipsyspeed
+        -tantipsyoffset
+
+    -beat (changed since regular 3.95/ITG such that bpms over 300 don&#39;t ruin the beat)
+        -beatoffset (move the timing of the beat mod, add 50% beat offset to move the beat to be on 8ths)
+        -beatperiod (waveform length of the beat mod at peak wave amplitude)
+        -beatmult (multiplies the bpm of the song that beat is responding to)
+    -beaty
+    -beatz (see the above for the modifiers)
+
+    regarding offsets
+        -100 on drunk or tipsy offset causes the whole thing to be in phase, it&#39;s also possible to get it to stop moving with these
+
+    -zigzag (a triangle wave. Similar to drunk, but with straight lines.)
+        -zigzagperiod (alter the period of the wave. At 2x, 0% zigzagperiod makes 4ths and 8ths alternate, -50% makes [4ths+8ths] alternate with 16ths)
+            100% will double the period
+        -zigzagoffset (do we want to move the zigzag along?)
+
+    -sawtooth (similar to zigzag, but with a sawtooth wave)
+        -sawtoothperiod (alter the period of wave. At 2x, 0% sawtoothperiod makes 4ths and 8ths alternate, -50% makes [4ths+8ths] alternate with 16ths)
+            100% will double the period
+
+    -parabolax (generic wave for aiding in drawing stuff)
+    -parabolay (generic wave for aiding in drawing stuff)
+    -parabolaz (generic wave for aiding in drawing stuff)
+
+    -wave (unchanged)
+        -waveperiod (affects the waveform)
+
+    -sawtoothz
+        -sawtoothzperiod
+    -zigzagz
+        -zigzagzperiod
+        -zigzagzoffset
+            (this is the same as the x variations but in the z axis
+                fov on the playfields is not so you need to use bigger values)
+
+    -tornado
+        -tornadoperiod (control the helix length)
+        -tornadooffset (control how far into the tornado the receptors are)
+    -tantornado (this is exactly as stupid as it sounds)
+        -tantornadoperiod
+        -tantornadooffset
+            (both of the above offsets will move the receptors)
+
+    -tornadoz, tantornadoz
+        -I didn&#39;t even test these...
+
+    -spiralx (highly experimental, and stupid)
+    -spiralxperiod (highly experimental, and stupid)
+    -spiraly (highly experimental, and stupid)
+    -spiralyperiod (highly experimental, and stupid)
+        Spiral is readable at 150 spiralx/y -99 spiralperiodx/y
+
+    -hidden,sudden,hiddenoffset,suddenoffset,stealth and blink for each color (red, green, blue)
+        (use these the same way stealth is used, but to hide hues
+
+    -confusion (as in SM5, rotate the receptors (and by extension, the arrows too) - use negative dizzy to counteract the spinning...)
+        -confusionoffset (rotate the notes and targets by an amount, and just leave them there)
+
+    -bounce (notes travel in a rectified sine wave towards the receptors)
+    -square (notes travel in a square wave pattern towards the receptors)
+        -period and offset as seen above will apply to both of these functions
+    -digital (sine wave with variable stepping)
+        -digitalsteps (control the resolution (number of stopping points) of the digital)
+        -digitalperiod
+        -digitaloffset
+
+    z versions of bounce, square and digital
+
+    -stealthglowred (or green or blue) (alter the color that stealth glows to before fading)
+
+    -ActorProxy
+        Copies an actor on the topScreen
+        self:SetTarget(&#39;PlayerP1&#39;) &lt;- now we have a copy of the playfield of P1
+
+    -bumpy
+        -bumpyperiod
+        -bumpyoffset
+    -tanbumpy
+        -tanbumpyperiod
+        -tanbumpyoffset
+
+    -bumpyx and tanbumpyx (with the same effector properties, period and offset, as bumpy, because the constant sine wave was annoying)
+
+    -attenuatex
+    -attenuatey
+    -attenuatez
+        (these function the same way that parabola does, but is based on the distance from the center to determine the parabola direction)
+
+    -movex0-n
+    -movey0-n
+    -movez0-n
+        (move any column anywhere!)
+        (example: 100% movex1 moves the down column one column to the right)
+    -movex (or y or z) (shortcut to move the whole playfield in one direction)
+
+    -tiny (mini that doesn&#39;t affect the targets&#39; positioning)
+
+    -pulseinner (inner size of the pulse - might remove, as this is basically just additive tiny?)
+    -pulseouter (outer size of the pulse)
+        -pulseperiod (controls how big the wave is)
+        -pulseoffset (controls how far into the wave &quot;0&quot; is)
+    -pulse (controls both inner and outer pulse at the same time)
+        (*2.25 210000000 pulseoffset is interesting at 140bpm)
+
+    -shrinklinear
+    -shrinkmult
+        (this goes well with attenuatex)
+
+    -confusiony or x (see confusion)
+        -confusionyoffset or xoffset (see confusionoffset)
+
+    -dizzyholds (if this value is non zero, dizzy hold heads are enabled)
+
+    -arbitrary translations
+        (for exampe, -100% translatex0, 50% translatexoffset0 will make it so that there is a jump of 1 column to the left, half way up the screen)
+        (the first translation with a value of 0 and an offset of 0 will terminate the chain, meaning they need to be done in order)
+        (up to 1024 translations in each axis can be placed anywhere on the playfield. The terminator is important for stopping the (BIG) loops.)
+
+
+
+    -grain (for controlling how many polygons the holds are made up of. 100% very fine, 1600% is very coarse.)
+        (if the value is 0%, the default (4) pixels is used)
+
+    -holdtype (!!!!! activate with holdtype mod, this controls the way holds are drawn. Most mods are unchanged,
+        but some mods that have significant effects on the y axis will be altered. Boomerang will draw holds on he way down,
+        and spirals will render properly. This is experimental, and it&#39;s not recommended you leave it on.)
+        This mod is also called by &quot;spiralholds&quot;
+
+    -longholds
+        simply make holds longer
+        yes, that&#39;s all it does
+
+    -stealthtype
+        set the same way as holdtype - makes it so that the stealth is based on musical distance from the receptors
+        rather than physical onscreen distance.
+
+    -drawsize (scales how far down the arrows stop drawing - 100% doubles the size of the playfield, -100% is no draw)
+    -drawsizeback - like drawsize but for the area behind the targets
+
+
+
+
+                                    ------some cool mods------
+
+                                    -------------------------------------------
+                                    -----wind tunnel mod by TaroNuke
+                                    --this is fucking awesome
+                                        {0,2000,&#39;*1000 1.25x&#39;,&#39;end&#39;},
+                                            --slow it down
+                                        {0,2000,&#39;*1000 150 spiralx&#39;,&#39;end&#39;},
+                                        {0,2000,&#39;*1000 -96 spiralxperiod&#39;,&#39;end&#39;},
+                                        {0,2000,&#39;*1000 150 spiraly&#39;,&#39;end&#39;},
+                                        {0,2000,&#39;*1000 -96 spiralyperiod&#39;,&#39;end&#39;},
+                                            --control the spiral
+                                        {0,2000,&#39;*1000 50 centered&#39;,&#39;end&#39;},
+                                        {0,2000,&#39;*1000 100 mini&#39;,&#39;end&#39;},
+                                            --position and size
+                                        {0,2000,&#39;*1000 spiralholds&#39;,&#39;end&#39;},
+                                            --enable spiral holds
+                                        {0,2000,&#39;*1000 -100 tiny&#39;,&#39;end&#39;},
+                                        {0,2000,&#39;*1000 -20 flip&#39;,&#39;end&#39;},
+                                            --make everything a bit bigger and more visible
+                                        {0,2000,&#39;*1000 3000 zigzagz&#39;,&#39;end&#39;},
+                                        {0,2000,&#39;*1000 1000 zigzagzperiod&#39;,&#39;end&#39;},
+                                            --cause the arrows to fall towards the targets from the z axis
+
+                                        {0,2000,&#39;*1000 -300 movez&#39;,&#39;end&#39;},
+                                            --move everything away from the camera
+
+
+                                    -------------------------------------------
+                                    -----using the offsetters to create a small readable area by the targets
+
+                                        {0,2000,&#39;*1000 1.25x&#39;,&#39;end&#39;},
+                                        {0,2000,&#39;*1000 200 spiralx&#39;,&#39;end&#39;},
+                                        {0,2000,&#39;*1000 -95 spiralxperiod&#39;,&#39;end&#39;},
+                                        {0,2000,&#39;*1000 200 spiraly&#39;,&#39;end&#39;},
+                                        {0,2000,&#39;*1000 -95 spiralyperiod&#39;,&#39;end&#39;},
+                                        {0,2000,&#39;*1000 50 centered&#39;,&#39;end&#39;},
+                                        {0,2000,&#39;*1000 100 mini&#39;,&#39;end&#39;},
+                                        {0,2000,&#39;*1000 spiralholds&#39;,&#39;end&#39;},
+                                        {0,2000,&#39;*1000 -100 tiny&#39;,&#39;end&#39;},
+                                        {0,2000,&#39;*1000 -20 flip&#39;,&#39;end&#39;},
+                                        {4,2000,&#39;*0.1 50 brake&#39;,&#39;end&#39;},
+                                            --slow it down in the mercy gap
+
+                                        ----outside the table----
+                                        for i=0,10 do
+                                            table.insert(mods,{0,2000,&#39;*1000 15 translatey&#39;..i,&#39;end&#39;})
+                                            table.insert(mods,{0,2000,&#39;*1000 &#39;..(1+(i/2))..&#39; translateyoffset&#39;..i,&#39;end&#39;})
+                                        end
+
+                                    -----------------------------------------------
+                                    -----offset the spiralx and y periods for FUNKY shit
+                                        -- -96 spiralyperiod, -97 spiralxperiod = a weird planetarium
+
+
+Editing
+
+    -F opens a WIP menu (missing from most themes atm, working on it)
+
+    -Use G and H as shortcuts to edit BPM changes and stops
+        -CTRL G and CTRL H can delete bpm changes and stops
+        -Deleting BPMs less than 1/32nd of the way into the song is not allowed
+
+    -Negative BPM and stop values can now be typed in in the editor
+
+    -Fixed edit preview length using { and } hotkeys
+
+    -CTRL+S, X, C and V act as save, cut, copy and paste
+
+    -Make20ths within the compress options (Enter menu)
+        (It&#39;s Compress 5-&gt;4 without changing the BPM - creates a 20th stream out of an equivalent 16th stream)
+    -Undo20ths - in case you fucked up
+
+    -New Turn mods (in the enter menu)
+        -SwapLR (swaps lefts with rights) = CTRL+Left arrow
+        -SwapUD = CTRL+Right arrow
+
+    -New preference lets you choose if you want to autosave
+        -also lets you choose how often
+        -also lets you choose if whether or not you want the autosaves to save into a different file (.auto)
+        -autosaving is silent
+
+    -Can choose to output a lua table of the currently highlighted note data into an xml file from the ESC menu
+        -Give the table a name
+        -illegal characters are stripped
+        -editor remembers which name was last used
+
+    -50 notes per measure limit removed
+    -Tween Overflow popup window replaced with an in-game System Message
+        -The system message details the x and y positons of the overflowing actor, to help you track it down
+    -Edit Steps Information can go above 13 (new limit is 30, because that&#39;s what this game has become AMIRITE)
+    -Bpm shifts now treated properly, all your warps and high BPMs are instantaneous, instead of delayed.
+
+    -F1 &quot;help&quot; menu no longer appears in editor - this was causing dumb crashes
+
+
+    -PauseGame added
+        -called with SCREENMAN:GetTopScreen():PauseGame(true) during ScreenGameplay, unpause by using false
+        -Actors don&#39;t pause, so you can have minigames that continue while songs pause.
+            -While music isn&#39;t playing, Actors can be sped up/slowed down with TAB/¬
+
+    -Better tween overflow message
+        -Tells you which file or object type is overflowing, and where the xml file is located.
+        -The full path doesn&#39;t always fit on the screen, but it&#39;s easy to read it all in the console window or log.txt
+
+    -Can choose to broadcast note crossed messages in the editor (preference), telling the game when an arrow has passed the receptors
+        (e.g. StepCrossed0MessageCommand, MineCrossed3MessageCommand)
+
+    -Player 1 and 2&#39;s judgment/combo positions and sizes now reset every time you start the song
+
+    -New Preferences (select from &quot;Preferences&quot; in the &quot;ESC&quot; menu)
+        -Ability to show Player 2 in editor, useful for courses with asymmetrical or playfield mods
+            -P1 will be centered if P2 is turned off, just like the old editor.
+        -Ability to hide BPM changes, Stops and measure line indicators during &quot;editor gameplay&quot;
+
+    -Text Entry
+        -The on-screen keyboard has been removed
+
+    -Player 2
+        -Player 2&#39;s notes will update when the song is opened, and will not update until you select &quot;reload P2 steps&quot; from the ESC menu.
+        -This is handy because it allows two charts to be compared side by side during gameplay.
+
+    -In-simfile lua that affects PlayerP1 and PlayerP2 playfield objects will affect the corresponding notefields accordingly.
+    -Asymmetrical mods applied to players 1 and 2 will affect the corresponding notefields accordingly.
+    -The screen will no longer get stuck performing a SCREENMAN effect when transitioning between playing and editing.
+    -The screen returns to its original position (and rotation, and size!) when you return to editing mode.
+    -lua targeted at SongForeground and SongBackground will work too.
+    -lua targeting things that aren&#39;t on the editor screen but are on gameplay (e.g. Lyrics, Stage, ScoreFrame, LifeP1, ScoreP2) will no longer crash the game.
+
+    -&quot;Edit steps information&quot; has been moved to the bottom of the ESC menu (from the top)
+
+    -BUGFIX: Editor no longer plays around with DedicatedMenuButtons
+    -BUGFIX: Creating an edit chart no longer crashes
+        -(This was related to Text Entry)
+
+Misc
+    -More sorting options allowing Courses to be sorted by Folder
+    -&quot;Error loading sprite file&quot; no longer crashes the game - it uses a popup window instead
+    -&quot;Small negative number&quot; Actor crash from negative Actor Update times has been removed
+        -it corrects itself and continues as normal, instead of crashing.
+        -it warns you of a bad update delta via system message and in the log.
+    -All menus now broadcast Step/Lift&lt;Dir&gt; Messages, e.g. StepPressLeft and StepLiftRight (don&#39;t ask)
+
+    -&quot;The error reporting interface has crashed&quot; now picks randomly from 42 messages.
+        -http://pastebin.com/JRj2qrYT
+    -&quot;Crash Reason: Access Violation&quot; -&gt; &quot;Crash Reason: The cat doesn&#39;t like it&quot; (don&#39;t ask)
+
+    -Wireframe mode added to F3 (debug) menu, F3+O
+    -Force crash also added (F3+I)
+
+Misc 2
+
+    -More inputs
+        -BullshitUp/Down/Left/Right configurable in config key/joy mappings
+        -Action1-8 also configurable
+        -Real input messages now broadcast on every screen without needing noteskins
+            StepP1LeftPressMessageCommand
+            StepP2RightLiftMessageCommand
+            StepP1BullshitRightMessageCommand
+            StepP2Action3LiftMessageCommand
+
+    -Settable shader flags from within simfile
+        -GAMESTATE:SetShaderFlag(shaderkey)
+        -GAMESTATE:SetShaderFlagNum(key,which)
+        -must set to 0 before another key can be pressed
+        -Requires ReShade to be running, and the ShaderKeys program to be hooked into openITG
+            -Occasionally, the memory addresses of the shader flags need updating
+
+    -Cel Shading toggle added to models - self:SetCelShaded(1)
+        -self:SetLineColor(r,g,b,a)
+        -self:SetLineWidth(wid) --max of 10
+
+    -Can Edit Textures
+    -Can Move UV maps around
+
+    -ActorFrameTexture
+        Creates a texture in memory of everything BENEATH it (draw-order-dependent)
+        NOT ACTUALLY AN ON SCREEN OBJECT.
+        The created texture must be placed on a sprite.
+        Example:
+
+        ------------------------------------------------------------------------
+
+            &lt;LAYER Type=&quot;ActorFrameTexture&quot;
+                InitCommand=&quot;%function(self)
+
+                    self:SetWidth( DISPLAY:GetDisplayWidth() );
+                    self:SetHeight( DISPLAY:GetDisplayHeight() );
+                    self:EnableDepthBuffer( false );
+                    self:EnableAlphaBuffer( true );
+                    self:EnableFloat( false );
+                    self:EnablePreserveTexture( true );
+
+                    self:hidden(0);
+
+                    self:Create();
+
+                    t_aft_bgtex = self;
+
+                end&quot;
+            /&gt;
+
+            &lt;LAYER Type=&quot;Quad&quot; ShowAFTMessageCommand=&quot;hidden,0&quot; HideAFTMessageCommand=&quot;hidden,1&quot;
+            OnCommand=&quot;hidden,1;diffuse,0,0,0,1;stretchto,0,0,sw,sh&quot; /&gt;
+
+            &lt;LAYER Type=&quot;Sprite&quot; Texture=&quot;white&quot;
+                ShowAFTMessageCommand=&quot;hidden,0&quot; HideAFTMessageCommand=&quot;hidden,1&quot;
+                InitCommand=&quot;x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;hidden,1&quot;
+                OnCommand=&quot;%function(self)
+                    self:basezoomx((SCREEN_WIDTH/DISPLAY:GetDisplayWidth()));
+                    self:basezoomy(-1*(SCREEN_HEIGHT/DISPLAY:GetDisplayHeight()));
+                    --this is important - oITG textures are flipped upside down by ragedisplay
+
+                    self:SetTexture(t_aft_bgtex:GetTexture());
+
+                    t_sprite_bg = self;
+                end&quot;
+            /&gt;
+
+        ----------------------------------------------------------------------------
+        --this &quot;Sprite&quot; (t_sprite_bg) is a copy of the topscreen that can be tweened like any sprite.
+        --I put a black quad behind it.
+        --You can put things on top of the sprite and they won&#39;t be part of the AFT.
+        --You can put another AFT on top of this to capture the changes made to the topscreen in another texture.
+        --The new texture must be placed on a second sprite.
+
+
+
+
+
+
+
+
+
+
+    -ActorProxy
+        (See SM5 implementation)
+
+    -fov and SetFOV now works on playfield actors
+        -addvanishx and addvanishy can now be used to fuck with the vanishing point of the playfield
+
+    -Changes to models
+        Models can have ActorFrameTextures rendered to them
+        Models are now less fatal - missing textures or materials don&#39;t crash
+    -Changes to sprites
+        Malformed sprites no longer crash the game - a text warning pops up instead
+    -Changes to XML
+        Malformed XML such as
+            &lt;ActorFrame stuff&gt;&lt;children&gt; stuff &lt;/children&gt;&lt;/ASSHOLE&gt;
+        will no longer crash, but have a warning, and abort loading the script.
+
+    -Choose whether you want music previews to loop or not on ScreenSelectMusic (in Data/StepMania.ini)
+
+    -Alignment now functions like sm5
+
+TO DO (eventually)
+    -Fix &quot;Compress 2x&quot; etc. behavior regarding holds - it needs to make them shorter/longer as appropriate
+        -this behavior was fine in SM3.9, so it shouldn&#39;t be too hard to fix.
+    -Warn of missing graphics when in edit mode
+</pre></div>
+</div>
+</section>
+</section>
+<section id="fuck-exe-fuck-stepmania">
+<h2>FUCK.exe / FUCK-STEPMANIA<a class="headerlink" href="#fuck-exe-fuck-stepmania" title="Permalink to this heading">¶</a></h2>
+<p>Before the first public release, NotITG used to be known as FUCK.exe (forked at March 2011), and before then even,
+FUCK-STEPMANIA(?). Fun fact, the global <code class="docutils literal notranslate"><span class="pre">FUCK_EXE</span></code> constant can be still used today from Lua to detect whether the
+user is running ITG or NotITG.</p>
+<p>FUCK.exe was originally created (as far as I can tell) to add/change to stuff related to theming, then later to allow
+playing mods, as well as 2 players, in the editor.</p>
+<p>One variant of FUCK-STEPMANIA is available on the StepMania Builds Archive.</p>
+<p>FUCK-STEPMANIA Download from the builds archive (Windows): <a class="reference external" href="https://smbuilds.objects-us-east-1.dream.io/SM3.95/Windows/FUCK_STEPMANIA_ver3.95.zip">https://smbuilds.objects-us-east-1.dream.io/SM3.95/Windows/FUCK_STEPMANIA_ver3.95.zip</a></p>
+</section>
+<section id="old-changelogs">
+<h2>Old changelogs<a class="headerlink" href="#old-changelogs" title="Permalink to this heading">¶</a></h2>
+<p>Changelogs for NotITG v3 and before</p>
+<p>Basic: <a class="reference external" href="https://notitg.heysora.net/files/basic-changelog.txt">https://notitg.heysora.net/files/basic-changelog.txt</a></p>
+<p>Advanced: <a class="reference external" href="https://notitg.heysora.net/files/advanced-changelog.txt">https://notitg.heysora.net/files/advanced-changelog.txt</a></p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/notitg_v4_logo_256.png" alt="Logo"/>
+            </a></p>
+<h3><a href="index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">NotITG versions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#downloads">Downloads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#notitg-v4-icon-16-notitg-v4-2-0-2021-04-20"> NotITG v4.2.0 (2021-04-20)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#notitg-v4-1-icon-16-notitg-v4-1-2020-04-01"> NotITG v4/1 (2020-04-01)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#notitg-v4-icon-16-notitg-v4-0-1-2020-01-26"> NotITG v4.0.1 (2020-01-26)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#notitg-v4-icon-16-notitg-v4-2020-01-12"> NotITG v4 (2020-01-12)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#notitg-v3-icon-16-notitg-v3-1-2018-09-09"> NotITG v3.1 (2018-09-09)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#notitg-v3-icon-16-notitg-v3-2018-06-17"> NotITG v3 (2018-06-17)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#notitg-v2-icon-16-notitg-v2-2017-04-05"> NotITG v2 (2017-04-05)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#notitg-v1-icon-16-notitg-v1-2016-12-24"> NotITG v1 (2016-12-24)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fuck-exe-fuck-stepmania">FUCK.exe / FUCK-STEPMANIA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#old-changelogs">Old changelogs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="lua_api/index.html">Lua API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="message_commands.html">Message commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modifiers.html">Modifiers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
+</ul>
+
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="index.html"
+                          title="previous chapter">Welcome to NotITG’s (unofficial) documentation!</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="lua_api/index.html"
+                          title="next chapter">Lua API</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/versions.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="lua-modindex.html" title="Lua Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="lua_api/index.html" title="Lua API"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to NotITG’s (unofficial) documentation!"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">NotITG 4.2.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">NotITG versions</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+      Last updated on Mar 27, 2023.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.3.
+    </div>
+  </body>
+</html>

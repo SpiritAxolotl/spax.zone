@@ -1,0 +1,442 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Lua API &#8212; NotITG 4.2.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/nature.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style/style.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Actor" href="actor.html" />
+    <link rel="prev" title="NotITG versions" href="../versions.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../lua-modindex.html" title="Lua Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="actor.html" title="Actor"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../versions.html" title="NotITG versions"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">NotITG 4.2.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Lua API</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="lua-api">
+<h1>Lua API<a class="headerlink" href="#lua-api" title="Permalink to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="actor.html">Actor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="actor.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actor.html#hooks">Hooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actor.html#xml-attributes">XML attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actor.html#tweening">Tweening</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actor.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="actor_frame.html">ActorFrame</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="actor_frame.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actor_frame.html#xml-attributes">XML attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actor_frame.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="actor_frame_texture.html">ActorFrameTexture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="actor_frame_texture.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actor_frame_texture.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="actor_proxy.html">ActorProxy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="actor_proxy.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actor_proxy.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="actor_scroller.html">ActorScroller</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="actor_scroller.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actor_scroller.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="actor_sound.html">ActorSound</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="actor_sound.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actor_sound.html#xml-attributes">XML attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actor_sound.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bitmap_text.html">BitmapText</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bitmap_text.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bitmap_text.html#xml-attributes">XML attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bitmap_text.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="course.html">Course</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="course.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="difficulty_meter.html">DifficultyMeter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="difficulty_meter.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="difficulty_meter.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fading_banner.html">FadingBanner</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fading_banner.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fading_banner.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="game.html">Game</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="game.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="game_sound_manager.html">GameSoundManager</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="game_sound_manager.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game_sound_manager.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="game_state.html">GameState</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="game_state.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game_state.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="help_display.html">HelpDisplay</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="help_display.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="help_display.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="high_score.html">HighScore</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="high_score.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="high_score.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="high_score_list.html">HighScoreList</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="high_score_list.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="high_score_list.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="memory_card_manager.html">MemoryCardManager</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="memory_card_manager.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="memory_card_manager.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="message_manager.html">MessageManager</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="message_manager.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message_manager.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="model.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#xml-attributes">XML attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="note_skin_manager.html">NoteSkinManager</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="note_skin_manager.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="note_skin_manager.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="player.html">Player</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="player.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player.html#note-data-format">Note data format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="player_stage_stats.html">PlayerStageStats</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="player_stage_stats.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player_stage_stats.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="polygon.html">Polygon</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="polygon.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polygon.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="prefs_manager.html">PrefsManager</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="prefs_manager.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prefs_manager.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="profile.html">Profile</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="profile.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profile.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="profile_manager.html">ProfileManager</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="profile_manager.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profile_manager.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="radar_values.html">RadarValues</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="radar_values.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="radar_values.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rage_display.html">RageDisplay</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rage_display.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rage_display.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rage_file_manager.html">RageFileManager</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rage_file_manager.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rage_file_manager.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rage_input.html">RageInput</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rage_input.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rage_input.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rage_shader_program.html">RageShaderProgram</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rage_shader_program.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rage_shader_program.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rage_sound.html">RageSound</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rage_sound.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rage_sound.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rage_texture.html">RageTexture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rage_texture.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rage_texture.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rage_texture_render_target.html">RageTextureRenderTarget</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rage_texture_render_target.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rage_texture_render_target.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="screen_gameplay.html">ScreenGameplay</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="screen_gameplay.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="screen_gameplay.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="screen_manager.html">ScreenManager</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="screen_manager.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="screen_manager.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="song.html">Song</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="song.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="song.html#spell-card-format">Spell card format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="song.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="song_manager.html">SongManager</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="song_manager.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="song_manager.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sprite.html">Sprite</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sprite.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sprite.html#xml-attributes">XML attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sprite.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="stage_stats.html">StageStats</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="stage_stats.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stage_stats.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="stats_manager.html">StatsManager</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="stats_manager.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stats_manager.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="steps.html">Steps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="steps.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="steps.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="theme_manager.html">ThemeManager</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="theme_manager.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theme_manager.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="trail.html">Trail</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="trail.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trail.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="unlock_manager.html">UnlockManager</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="unlock_manager.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unlock_manager.html#api-reference">API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="enumerations.html">Enumerations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enumerations.html#coinmode">CoinMode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumerations.html#coursedifficulty">CourseDifficulty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumerations.html#difficulty">Difficulty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumerations.html#elementcategory">ElementCategory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumerations.html#grade">Grade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumerations.html#goaltype">GoalType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumerations.html#holdnotescore">HoldNoteScore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumerations.html#inputmode">InputMode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumerations.html#memorycardstate">MemoryCardState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumerations.html#premium">Premium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumerations.html#polygonmode">PolygonMode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumerations.html#radarcategory">RadarCategory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumerations.html#sortorder">SortOrder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumerations.html#stepstype">StepsType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumerations.html#tapnotescore">TapNoteScore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumerations.html#playercontroller">PlayerController</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="globals.html">Globals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="globals.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globals.html#module-global">API reference</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/notitg_v4_logo_256.png" alt="Logo"/>
+            </a></p>
+<h3><a href="../index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../versions.html">NotITG versions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Lua API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="actor.html">Actor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actor_frame.html">ActorFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actor_frame_texture.html">ActorFrameTexture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actor_proxy.html">ActorProxy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actor_scroller.html">ActorScroller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actor_sound.html">ActorSound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bitmap_text.html">BitmapText</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course.html">Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="difficulty_meter.html">DifficultyMeter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fading_banner.html">FadingBanner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game.html">Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game_sound_manager.html">GameSoundManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game_state.html">GameState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="help_display.html">HelpDisplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="high_score.html">HighScore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="high_score_list.html">HighScoreList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="memory_card_manager.html">MemoryCardManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message_manager.html">MessageManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html">Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="note_skin_manager.html">NoteSkinManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player.html">Player</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player_stage_stats.html">PlayerStageStats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polygon.html">Polygon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prefs_manager.html">PrefsManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profile.html">Profile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profile_manager.html">ProfileManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="radar_values.html">RadarValues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rage_display.html">RageDisplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rage_file_manager.html">RageFileManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rage_input.html">RageInput</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rage_shader_program.html">RageShaderProgram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rage_sound.html">RageSound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rage_texture.html">RageTexture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rage_texture_render_target.html">RageTextureRenderTarget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="screen_gameplay.html">ScreenGameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="screen_manager.html">ScreenManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="song.html">Song</a></li>
+<li class="toctree-l2"><a class="reference internal" href="song_manager.html">SongManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sprite.html">Sprite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stage_stats.html">StageStats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stats_manager.html">StatsManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="steps.html">Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theme_manager.html">ThemeManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trail.html">Trail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unlock_manager.html">UnlockManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumerations.html">Enumerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globals.html">Globals</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../message_commands.html">Message commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modifiers.html">Modifiers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgements.html">Acknowledgements</a></li>
+</ul>
+
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="../versions.html"
+                          title="previous chapter">NotITG versions</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="actor.html"
+                          title="next chapter">Actor</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/lua_api/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../lua-modindex.html" title="Lua Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="actor.html" title="Actor"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../versions.html" title="NotITG versions"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">NotITG 4.2.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Lua API</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+      Last updated on Mar 27, 2023.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.3.
+    </div>
+  </body>
+</html>

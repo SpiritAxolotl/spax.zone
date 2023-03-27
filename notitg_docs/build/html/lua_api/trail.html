@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Trail &#8212; NotITG 4.2.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/nature.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style/style.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="UnlockManager" href="unlock_manager.html" />
+    <link rel="prev" title="ThemeManager" href="theme_manager.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../lua-modindex.html" title="Lua Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="unlock_manager.html" title="UnlockManager"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="theme_manager.html" title="ThemeManager"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">NotITG 4.2.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Lua API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Trail</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="trail">
+<h1>Trail<a class="headerlink" href="#trail" title="Permalink to this heading">¶</a></h1>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#description" id="id1">Description</a></p></li>
+<li><p><a class="reference internal" href="#api-reference" id="id2">API reference</a></p></li>
+</ul>
+</nav>
+<section id="description">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Description</a><a class="headerlink" href="#description" title="Permalink to this heading">¶</a></h2>
+<p>Something to do with courses</p>
+</section>
+<section id="api-reference">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">API reference</a><a class="headerlink" href="#api-reference" title="Permalink to this heading">¶</a></h2>
+<dl class="lua class">
+<dt class="sig sig-object lua" id="Trail">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Trail</span></span><a class="headerlink" href="#Trail" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#Trail.__index" title="Trail.__index"><code class="xref lua lua-attr docutils literal notranslate"><span class="pre">__index</span></code></a></p></td>
+<td><p>Gives you the <code class="docutils literal notranslate"><span class="pre">Trail</span></code> table again</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#Trail.GetLengthSeconds" title="Trail.GetLengthSeconds"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">GetLengthSeconds()</span></code></a></p></td>
+<td><p>Returns the total length of the trail in seconds</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Trail.GetDifficulty" title="Trail.GetDifficulty"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">GetDifficulty()</span></code></a></p></td>
+<td><p>Returns the difficulty</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Trail.GetRadarValues" title="Trail.GetRadarValues"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">GetRadarValues()</span></code></a></p></td>
+<td><p>Returns the radar values for the trail</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Trail.GetStepsType" title="Trail.GetStepsType"><code class="xref lua lua-meth docutils literal notranslate"><span class="pre">GetStepsType()</span></code></a></p></td>
+<td><p>Returns the steps type for a trail</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="lua attribute">
+<dt class="sig sig-object lua" id="Trail.__index">
+<span class="sig-name descname"><span class="pre">__index</span></span><em class="property"><span class="pre">:</span> </em><span class="pre">table</span><a class="headerlink" href="#Trail.__index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gives you the <code class="docutils literal notranslate"><span class="pre">Trail</span></code> table again</p>
+</dd></dl>
+
+<dl class="lua method">
+<dt class="sig sig-object lua" id="Trail.GetLengthSeconds">
+<em class="property"> </em><span class="sig-name descname"><span class="pre">GetLengthSeconds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">number</span></span></span><a class="headerlink" href="#Trail.GetLengthSeconds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the total length of the trail in seconds</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt class="sig sig-object lua" id="Trail.GetDifficulty">
+<em class="property"> </em><span class="sig-name descname"><span class="pre">GetDifficulty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">number</span></span></span><a class="headerlink" href="#Trail.GetDifficulty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the difficulty</p>
+<p>See <a class="reference internal" href="enumerations.html#_CPPv410Difficulty" title="Difficulty"><code class="xref cpp cpp-enum docutils literal notranslate"><span class="pre">Difficulty</span></code></a></p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt class="sig sig-object lua" id="Trail.GetRadarValues">
+<em class="property"> </em><span class="sig-name descname"><span class="pre">GetRadarValues</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">RadarValues</span></span></span><a class="headerlink" href="#Trail.GetRadarValues" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the radar values for the trail</p>
+<p>Introduced in <img alt="itg_icon_16" src="../_images/itg_logo_16.png" /> ITG</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="radar_values.html#RadarValues" title="RadarValues"><code class="xref lua lua-class docutils literal notranslate"><span class="pre">RadarValues</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="lua method">
+<dt class="sig sig-object lua" id="Trail.GetStepsType">
+<em class="property"> </em><span class="sig-name descname"><span class="pre">GetStepsType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">number</span></span></span><a class="headerlink" href="#Trail.GetStepsType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the steps type for a trail</p>
+<p>See <a class="reference internal" href="enumerations.html#_CPPv49StepsType" title="StepsType"><code class="xref cpp cpp-enum docutils literal notranslate"><span class="pre">StepsType</span></code></a></p>
+<p>Introduced in <img alt="notitg_v4_icon_16" src="../_images/notitg_v4_logo_16.png" /> NotITG v4.2.0</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref lua lua-class docutils literal notranslate"><span class="pre">number</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/notitg_v4_logo_256.png" alt="Logo"/>
+            </a></p>
+<h3><a href="../index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../versions.html">NotITG versions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Lua API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="actor.html">Actor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actor_frame.html">ActorFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actor_frame_texture.html">ActorFrameTexture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actor_proxy.html">ActorProxy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actor_scroller.html">ActorScroller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actor_sound.html">ActorSound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bitmap_text.html">BitmapText</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course.html">Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="difficulty_meter.html">DifficultyMeter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fading_banner.html">FadingBanner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game.html">Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game_sound_manager.html">GameSoundManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game_state.html">GameState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="help_display.html">HelpDisplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="high_score.html">HighScore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="high_score_list.html">HighScoreList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="memory_card_manager.html">MemoryCardManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message_manager.html">MessageManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html">Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="note_skin_manager.html">NoteSkinManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player.html">Player</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player_stage_stats.html">PlayerStageStats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polygon.html">Polygon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prefs_manager.html">PrefsManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profile.html">Profile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profile_manager.html">ProfileManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="radar_values.html">RadarValues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rage_display.html">RageDisplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rage_file_manager.html">RageFileManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rage_input.html">RageInput</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rage_shader_program.html">RageShaderProgram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rage_sound.html">RageSound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rage_texture.html">RageTexture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rage_texture_render_target.html">RageTextureRenderTarget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="screen_gameplay.html">ScreenGameplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="screen_manager.html">ScreenManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="song.html">Song</a></li>
+<li class="toctree-l2"><a class="reference internal" href="song_manager.html">SongManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sprite.html">Sprite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stage_stats.html">StageStats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stats_manager.html">StatsManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="steps.html">Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theme_manager.html">ThemeManager</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Trail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unlock_manager.html">UnlockManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enumerations.html">Enumerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="globals.html">Globals</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../message_commands.html">Message commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modifiers.html">Modifiers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgements.html">Acknowledgements</a></li>
+</ul>
+
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="theme_manager.html"
+                          title="previous chapter">ThemeManager</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="unlock_manager.html"
+                          title="next chapter">UnlockManager</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/lua_api/trail.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../lua-modindex.html" title="Lua Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="unlock_manager.html" title="UnlockManager"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="theme_manager.html" title="ThemeManager"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">NotITG 4.2.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Lua API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Trail</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+      Last updated on Mar 27, 2023.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.3.
+    </div>
+  </body>
+</html>
