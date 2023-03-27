@@ -1,0 +1,47 @@
+{
+    "file_path": "",
+    "classes": [],
+    "functions": [
+        {
+            "start_char": 68,
+            "stop_char": 100,
+            "name": "setCar",
+            "short_desc": "",
+            "desc": "",
+            "params": [
+                {
+                    "name": "car",
+                    "desc": "the car",
+                    "type": {
+                        "id": "custom",
+                        "name": "Car"
+                    },
+                    "is_opt": false,
+                    "default_value": ""
+                },
+                {
+                    "name": "n",
+                    "desc": "id",
+                    "type": {
+                        "id": "number"
+                    },
+                    "is_opt": false,
+                    "default_value": ""
+                }
+            ],
+            "returns": [],
+            "usage": "",
+            "is_virtual": false,
+            "is_abstract": false,
+            "is_deprecated": false,
+            "is_static": false,
+            "visibility": "public"
+        }
+    ],
+    "data": [],
+    "name": "unknown",
+    "is_class_mod": false,
+    "short_desc": "",
+    "desc": "",
+    "usage": ""
+}
