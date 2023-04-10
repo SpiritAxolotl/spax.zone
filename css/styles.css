@@ -116,8 +116,7 @@ pre {
     left: 50%; /* DONT TOUCHA THE CHILD */
     transform: translateX(-50%) translateY(-50%); /* YOU A TOUCHA THE CHILD?! */
 
-    animation: arrowGlide 1s; /* setting the speed of the animation */
-    animation-iteration-count: infinite; /* infinity */
+    animation: arrowGlide 1s steps(1) infinite; /* setting the speed of the animation */
 }
 
 /* Animation for arrow stuff */
