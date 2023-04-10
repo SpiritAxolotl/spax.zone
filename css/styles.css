@@ -109,7 +109,7 @@ pre {
     margin:0; /* Needed so the arrow image centers properly without being offset by the margin */
 
     /* Tweak this if you can or want to. The current settings don't look right atm.  */
-    width: 12px;
+    width: 18px;
     height: 12px;
 
     top: 89.5%; /* Use this to tweak the height of the arrow from the bottom of the text box */
