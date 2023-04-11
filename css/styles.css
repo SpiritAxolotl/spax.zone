@@ -112,7 +112,7 @@ pre {
     width: 10px;
     height: 8px;
 
-    bottom: 4px; /* Use this to tweak the height of the arrow from the bottom of the text box */
+    bottom: 2px; /* Use this to tweak the height of the arrow from the bottom of the text box */
     left: 50%; /* DONT TOUCHA THE CHILD */
     transform: translateX(-50%) translateY(-50%); /* YOU A TOUCHA THE CHILD?! */
 
