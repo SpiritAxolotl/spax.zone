@@ -409,19 +409,8 @@ class yes {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
         }
-            
-        if (!this.#boxOpened)
-        {
-            const width = document.documentElement.clientWidth;
-            const height = document.documentElement.clientHeight;
-            
-            let effector = 0;
-            
-            if (width > height) effector = width;
-            else effector = height;
-            
-            this.#giftBox.style.top = `${document.documentElement.scrollTop / 2 + effector}px`;
-        }
+        
+        if (!this.#boxOpened) this.#giftBox.style.top = `${document.documentElement.scrollTop / 2 + document.documentElement.clientHeight}px`;
         else if (!this.#gottenGift && document.documentElement.scrollTop == 0) this.#getGift();
         else if (this.#shouldShakeDrop) this.#shakeDrop();
         
