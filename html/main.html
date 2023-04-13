@@ -411,7 +411,7 @@ class yes {
         }
         
         if (!this.#boxOpened) this.#giftBox.style.top = `${document.documentElement.scrollTop / 2 + document.documentElement.clientHeight}px`;
-        else if (!this.#gottenGift && document.documentElement.scrollTop == 0) this.#getGift();
+        else if (this.#boxChecked && !this.#gottenGift && document.documentElement.scrollTop == 0) this.#getGift();
         else if (this.#shouldShakeDrop) this.#shakeDrop();
         
         this.#requestUpdate();
