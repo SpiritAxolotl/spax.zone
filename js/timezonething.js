@@ -3,23 +3,26 @@ var d;
 var SpaxTime;
 var MathewTime;
 var CalmTime;
-var minutes;
-var ghlf = true;
-var oldmins;
-var final;
+var minutes=0;
+var final=[];
+var text=[];
 
-var updateInterval;
+function requestUpdate() {
+    requestAnimationFrame(update.bind(this));
+}
 
-window.onload = () => {
-    updateInterval = setInterval(run, 16.67);
-};
-
-function run() {
+function update() {
     upDate();
-    final1 = toTimezone(SpaxTime);
-    final2 = toTimezone(MathewTime);
-    final3 = toTimezone(CalmTime);
-    updateText();
+    final=[
+        toTimezone(SpaxTime),
+        toTimezone(MathewTime),
+        toTimezone(CalmTime)
+    ];
+    
+    // updateText
+    for (let i = 0; i < text.length; i++) text[i].textContent = final[i];
+    
+    requestUpdate();
 }
 
 function upDate(){
@@ -29,43 +32,33 @@ function upDate(){
     MathewTime = d.getUTCHours()+2;
     CalmTime   = d.getUTCHours()+8;
     minutes    = d.getUTCMinutes();
-    oldmins    = d.getUTCMinutes();
 }
 
 function toTimezone(hour){
+    let mins=minutes;
     //adds a zero if the minutes section is 1 digit long (so "1:01" instead of "1:1")
-    if (minutes>=0 && minutes<10 && ghlf){
-        minutes="0"+minutes;
-        ghlf = false;
-    } else if (minutes>=10 && !ghlf){
-        minutes=oldmins;
-        ghlf = true;
-    }
+    if (minutes>=0 && minutes<10) mins=`0${minutes}`;
     
-    //makes sure that the time is always positive if it's not between 0 and 23
-    hour%=24;
+    //makes sure that the time is always positive
+    hour=Math.abs(hour);
     
     //decides the AM/PM stuff
-    //12 AM
-    if (hour==0)
-        final=12+":"+minutes+" AM";
-    //12 PM
-    else if (hour==12)
-        final=hour+":"+minutes+" PM";
-    //rest of AM
-    else if (hour<12)
-        final=hour+":"+minutes+" AM";
-    //rest of PM
-    else if (hour>12)
-        final=(hour-12)+":"+minutes+" PM";
-    else
-        final="error! something went wrong.";
+    let mmmmm = hour < 12 ? "AM" : "PM";
     
-    return final;
+    return `${hour-(+(hour>12)*12)+(+(hour===0)*12)}:${mins} ${mmmmm}`;
 }
 
-function updateText() {
-    document.getElementById("date1").innerHTML = "Spax's current time is "+final1+"! He's in UTC-7 (MST).";
-    document.getElementById("date2").innerHTML = "Mathew's current time is "+final2+"! He's in UTC+2 (EET).";
-    document.getElementById("date3").innerHTML = "Calm's current time is "+final3+"! He's in UTC+8 (PHST).";
-}
+window.addEventListener("load", () => {
+    let texts=document.querySelectorAll(".date");
+    text = [
+        document.createElement("span"),
+        document.createElement("span"),
+        document.createElement("span")
+    ];
+    
+    texts[0].append("Spax's current time is ", text[0], "! He's in UTC-7 (MST).");
+    texts[1].append("Mathew's current time is ", text[1], "! He's in UTC+2 (EET).");
+    texts[2].append("Calm's current time is ", text[2], "! He's in UTC+8 (PHST).");
+    
+    requestUpdate();
+});
