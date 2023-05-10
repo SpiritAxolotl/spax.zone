@@ -1,4 +1,0 @@
--e ./extern/py-lua-doc
--e ./extern/sphinx-lua
-
-sphinx == 5.2.3
