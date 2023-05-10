@@ -1,5 +1,5 @@
-/*.text-box{
-  font-size:20px;
+/*.text-box {
+  font-size: 20px;
 }*/
 
 /* change this later to be more accurate but it'll do for now */
@@ -19,7 +19,7 @@
 }
 
 
-:root{
+:root {
 --green1: #e0f8cf;
 --green2: #86c06c;
 --green3: #306850;
@@ -35,12 +35,12 @@ var(--green3)
 var(--green4)
 */
 
-body, html{
-  width:100%;
-  height:100%;
+body, html {
+  width: 100%;
+  height: 100%;
 }
 
-body{
+body {
   background-color: var(--green3);
   font-family: DEP;
   font-size: 20px;
@@ -65,7 +65,7 @@ pre {
   line-height: 21px;
 }
 
-.text-box{
+.text-box {
   position: relative; /* Needed to set this otherwise the arrow would go to the bottom of the bg id */
 
   border-width: 3px;
@@ -95,17 +95,15 @@ pre {
   float: left;
   pointer-events: none;
   user-select: none;
-  image-rendering : -webkit-optimize-contrast;
-  image-rendering : crisp-edges;
-  image-rendering : pixelated;
-  -ms-interpolation-mode : nearest-neighbor;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
   -ms-interpolation-mode: nearest-neighbor;
 }
 
 
 .text-box .arrow {
   position: absolute; /* Needed to center the arrow image in the first place */
-  margin:0; /* Needed so the arrow image centers properly without being offset by the margin */
+  margin: 0; /* Needed so the arrow image centers properly without being offset by the margin */
 
   /* Tweak this if you can or want to. The current settings don't look right atm.  */
   width: 12px;
@@ -134,7 +132,7 @@ pre {
   }
 }
 
-.fart-text-box img{
+.fart-text-box img {
   width: 100%;
   /*height: 100px;*/
   margin: 0px 17.5px 7.5px 0px;
@@ -148,7 +146,7 @@ pre {
 
 
 
-.desc-text-box{
+.desc-text-box {
   border-width: 4px;
   border-style: solid;
   border-color: var(--green1);
@@ -169,7 +167,7 @@ pre {
   text-decoration: underline;
 }
 
-.fart-text-box{
+.fart-text-box {
   border-width: 4px;
   border-style: solid;
   border-color: var(--green1);
@@ -189,7 +187,7 @@ pre {
   z-index: 5;
 }
 
-.title-text-box{
+.title-text-box {
   border-width: 4px;
   border-style: solid;
   border-color: var(--green1);
@@ -210,7 +208,7 @@ pre {
 }
 
 
-.flex-container{
+.flex-container {
   /* Fixes issue #13 */ 
   /* display: flex; */
   flex-direction: row;
@@ -219,7 +217,7 @@ pre {
   width: 50%;
 }
 
-.desc-flex-container{
+.desc-flex-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -227,7 +225,7 @@ pre {
   width: 50%;
 }
 
-.fart-flex-container{
+.fart-flex-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -235,7 +233,7 @@ pre {
   width: 50%;
 }
 
-.title-flex-container{
+.title-flex-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -243,7 +241,7 @@ pre {
   width: 50%;
 }
 
-.long-flex-container{
+.long-flex-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -252,39 +250,39 @@ pre {
   min-width: 950px;
 }
 
-div .small{
+div .small {
   font-size: 8px;
 }
-div .large{
+div .large {
   font-size: 25px;
 }
 
-div .larger{
+div .larger {
   font-size: 38px;
 }
 
-.dnd-gray{
-  color:#737e8c;
+.dnd-gray {
+  color: #737e8c;
 }
 
-.dnd-green{
-  color:#3ba55d;
+.dnd-green {
+  color: #3ba55d;
 }
 
-.dnd-red{
-  color:#ed4245;
+.dnd-red {
+  color: #ed4245;
 }
 
-.dnd-yellow{
-  color:#faa81a;
+.dnd-yellow {
+  color: #faa81a;
 }
 
-iframe{
+iframe {
   margin: 0 auto;
   display: block;
 }
 
-.gradient{
+.gradient {
   background: linear-gradient(
     to right, var(--green1), #000, #000
   );
@@ -293,11 +291,11 @@ iframe{
   -webkit-background-clip: text;
 }
 
-audio{
+audio {
   display: none;
 }
 
-#bg{
+#bg {
   position: absolute;
   background-image: url("../images/bg/background_yoki_2.png");
   background-repeat: repeat;
@@ -313,7 +311,7 @@ audio{
   -ms-interpolation-mode: nearest-neighbor;
 }
 
-.unselectable{
+.unselectable {
   user-select: none;
   -moz-user-select: none;
   -khtml-user-select: none;
@@ -321,19 +319,22 @@ audio{
   -ms-user-select: none;
 }
 
-.pixelated{
-  image-rendering : -webkit-optimize-contrast;
-  image-rendering : crisp-edges;
-  image-rendering : pixelated;
-  -ms-interpolation-mode : nearest-neighbor;
+.pixelated {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
 }
 
 @media only screen and (max-width: 600px) {
-  .text-box, .desc-text-box, .title-text-box{
+  .text-box, 
+  .desc-text-box, 
+  .title-text-box {
     transform: translate(0%, 0%);
     min-width: 0px;
   }
-  .flex-container, .desc-flex-container, .title-flex-container{
+  .flex-container, 
+  .desc-flex-container, 
+  .title-flex-container {
     width: 100%;
   }
 }
@@ -346,33 +347,26 @@ audio{
 }
 
 @media only screen and (max-width: 400px) {
-  .fart-text-box{
+  .fart-text-box {
     min-width: 0px;
   }
-  .fart-flex-container{
+  .fart-flex-container {
     width: 100%;
   }
 }
 
-a{
+a {
   text-decoration: underline;
 }
-/* unvisited link */
 a:link {
   color: var(--green2);
 }
-/* visited link */
 a:visited {
   color: var(--green2);
 }
-/* mouse over link */
 a:hover {
   color: var(--green1);
 }
-/* selected link */
 a:active {
   color: var(--green3);
-}
-#date{
-  float: right;
 }
