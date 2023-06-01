@@ -95,9 +95,9 @@ pre {
   float: left;
   pointer-events: none;
   user-select: none;
-  image-rendering: pixelated;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
+  image-rendering: pixelated;
   -ms-interpolation-mode: nearest-neighbor;
 }
 
