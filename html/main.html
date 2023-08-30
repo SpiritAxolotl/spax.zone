@@ -151,7 +151,7 @@
         </script>-->
         <script src="/js/scrollparallax.js"></script>
         <script src="/js/Confetti.js"></script>
-        <script src="https://calmbubbles.github.io/js-plugins/betterAudio.js"></script>
+        <script src="https://calmbubbles.github.io/js-plugins/BetterAudio.js"></script>
         
         <style>
 
@@ -428,7 +428,7 @@ class yes {
         
         particleSettings.posY = canvas.height - canvas.height / 4;
         
-        this.#audios[2].playOneShot();
+        this.#audios[2].PlayOneShot();
         
         runConfetti();
     }
@@ -443,7 +443,7 @@ class yes {
     
     static async #shakeBox ()
     {
-        this.#audios[4].playOneShot();
+        this.#audios[4].PlayOneShot();
         
         this.#giftBox.style.animation = `shake${parseInt(Math.random() / 0.25)} 0.125s`;
         
@@ -458,7 +458,7 @@ class yes {
         
         this.#boxStartOpen = true;
         
-        this.#audios[1].play();
+        this.#audios[1].Play();
         
         this.#giftBoxTop.style.animation = "boxTop 0.25s";
         
@@ -525,7 +525,7 @@ class yes {
         
         await new Promise(resolve => setTimeout(resolve, 5000));
         
-        this.#audios[3].playOneShot();
+        this.#audios[3].PlayOneShot();
         
         await new Promise(resolve => setTimeout(resolve, 3000));
         
@@ -574,7 +574,7 @@ class yes {
         
             document.body.append(flashBang);
             
-            this.#audios[6].play();
+            this.#audios[6].Play();
             
             await new Promise(resolve => setTimeout(resolve, 100));
             
@@ -600,7 +600,7 @@ class yes {
         
         this.#shakingDrop = true;
         
-        this.#audios[5].playOneShot();
+        this.#audios[5].PlayOneShot();
         
         this.#dropBox.style.animation = `shake${parseInt(Math.random() / 0.25)} 0.125s`;
         
@@ -668,7 +668,7 @@ class yes {
         
         await new Promise(resolve => setTimeout(resolve, 250));
         
-        this.#audios[0].play();
+        this.#audios[0].Play();
     }
     
     static async init ()
@@ -693,13 +693,13 @@ class yes {
         ];
         
         this.#audios = [
-            new betterAudio("/audio/spaxDay/bgm/Happy_Gigachad.mp3"),
-            new betterAudio("/audio/spaxDay/se/box_open.mp3"),
-            new betterAudio("/audio/spaxDay/se/partyhorn.mp3"),
-            new betterAudio("/audio/spaxDay/se/bomba.mp3"),
-            new betterAudio("/audio/spaxDay/se/box_shake.mp3"),
-            new betterAudio("/audio/spaxDay/se/drop_shake.m4a"),
-            new betterAudio("/audio/spaxDay/se/flash.mp3")
+            new BetterAudio("/audio/spaxDay/bgm/Happy_Gigachad.mp3"),
+            new BetterAudio("/audio/spaxDay/se/box_open.mp3"),
+            new BetterAudio("/audio/spaxDay/se/partyhorn.mp3"),
+            new BetterAudio("/audio/spaxDay/se/bomba.mp3"),
+            new BetterAudio("/audio/spaxDay/se/box_shake.mp3"),
+            new BetterAudio("/audio/spaxDay/se/drop_shake.m4a"),
+            new BetterAudio("/audio/spaxDay/se/flash.mp3")
         ];
         
         this.#audios[0].loop = true;
