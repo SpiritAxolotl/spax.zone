@@ -4,7 +4,19 @@
     <title>Spax's Scatter Shader</title>
   </head>
   <body style="background-color: black;">
-    <canvas id="scatter-shader" width="1440px" height="1080px" style="width:100%;max-width:720px;"></canvas>
+    <canvas
+      id="scatter-shader"
+      width="1440px"
+      height="1080px"
+      style="
+        width: 100%;
+        max-width: 720px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      "
+    ></canvas>
     <script async type="module">
       import { SimpleShader as Shader } from 'https://spiritaxolotl.github.io/js/simple-shader.js';
       import * as frags from 'https://spiritaxolotl.github.io/tests/scatter/frags.glsl.js';
