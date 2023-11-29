@@ -9,7 +9,8 @@
   https://sudospective.net
 */
 const src = {
-vert: `precision lowp float;
+vert: `
+precision lowp float;
 attribute vec2 position;
 attribute vec2 texCoord;
 uniform vec2 resolution;
@@ -22,7 +23,8 @@ void main() {
   imageCoord = texCoord;
 }
 `,
-frag: `precision lowp float;
+frag: `
+precision lowp float;
 #define PI 3.1415827
 uniform vec2 resolution;
 uniform float time;
@@ -33,7 +35,7 @@ void main() {
   vec4 color = vec4(uv, (0.5 + sin(time - (PI * 0.5)) * 0.5), 1.0);
   gl_FragColor = color;
 }
-`,
+`
 };
 
 const isImage = function(url) {
