@@ -97,7 +97,7 @@ vec3 pal(float m){
 
 void main()
 {
-    vec2 uv = (gl_FragCoord.xy - 0.5*u_resolution.xy)/u_resolution.y;
+    vec2 uv = (gl_FragCoord.xy - 0.5*resolution.xy)/resolution.y;
 
     vec3 col = vec3(1);
     
@@ -106,10 +106,10 @@ void main()
         vec2 p = uv;
         
         float md = 0.02;
-        float m =p.x*6. + u_time + sin(p.x + cos(u_time) + u_time);
+        float m =p.x*6. + time + sin(p.x + cos(time) + time);
         
         if(uv.y < 0.)
-            m += u_time;
+            m += time;
         p.x += sin(m)*0.1;
         float id = floor(p.x/md);
         p.y = abs(p.y);
@@ -123,12 +123,12 @@ void main()
         md = 0.001;
         float oid = floor(uv.y/md);
         
-        float om =uv.x*6. + u_time + cos(oid) + sin(uv.x + cos(u_time + oid*5.) + u_time + oid);
+        float om =uv.x*6. + time + cos(oid) + sin(uv.x + cos(time + oid*5.) + time + oid);
         
         col = mix(col,pal(id),smoothstep(fwidth(d) + abs(sin(om))*0.005,0.,d));
         
         d = abs(p.y - 0.4) - 0.015;
-        col = mix(col,1.-col,smoothstep(fwidth(d) + 0.01*(0.5+0.5*sin(u_time +m)),0.,d));
+        col = mix(col,1.-col,smoothstep(fwidth(d) + 0.01*(0.5+0.5*sin(time +m)),0.,d));
         
         
     }
@@ -138,22 +138,22 @@ void main()
         float md = 0.01;
         float id = floor(p.y/md);
         
-        float m =p.x*6. + u_time + cos(id) + sin(p.x + cos(u_time + id*5.) + u_time + id);
+        float m =p.x*6. + time + cos(id) + sin(p.x + cos(time + id*5.) + time + id);
         
         if(uv.y < 0.)
 
 
-            m += u_time;
-        p.x += sin(m)*0.1 + m + cos(id + u_time);
+            m += time;
+        p.x += sin(m)*0.1 + m + cos(id + time);
         p.y = pmod(p.y,md);
         p.x = pmod(p.x,0.4);
         
         
         float d = abs(p.y) - md*0.2;
         d = max(d,abs(p.x) - 0.1);
-        d = max(d,abs(uv.y - 0.3 + sin(m*20000.)*sin( + id*md + u_time*1. + cos(id*md + u_time))*0.15) -0.25);
+        d = max(d,abs(uv.y - 0.3 + sin(m*20000.)*sin( + id*md + time*1. + cos(id*md + time))*0.15) -0.25);
         
-        col = mix(col,1.-col,smoothstep(fwidth(d) + 0.04*(0.5+0.5*sin(u_time + cos(20.*m))),0.,d));
+        col = mix(col,1.-col,smoothstep(fwidth(d) + 0.04*(0.5+0.5*sin(time + cos(20.*m))),0.,d));
         
     }
     
@@ -164,7 +164,7 @@ void main()
         float md = 0.0142;
         float id = floor(pp.y/md);
         
-        float m =pp.x*6. + u_time + cos(id) + sin(pp.x + cos(u_time*10.*sin(u_time) + id*5.) + u_time + id);
+        float m =pp.x*6. + time + cos(id) + sin(pp.x + cos(time*10.*sin(time) + id*5.) + time + id);
         
     
         vec3 rd = normalize(vec3(uv + sin(m)*0.14,1));
@@ -176,8 +176,8 @@ void main()
         for(int i = 0; i < 10; i++){
             vec3 q = p;
             q -= 0.2;
-            q.xy *= rot(-sin(m+u_time)*.01*sin(u_time) + 0.4*u_time);
-            float d = mix(length(q.yz),q.y,0.5+0.5*sin(u_time)) - 0.1 + sin(u_time + m*0.01)*0.1;
+            q.xy *= rot(-sin(m+time)*.01*sin(time) + 0.4*time);
+            float d = mix(length(q.yz),q.y,0.5+0.5*sin(time)) - 0.1 + sin(time + m*0.01)*0.1;
             
             if(d < 0.001){
                 hit = true; break;
@@ -188,7 +188,7 @@ void main()
         
         if(hit){
             
-            col = mix(col,1. - col*pow(pal(m*10.1  + u_time*5.),vec3(22,1.4,0.4)),col + sin(m));
+            col = mix(col,1. - col*pow(pal(m*10.1  + time*5.),vec3(22,1.4,0.4)),col + sin(m));
             //col = 1.-col;
         }
         
@@ -202,7 +202,7 @@ void main()
         float id = floor(pp.y/md);
         
         
-        m = pp.x*6. + u_time + cos(id) + sin(pp.x + cos(u_time + id*5.) + u_time + id);
+        m = pp.x*6. + time + cos(id) + sin(pp.x + cos(time + id*5.) + time + id);
         
         if(uv.x < 0.)
             m = sin(m);
@@ -210,7 +210,7 @@ void main()
         
         vec2 p = abs(uv);
         
-        float d = length(p.x -(+ sin(m*120.4)*0.01 + 0.9 + sin(u_time + id*md*0.2)*0.04*sin(u_time))) - 0.0;
+        float d = length(p.x -(+ sin(m*120.4)*0.01 + 0.9 + sin(time + id*md*0.2)*0.04*sin(time))) - 0.0;
     
         
     
@@ -234,14 +234,14 @@ void main()
         float id = floor(pp.y/md);
         
         
-        m = pp.x*6. + u_time + cos(id) + sin(pp.x + cos(u_time + id*5.) + u_time + id);
+        m = pp.x*6. + time + cos(id) + sin(pp.x + cos(time + id*5.) + time + id);
         
-        col = mix(col, 1. - col, smoothstep(0.7,0.8,sin((u_time+ uv.x + sin(m*120. + u_time*20.)*0.4)/7. )));
+        col = mix(col, 1. - col, smoothstep(0.7,0.8,sin((time+ uv.x + sin(m*120. + time*20.)*0.4)/7. )));
     
     }
     
 
-    col = max(col,0.03*(0.5+0.5*sin(u_time*2.)));
+    col = max(col,0.03*(0.5+0.5*sin(time*2.)));
     
     col = pow(col,vec3(0.4545));
     gl_FragColor = vec4(col,1.0);
