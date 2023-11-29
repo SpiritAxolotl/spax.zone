@@ -62,6 +62,11 @@ export class SimpleShader {
           });
         });
       };
+      if (data && data.extensions) {
+        data.extensions.forEach((ext) => {
+          gl.getExtension(ext);
+        });
+      };
       this.canvas = document.getElementById(canvasId);
       if (!this.canvas) {
         console.log("Unable to get canvas with ID", canvasId);
