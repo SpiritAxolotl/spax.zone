@@ -18,15 +18,16 @@
       "
     ></canvas>
     <script async type="module">
-      import { SimpleShader as Shader } from 'https://spiritaxolotl.github.io/js/simple-shader.js';
-      import * as frags from 'https://spiritaxolotl.github.io/tests/scatter/frags.glsl.js';
-      const def = new Shader('scatter-shader', {
+      import { SimpleShader as Shader } from "../../js/simple-shader.js";
+      import * as frags from "../frags.glsl.js";
+      const def = new Shader("scatter-shader", {
         frag: frags.scatter,
         sampler2D: {
-          sampler0: 'https://spiritaxolotl.github.io/videos/virtual_insanity.mp4'
+          sampler0: "../../videos/virtual_insanity.mp4"
         }
       });
       def.play();
     </script>
+    <!--<a href="/tests/frags.glsl.js">-->
   </body>
 </html>
