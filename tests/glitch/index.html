@@ -12,7 +12,14 @@
     <script async type="module">
       import { SimpleShader as Shader } from "../../js/simple-shader.js";
       import * as frags from "../frags.glsl.js";
-      const def = new Shader("glitch-shader", { frag: frags.glitch });
+      const def = new Shader("glitch-shader", {
+        frag: frags.glitch,
+        extensions: [
+          "OES_standard_derivatives",
+          "EXT_shader_texture_lod"
+        ]
+      }
+      );
       def.play();
     </script>
   </body>
