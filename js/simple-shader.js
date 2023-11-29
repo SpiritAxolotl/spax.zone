@@ -1,6 +1,7 @@
 /*
   simple-shader.js
   written by Sudospective
+  slightly modified by Spax
   
   honestly do whatever you want with this
   just dont sue me and leave my name there really
@@ -9,64 +10,54 @@
   https://sudospective.net
 */
 const src = {
-vert: `
-precision lowp float;
-attribute vec2 position;
-attribute vec2 texCoord;
-uniform vec2 resolution;
-varying vec2 imageCoord;
-void main() {
-  vec2 zeroToOne = position / resolution;
-  vec2 zeroToTwo = zeroToOne * 2.0;
-  vec2 clipSpace = zeroToTwo - 1.0;
-  gl_Position = vec4(clipSpace * vec2(1.0, -1.0), 0.0, 1.0);
-  imageCoord = texCoord;
-}
-`,
-frag: `
-precision lowp float;
-#define PI 3.1415827
-uniform vec2 resolution;
-uniform float time;
-uniform sampler2D sampler0;
-varying vec2 imageCoord;
-void main() {
-  vec2 uv = gl_FragCoord.xy / resolution;
-  vec4 color = vec4(uv, (0.5 + sin(time - (PI * 0.5)) * 0.5), 1.0);
-  gl_FragColor = color;
-}
-`
-};
-
-const isImage = function(url) {
-  return /\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(url);
-}
-
-export class SimpleShader {
-  static defaultVertex() {
-    return src.vert;
+  vert: `
+  precision lowp float;
+  attribute vec2 position;
+  attribute vec2 texCoord;
+  uniform vec2 resolution;
+  varying vec2 imageCoord;
+  void main() {
+    vec2 zeroToOne = position / resolution;
+    vec2 zeroToTwo = zeroToOne * 2.0;
+    vec2 clipSpace = zeroToTwo - 1.0;
+    gl_Position = vec4(clipSpace * vec2(1.0, -1.0), 0.0, 1.0);
+    imageCoord = texCoord;
+  }
+  `,
+  frag: `
+  precision lowp float;
+  #define PI 3.1415827
+  uniform vec2 resolution;
+  uniform float time;
+  uniform sampler2D sampler0;
+  varying vec2 imageCoord;
+  void main() {
+    vec2 uv = gl_FragCoord.xy / resolution;
+    vec4 color = vec4(uv, (0.5 + sin(time - (PI * 0.5)) * 0.5), 1.0);
+    gl_FragColor = color;
+  }
+  `
   };
-  static defaultFragment() {
-    return src.frag;
-  };
+  export class SimpleShader {
+    static defaultVertex() {
+      return src.vert;
+    };
+    static defaultFragment() {
+      return src.frag;
+    };
     ready = false;
     initTime = Date.now();
     time = 0.0;
     uniforms = {};
     constructor(canvasId, data) {
       data = data || {};
-      const unis = {}; // internal
+      const uniforms = {}; // internal
       if (data && data.uniforms) {
         Object.entries(data.uniforms).forEach((entry) => {
           const type = entry[0];
           Object.entries(entry[1]).forEach((uniform) => {
             this.uniforms[type] = uniform[1];
           });
-        });
-      };
-      if (data && data.extensions) {
-        data.extensions.forEach((ext) => {
-          gl.getExtension(ext);
         });
       };
       this.canvas = document.getElementById(canvasId);
@@ -80,6 +71,11 @@ export class SimpleShader {
         return null;
       };
       const gl = this.context;
+      if (data.extensions) {
+        data.extensions.forEach((ext) => {
+          gl.getExtension(ext);
+        });
+      };
       const vertSrc = data.vert || SimpleShader.defaultVertex();
       const fragSrc = data.frag || SimpleShader.defaultFragment();
       const vert = gl.createShader(gl.VERTEX_SHADER);
@@ -137,17 +133,11 @@ export class SimpleShader {
       if (data.sampler2D) {
         var texId = 0;
         Object.entries(data.sampler2D).forEach((sampler2D) => {
-          unis[sampler2D[0]] = { textureIndex: texId++ };
-          const image = isImage() ? new Image() : document.createElement('video');
+          uniforms[sampler2D[0]] = { textureIndex: texId++ };
+          const image = new Image();
           image.src = sampler2D[1];
-          if (!isImage()) {
-            image.autoplay = true;
-            image.playsInline = true;
-            image.loop = true;
-          }
           const assignTexture = function(obj) {
             const tex = gl.createTexture();
-            const data = isImage() ? image : new Uint8Array([0, 255, 0, 255]);
             obj.texture = tex;
             return (function () {
               gl.bindTexture(gl.TEXTURE_2D, tex);
@@ -156,11 +146,11 @@ export class SimpleShader {
               gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
               gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
               gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-              gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, data);
+              gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
             });
           };
-          image.onload = assignTexture(unis[sampler2D[0]]);
-          unis[sampler2D[0]].image = image;
+          image.onload = assignTexture(uniforms[sampler2D[0]]);
+          uniforms[sampler2D[0]].image = image;
         });
       };
       gl.viewport(0, 0, this.canvas.width, this.canvas.height);
@@ -209,22 +199,21 @@ export class SimpleShader {
           const key = uniformType[0];
           if (uniformFunc[key]) {
             Object.entries(uniformType[1]).forEach((uniform) => {
-              unis[uniform[0]] = uniform[1];
+              uniforms[uniform[0]] = uniform[1];
               const uniformLoc = gl.getUniformLocation(prog, uniform[0]);
               gl[uniformFunc[key]](uniformLoc, uniform[1]);
             });
           } else if (key === 'sampler2D') {
             Object.entries(uniformType[1]).forEach((uniform) => {
-              const image = unis[uniform[0]].image;
+              const image = uniforms[uniform[0]].image;
               if (image.readyState !== undefined && image.readyState === 0) return;
               image.src = userUniforms[uniform[0]] || image.src;
               image.width = res[0];
               image.height = res[1];
               const texLoc = gl.getUniformLocation(prog, uniform[0]);
-              const idx = unis[uniform[0]].textureIndex;
+              const idx = uniforms[uniform[0]].textureIndex;
               gl.activeTexture(gl.TEXTURE0 + idx);
-              gl.bindTexture(gl.TEXTURE_2D, unis[uniform[0]].texture);
-              gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image); 
+              gl.bindTexture(gl.TEXTURE_2D, uniforms[uniform[0]].texture);
               gl.uniform1i(texLoc, idx);
             });
           };
@@ -232,7 +221,6 @@ export class SimpleShader {
         gl.uniform2fv(gl.getUniformLocation(prog, "resolution"), [res[0], res[1]]);
         gl.uniform1f(gl.getUniformLocation(prog, "time"), this.time * 0.001);
         gl.drawArrays(gl.TRIANGLES, 0, 6);
-        gl.flush();
         if (this.ready)
           window.requestAnimationFrame(this.render);
         else
