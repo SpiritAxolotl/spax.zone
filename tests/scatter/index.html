@@ -18,12 +18,12 @@
       "
     ></canvas>
     <script async type="module">
-      import { SimpleShader as Shader } from "../../js/simple-shader.js";
-      import * as frags from "../frags.glsl.js";
+      import { SimpleShader as Shader } from "/js/simple-shader.js";
+      import * as frags from "/tests/frags.glsl.js";
       const def = new Shader("scatter-shader", {
         frag: frags.scatter,
         sampler2D: {
-          sampler0: "../../videos/virtual_insanity.mp4"
+          sampler0: "/videos/virtual_insanity.mp4"
         }
       });
       def.play();
