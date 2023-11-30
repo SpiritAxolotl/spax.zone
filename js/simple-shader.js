@@ -51,7 +51,7 @@ const src = {
     uniforms = {};
     constructor(canvasId, data) {
       data = data || {};
-      const uniforms = {}; // internal
+      const u = {}; // internal
       if (data && data.uniforms) {
         Object.entries(data.uniforms).forEach((entry) => {
           const type = entry[0];
@@ -133,7 +133,7 @@ const src = {
       if (data.sampler2D) {
         var texId = 0;
         Object.entries(data.sampler2D).forEach((sampler2D) => {
-          uniforms[sampler2D[0]] = { textureIndex: texId++ };
+          u[sampler2D[0]] = { textureIndex: texId++ };
           const image = new Image();
           image.src = sampler2D[1];
           const assignTexture = function(obj) {
@@ -149,8 +149,8 @@ const src = {
               gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
             });
           };
-          image.onload = assignTexture(uniforms[sampler2D[0]]);
-          uniforms[sampler2D[0]].image = image;
+          image.onload = assignTexture(u[sampler2D[0]]);
+          u[sampler2D[0]].image = image;
         });
       };
       gl.viewport(0, 0, this.canvas.width, this.canvas.height);
@@ -200,21 +200,21 @@ const src = {
             const key = uniformType[0];
             if (uniformFunc[key]) {
               Object.entries(uniformType[1]).forEach((uniform) => {
-                uniforms[uniform[0]] = uniform[1];
+                u[uniform[0]] = uniform[1];
                 const uniformLoc = gl.getUniformLocation(prog, uniform[0]);
                 gl[uniformFunc[key]](uniformLoc, uniform[1]);
               });
             } else if (key === "sampler2D") {
               Object.entries(uniformType[1]).forEach((uniform) => {
-                const image = uniforms[uniform[0]].image;
+                const image = u[uniform[0]].image;
                 if (image.readyState !== undefined && image.readyState === 0) return;
                 image.src = userUniforms[uniform[0]] || image.src;
                 image.width = res[0];
                 image.height = res[1];
                 const texLoc = gl.getUniformLocation(prog, uniform[0]);
-                const idx = uniforms[uniform[0]].textureIndex;
+                const idx = u[uniform[0]].textureIndex;
                 gl.activeTexture(gl.TEXTURE0 + idx);
-                gl.bindTexture(gl.TEXTURE_2D, uniforms[uniform[0]].texture);
+                gl.bindTexture(gl.TEXTURE_2D, u[uniform[0]].texture);
                 gl.uniform1i(texLoc, idx);
               });
             };
