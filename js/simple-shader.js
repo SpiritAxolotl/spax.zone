@@ -224,7 +224,6 @@ const src = {
           gl.drawArrays(gl.TRIANGLES, 0, 6);
           if (this.ready)
             window.requestAnimationFrame(this.render);
-
           else
             window.cancelAnimationFrame(this.render);
         }
