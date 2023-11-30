@@ -37,7 +37,7 @@ void main() {
 	vec4 color = vec4(uv, (0.5 + sin(time - (PI * 0.5)) * 0.5), 1.0);
 	fragColor = color;
 }
-`,
+`
 };
 export class SimpleShader {
 	static defaultVertex() {
@@ -69,9 +69,8 @@ export class SimpleShader {
 		// try webgl2 first
 		this.context = this.canvas.getContext("webgl2");
 		// if not, then try webgl1
-		if (!this.context)
-			this.context = this.canvas.getContext("webgl");
 		if (!this.context) {
+			this.context = this.canvas.getContext("webgl");
 			console.log("Unable to get GL context from canvas with ID", canvasId);
 			return null;
 		};
@@ -208,7 +207,7 @@ export class SimpleShader {
 						const uniformLoc = gl.getUniformLocation(prog, uniform[0]);
 						gl[uniformFunc[key]](uniformLoc, uniform[1]);
 					});
-				} else if (key == 'sampler2D') {
+				} else if (key === "sampler2D") {
 					Object.entries(uniformType[1]).forEach((uniform) => {
 						const image = unis[uniform[0]].image;
 						image.src = userUnis[uniform[0]] || image.src;
