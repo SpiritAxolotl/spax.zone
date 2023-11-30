@@ -10,8 +10,8 @@
       height="100%"
     ></canvas>
     <script async type="module">
-      import { SimpleShader as Shader } from "../../js/simple-shader.js";
-      import * as frags from "../frags.glsl.js";
+      import { SimpleShader as Shader } from "/js/simple-shader.js";
+      import * as frags from "/tests/frags.glsl.js";
       const def = new Shader("glitch-shader", {
         frag: frags.glitch,
         extensions: [

@@ -1,10 +1,12 @@
 export const
-scatter = `
+scatter = `#version 300 es
 precision lowp float;
 
 uniform vec2 resolution;
 uniform float time;
 uniform sampler2D sampler0;
+
+out vec4 fragColor;
 
 //rgb2hsv and hsv2rgb written by XeroOl
 //All components are in the range [0...1], including hue.
@@ -42,7 +44,7 @@ void main() {
   float seed = max(0.0, floor(time*speed+offset));
   vec2 st = gl_FragCoord.xy/resolution.xy;
   
-  vec4 image = texture2D(sampler0, st);
+  vec4 image = texture(sampler0, st);
   vec3 colorrgb = image.xyz;
   vec3 colorhsv = rgb2hsv(image.xyz);
   
@@ -62,24 +64,22 @@ void main() {
     random3d((seed + 0.67) * (colorrgb+0.5))  //colorrgb.z
   );
   
-  //gl_FragColor = vec4(image.xyz,1.0);
-  gl_FragColor = vec4(randColor,1.0);
-  //gl_FragColor = vec4(hsv2rgb(randColor),1.0);
+  //fragColor = vec4(image.xyz,1.0);
+  fragColor = vec4(randColor,1.0);
+  //fragColor = vec4(hsv2rgb(randColor),1.0);
 }
 `,
-glitch = `
+glitch = `#version 300 es
 // Author: byt3_m3chanic (ported by Spax)
 // Title: Day 490
 // https://www.shadertoy.com/view/NdlXzs
 
-/*#if supported(GL_OES_standard_derivatives)
-  #extension GL_OES_standard_derivatives : enable
-#endif*/
-
-precision mediump float;
+precision lowp float;
 
 uniform vec2 resolution;
 uniform float time;
+
+out vec4 fragColor;
 
 #define rot(a) mat2(cos(a),-sin(a),sin(a),cos(a))
 #define pmod(p,a) mod(p,a) - 0.5*a
@@ -218,7 +218,7 @@ void main() {
   col = max(col,0.03*(0.5+0.5*sin(time*2.)));
   
   col = pow(col,vec3(0.4545));
-  gl_FragColor = vec4(col,1.0);
+  fragColor = vec4(col,1.0);
 }
 
 `;
