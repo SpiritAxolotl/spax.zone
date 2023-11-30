@@ -1,6 +1,7 @@
 /*
   simple-shader.js
   written by Sudospective
+  special thanks to Spax for debugging and feature requests
   
   honestly do whatever you want with this
   just dont sue me and leave my name there really
