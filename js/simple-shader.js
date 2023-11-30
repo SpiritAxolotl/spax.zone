@@ -203,7 +203,7 @@ const src = {
               const uniformLoc = gl.getUniformLocation(prog, uniform[0]);
               gl[uniformFunc[key]](uniformLoc, uniform[1]);
             });
-          } else if (key === 'sampler2D') {
+          } else if (key === "sampler2D") {
             Object.entries(uniformType[1]).forEach((uniform) => {
               const image = uniforms[uniform[0]].image;
               if (image.readyState !== undefined && image.readyState === 0) return;
