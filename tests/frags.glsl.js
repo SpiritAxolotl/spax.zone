@@ -74,7 +74,7 @@ glitch = `#version 300 es
 // Title: Day 490
 // https://www.shadertoy.com/view/NdlXzs
 
-precision highp float;
+precision lowp float;
 
 uniform vec2 resolution;
 uniform float time;
