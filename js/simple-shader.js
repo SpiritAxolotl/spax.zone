@@ -165,67 +165,70 @@ const src = {
         vec4: "uniform4fv",
       };
       const prog = this.program;
-      const render = function(timestamp) {
-        if (this.ready)
-          this.time = (Date.now() - this.startTime);
-        else
-          this.time = 0.0;
-        gl.clearColor(0, 0, 0, 1);
-        gl.clear(gl.COLOR_BUFFER_BIT);
-        gl.useProgram(prog);
-        gl.enableVertexAttribArray(posLoc);
-        gl.bindBuffer(gl.ARRAY_BUFFER, posBuf);
-        gl.vertexAttribPointer(
-          posLoc,
-          2,
-          gl.FLOAT,
-          false,
-          0,
-          0
-        );
-        gl.enableVertexAttribArray(texLoc);
-        gl.bindBuffer(gl.ARRAY_BUFFER, texBuf);
-        gl.vertexAttribPointer(
-          texLoc,
-          2,
-          gl.FLOAT,
-          false,
-          0,
-          0
-        );
-        const res = [this.canvas.width, this.canvas.height];
-        const userUniforms = this.uniforms;
-        Object.entries(data).forEach((uniformType) => {
-          const key = uniformType[0];
-          if (uniformFunc[key]) {
-            Object.entries(uniformType[1]).forEach((uniform) => {
-              uniforms[uniform[0]] = uniform[1];
-              const uniformLoc = gl.getUniformLocation(prog, uniform[0]);
-              gl[uniformFunc[key]](uniformLoc, uniform[1]);
-            });
-          } else if (key === "sampler2D") {
-            Object.entries(uniformType[1]).forEach((uniform) => {
-              const image = uniforms[uniform[0]].image;
-              if (image.readyState !== undefined && image.readyState === 0) return;
-              image.src = userUniforms[uniform[0]] || image.src;
-              image.width = res[0];
-              image.height = res[1];
-              const texLoc = gl.getUniformLocation(prog, uniform[0]);
-              const idx = uniforms[uniform[0]].textureIndex;
-              gl.activeTexture(gl.TEXTURE0 + idx);
-              gl.bindTexture(gl.TEXTURE_2D, uniforms[uniform[0]].texture);
-              gl.uniform1i(texLoc, idx);
-            });
-          };
-        });
-        gl.uniform2fv(gl.getUniformLocation(prog, "resolution"), [res[0], res[1]]);
-        gl.uniform1f(gl.getUniformLocation(prog, "time"), this.time * 0.001);
-        gl.drawArrays(gl.TRIANGLES, 0, 6);
-        if (this.ready)
-          window.requestAnimationFrame(this.render);
-        else
-          window.cancelAnimationFrame(this.render);
-      };
+      class render {
+        constructor(timestamp) {
+          if (this.ready)
+            this.time = (Date.now() - this.startTime);
+          else
+            this.time = 0.0;
+          gl.clearColor(0, 0, 0, 1);
+          gl.clear(gl.COLOR_BUFFER_BIT);
+          gl.useProgram(prog);
+          gl.enableVertexAttribArray(posLoc);
+          gl.bindBuffer(gl.ARRAY_BUFFER, posBuf);
+          gl.vertexAttribPointer(
+            posLoc,
+            2,
+            gl.FLOAT,
+            false,
+            0,
+            0
+          );
+          gl.enableVertexAttribArray(texLoc);
+          gl.bindBuffer(gl.ARRAY_BUFFER, texBuf);
+          gl.vertexAttribPointer(
+            texLoc,
+            2,
+            gl.FLOAT,
+            false,
+            0,
+            0
+          );
+          const res = [this.canvas.width, this.canvas.height];
+          const userUniforms = this.uniforms;
+          Object.entries(data).forEach((uniformType) => {
+            const key = uniformType[0];
+            if (uniformFunc[key]) {
+              Object.entries(uniformType[1]).forEach((uniform) => {
+                uniforms[uniform[0]] = uniform[1];
+                const uniformLoc = gl.getUniformLocation(prog, uniform[0]);
+                gl[uniformFunc[key]](uniformLoc, uniform[1]);
+              });
+            } else if (key === "sampler2D") {
+              Object.entries(uniformType[1]).forEach((uniform) => {
+                const image = uniforms[uniform[0]].image;
+                if (image.readyState !== undefined && image.readyState === 0) return;
+                image.src = userUniforms[uniform[0]] || image.src;
+                image.width = res[0];
+                image.height = res[1];
+                const texLoc = gl.getUniformLocation(prog, uniform[0]);
+                const idx = uniforms[uniform[0]].textureIndex;
+                gl.activeTexture(gl.TEXTURE0 + idx);
+                gl.bindTexture(gl.TEXTURE_2D, uniforms[uniform[0]].texture);
+                gl.uniform1i(texLoc, idx);
+              });
+            };
+          });
+          gl.uniform2fv(gl.getUniformLocation(prog, "resolution"), [res[0], res[1]]);
+          gl.uniform1f(gl.getUniformLocation(prog, "time"), this.time * 0.001);
+          gl.drawArrays(gl.TRIANGLES, 0, 6);
+          if (this.ready)
+            window.requestAnimationFrame(this.render);
+
+          else
+            window.cancelAnimationFrame(this.render);
+        }
+      }
       this.render = render.bind(this);
       this.time = 0.0;
       this.startTime = Date.now();
