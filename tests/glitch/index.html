@@ -2,18 +2,27 @@
 <html>
   <head>
     <title>Glitch Shader</title>
-  </head>
-  <body style="background-color: black; overscroll-behavior: none;">
-    <canvas
-      id="glitch-shader"
-      width="1440"
-      height="900"
-      style="
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        background-color: black;
+        overscroll-behavior: none;
+        display: grid;
+      }
+      canvas {
         width: 100%;
         height: 100%;
-      "
-    ></canvas>
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="glitch-shader"></canvas>
     <script async type="module">
+      const startTime = Date.now();
+      const canvas = document.getElementById("glitch-shader");
       import { SimpleShader as Shader } from "/js/simple-shader.js";
       import * as frags from "/tests/frags.glsl.js";
       const def = new Shader("glitch-shader", {
@@ -22,9 +31,20 @@
           "GL_OES_standard_derivatives",
           "EXT_shader_texture_lod"
         ]
+      });
+      def.play(startTime);
+      let width = window.innerWidth;
+      let height = window.innerHeight;
+      function changeCanvasSize() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
+        def.play(startTime);
+        console.log(width + " " + height);
       }
-      );
-      def.play();
+      if (canvas.width !== width || canvas.height !== height) changeCanvasSize();
+      window.onresize = changeCanvasSize;
     </script>
   </body>
 </html>
