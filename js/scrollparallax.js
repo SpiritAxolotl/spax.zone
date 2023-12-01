@@ -1,13 +1,13 @@
-var bg = document.querySelector("#bg");
+//thanks sora
+const bg = document.querySelector("#bg");
 document.body.onscroll = function() {
-
-document.getElementById('bg').style.backgroundPositionY = (window.scrollY / 2) + "px"
+  document.getElementById("bg").style.backgroundPositionY = (window.scrollY * 0.5) + "px";
 }
 /*
-let pt = Date.time()
-let ct = Date.time()
-requestAnimationFrame(xpos, 1)
+let pt = Date.time();
+let ct = Date.time();
+requestAnimationFrame(xpos, 1);
 function xpos() {
-document.getElementById('bg').style.backgroundPositionX = (ct-pt) + "px"
+  document.getElementById("bg").style.backgroundPositionX = (ct-pt) + "px";
 }
 */
