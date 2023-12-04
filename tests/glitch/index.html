@@ -41,9 +41,11 @@
         canvas.width = width;
         canvas.height = height;
         def.play(startTime);
-        console.log(width + " " + height);
+        //console.log(width + " " + height);
       }
-      if (canvas.width !== width || canvas.height !== height) changeCanvasSize();
+      canvas.onload = function() {
+        if (canvas.width !== width || canvas.height !== height) changeCanvasSize();
+      }
       window.onresize = changeCanvasSize;
     </script>
   </body>
