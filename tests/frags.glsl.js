@@ -70,7 +70,7 @@ void main() {
 }
 `,
 glitch = `#version 300 es
-// Author: byt3_m3chanic (ported by Spax)
+// Author: jeyko (ported by Spax)
 // Title: Day 490
 // https://www.shadertoy.com/view/NdlXzs
 
