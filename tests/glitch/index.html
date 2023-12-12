@@ -19,20 +19,14 @@
     </style>
   </head>
   <body>
-    <canvas id="glitch-shader" width="1440" height="900"></canvas>
+    <canvas id="glitch-shader" width="0" height="0"></canvas>
     <script async type="module">
-      const startTime = Date.now();
       const canvas = document.getElementById("glitch-shader");
-      import { SimpleShader as Shader } from "/js/simple-shader.js";
-      import * as frags from "/tests/frags.glsl.js";
-      const def = new Shader("glitch-shader", {
-        frag: frags.glitch,
-        extensions: [
-          "GL_OES_standard_derivatives",
-          "EXT_shader_texture_lod"
-        ]
+      import { SimpleShader as Shader } from "./js/simple-shader.js";
+      const def = new Shader("simple-shader", {
+        frag: "/glitch.frag"
       });
-      def.play(startTime);
+      def.play();
       let width = window.innerWidth;
       let height = window.innerHeight;
       function changeCanvasSize() {
@@ -40,8 +34,6 @@
         height = window.innerHeight;
         canvas.width = width;
         canvas.height = height;
-        def.play(startTime);
-        //console.log(width + " " + height);
       }
       canvas.onload = changeCanvasSize();
       window.onresize = changeCanvasSize;
