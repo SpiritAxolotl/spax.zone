@@ -1,10 +1,12 @@
 #version 300 es
-precision lowp float;
+precision highp float;
 
 uniform vec2 resolution;
 uniform float time;
 uniform sampler2D sampler0;
 uniform float samplertime0;
+
+//originally written by Spax
 
 out vec4 fragColor;
 
@@ -40,12 +42,14 @@ float random1d(float seed) {
 void main() {
   float speed = 46.0/60.0;
   float offset = -3.65;
-  float seed = max(0.0, floor((samplertime0 > 0. ? samplertime0 : time)*speed+offset));
+  float seed = max(0.0, floor(min(213.0, (samplertime0 > 0. ? samplertime0 : time))*speed+offset));
+  //float seed = max(0.0, floor(min(213.0, time)*speed+offset));
   vec2 uv = gl_FragCoord.xy/resolution.xy;
+  float res = 64.; //0-255
   
   vec4 image = texture(sampler0, uv);
-  vec3 colorrgb = image.xyz;
-  vec3 colorhsv = rgb2hsv(image.xyz);
+  vec3 colorrgb = round(image.xyz*res)/res;
+  //vec3 colorhsv = rgb2hsv(image.xyz);
   
   /*vec3 randColor = vec3(
     colorhsv.x*((random3d(colorhsv+seed)*0.75)+0.5),
