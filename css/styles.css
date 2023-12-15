@@ -307,9 +307,8 @@ audio {
   width: auto;
   min-height: 100%;
   height: auto;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
   image-rendering: pixelated;
+  image-rendering: -webkit-optimize-contrast;
   -ms-interpolation-mode: nearest-neighbor;
 }
 
@@ -322,8 +321,8 @@ audio {
 }
 
 .pixelated {
+  image-rendering: pixelated;
   image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
   -ms-interpolation-mode: nearest-neighbor;
 }
 
