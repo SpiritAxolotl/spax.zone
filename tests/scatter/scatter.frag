@@ -5,6 +5,7 @@ uniform vec2 resolution;
 uniform float time;
 uniform sampler2D sampler0;
 uniform float samplertime0;
+uniform vec4 mouse;
 
 //originally written by Spax
 
@@ -45,7 +46,8 @@ void main() {
   float seed = max(0.0, floor(min(213.0, (samplertime0 > 0. ? samplertime0 : time))*speed+offset));
   //float seed = max(0.0, floor(min(213.0, time)*speed+offset));
   vec2 uv = gl_FragCoord.xy/resolution.xy;
-  float res = 64.; //0-255
+  float res = 64.; //1-255
+  res = mouse.z>=0.0 || mouse.x>0.0 ? pow(2.0, round(mouse.x/resolution.x*8.0)) : res;
   float intensity = 0.9; //0-1
   
   vec4 image = texture(sampler0, uv);
