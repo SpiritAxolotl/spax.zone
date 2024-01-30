@@ -1,7 +1,7 @@
 [
     {
         "visible": true,
-        "content": "<img src='/images/fanart/nahua_ryo_pose.png'>",
+        "content": "<img src='/images/art/nahua_ryo_pose.png'>",
         "type": "Drawn",
         "credit": "Ryo",
         "link": "https://discord.com/users/326882748490973185/",
@@ -9,7 +9,7 @@
     },
     {
         "visible": true,
-        "content": "<img src='/images/fanart/nahua_z_pose.png'>",
+        "content": "<img src='/images/art/nahua_z_pose.png'>",
         "type": "Drawn",
         "credit": "Z",
         "link": "https://discord.com/users/488852646858326027/",
@@ -17,7 +17,7 @@
     },
     {
         "visible": true,
-        "content": "<img src='/images/fanart/spax-anthro_zuka_headshotstuff.png'>",
+        "content": "<img src='/images/art/spax-anthro_zuka_headshotstuff.png'>",
         "type": "Drawn",
         "credit": "Zuka",
         "link": "https://discord.com/users/614853980375220224/",
@@ -25,7 +25,7 @@
     },
     {
         "visible": true,
-        "content": "<img src='/images/fanart/nahua_skooptroop_bday.png'>",
+        "content": "<img src='/images/art/nahua_skooptroop_bday.png'>",
         "type": "Drawn",
         "credit": "skooptroop!",
         "link": "https://discord.com/users/552428712126316544/",
@@ -33,7 +33,7 @@
     },
     {
         "visible": true,
-        "content": "<img src='/images/fanart/nahua_whizzy_bday.png'>",
+        "content": "<img src='/images/art/nahua_whizzy_bday.png'>",
         "type": "Drawn",
         "credit": "Whizzy",
         "link": "https://discord.com/users/329061333712633861/",
@@ -41,7 +41,7 @@
     },
     {
         "visible": true,
-        "content": "<img src='/images/fanart/nahua_bean_bday.png'><br><img src='/images/fanart/spax_bean_bday.png'>",
+        "content": "<img src='/images/art/nahua_bean_bday.png'><br><img src='/images/art/spax_bean_bday.png'>",
         "type": "Drawn",
         "credit": "bean",
         "link": "https://discord.com/users/685328250548781066/",
@@ -49,7 +49,7 @@
     },
     {
         "visible": true,
-        "content": "<img class='pixelated' src='/images/fanart/nahua_minty_bday.png'>",
+        "content": "<img class='pixelated' src='/images/art/nahua_minty_bday.png'>",
         "type": "Drawn",
         "credit": "minty",
         "link": "https://discord.com/users/667471786560061440/",
@@ -57,7 +57,7 @@
     },
     {
         "visible": true,
-        "content": "<img src='/images/fanart/nahua-spax_bananas_bday.png'>",
+        "content": "<img src='/images/art/nahua-spax_bananas_bday.png'>",
         "type": "Drawn",
         "credit": "1LikeBananas",
         "link": "https://discord.com/users/590639673433653248/",
@@ -65,7 +65,7 @@
     },
     {
         "visible": false,
-        "content": "<img src='/images/fanart/spax_gunk_halflife.png'>",
+        "content": "<img src='/images/art/spax_gunk_halflife.png'>",
         "type": "Drawn",
         "credit": "gunk",
         "link": "https://discord.com/users/518490426261372931/",
@@ -73,7 +73,7 @@
     },
     {
         "visible": true,
-        "content": "<img src='/images/fanart/nahua_timber_pose.png'>",
+        "content": "<img src='/images/art/nahua_timber_pose.png'>",
         "type": "Drawn",
         "credit": "Timber",
         "link": "https://discord.com/users/650333611475730433/",
@@ -81,7 +81,7 @@
     },
     {
         "visible": true,
-        "content": "<img src='/images/fanart/nahua_bananas_lewd.png'>",
+        "content": "<img src='/images/art/nahua_bananas_lewd.png'>",
         "type": "Drawn",
         "credit": "1LikeBananas",
         "link": "https://discord.com/users/590639673433653248/",
@@ -89,7 +89,7 @@
     },
     {
         "visible": true,
-        "content": "<img src='/images/fanart/nahua_bananas_fnf.png'>",
+        "content": "<img src='/images/art/nahua_bananas_fnf.png'>",
         "type": "Drawn",
         "credit": "1LikeBananas",
         "link": "https://discord.com/users/590639673433653248/",
@@ -97,7 +97,7 @@
     },
     {
         "visible": true,
-        "content": "<img src='/images/fanart/nahua_slima_pose.png'>",
+        "content": "<img src='/images/art/nahua_slima_pose.png'>",
         "type": "Drawn",
         "credit": "Slima11",
         "link": "https://discord.com/users/570344477177151490/",
@@ -105,7 +105,7 @@
     },
     {
         "visible": false,
-        "content": "<img src='/images/fanart/nahua-ysabelle_bananas_WHAT.png'>",
+        "content": "<img src='/images/art/nahua-ysabelle_bananas_WHAT.png'>",
         "type": "Drawn",
         "credit": "1LikeBananas",
         "link": "https://discord.com/users/590639673433653248/",
@@ -113,7 +113,7 @@
     },
     {
         "visible": true,
-        "content": "<img class='pixelated' src='/images/fanart/nahua_minty_headshot.png'>",
+        "content": "<img class='pixelated' src='/images/art/nahua_minty_headshot.png'>",
         "type": "Drawn",
         "credit": "minty",
         "link": "https://discord.com/users/667471786560061440/",
@@ -121,7 +121,7 @@
     },
     {
         "visible": true,
-        "content": "<img src='/images/fanart/nahua_bean_couch.png'>",
+        "content": "<img src='/images/art/nahua_bean_couch.png'>",
         "type": "Drawn",
         "credit": "bean",
         "link": "https://discord.com/users/685328250548781066/",
@@ -129,7 +129,7 @@
     },
     {
         "visible": false,
-        "content": "<img src='/images/fanart/nahua_gunk_neko.png'>",
+        "content": "<img src='/images/art/nahua_gunk_neko.png'>",
         "type": "Drawn",
         "credit": "gunk",
         "link": "https://discord.com/users/518490426261372931/",
@@ -137,7 +137,7 @@
     },
     {
         "visible": true,
-        "content": "<img src='/images/fanart/nahua_uray_neko.png'>",
+        "content": "<img src='/images/art/nahua_uray_neko.png'>",
         "type": "Drawn",
         "credit": "URAY",
         "link": "https://discord.com/users/260236669041639425/",
@@ -145,7 +145,7 @@
     },
     {
         "visible": true,
-        "content": "<img src='/images/fanart/nahua_n3therwolf_confettigun.jpg'>",
+        "content": "<img src='/images/art/nahua_n3therwolf_confettigun.jpg'>",
         "type": "Drawn",
         "credit": "N3therwolf",
         "link": "https://discord.com/users/907467523090448414/",
@@ -153,7 +153,7 @@
     },
     {
         "visible": true,
-        "content": "<img src='/images/fanart/nahua_cyus_pose.png'>",
+        "content": "<img src='/images/art/nahua_cyus_pose.png'>",
         "type": "Drawn",
         "credit": "Cyus",
         "link": "https://discord.com/users/284123108212867074/",
@@ -161,7 +161,7 @@
     },
     {
         "visible": false,
-        "content": "<img src='/images/fanart/nahua_bananas_notitgpose.png'>",
+        "content": "<img src='/images/art/nahua_bananas_notitgpose.png'>",
         "type": "Drawn",
         "credit": "1LikeBananas",
         "link": "https://discord.com/users/590639673433653248/",
@@ -169,7 +169,7 @@
     },
     {
         "visible": true,
-        "content": "<img src='/images/fanart/spax_bananas_3D.jpg'>",
+        "content": "<img src='/images/art/spax_bananas_3D.jpg'>",
         "type": "Modelled/3D-printed",
         "credit": "1LikeBananas",
         "link": "https://discord.com/users/590639673433653248/",
@@ -177,7 +177,7 @@
     },
     {
         "visible": true,
-        "content": "<img src='/images/fanart/nahua_bananas_bubble.png'>",
+        "content": "<img src='/images/art/nahua_bananas_bubble.png'>",
         "type": "Drawn",
         "credit": "1LikeBananas",
         "link": "https://discord.com/users/590639673433653248/",
@@ -185,7 +185,7 @@
     },
     {
         "visible": true,
-        "content": "<img src='/images/fanart/nahua-beta_bananas_edgy.gif'>",
+        "content": "<img src='/images/art/nahua-beta_bananas_edgy.gif'>",
         "type": "Drawn",
         "credit": "1LikeBananas",
         "link": "https://discord.com/users/590639673433653248/",
@@ -193,7 +193,7 @@
     },
     {
         "visible": true,
-        "content": "<img src='/images/fanart/nahua-beta_bananas_original.png'>",
+        "content": "<img src='/images/art/nahua-beta_bananas_original.png'>",
         "type": "Drawn",
         "credit": "1LikeBananas",
         "link": "https://discord.com/users/590639673433653248/",
@@ -201,7 +201,7 @@
     },
     {
         "visible": false,
-        "content": "<img src='/images/fanart/whizzy_spax_booba.png'>",
+        "content": "<img src='/images/art/whizzy_spax_booba.png'>",
         "type": "Drawn",
         "credit": "Whizzy",
         "link": "https://discord.com/users/329061333712633861/",
@@ -209,7 +209,7 @@
     },
     {
         "visible": true,
-        "content": "<img src='/images/fanart/spax-beta_veternum_float.png'>",
+        "content": "<img src='/images/art/spax-beta_veternum_float.png'>",
         "type": "Drawn",
         "credit": "Veternum",
         "link": "https://discord.com/users/744465217316061195/",
@@ -217,7 +217,7 @@
     },
     {
         "visible": true,
-        "content": "<!--Hi person reading this for some reason! As you'll see below this, I have vectorized the artwork, however I linked the rasterized one for simplicity. If you wanna download the actual vector art, go here! | (g o n e  for now) | Enjoy! -Spax--><img class='pixelated' src='/images/fanart/spax_wasabi_original.png'>",
+        "content": "<!--Hi person reading this for some reason! As you'll see below this, I have vectorized the artwork, however I linked the rasterized one for simplicity. If you wanna download the actual vector art, go here! | (g o n e  for now) | Enjoy! -Spax--><img class='pixelated' src='/images/art/spax_wasabi_original.png'>",
         "type": "Drawn",
         "credit": "Wasabi",
         "link": "https://discord.com/users/801843375102885888/",
@@ -225,7 +225,7 @@
     },
     {
         "visible": true,
-        "content": "<img src='/images/fanart/spax-beta_midna_og.png'>",
+        "content": "<img src='/images/art/spax-beta_midna_og.png'>",
         "type": "Drawn",
         "credit": "Midna",
         "link": "https://discord.com/users/145929070209794049/",

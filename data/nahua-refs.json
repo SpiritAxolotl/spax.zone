@@ -1,10 +1,42 @@
 [
   {
       "visible": true,
-      "content": "<img src='/images/fanart/nahua_ryo_pose.png'>",
+      "content": "<img src='/images/art/nahua_bananas_old_ref.png'>",
       "type": "Drawn",
-      "credit": "Ryo",
-      "link": "https://discord.com/users/326882748490973185/",
-      "desc": "(art jumpscared)"
+      "credit": "1LikeBananas",
+      "link": "https://discord.com/users/590639673433653248/",
+      "desc": "My first commission of Nahua! It was originally a vector piece too! Kept here because the base colors haven't changed at all. Consider everything below this one as a more canon design."
+  },
+  {
+    "visible": true,
+    "content": "<img src='/images/art/nahua_bananas_caught.png'>",
+    "type": "Drawn",
+    "credit": "1LikeBananas",
+    "link": "https://discord.com/users/590639673433653248/",
+    "desc": "Shows more of the physics of Nahua. Colors are consistent too. Only two issues are the lack of hair on the back (which you can't really see) and she has four fingers now instead of three."
+  },
+  {
+    "visible": true,
+    "content": "<img src='/images/art/nahua_bananas_underwater_concept_art.png'>",
+    "type": "Drawn",
+    "credit": "1LikeBananas",
+    "link": "https://discord.com/users/590639673433653248/",
+    "desc": "Banger concept art. The hair is more accurate and it's the closest thing I have to a backside ref to date. Only the way the tail is connected to the rest of the body isn't correct."
+  },
+  {
+    "visible": true,
+    "content": "<img src='/images/art/nahua_bananas_valentine.png'>",
+    "type": "Drawn",
+    "credit": "1LikeBananas",
+    "link": "https://discord.com/users/590639673433653248/",
+    "desc": "Another backside ref! Granted, it's clothed, but you can see the correct orientation of the tail now."
+  },
+  {
+    "visible": true,
+    "content": "<img src='/images/art/nahua_bananas_2nd_anniversary.jpg'>",
+    "type": "Drawn",
+    "credit": "1LikeBananas",
+    "link": "https://discord.com/users/590639673433653248/",
+    "desc": "The most up-to-date design. Four fingers!"
   }
 ]
