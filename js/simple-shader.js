@@ -316,7 +316,7 @@ export class SimpleShader {
         const posLoc = gl.getAttribLocation(program, "position");
         const texLoc = gl.getAttribLocation(program, "texCoord");
         const resolutionLoc = gl.getUniformLocation(program, "resolution");
-        //TODO: resolution and time variables for each sampler
+        //TODO: resolution and time letiables for each sampler
         const timeLoc = gl.getUniformLocation(program, "time");
         const dateLoc = gl.getUniformLocation(program, "date");
         const deltaLoc = gl.getUniformLocation(program, "delta");

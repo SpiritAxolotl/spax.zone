@@ -1,6 +1,6 @@
 // You can add error codes here
 function ThrowError (errorCode) {
-  var errorText;
+  let errorText;
   
   switch (errorCode)
   {

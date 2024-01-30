@@ -1,5 +1,5 @@
 # spiritaxolotl.github.io
- Website Lmao
+Website Lmao
 
 # Real description
 Okay time to make an actual website description here. So I started making this site to test html for another project
@@ -18,7 +18,7 @@ this site pretty early on and I cannot thank him enough for all he's done. (He a
 him public crediting so I wrote a fuck-ton of stuff about him here hehehehe.)
 
 ## [CalmBubbles](https://github.com/CalmBubbles)
-Oh boy where do I even start. I had known Calm since the start of 2021 beause he subscribed to my youtube and joined
+Jeez, where do I even start. I had known Calm since the start of 2021 beause he subscribed to my youtube and joined
 my ~~(dead)~~ discord server, but when he started suggesting fixes to my website, he already showed himself to be a
 valuable resource, and I quickly invited him to the now-three-person team for the website. His incredibly useful fixes
 included setting the text box character images to have no interpolation (hence staying pixelated), keeping the starry
@@ -44,5 +44,5 @@ another project I was going to start working on, but has now become both a passi
 between many people who have all helped out in their own ways. I still cannot believe how amazing complete strangers on
 the internet can be. You guys will continue to inspire me every day.
 
-Thank you,<br>
+Thank you,  
 -Spax

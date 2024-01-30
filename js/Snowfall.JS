@@ -1,4 +1,4 @@
-var Snow = {
+let Snow = {
   el: "#snow", 
   density: 10000, // higher = fewer bits
   maxHSpeed: 5, // How much do you want them to move horizontally
@@ -26,8 +26,8 @@ var Snow = {
     this.updateSize();
     this.particles = [];
     this.mp = Math.ceil(this.w * this.h / this.density);
-    for(var i = 0; i < this.mp; i++) {
-      var size = Math.random()*4+5;
+    for(let i = 0; i < this.mp; i++) {
+      let size = Math.random()*4+5;
       this.particles.push({
         x: Math.random()*this.w, //x-coordinate
         y: Math.random()*this.h, //y-coordinate
@@ -60,4 +60,4 @@ var Snow = {
   }
 };
 
-var confetti = Snow.init();
+let confetti = Snow.init();
