@@ -65,5 +65,7 @@ Fanart.setData = function () {
       this.mainContent.append(element);
     }
   }
+  while (document.getElementsByClassName("moved").length > 0)
+    document.getElementsByClassName("moved")[0].classList.remove("moved");
   this.mainContent.append(lastBox);
 };
