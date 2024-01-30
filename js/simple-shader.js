@@ -15,7 +15,7 @@ void main() {
 `,
 frag: `#version 300 es
 precision highp float;
-#define PI 3.1415827
+#define PI 3.1415927
 uniform vec2 resolution;
 uniform float time;
 uniform sampler2D sampler0;
@@ -55,7 +55,7 @@ class RenderTarget {
     const type = gl.UNSIGNED_BYTE;
     const data = null;
     gl.texImage2D(gl.TEXTURE_2D, this.level, internalFormat, width, height, border, format, type, data);
-    // gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
@@ -66,7 +66,7 @@ class RenderTarget {
 }
 class Sampler {
   constructor(gl, uniform) {
-    let src = uniform["path"][1];
+    let src = uniform.path;
     this.data = setupSampler(uniform);
     this.Id = texCount++;
     const assignTexture = function(obj) {
@@ -146,7 +146,7 @@ function initBuffers(gl) {
   return { posBuf, texBuf };
 }
 function setupSampler(uniform) {
-  let src = uniform["path"][1];
+  let src = uniform.path;
   const video = {
     mp4: true
   };
@@ -174,9 +174,9 @@ function setupSampler(uniform) {
       sampler.copyReady = true;
     }
   }
-  sampler.playsInline = uniform["playsInline"][1] !== null ? uniform["playsInline"][1] : true;
-  sampler.muted = uniform["muted"][1] !== null ? uniform["muted"][1] : true;
-  sampler.loop = uniform["loop"][1] !== null ? uniform["loop"][1] : true;
+  sampler.playsInline = uniform.playsInline !== null ? uniform.playsInline : true;
+  sampler.muted = uniform.muted !== null ? uniform.muted : true;
+  sampler.loop = uniform.loop !== null ? uniform.loop : true;
   sampler.addEventListener("playing", () => {
     playing = true;
     checkReady();
@@ -186,7 +186,7 @@ function setupSampler(uniform) {
     checkReady();
   }, true);
   sampler.src = src;
-  sampler.play();
+  //sampler.play();
   return sampler;
 }
 async function fetchFrag(path) {
@@ -227,7 +227,9 @@ async function init(ss) {
     const unis = opts.uniforms[i] || {};
     if (unis.sampler2D) {
       Object.entries(unis.sampler2D).forEach(uniform => {
-        ss.samplers[i][uniform["path"][0]] = new Sampler(gl, uniform);
+        // uniform[0] = key (ex. "sampler0")
+        // uniform[1] = value (ex. { path: "path/to/vid.mp4" })
+        ss.samplers[i][uniform[0]] = new Sampler(gl, uniform[1]);
       });
     }
   }
@@ -246,7 +248,8 @@ function applyUniforms(gl, program, uniforms, samplers) {
         if (samplers) {
           const sampler = samplers[uniform[0]];
           const image = sampler.data;
-          if (!image.src) image.src = uniform[1];
+          if (image.play && image.paused) image.play();
+          if (!image.src) image.src = uniform[1].path;
           image.width  = gl.canvas.width;
           image.height = gl.canvas.height;
           const texLoc = gl.getUniformLocation(program, uniform[0]);

@@ -39,11 +39,13 @@
       import { SimpleShader as Shader } from "../../js/simple-shader.js";
       const canvas = document.getElementById("scatter-shader");
       const prompt = document.getElementById("click-prompt");
+      const video = document.createElement("video");
+      //video.src = "../../videos/virtual_insanity.mp4";
       function changeCanvasSize() {
-        width = window.innerWidth*2;
-        height = window.innerHeight*2;
-        canvas.width = width;
-        canvas.height = height;
+        videoWidth = video.videoWidth;
+        videoHeight = video.videoHeight;
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
       }
       canvas.onload = changeCanvasSize;
       window.onresize = changeCanvasSize;
