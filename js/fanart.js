@@ -20,7 +20,10 @@ Fanart.load = function () {
     ThrowError(3);
   };
   
-  request.open("GET", "/data/fanart.json");
+  if (window.location.href.match(/(?<=\/)nahua-ref-sheet(\.html)?$/))
+    request.open("GET", "/data/nahua-refs.json");
+  else
+    request.open("GET", "/data/fanart.json");
   request.overrideMimeType("application/json");
   request.send();
 };
@@ -28,31 +31,39 @@ Fanart.load = function () {
 Fanart.setData = function () {
   this.mainContent = document.querySelector("#bg");
   
-  for (let i = 0; i < this.fanartData.length; i++) {
+  for (let fanart of this.fanartData) {
     let output = document.createElement("div");
-    let credit = this.fanartData[i].credit;
+    let credit = fanart.credit;
     let desc = "";
     
     output.classList.add("fart-text-box", "unselectable");
     
-    if (!this.fanartData[i].visible) output.style.display = "none";
+    if (!fanart.visible) output.style.display = "none";
     
-    if (this.fanartData[i].link != null) credit = `<a href="${this.fanartData[i].link}" target="_blank">${this.fanartData[i].credit}</a>`;
+    if (fanart.link !== null) credit = `<a href="${fanart.link}" target="_blank">${fanart.credit}</a>`;
     
-    if (this.fanartData[i].desc != null) desc = `<br>${this.fanartData[i].desc}`;
+    if (fanart.desc !== null) desc = `<br>${fanart.desc}`;
     
     let innerContent = document.createElement("div");
     
-    innerContent.innerHTML = `${this.fanartData[i].content}<br>${this.fanartData[i].type} by ${credit}${desc}`;
+    innerContent.innerHTML = `${fanart.content}<br>${fanart.type} by ${credit}${desc}`;
     
     output.append(innerContent);
     this.mainContent.append(output);
+    
   }
   
   let lastBox = document.createElement("div");
   
-  lastBox.classList.add("text-box flex-container unselectable");
+  lastBox.classList.add("text-box", "flex-container", "unselectable");
   lastBox.innerHTML = `<div>(<a href="/html/main">Click here</a> to go back to the main page!)</div>`;
   
+  while (document.getElementsByClassName("end-of-fanart").length > document.getElementsByClassName("moved").length) {
+    let element = document.getElementsByClassName("end-of-fanart")[0];
+    if (!element.classList.contains("moved")) {
+      element.classList.add("moved");
+      this.mainContent.append(element);
+    }
+  }
   this.mainContent.append(lastBox);
 };
