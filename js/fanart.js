@@ -7,7 +7,7 @@ function Fanart () {
 }
 
 Fanart.load = function () {
-  let request = new XMLHttpRequest();
+  let request = new XMLHttpRequest(); //this should get changed at some point. I'm 75% sure it's deprecated
   
   request.onload = () => {
     if (request.status < 400) {
@@ -30,8 +30,8 @@ Fanart.setData = function () {
   
   for (let i = 0; i < this.fanartData.length; i++) {
     let output = document.createElement("div");
-    var credit = this.fanartData[i].credit;
-    var desc = "";
+    let credit = this.fanartData[i].credit;
+    let desc = "";
     
     output.classList.add("fart-text-box", "unselectable");
     

@@ -293,7 +293,7 @@ haha now it's edited by spax:)
     <script>
       let textBox = document.querySelector("#textBox");
       
-      var blockedText = [
+      let blockedText = [
         ".",
         ",",
         "?",
@@ -302,7 +302,7 @@ haha now it's edited by spax:)
         "_"
       ];
       
-      var peeps = [
+      let peeps = [
         "yoki",
         "claire",
         "aimottle",
@@ -312,7 +312,7 @@ haha now it's edited by spax:)
         "spax"
       ];
       
-      var diaSys = new dialogueSys(textBox, blockedText, peeps, "loadTextBox linear", 0.125, "reverse loadTextBox linear", 0.125, "/images/faces", "/audio/dialogue");
+      let diaSys = new dialogueSys(textBox, blockedText, peeps, "loadTextBox linear", 0.125, "reverse loadTextBox linear", 0.125, "/images/faces", "/audio/dialogue");
       
       diaSys.whenTypingFunc = function () {
         bgm.volume = bgm.volume / 2;
@@ -322,13 +322,13 @@ haha now it's edited by spax:)
         bgm.volume = bgm.volume * 2;
       };
       
-      var diaIndex = 0;
-      var diaNextValid = false;
-      var spaxFixed = false;
-      var bgm = new Audio("https://calmbubbles.github.io/zerasGift/audio/bgm/Yoki's House_Game.ogg");
+      let diaIndex = 0;
+      let diaNextValid = false;
+      let spaxFixed = false;
+      let bgm = new Audio("https://calmbubbles.github.io/zerasGift/audio/bgm/Yoki's House_Game.ogg");
       bgm.loop = true;
       bgm.volume = 0.75;
-      var se = new Audio();
+      let se = new Audio();
       se.volume = 0.75;
       
       window.onload = () => {
@@ -597,24 +597,24 @@ haha now it's edited by spax:)
         let ElA = document.querySelectorAll(".spaxDayEA");
         let ElB = document.body;
         
-        var varA = 1;
-        var varB = 1;
+        let letA = 1;
+        let letB = 1;
         
         switch (sceneCode) {
           case 0:
             let intervalA = setInterval(() => {
-              if (varA >= 1 && varA <= 5) {
-                ElB.classList.remove(`spaxDayEB${varA}`);
-                if (varA != 5) {
-                  ElB.classList.add(`spaxDayEB${varA + 1}`);
+              if (letA >= 1 && letA <= 5) {
+                ElB.classList.remove(`spaxDayEB${letA}`);
+                if (letA != 5) {
+                  ElB.classList.add(`spaxDayEB${letA + 1}`);
                 }
               }
-              else if (varA == 6) {
+              else if (letA == 6) {
                 for (let i = 0; i < ElA.length; i++) {
                   ElA[i].classList.remove("spaxDayEA");
                 }
               }
-              else if (varA == 7) {
+              else if (letA == 7) {
                 ElB.classList.remove("spaxDayECbody");
                 document.querySelector(".text-box").classList.remove("spaxDayECtext-box");
                 ElA[1].classList.remove("spaxDayECtext-boximg");
@@ -632,14 +632,14 @@ haha now it's edited by spax:)
                 clearInterval(intervalA);
               }
               
-              varA++;
+              letA++;
             }, 1000);
             break;
           case 1:
-            var intervalB;
-            var intervalC;
+            let intervalB;
+            let intervalC;
             
-            var bgPos = 0;
+            let bgPos = 0;
             
             diaSys.diaBoxLine.innerHTML = "";
             
@@ -653,26 +653,26 @@ haha now it's edited by spax:)
             
             setTimeout(() => {
               intervalB = setInterval(() => {
-                if (varB >= 1 && varB <= 4) {
-                  if (varB == 1) {
+                if (letB >= 1 && letB <= 4) {
+                  if (letB == 1) {
                     se.src = "https://calmbubbles.github.io/zerasGift/audio/se/Low_rumble_1.ogg";
                   }
-                  else if (varB == 2) {
+                  else if (letB == 2) {
                     se.src = "https://calmbubbles.github.io/zerasGift/audio/se/Low_rumble_2.ogg";
                   }
-                  else if (varB == 3) {
+                  else if (letB == 3) {
                     se.src = "https://calmbubbles.github.io/zerasGift/audio/se/Static_01.ogg";
                   }
-                  else if (varB == 4) {
+                  else if (letB == 4) {
                     se.src = "https://calmbubbles.github.io/zerasGift/audio/se/Static Better.ogg";
                   }
                   
                   se.play();
                   
-                  textBox.style.animation = `shake${varB} 0.25s infinite`;
+                  textBox.style.animation = `shake${letB} 0.25s infinite`;
                   
                   intervalC = setInterval(() => {
-                    bgPos += varB / 10;
+                    bgPos += letB / 10;
                     
                     mainContent.style.backgroundPositionY = `${bgPos}%`;
                   }, 2);
@@ -701,13 +701,13 @@ haha now it's edited by spax:)
                   }, 1000);
                 }
                 
-                varB++;
+                letB++;
               }, 1500);
             }, 1500)
             break;
           case 2:
-            var newTextBox = document.createElement("div");
-            var newTextInBox = document.createElement("div");
+            let newTextBox = document.createElement("div");
+            let newTextInBox = document.createElement("div");
             
             newTextBox.classList.add("text-box", "flex-container", "unselectable", "text-box-modded", "newTextBox");
             newTextBox.setAttribute("data-disabled", "true");
@@ -752,9 +752,9 @@ haha now it's edited by spax:)
           case 4:
             mainContent.innerHTML += `<div class="giftDivMain unselectable"><div class="giftDiv"><img src="https://calmbubbles.github.io/zerasGift/img/gift.png"></div><div class="giftDivB"><img src="https://calmbubbles.github.io/zerasGift/img/gift.png"></div></div>`;
             
-            var giftBox = document.querySelector(".giftDivMain");
-            var giftBoxTop = giftBox.querySelector(".giftDiv");
-            var openedGift = false;
+            let giftBox = document.querySelector(".giftDivMain");
+            let giftBoxTop = giftBox.querySelector(".giftDiv");
+            let openedGift = false;
             
             setInterval(() => {
               giftBox.onmouseenter = () => {

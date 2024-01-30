@@ -55,6 +55,6 @@ customElements.define("content-header",class extends e{constructor(){super(),thi
 let Switcher = document.getElementById("Switcher");
 
 Switcher.addEventListener ("click", function() {
-  var TheSelect = document.getElementsByClassName("text-box").classList;
+  let TheSelect = document.getElementsByClassName("text-box").classList;
   TheSelect.toggle("unselectable");
 });

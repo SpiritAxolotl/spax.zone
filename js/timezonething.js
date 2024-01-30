@@ -1,11 +1,11 @@
-var d;
+let d;
 
-var SpaxTime;
-var MathewTime;
-var CalmTime;
-var minutes=0;
-var final=[];
-var text=[];
+let SpaxTime;
+let MathewTime;
+let CalmTime;
+let minutes=0;
+let final=[];
+let text=[];
 
 function requestUpdate() {
   requestAnimationFrame(update.bind(this));
