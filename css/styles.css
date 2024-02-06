@@ -96,8 +96,6 @@ pre {
   float: left;
   pointer-events: none;
   user-select: none;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
   image-rendering: pixelated;
   -ms-interpolation-mode: nearest-neighbor;
 }
@@ -308,7 +306,6 @@ audio {
   min-height: 100%;
   height: auto;
   image-rendering: pixelated;
-  image-rendering: -webkit-optimize-contrast;
   -ms-interpolation-mode: nearest-neighbor;
 }
 
@@ -322,7 +319,6 @@ audio {
 
 .pixelated {
   image-rendering: pixelated;
-  image-rendering: -webkit-optimize-contrast;
   -ms-interpolation-mode: nearest-neighbor;
 }
 
