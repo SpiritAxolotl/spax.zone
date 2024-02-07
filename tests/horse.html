@@ -53,8 +53,8 @@
 <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
 <script>
 twemoji.parse(document.body, {
-  folder: 'svg',
-  ext: '.svg'
+  folder: "svg",
+  ext: ".svg"
 });
 
 async function checkProtocol(domain) {
@@ -85,12 +85,11 @@ async function readTextFile(link) {
   try {
     const response = await fetch(link);
     
-    if (!response.ok) {
+    if (!response.ok)
       throw new Error(`Failed to fetch the file. Status: ${response.status}`);
-    }
 
     const text = await response.text();
-    const lines = text.split('\n');
+    const lines = text.split("\n");
     
     return lines;
   } catch (error) {
@@ -99,16 +98,14 @@ async function readTextFile(link) {
   }
 }
 
-const fileLink = "/misc/horse.txt";
-let horseLinks = [];
-readTextFile(fileLink)
+let horseLinks = ["horse"];
+readTextFile("/misc/horse.txt")
   .then(lines => {
     horseLinks = lines;
   })
   .catch(error => console.error("Error:", error));
 
 document.getElementById("horsebutton").onclick = function() {
-  //for (const horseDomain in horseLinks)
   const horseDomain = horseLinks[Math.floor(Math.random()*horseLinks.length)];
   const win = window.open(`http://${horseDomain}`, "_blank");
   win.focus();
