@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="The Horse Button™">
+  <meta property="og:description" content="Press it if you dare">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://spax.zone/images/misc/horse.png" type="image/png">
+  <link rel="icon" href="/images/misc/horse.png"></link>
+  <title>The Horse Button™</title>
+  <style>
+    @font-face {
+      font-family: Twemoji;
+      src:
+        url("../fonts/Twemoji.otf") format("opentype"),
+        url(https://spax.zone/fonts/Twemoji.otf) format("opentype")
+      ;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    * {
+      font-family: Twemoji, Arial;
+    }
+    #horsebutton {
+      font-size: 3em;
+      padding: 0.5em 1em;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <button id="horsebutton">🐴</button>
+</body>
+<script>
+async function checkProtocol(domain) {
+  let http = false;
+  let https = false;
+  try {
+    const httpResponse = await fetch(`http://${domain}`, { method: "HEAD" });
+    if (httpResponse.ok)
+      http = true;
+  } catch (error) {
+    // HTTP request failed
+  }
+
+  try {
+    const httpsResponse = await fetch(`https://${domain}`, { method: "HEAD" });
+    if (httpsResponse.ok)
+      https = true;
+  } catch (error) {
+    // HTTPS request failed
+  }
+  
+  if (https) return "https";
+  if (http) return "http";
+  return "http";
+}
+
+async function readTextFile(link) {
+  try {
+    const response = await fetch(link);
+    
+    if (!response.ok) {
+      throw new Error(`Failed to fetch the file. Status: ${response.status}`);
+    }
+
+    const text = await response.text();
+    const lines = text.split('\n');
+    
+    return lines;
+  } catch (error) {
+    console.error("Error:", error.message);
+    return [];
+  }
+}
+
+const fileLink = "/misc/horse.txt";
+let horseLinks = [];
+readTextFile(fileLink)
+  .then(lines => {
+    horseLinks = lines;
+  })
+  .catch(error => console.error("Error:", error));
+
+document.getElementById("horsebutton").onclick = function() {
+  //for (const horseDomain in horseLinks)
+  const horseDomain = horseLinks[Math.floor(Math.random()*horseLinks.length)];
+  const win = window.open(`http://${horseDomain}`, '_blank');
+  win.focus();
+  /*checkProtocol(horseDomain)
+    .then(http => {
+      const win = window.open(`${http}://${horseDomain}`, '_blank');
+      win.focus();
+    })
+    .catch(error => console.error("Error:", error));*/
+}
+
+</script>
+</html>
