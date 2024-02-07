@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#c1694f">
   <meta property="og:title" content="The Horse Button™">
   <meta property="og:description" content="Press it if you dare">
   <meta property="og:type" content="website">
@@ -15,15 +16,15 @@
       font-family: Twemoji;
       src:
         url("../fonts/Twemoji.otf") format("opentype"),
-        url(https://spax.zone/fonts/Twemoji.otf) format("opentype")
-      ;
+        url(https://spax.zone/fonts/Twemoji.otf) format("opentype");
     }
     body {
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: hsl(14, 48%, 53%); /*#c1694f*/
+      background-color: #c1694f;
       height: 100vh;
+      width: 100vw;
       margin: 0;
       overscroll-behavior: none;
       flex-direction: column;
@@ -56,6 +57,7 @@ twemoji.parse(document.body, {
   folder: 'svg',
   ext: '.svg'
 });
+
 async function checkProtocol(domain) {
   let http = false;
   let https = false;
@@ -109,15 +111,14 @@ readTextFile(fileLink)
 document.getElementById("horsebutton").onclick = function() {
   //for (const horseDomain in horseLinks)
   const horseDomain = horseLinks[Math.floor(Math.random()*horseLinks.length)];
-  const win = window.open(`http://${horseDomain}`, '_blank');
+  const win = window.open(`http://${horseDomain}`, "_blank");
   win.focus();
   /*checkProtocol(horseDomain)
     .then(http => {
-      const win = window.open(`${http}://${horseDomain}`, '_blank');
+      const win = window.open(`${http}://${horseDomain}`, "_blank");
       win.focus();
     })
     .catch(error => console.error("Error:", error));*/
 }
-
 </script>
 </html>
