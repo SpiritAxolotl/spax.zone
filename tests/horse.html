@@ -22,6 +22,11 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      background-color: hsl(14, 48%, 53%); /*#c1694f*/
+      height: 100vh;
+      margin: 0;
+      overscroll-behavior: none;
+      flex-direction: column;
     }
     /** {
       font-family: Twemoji, Arial;
@@ -29,6 +34,9 @@
     #horsebutton {
       font-size: 3em;
       padding: 0.5em 1em;
+      border: black solid;
+      border-radius: 0.2em;
+      background-color: #eee;
       cursor: pointer;
     }
     img.emoji {
@@ -40,7 +48,7 @@
   </style>
 </head>
 <body>
-  <button id="horsebutton">🐴</button>
+  <button id="horsebutton" title="The Horse Button™">🐴</button>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
 <script>
