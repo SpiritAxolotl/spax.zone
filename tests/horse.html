@@ -70,12 +70,15 @@
       margin: 0 .05em 0 .1em;
       vertical-align: -0.1em;
     }
+    .glow {
+      text-shadow: 0 0 0.2em #ff0000;
+    }
   </style>
 </head>
 <body>
   <h1>The Horse Button™</h1>
   <button id="horsebutton" title="The Horse Button™"><div>🐴</div></button>
-  <p>Please click at your own risk.</p>
+  <p>Please click <span class="glow">The Horse Button™</span> at your own risk.</p>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
 <script>
