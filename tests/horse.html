@@ -73,9 +73,27 @@
     .glow {
       text-shadow: 0 0 0.2em #ff0000;
     }
+    #noscript {
+      font-size: 2em;
+      /*padding: 0 5em;*/
+      text-align: center;
+    }
   </style>
 </head>
 <body>
+  <noscript>
+    <style>
+      *:not(html, body, style, *:has(> #noscript) *, head *) {
+        display: none;
+      }
+    </style>
+    <div id="noscript">
+      <p>
+        <span class="glow">The Horse Button™</span> requires javascript.<br>
+        Sorry, I don't make the rules. <b>The horse does.</b>
+      </p>
+    </div>
+  </noscript>
   <h1>The Horse Button™</h1>
   <button id="horsebutton" title="The Horse Button™"><div>🐴</div></button>
   <p>Please click <span class="glow">The Horse Button™</span> at your own risk.</p>
