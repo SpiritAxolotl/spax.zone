@@ -31,13 +31,38 @@
       overscroll-behavior: none;
       flex-direction: column;
     }
+    h1, p {
+      font-family: Times, serif;
+    }
     #horsebutton {
+      background: none;
+      border: none;
       font-size: 3em;
-      padding: 0.5em 1em;
-      border: 0.075em solid black;
-      border-radius: 0.2em;
-      background-color: #eee;
+      font-family: inherit;
       cursor: pointer;
+      > div {
+        border: 0.075em solid black;
+        border-radius: 0.2em;
+        background-color: #eee;
+        padding: 0.5em 1em;
+        pointer-events: none;
+        transition: all 0.15s ease;
+      }
+      &:hover > div {
+        background-color: #ddd;
+        transform: scale(0.96);
+      }
+      &:active > div {
+        background-color: #aaa;
+        transform: scale(0.94);
+      }
+      + p {
+        opacity: 0;
+        transition: opacity 0.1s ease;
+      }
+      &:hover + p, &:active + p {
+        opacity: 1;
+      }
     }
     img.emoji {
       height: 1em;
@@ -48,7 +73,9 @@
   </style>
 </head>
 <body>
-  <button id="horsebutton" title="The Horse Button™">🐴</button>
+  <h1>The Horse Button™</h1>
+  <button id="horsebutton" title="The Horse Button™"><div>🐴</div></button>
+  <p>Please click at your own risk.</p>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
 <script>
