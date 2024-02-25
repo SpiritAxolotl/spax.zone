@@ -146,14 +146,20 @@ async function readTextFile(link) {
 }
 
 let horseLinks = ["horse"];
+let horseLinksLength = 1;
 readTextFile("/misc/horse.txt")
   .then(lines => {
-    horseLinks = lines;
+    //remove trailing \r stuff (it doesn't make a difference but it annoys me)
+    horseLinks = lines.map(link => link.replace("\r", ""));
+    horseLinksLength = horseLinks.length;
   })
   .catch(error => console.error("Error:", error));
 
 document.getElementById("horsebutton").onclick = function() {
-  const horseDomain = horseLinks[Math.floor(Math.random()*horseLinks.length)];
+  if (!horseLinks.length)
+    return alert(`Congrats! You went to all ${horseLinksLength} .horse links! We are proud of you!! 🐴`);
+  const random = Math.floor(Math.random()*horseLinks.length);
+  const horseDomain = horseLinks.splice(random, 1)[0];
   console.log(horseDomain);
   const win = window.open(`http://${horseDomain}`, "_blank");
   win.focus();
