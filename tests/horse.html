@@ -154,6 +154,7 @@ readTextFile("/misc/horse.txt")
 
 document.getElementById("horsebutton").onclick = function() {
   const horseDomain = horseLinks[Math.floor(Math.random()*horseLinks.length)];
+  console.log(horseDomain);
   const win = window.open(`http://${horseDomain}`, "_blank");
   win.focus();
   /*checkProtocol(horseDomain)
