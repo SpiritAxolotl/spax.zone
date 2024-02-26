@@ -319,7 +319,6 @@ badidea.horse
 baffling.horse
 bajablast.horse
 balanz.horse
-balls.horse
 balneodomainedumoulin.horse
 banana.horse
 bananafacts.horse
@@ -544,7 +543,6 @@ caliente.horse
 california.horse
 caligulaandthe.horse
 callme.horse
-cam4.horse
 camila.horse
 camilah.horse
 canaveral.horse
@@ -3465,8 +3463,6 @@ xosodaiphat.horse
 xram.horse
 xray.horse
 xrays.horse
-xvideo.horse
-xvideos.horse
 yahoo.horse
 yandex.horse
 yang.horse
