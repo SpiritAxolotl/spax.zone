@@ -22,8 +22,7 @@ In no particular order:
 - lostdusty
 - jj
 - norom
-And strangely enough:
-- amber
+- amber (somehow)
 
 And thank *you* for reading.
 \-Spax
