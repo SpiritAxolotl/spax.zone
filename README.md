@@ -16,6 +16,7 @@ In no particular order:
 - CalmBubbles
 - 1LikeBananas
 - HeySora
+- Sudospective
 - oatmealine
 - niko
 - marbelynrye
