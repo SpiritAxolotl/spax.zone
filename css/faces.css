@@ -450,10 +450,6 @@ article[who=youngeryoki][emotion=neutral]::before {
   background-image: url('../images/faces/youngeryoki/Neutral.png');
 }
 
-article[who=youngeryoki][emotion=smile]::before {
-  background-image: url('../images/faces/youngeryoki/Smile.png');
-}
-
 article[who=youngeryoki][emotion=sigh]::before {
   background-image: url('../images/faces/youngeryoki/Sigh.png');
 }
