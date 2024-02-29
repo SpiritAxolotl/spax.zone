@@ -1,0 +1,97 @@
+@import url("faces.css");
+
+@font-face {
+  font-family: DEP;
+  src:
+    url("../fonts/DEP/DEP.ttf") format("truetype"),
+    url("../fonts/DEP/DEP.woff") format("woff"),
+    url("../fonts/DEP/DEP.woff2") format("woff2"),
+    url("../fonts/DEP/DEP.otf") format("opentype"),
+    url(https://spax.zone/fonts/DEP/DEP.ttf)format("truetype"),
+    url(https://spax.zone/fonts/DEP/DEP.woff)format("woff"),
+    url(https://spax.zone/fonts/DEP/DEP.woff2)format("woff2"),
+    url(https://spax.zone/fonts/DEP/DEP.otf)format("opentype");
+}
+
+html,
+body {
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  image-rendering: pixelated;
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+}
+
+:root {
+  --c1: #e0f8cf;
+  --c2: #86c06c;
+  --c3: #306850;
+  --c4: #071821;
+}
+
+body {
+  overflow-y: scroll;
+  font-family: DEP;
+  font-size: 21px;
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: column;
+  align-items: center;
+  gap: 5px;
+  perspective: 550px;
+  background: repeat #306850 url("../images/bg/background_yoki.png");
+  background-size: 43.815em, auto;
+  image-rendering: pixelated;
+}
+
+article {
+  border: 3px solid var(--c1);
+  letter-spacing: 4.5px;
+  line-height: 23px;
+  background: black;
+  padding: 15px;
+  color: var(--c1);
+  height: fit-content;
+  overflow: hidden;
+  width: 100%;
+  flex-shrink: 0;
+  max-width: 564px;
+  min-height: 97px;
+
+  &:first-of-type {
+    margin-top: 5px;
+  }
+
+  &:last-of-type {
+    margin-bottom: 5px;
+  }
+}
+
+a {
+  &:link {
+    color: var(--c2);
+  }
+
+  &:visited {
+    color: var(--c2);
+  }
+
+  &:hover {
+    color: var(--c1);
+  }
+
+  &:active {
+    color: var(--c3);
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  article {
+    /* minus padding (30px total) + border (6px total) */
+    width: calc(100% - 36px);
+  }
+}
