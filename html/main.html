@@ -10,97 +10,45 @@
   <meta property="og:title" content="spax.zone">
   <meta property="og:description" content="a webbed site for a webbed creachure">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="/images/faces/spax/Smirk.png" type="image/png">
-  <link rel="icon" href="https://spax.zone/images/icons/Smirk_Circle.png"></link>
+  <meta property="og:image" content="https://spax.zone/images/faces/spax/Smirk.png" type="image/png">
+  <link rel="icon" href="/images/icons/Smirk_Circle.png"></link>
   <!--bootstrap (remove this in the future)   remved :thumbsup: -marbelynrye -->
-  <!-- <link rel="canonical" href="https://spax.zone/images/faces"/> i don't understand this -->
-  <style>
-    @font-face {
-      font-family: DEP;
-      src:
-        url("../fonts/DEP/DEP.ttf") format("truetype"),
-        url("../fonts/DEP/DEP.woff") format("woff"),
-        url("../fonts/DEP/DEP.woff2") format("woff2"),
-        url("../fonts/DEP/DEP.otf") format("opentype"),
-        url(https://spax.zone/fonts/DEP/DEP.ttf)format("truetype"),
-        url(https://spax.zone/fonts/DEP/DEP.woff)format("woff"),
-        url(https://spax.zone/fonts/DEP/DEP.woff2)format("woff2"),
-        url(https://spax.zone/fonts/DEP/DEP.otf)format("opentype")
-      ;
-    }
-    html,body{
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      padding: 0;
-      margin: 0;
-      overflow: hidden;
-      image-rendering: pixelated;
-        font-smooth: never;
-        -webkit-font-smoothing : none;
-    }
-    :root{
-        --c1:#e0f8cf;
-    }
-    body{
-      overflow-y: scroll;
-      font-family: DEP;
-      font-size: 21px;
-      display: flex;
-      justify-content: flex-start;
-      flex-flow: column;
-      align-items: center;
-      gap: 9px;
-      perspective: 550px;
-    background: url("../images/bg/background_yoki.png")
-    /* removed parralaxed css because it sucks */
-    }
-    article{
-        border: 3px solid var(--c1);
-        background: black;
-        padding: 20px;
-        color: var(--c1);
-        height: fit-content;
-        overflow: hidden;
-        width: 50%;
-        flex-shrink: 0;
-    }
-    article[who]::before{
-        display: block;
-        float: left;
-        aspect-ratio: 1/1;
-        height: 97px;
-        content: "";
-        background: var(--faucetsink) center/100% 100%;
-        margin-right: 1em;
-    }
-  </style>
+  <link rel="canonical" href="https://spax.zone/html/main"/>
+  <link rel="stylesheet" href="/css/experimental.css"/>
 </head>
 <body>
     <article>
       <a href="../html/sitelist">Click here</a> to see my full site list!<br>
       -Spax
     </article>
-    <article who="claire" emotion="Neutral">
-      <span>Hey</span> nerds. It's me, Claire.
+    <article who="claire" emotion="neutral">
+      Hey nerds. It's me, Claire.
     </article>
-    <article who="claire" emotion="Happy">
+    <article who="claire" emotion="happy">
       I am now on a website. Woo!
     </article>
-    <article who="claire" emotion="Sigh">
+    <article who="claire" emotion="sigh">
       Anyways it's time to refactor pretty much the entire site.
     </article>
-    <article who="claire" emotion="Look">
+    <article who="claire" emotion="look">
       Spax hasn't worked on it in over two years.
     </article>
-    <article who="spax" emotion="Look">
+    <article who="spax" emotion="look">
       True...
     </article>
-    <article who="spax" emotion="Happy">
+    <article who="spax" emotion="happy">
       But keep an eye out for some new changes in the next few weeks!
     </article>
+    <!--
     <script>
-        document.querySelectorAll('article').forEach(article=>article.style.setProperty('--faucetsink',`url(../images/faces/${article.getAttribute('who')}/${article.getAttribute('emotion')}.png)`))
+      document.querySelectorAll("article")
+        .forEach(article => 
+          article.style.setProperty(
+            "--textbox-data",
+            `url(../images/faces/${article.getAttribute('who')}/${article.getAttribute('emotion')}.png)`
+          )
+        );
     </script>
+    -->
 </body>
 </html>

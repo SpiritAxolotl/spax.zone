@@ -14,17 +14,16 @@
     url(https://spax.zone/fonts/DEP/DEP.ttf)format("truetype"),
     url(https://spax.zone/fonts/DEP/DEP.woff)format("woff"),
     url(https://spax.zone/fonts/DEP/DEP.woff2)format("woff2"),
-    url(https://spax.zone/fonts/DEP/DEP.otf)format("opentype")
-  ;
+    url(https://spax.zone/fonts/DEP/DEP.otf)format("opentype");
 }
 
 
 :root {
---green1: #e0f8cf;
---green2: #86c06c;
---green3: #306850;
---green4: #071821;
---red:    #ff0000;
+  --green1: #e0f8cf;
+  --green2: #86c06c;
+  --green3: #306850;
+  --green4: #071821;
+  --red: #ff0000;
 }
 
 /*
@@ -35,7 +34,8 @@ var(--green3)
 var(--green4)
 */
 
-body, html {
+body,
+html {
   width: 100%;
   height: 100%;
 }
@@ -54,7 +54,7 @@ body {
   background-size: auto;*/
 }
 
-pre { 
+pre {
   /* Sort of fixes issue #40. 
   Thing is, this causes overflow to occur in 
   textboxes with more than 1 space, 
@@ -62,17 +62,20 @@ pre {
 
   /* This also overwrites font-size in bootstrap.min.css:6 */
   font-family: DEP;
-  font-size: 21px; /* Same as textbox's width*/
+  font-size: 21px;
+  /* Same as textbox's width*/
   line-height: 21px;
 }
 
 .text-box {
-  position: relative; /* Needed to set this otherwise the arrow would go to the bottom of the bg id */
+  position: relative;
+  /* Needed to set this otherwise the arrow would go to the bottom of the bg id */
 
   border-width: 3px;
   border-style: solid;
   border-color: var(--green1);
-  border-radius: 0px; /*normally 4px*/
+  border-radius: 0px;
+  /*normally 4px*/
   background-color: black;
   font-family: DEP;
   color: var(--green1);
@@ -102,19 +105,26 @@ pre {
 
 
 .text-box .arrow {
-  position: absolute; /* Needed to center the arrow image in the first place */
-  margin: 0; /* Needed so the arrow image centers properly without being offset by the margin */
+  position: absolute;
+  /* Needed to center the arrow image in the first place */
+  margin: 0;
+  /* Needed so the arrow image centers properly without being offset by the margin */
 
   /* Tweak this if you can or want to. The current settings don't look right atm.  */
   width: 12px;
   height: 12px;
 
-  top: 89.5%; /* Use this to tweak the height of the arrow from the bottom of the text box */
-  left: 50%; /* DONT TOUCHA THE CHILD */
-  transform: translateX(-50%) translateY(-50%); /* YOU A TOUCHA THE CHILD?! */
+  top: 89.5%;
+  /* Use this to tweak the height of the arrow from the bottom of the text box */
+  left: 50%;
+  /* DONT TOUCHA THE CHILD */
+  transform: translateX(-50%) translateY(-50%);
+  /* YOU A TOUCHA THE CHILD?! */
 
-  animation: arrowGlide 1s; /* setting the speed of the animation */
-  animation-iteration-count: infinite; /* infinity */
+  animation: arrowGlide 1s;
+  /* setting the speed of the animation */
+  animation-iteration-count: infinite;
+  /* infinity */
 }
 
 /* Animation for arrow stuff */
@@ -209,7 +219,7 @@ pre {
 
 
 .flex-container {
-  /* Fixes issue #13 */ 
+  /* Fixes issue #13 */
   /* display: flex; */
   flex-direction: row;
   flex-wrap: wrap;
@@ -253,6 +263,7 @@ pre {
 div .small {
   font-size: 8px;
 }
+
 div .large {
   font-size: 25px;
 }
@@ -283,9 +294,7 @@ iframe {
 }
 
 .gradient {
-  background: linear-gradient(
-    to right, var(--green1), #000, #000
-  );
+  background: linear-gradient(to right, var(--green1), #000, #000);
   background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
@@ -323,14 +332,16 @@ audio {
 }
 
 @media only screen and (max-width: 600px) {
-  .text-box, 
-  .desc-text-box, 
+
+  .text-box,
+  .desc-text-box,
   .title-text-box {
     transform: translate(0%, 0%);
     min-width: 0px;
   }
-  .flex-container, 
-  .desc-flex-container, 
+
+  .flex-container,
+  .desc-flex-container,
   .title-flex-container {
     width: 100%;
   }
@@ -347,6 +358,7 @@ audio {
   .fart-text-box {
     min-width: 0px;
   }
+
   .fart-flex-container {
     width: 100%;
   }
@@ -355,15 +367,19 @@ audio {
 a {
   text-decoration: underline;
 }
+
 a:link {
   color: var(--green2);
 }
+
 a:visited {
   color: var(--green2);
 }
+
 a:hover {
   color: var(--green1);
 }
+
 a:active {
   color: var(--green3);
 }
