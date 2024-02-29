@@ -24,6 +24,7 @@ body {
   image-rendering: pixelated;
   font-smooth: never;
   -webkit-font-smoothing: none;
+  scrollbar-color: #e0f8cf #86c06c;
 }
 
 :root {
@@ -34,7 +35,7 @@ body {
 }
 
 body {
-  overflow-y: scroll;
+  overflow-y: auto;
   font-family: DEP;
   font-size: 21px;
   display: flex;
