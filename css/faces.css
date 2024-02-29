@@ -309,7 +309,7 @@ article[who=prince][emotion=head-turn]::before {
 }
 
 article[who=prince][emotion=look-down]::before {
-  background-image: url('../images/faces/prince/Look-Down.png');
+  background-image: url('../images/faces/prince/Look_Down.png');
 }
 
 article[who=prince][emotion=look]::before {
