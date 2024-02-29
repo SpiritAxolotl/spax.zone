@@ -169,7 +169,7 @@ article[who=charles][emotion=sweat-drop]::before {
 /* claire */
 
 article[who=claire]::before {
-  background-image: url('../images/faces/claire/Happy.png');
+  background-image: url('../images/faces/claire/Neutral.png');
 }
 
 article[who=claire][emotion=aghast]::before {

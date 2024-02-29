@@ -61,6 +61,7 @@ article {
   flex-shrink: 0;
   max-width: 564px;
   min-height: 97px;
+  user-select: none;
 
   &:first-of-type {
     margin-top: 5px;
