@@ -32,9 +32,10 @@ body {
   --c3: #306850;
   --c4: #071821;
 }
-
+html{
+  overflow-y: auto;
+}
 body {
-  overflow-y: scroll;
   font-family: DEP;
   font-size: 21px;
   display: flex;
@@ -44,8 +45,11 @@ body {
   gap: 5px;
   perspective: 550px;
   background: repeat #306850 url("../images/bg/background_yoki.png");
-  background-size: 43.815em, auto;
+  background-size: 960px;
   image-rendering: pixelated;
+  scrollbar-color: #e0f8cf #86c06c;
+  height:fit-content;
+  min-height:100vh;
 }
 
 article {
@@ -73,11 +77,7 @@ article {
 }
 
 a {
-  &:link {
-    color: var(--c2);
-  }
-
-  &:visited {
+  &:is(:link,:visited) {
     color: var(--c2);
   }
 
