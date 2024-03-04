@@ -33,6 +33,10 @@ body {
   --c4: #071821;
 }
 
+html {
+  background-color: var(--c3);
+}
+
 body {
   font-family: DEP;
   font-size: 21px;
@@ -44,18 +48,18 @@ body {
   perspective: 550px;
   background-size: 960px;
   image-rendering: pixelated;
-/*   height: fit-content; */
-/*   min-height: 100vh; */
-  &::before{
-    display:block;
-    position:fixed;
-    width:100%;
-    height:100%;
-  background: repeat #306850 url("../images/bg/background_yoki.png") 960px;
-    transform:translateZ(-400px) scale(3);
-    content: '';
+  /* height: fit-content; */
+  /* min-height: 100vh; */
+  &::before {
+    display: inline;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: repeat #306850 url("../images/bg/background_yoki.png") 960px;
+    transform: translateZ(-400px) scale(3);
+    content: "";
     transform-style: flat;
-    z-index: -2
+    z-index: -2;
   }
 }
 
@@ -78,7 +82,7 @@ body > *:first-child {
   margin-top: 5px;
 }
 
-body > *:last-of-type(article) {
+body > article:last-of-type {
   margin-bottom: 5px;
 }
 
