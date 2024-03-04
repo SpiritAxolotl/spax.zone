@@ -32,9 +32,11 @@ body {
   --c3: #306850;
   --c4: #071821;
 }
-html{
+
+html {
   overflow-y: auto;
 }
+
 body {
   overflow-y: auto;
   font-family: DEP;
@@ -48,9 +50,23 @@ body {
   background: repeat #306850 url("../images/bg/background_yoki.png");
   background-size: 960px;
   image-rendering: pixelated;
-  scrollbar-color: #e0f8cf #86c06c;
   height: fit-content;
   min-height: 100vh;
+}
+
+@supports (scrollbar-color: auto) {
+  body {
+    scrollbar-color: #86c06c #e0f8cf;
+  }
+}
+
+@supports selector(::-webkit-scrollbar) {
+  body::-webkit-scrollbar {
+    background: #86c06c;
+  }
+  body::-webkit-scrollbar-thumb {
+    background: #e0f8cf;
+  }
 }
 
 body > *:first-child {
