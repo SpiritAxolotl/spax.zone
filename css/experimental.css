@@ -20,7 +20,7 @@ body {
   height: 100vh;
   padding: 0;
   margin: 0;
-  overflow: hidden;
+  overflow: hidden auto;
   image-rendering: pixelated;
   font-smooth: never;
   -webkit-font-smoothing: none;
@@ -33,12 +33,7 @@ body {
   --c4: #071821;
 }
 
-html {
-  overflow-y: auto;
-}
-
 body {
-  overflow-y: auto;
   font-family: DEP;
   font-size: 21px;
   display: flex;
@@ -67,14 +62,6 @@ body {
   body::-webkit-scrollbar-thumb {
     background: #e0f8cf;
   }
-}
-
-body > *:first-child {
-  margin-top: 5px;
-}
-
-body > *:last-of-type(article) {
-  margin-bottom: 5px;
 }
 
 body > *:first-child {
