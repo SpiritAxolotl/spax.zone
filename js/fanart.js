@@ -2,11 +2,11 @@ window.onload = () => {
   Fanart.load();
 };
 
-function Fanart () {
+function Fanart() {
   ThrowError(1);
 }
 
-Fanart.load = function () {
+Fanart.load = function() {
   let request = new XMLHttpRequest(); //this should get changed at some point. I'm 75% sure it's deprecated
   
   request.onload = () => {
@@ -29,43 +29,32 @@ Fanart.load = function () {
 };
 
 Fanart.setData = function () {
-  this.mainContent = document.querySelector("#bg");
-  
-  for (let fanart of this.fanartData) {
-    let output = document.createElement("div");
+  for (const fanart of this.fanartData) {
+    let output = document.createElement("article");
+    output.setAttribute("type", "art");
     let credit = fanart.credit;
     let desc = "";
     
-    output.classList.add("fart-text-box", "unselectable");
-    
     if (!fanart.visible) output.style.display = "none";
-    
     if (fanart.link !== null) credit = `<a href="${fanart.link}" target="_blank">${fanart.credit}</a>`;
-    
     if (fanart.desc !== null) desc = `<br>${fanart.desc}`;
     
-    let innerContent = document.createElement("div");
+    output.innerHTML = `${fanart.content}<br>${fanart.type} by ${credit}${desc}`;
     
-    innerContent.innerHTML = `${fanart.content}<br>${fanart.type} by ${credit}${desc}`;
-    
-    output.append(innerContent);
-    this.mainContent.append(output);
-    
+    document.body.appendChild(output);
   }
   
-  let lastBox = document.createElement("div");
-  
-  lastBox.classList.add("text-box", "flex-container", "unselectable");
-  lastBox.innerHTML = `<div>(<a href="/html/main">Click here</a> to go back to the main page!)</div>`;
+  let lastBox = document.createElement("article");
+  lastBox.innerHTML = `(<a href="/html/main">Click here</a> to go back to the main page!)`;
   
   while (document.getElementsByClassName("end-of-fanart").length > document.getElementsByClassName("moved").length) {
     let element = document.getElementsByClassName("end-of-fanart")[0];
     if (!element.classList.contains("moved")) {
       element.classList.add("moved");
-      this.mainContent.append(element);
+      document.body.appendChild(element);
     }
   }
   while (document.getElementsByClassName("moved").length > 0)
     document.getElementsByClassName("moved")[0].classList.remove("moved");
-  this.mainContent.append(lastBox);
+    document.body.appendChild(lastBox);
 };

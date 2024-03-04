@@ -1,48 +1,45 @@
 <!DOCTYPE HTML>
-<html manifest="manifest">
+<html manifest="manifest" lang="en-US">
   <head>
     <meta charset="utf-8">
+    <title>Mojo's Arrow Advice!</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="theme-color" content="#306850">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="My create project from 2022.">
     <meta property="og:title" content="Mojo's Arrow Advice!">
-    <meta property="og:description" content="My create project.">
+    <meta property="og:description" content="My create project from 2022.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="/images/faces/spax/Smirk.png" type="image/png">
     <link rel="icon" href="https://spax.zone/images/icons/Smirk_Circle.png"></link>
-    <!--bootstrap-->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <script src="/js/bootstrap.min.js"></script>
-    <!---->
-    <link rel="stylesheet" href="/css/styles.css" type=text/css>
+    <link rel="stylesheet" href="/css/experimental.css" type=text/css>
     <link rel="canonical" href="https://spax.zone/html/MojoArrowAdvice"/>
-    <title>Mojo's Arrow Advice!</title>
   </head>
   <body>
-    <div id="bg">
-      <iframe class="snap" width="720" height="540" frameBorder=0 src="https://snap.berkeley.edu/embed?projectname=Mojo%20Arrow%20Advice%E2%84%A2&username=daveyyyyyyy&pauseButton=true"></iframe>
-      <div class="text-box flex-container unselectable">
-          <div>
-            Controls:<br>
-            Enter = Submit Chart<br>
-            Space = Clear Chart<br>
-            Arrow Keys = Input Chart<br>
-            Click = You'll figure it out<br>
-            C = Toggle "Censor Mode"<br>
-            <br>
-            Enjoy!
-          </div>
-        </div>
-      </div>
-    <script src="/js/scrollparallax.js" type=text/javascript></script>
-    <script>
-      const frame = document.getElementById('snap');
-      frame.contentWindow.postMessage('*', 'https://snap.berkeley.edu');
-      window.addEventListener('message', event => {
-        if (event.origin === 'https://spax.zone') {
-          console.log(event.data);
-        }
-      });
-    </script>
+    <iframe
+      class="snap"
+      width="720"
+      height="540"
+      frameBorder=0
+      src="https://snap.berkeley.edu/embed?projectname=Mojo%20Arrow%20Advice%E2%84%A2&username=daveyyyyyyy&pauseButton=true"
+    ></iframe>
+    <article>
+      Controls:<br>
+      Enter = Submit Chart<br>
+      Space = Clear Chart<br>
+      Arrow Keys = Input Chart<br>
+      Click = You'll figure it out<br>
+      C = Toggle "Censor Mode"<br>
+      <br>
+      Enjoy!
+    </article>
+  <script>
+    const frame = document.getElementById('snap');
+    frame.contentWindow.postMessage('*', 'https://snap.berkeley.edu');
+    window.addEventListener('message', event => {
+      if (event.origin === 'https://spax.zone')
+        console.log(event.data);
+    });
+  </script>
   </body>
 </html>
