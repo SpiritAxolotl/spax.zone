@@ -34,7 +34,7 @@ body {
 }
 
 body {
-  overflow-y: scroll;
+  overflow-y: auto;
   font-family: DEP;
   font-size: 21px;
   display: flex;
@@ -46,6 +46,14 @@ body {
   background: repeat #306850 url("../images/bg/background_yoki.png");
   background-size: 43.815em, auto;
   image-rendering: pixelated;
+}
+
+body > *:first-child {
+  margin-top: 5px;
+}
+
+body > *:last-of-type(article) {
+  margin-bottom: 5px;
 }
 
 article {
@@ -62,37 +70,54 @@ article {
   max-width: 564px;
   min-height: 97px;
   user-select: none;
-
-  &:first-of-type {
-    margin-top: 5px;
-  }
-
-  &:last-of-type {
-    margin-bottom: 5px;
-  }
 }
 
 a {
   &:link {
     color: var(--c2);
   }
-
+  
   &:visited {
     color: var(--c2);
   }
-
+  
   &:hover {
     color: var(--c1);
   }
-
+  
   &:active {
     color: var(--c3);
   }
 }
+
+
 
 @media only screen and (max-width: 650px) {
   article {
     /* minus padding (30px total) + border (6px total) */
     width: calc(100% - 36px);
   }
+}
+
+article[type=art] {
+  & > img {
+    width: 100%;
+    /*height: 100px;*/
+    /* margin: 0px 17.5px 7.5px 0px; */
+    padding: 0;
+    image-rendering: auto;
+  }
+}
+
+article[type=description] {
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-decoration: underline;
+  min-height: 0;
+}
+
+article[type=title] {
+  font-size: 25px;
+  letter-spacing: 1px;
+  min-height: 0;
 }
