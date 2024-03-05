@@ -64,7 +64,7 @@ body {
   }
 }
 
-body > *:first-child {
+body > *:first-of-type(article) {
   margin-top: 5px;
 }
 
