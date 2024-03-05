@@ -34,7 +34,6 @@ haha now it's edited by spax:)
     
     <link rel="preload" href="https://calmbubbles.github.io/zerasGift/img/gift.png" as="image">
     
-    
     <link rel="preload" href="/audio/dialogue/yoki.ogg" as="audio">
     <link rel="preload" href="/audio/dialogue/claire.ogg" as="audio">
     <link rel="preload" href="/audio/dialogue/aimottle.ogg" as="audio">
@@ -52,7 +51,6 @@ haha now it's edited by spax:)
     <link rel="preload" href="https://calmbubbles.github.io/zerasGift/audio/bgm/Zera_Game.ogg" as="audio">
     <link rel="preload" href="https://calmbubbles.github.io/zerasGift/audio/bgm/The Manor Sinking Into A Shadow_Game.ogg" as="audio">
     
-
     <title>Happy Birthday Spax</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
@@ -62,16 +60,27 @@ haha now it's edited by spax:)
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://calmbubbles.github.io/zerasGift/img/giftBox.png" type="image/png">
     <link rel="icon" href="https://calmbubbles.github.io/zerasGift/img/giftBox.png">
-    
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <!--
+    <link rel="stylesheet" href="/css/bootstrap.css">
     <script src="/bootstrap.min.js"></script>
     
     <link rel="stylesheet" href="/css/styles.css" type=text/css>
+    -->
+    
+    <link rel="stylesheet" href="/css/experimental.css" type=text/css>
     <link rel="canonical" href="https://spax.zone/html/spaxDay"/>
     
     <style>
       :root {
         --pixel-unit: 10px;
+      }
+      
+      html, body {
+        box-sizing: border-box;
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+        overscroll-behavior: none;
       }
       
       .text-box-modded {
@@ -87,6 +96,7 @@ haha now it's edited by spax:)
         -ms-interpolation-mode: bicubic;
       }
       
+      /*
       .spaxDayEB1 {
         margin-top: 2.5px;
         margin-bottom: 2.5px;
@@ -113,6 +123,7 @@ haha now it's edited by spax:)
       .spaxDayEB5 {
         letter-spacing: 3px;
       }
+      */
       
       .spaxDayECbody {
         line-height: 27px;
@@ -167,17 +178,20 @@ haha now it's edited by spax:)
       }
       
       #tip {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
+        margin: 0;
+        box-sizing: border-box;
+        position: absolute;
+        width: 100%;
+        height: 100%;
         z-index: 420;
         display: flex;
+        align-items: center;
+        justify-content: center;
         flex-direction: column;
         background: #071821;
         color: #e0f8cf;
         pointer-events: all;
+        user-select: none;
       }
       
       #tip div {
@@ -272,26 +286,23 @@ haha now it's edited by spax:)
   </head>
   
   <body class="spaxDayECbody spaxDayEB1">
-    <div id="bg" class="spaxDayEA">
-      <div id="tip" class="unselectable">
-        <div>
-          <script>
-          let tip = document.querySelector("#tip");
-          let tipText = tip.querySelector("div");
-          
-          tipText.innerHTML = "Interact with the page<br>(press Z to progress the text)";
-          </script>
-
-          <noscript>This page requires JavaScript to work</noscript>
-        </div>
+    <div id="tip" class="unselectable">
+      <div>
+        <script>
+        let tip = document.querySelector("#tip");
+        let tipText = tip.querySelector("div");
+        
+        tipText.innerHTML = "Interact with the page<br>(press Z to progress the text)<br>NOTE: This page is currently broken. It does not work as intended yet.";
+        </script>
+        
+        <noscript>This page requires JavaScript to work</noscript>
       </div>
-      
-      <div id="textBox" class="text-box flex-container unselectable spaxDayECtext-body text-box-modded"></div>
-      
-      <!--For Debugging on mobile <button onclick="incIndex();" style="position:relative; width:100%; height:250px;">NEXT</button>-->
     </div>
     
-    <script src="https://calmbubbles.github.io/js-plugins-modified/spax/dialogueSys.js"></script>
+    <article id="textBox" class="spaxDayECtext-body text-box-modded"></article>
+    
+    <!--For Debugging on mobile <button onclick="incIndex();" style="position:relative; width:100%; height:250px;">NEXT</button>-->
+    <script src="/js/plugins/dialogueSys.js"></script>
     <script>
       let textBox = document.querySelector("#textBox");
       
@@ -314,13 +325,13 @@ haha now it's edited by spax:)
         "spax"
       ];
       
-      let diaSys = new dialogueSys(textBox, blockedText, peeps, "loadTextBox linear", 0.125, "reverse loadTextBox linear", 0.125, "/images/faces", "/audio/dialogue");
+      let diaSys = new dialogueSys(textBox, blockedText, peeps, "loadTextBox linear", 0.125, "reverse loadTextBox linear", 0.125, "/audio/dialogue");
       
-      diaSys.whenTypingFunc = function () {
+      diaSys.whenTypingFunc = function() {
         bgm.volume = bgm.volume / 2;
       };
       
-      diaSys.notTypingFunc = function () {
+      diaSys.notTypingFunc = function() {
         bgm.volume = bgm.volume * 2;
       };
       
@@ -378,7 +389,7 @@ haha now it's edited by spax:)
       }
       
       // holy fuck calm you literally made a whole-ass dialogue system-
-      function runDia (dialogueCode) {
+      function runDia(dialogueCode) {
         diaNextValid = false;
         
         switch (dialogueCode) {
@@ -416,14 +427,14 @@ haha now it's edited by spax:)
             });
             break;
           case 6:
-          diaSys.clearBox();
+            diaSys.clearBox();
             diaSys.typeOnBox("Well no", 0.75, "spax", "Worried", () => {
               diaSys.typeOnBox("... ", 0.025, "spax", "Worried", () => {
                 diaSys.typeOnBox("but- ", 0.75, "spax", "Worried", () => {
                   bgm.pause();
                   diaSys.clearBox();
                   diaSys.typeOnBox("... ", 0.025, "spax", "Pensive", () => { runScene(0); });
-                 });
+                });
               });
             });
             break;
@@ -611,12 +622,10 @@ haha now it's edited by spax:)
                   ElB.classList.add(`spaxDayEB${letA + 1}`);
                 }
               }
-              else if (letA == 6) {
-                for (let i = 0; i < ElA.length; i++) {
+              else if (letA === 6)
+                for (let i = 0; i < ElA.length; i++)
                   ElA[i].classList.remove("spaxDayEA");
-                }
-              }
-              else if (letA == 7) {
+              else if (letA === 7) {
                 ElB.classList.remove("spaxDayECbody");
                 document.querySelector(".text-box").classList.remove("spaxDayECtext-box");
                 ElA[1].classList.remove("spaxDayECtext-boximg");
@@ -650,24 +659,20 @@ haha now it's edited by spax:)
             diaSys.charIndex = 0;
             
             bgm.pause();
-            bgm.src = "https://calmbubbles.github.io/zerasGift/audio/bgm/The Manor Sinking Into A Shadow_Game.ogg";
+            bgm.src = "https://calmbubbles.github.io/zerasGift/audio/bgm/The%20Manor%20Sinking%20Into%20A%20Shadow_Game.ogg";
             se.loop = true;
             
             setTimeout(() => {
               intervalB = setInterval(() => {
                 if (letB >= 1 && letB <= 4) {
-                  if (letB == 1) {
+                  if (letB === 1)
                     se.src = "https://calmbubbles.github.io/zerasGift/audio/se/Low_rumble_1.ogg";
-                  }
-                  else if (letB == 2) {
+                  else if (letB === 2)
                     se.src = "https://calmbubbles.github.io/zerasGift/audio/se/Low_rumble_2.ogg";
-                  }
-                  else if (letB == 3) {
+                  else if (letB === 3)
                     se.src = "https://calmbubbles.github.io/zerasGift/audio/se/Static_01.ogg";
-                  }
-                  else if (letB == 4) {
-                    se.src = "https://calmbubbles.github.io/zerasGift/audio/se/Static Better.ogg";
-                  }
+                  else if (letB === 4)
+                    se.src = "https://calmbubbles.github.io/zerasGift/audio/se/Static%20Better.ogg";
                   
                   se.play();
                   
@@ -685,7 +690,7 @@ haha now it's edited by spax:)
                   clearInterval(intervalC);
                   
                   se.loop = false;
-                  se.src = "https://calmbubbles.github.io/zerasGift/audio/se/Crush 1.ogg";
+                  se.src = "https://calmbubbles.github.io/zerasGift/audio/se/Crush%201.ogg";
                   se.play();
                   
                   textBox.setAttribute("data-disabled", true);
@@ -789,6 +794,5 @@ haha now it's edited by spax:)
         }
       }
     </script>
-    <script src="/js/scrollparallax.js"></script>
   </body>
 </html>
