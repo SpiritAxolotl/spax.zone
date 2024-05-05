@@ -25,7 +25,7 @@ In no particular order:
 - norom
 - amber (somehow)
 
-And thank *you* for reading.
+And thank *you* for reading.  
 \-Spax
 
 ---
