@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>.ooo explorer</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    body {
+      margin-top: 30px;
+      background-color: #38b97d;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      font-family: "Arial";
+    }
+    h1, h2, h3, h4, h5, h6 {
+      text-align: center;
+      margin: 0;
+    }
+    button {
+      background-color: #70e78c;
+      border: solid black 2px;
+      color: black;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+    iframe {
+      border-style: solid;
+      width: 640px;
+      height: 480px;
+      background-color: white;
+    }
+    #buttoncontainer {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+    }
+    #notablescontainer {
+      display: flex;
+      flex-direction: row;
+    }
+  </style>
+</head>
+<body>
+  <h1>.ooo explorer</h1>
+  <div>
+    <h3>o1</h3>
+    <h4>(<a id="ooolink" target="_blank"></a>)</h4>
+  </div>
+  <iframe referrerpolicy="no-referrer" id="ooo" href="http://o.ooo">
+    <p>Your browser does not support iframes :(</p>
+  </iframe>
+  <div id="buttoncontainer">
+    <button onclick="last()">&lt;</button>
+    <button onclick="next()">&gt;</button>
+  </div>
+  <button onclick="random()">Random</button>
+  <div id="notablescontainer">
+    <input type="checkbox" id="notables" name="notables" checked />
+    <label for="notables">Notable sites only</label>
+  </div>
+  <script>
+const frame = document.querySelector("iframe");
+const notables = document.querySelector("#notables");
+const h3 = document.querySelector("h3");
+const ooolink = document.querySelector("#ooolink");
+const validooos = [
+  /*9,*/ 10, 14, 17, 19, 21,
+  23, 27, /*29,*/ 31, 34, /*37,*/
+  38, 45, 47, 48, 52, 57
+]; //.sort((a,b) => a-b).filter(i => i<=63 && i>=1)
+
+const o = (n) => {
+  console.log(n);
+  frame.src = `http://${"o".repeat(n)}.ooo/`;
+  h3.innerHTML = `o${n}`;
+  ooolink.href = frame.src;
+  ooolink.innerHTML = frame.src;
+};
+
+const get = () => {
+  return frame.src.match(/(?<=(?:https?:\/\/)?(?:.+\.)?)(o+)(?=\.ooo\b)/g)?.[0].length;
+};
+
+const last = () => {
+  const index = bSearch(validooos, get());
+  if (notables.checked)
+    o(validooos[mod(Math.ceil(index)-1,validooos.length)]);
+  else
+    o(mod(get(), 63)-1);
+};
+
+const next = () => {
+  const index = bSearch(validooos, get());
+  if (notables.checked)
+    o(validooos[mod(Math.floor(index)+1,validooos.length)]);
+  else
+    o(mod(get(), 63)+1);
+};
+
+const random = () => {
+  const curr = get();
+  let rand = curr;
+  while (rand === curr)
+    if (notables.checked)
+      rand = validooos[Math.floor(Math.random()*validooos.length)];
+    else
+      rand = Math.floor(Math.random()*62 + 1);
+  o(rand);
+};
+
+//modified so that it returns the middle of an index if it's not found
+const bSearch = (arr, target, min, max) => {
+  min ??= 0;
+  max ??= arr.length - 1;
+  const mid = Math.floor(((max - min) / 2) + min);
+  if (max <= min && arr[mid] !== target)
+    if (arr[mid] < target)
+      return mid + 0.5;
+    else
+      return mid - 0.5;
+  else if (arr[mid] === target)
+    return mid;
+  else if (arr[mid] < target)
+    return bSearch(arr, target, mid + 1, max);
+  else
+    return bSearch(arr, target, min, mid - 1);
+};
+
+const mod = (n, d) => {
+  return ((n % d) + d) % d;
+};
+
+random();
+  </script>
+</body>
+</html>
