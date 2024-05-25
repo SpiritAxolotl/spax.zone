@@ -1903,7 +1903,7 @@ const animalList = [
   "Peppered Moth",
   "Peppermint Angelfish",
   "Perch Fish",
-  "P",
+  //"P", //why the fuck is there a p here
   "Peregrine Falcon",
   "Peringuey",
   "Perro De Presa Canario",

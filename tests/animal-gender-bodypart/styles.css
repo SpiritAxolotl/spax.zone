@@ -3,6 +3,11 @@
   --desaturated-red: rgb(34, 0, 0);
 }
 
+@font-face {
+  font-family: "Lexend";
+  src: url("/fonts/Lexend-VariableFont_wght.ttf") format("truetype");
+}
+
 html {
   background-color: var(--desaturated-red);
 }
@@ -15,6 +20,7 @@ html, body {
 * {
   box-sizing: border-box;
   font-family: Lexend;
+  text-align: center;
 }
 
 body {
@@ -43,11 +49,12 @@ h1 {
   font-size: 3rem;
 }
 
-#the-button {
+#spin-button {
+  font-size: 2rem;
+}
+button {
   background: none;
   border: none;
-  font-size: 2rem;
-  font-family: inherit;
   cursor: pointer;
   & > div {
     border: 0.075em solid white;
@@ -74,7 +81,7 @@ h1 {
 
 #username {
   visibility: hidden;
-  margin-top: 2rem;
+  margin: 2rem 0;
   font-size: 2rem;
   & > span {
     opacity: 0;
@@ -92,8 +99,11 @@ h1 {
     &#gender {
       transition-delay: 0.25s;
     }
-    &#part {
+    &#bodypart {
       transition-delay: 0.5s;
+    }
+    &.separator {
+      transition-delay: 0.65s;
     }
   }
 }
@@ -112,4 +122,27 @@ h1 {
   & > a {
     color: gray;
   }
+}
+
+#animal, #gender, #bodypart {
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+}
+#animal {
+  text-decoration-color: red;
+}
+#gender {
+  text-decoration-color: green;
+}
+#bodypart {
+  text-decoration-color: blue;
+}
+
+.separator {
+  white-space: pre;
+}
+
+#optionscontainer {
+  display: flex;
+  flex-direction: column;
 }
