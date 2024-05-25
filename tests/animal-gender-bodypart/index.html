@@ -31,10 +31,6 @@
     const separatorspans = Array.from(document.querySelectorAll(`.separator`));
     const separators = [
       {
-        name: "Nothing",
-        char: ""
-      },
-      {
         name: "Dash",
         char: "-"
       },
@@ -45,9 +41,13 @@
       {
         name: "Space",
         char: " "
+      },
+      {
+        name: "Nothing",
+        char: ""
       }
     ];
-    const defaultseparator = "-";
+    const defaultseparator = separators[0].char; //dash by default
     let separator = defaultseparator;
     //because the % operator is REMAINDER not MODULO
     const mod = (n, d) => {
