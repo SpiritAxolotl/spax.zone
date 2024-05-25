@@ -18,7 +18,7 @@
     <br>
     made by <a href="https://cohost.org/Spax" target="_blank">@Spax</a>
     <br>
-    <a href="https://github.com/SpiritAxolotl/spax.zone/blob/main/tests/animal-gender-bodypart/">v1.3.1</a>
+    <a href="https://github.com/SpiritAxolotl/spax.zone/blob/main/tests/animal-gender-bodypart/">v1.4</a>
   </div>
   <script>
     const button = document.querySelector(`#spin-button`);
@@ -55,6 +55,19 @@
     let shift = false;
     document.addEventListener('keydown', (e) => { shift = e.shiftKey; });
     document.addEventListener('keyup', (e) => { shift = e.shiftKey; });
+    const chosen = {
+      animal: "",
+      gender: "",
+      part: ""
+    };
+    const sanitize = (str) => {
+      return str.replaceAll(/\s+/g, separator);
+    };
+    const setusername = () => {
+      animalspan.innerText = sanitize(chosen.animal);
+      genderspan.innerText = sanitize(chosen.gender);
+      partspan.innerText = sanitize(chosen.part);
+    };
     const changeSeparator = (n) => {
       const custom = typeof n === "string";
       const index = separators.indexOf(separators.find(item => item.char === (custom ? n : separator)));
@@ -64,17 +77,22 @@
       separatorbutton.innerHTML = `<div>${newseparator.name}</div>`;
       separator = newseparator.char;
       document.querySelectorAll(`.separator`).forEach(e => e.innerText = separator);
+      setusername();
     };
     changeSeparator(localStorage.getItem("separator") ?? "");
-    const sanitize = (arr) => {
+    const initsanitize = (arr) => {
       return Array.from(arr)
         //.filter(item => !item.match(/\s|\-/g))
         //.map(item => !item.match(/\s|\-/g))
-        .map(item => item.toLowerCase().replaceAll(/\s+/g, separator).replaceAll(/[^\w]/g, ""));
+        .map(item => item
+          .toLowerCase()
+          //.replaceAll(/\s+/g, separator)
+          .replaceAll(/[^\w\s]/g, "")
+        );
     };
-    const animals = sanitize(animalList);
-    const genders = sanitize(genderList);
-    const parts = sanitize([...partList, ...boneList]);
+    const animals = initsanitize(animalList);
+    const genders = initsanitize(genderList);
+    const parts = initsanitize([...partList, ...boneList]);
     const random = (arr) => {
       return arr[Math.floor(Math.random()*arr.length)];
     };
@@ -95,9 +113,10 @@
     const spin = () => {
       if (!unhidden)
         hideAndPos();
-      animalspan.innerText = random(animals);
-      genderspan.innerText = random(genders);
-      partspan.innerText = random(parts);
+      chosen.animal = random(animals);
+      chosen.gender = random(genders);
+      chosen.part = random(parts);
+      setusername();
     };
   </script>
 </body>
