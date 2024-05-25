@@ -58,6 +58,7 @@ button {
   background: none;
   border: none;
   cursor: pointer;
+  width: min-content;
   & > div {
     border: 0.075em solid white;
     color: white;
@@ -146,7 +147,15 @@ button {
 
 #optionscontainer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  gap: 20px;
+  & > div {
+    width: 125px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+  }
 }
 
 .tag {
