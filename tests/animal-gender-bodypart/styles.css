@@ -45,9 +45,10 @@ button {
   cursor: pointer;
 }
 
-h1 {
+#title {
   margin-top: 5rem;
   font-size: 3rem;
+  max-width: 650px;
 }
 
 #spin-button {
