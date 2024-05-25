@@ -47,7 +47,8 @@
         char: " "
       }
     ];
-    let separator = separators[0].char;
+    const defaultseparator = "-";
+    let separator = defaultseparator;
     //because the % operator is REMAINDER not MODULO
     const mod = (n, d) => {
       return ((n % d) + d) % d;
@@ -79,7 +80,7 @@
       document.querySelectorAll(`.separator`).forEach(e => e.innerText = separator);
       setusername();
     };
-    changeSeparator(localStorage.getItem("separator") ?? "");
+    changeSeparator(localStorage.getItem("separator") ?? defaultseparator);
     const initsanitize = (arr) => {
       return Array.from(arr)
         //.filter(item => !item.match(/\s|\-/g))
