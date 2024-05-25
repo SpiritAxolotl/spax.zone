@@ -156,7 +156,7 @@ readTextFile("/misc/horse.txt")
   })
   .catch(error => console.error("Error:", error));
 
-document.getElementById("horsebutton").onclick = function() {
+document.getElementById("horsebutton").onclick = () => {
   if (!horseLinks.length)
     return alert(`Congrats! You went to all ${horseLinksLength} .horse links! We are proud of you!! 🐴`);
   const random = Math.floor(Math.random()*horseLinks.length);
