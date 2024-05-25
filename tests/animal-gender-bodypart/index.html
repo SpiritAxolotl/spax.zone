@@ -10,8 +10,14 @@
   <button id="spin-button" onclick="spin()"><div>Spin!</div></button>
   <div id="username"><span id="at">@</span><span id="animal"></span><span class="separator"></span><span id="gender"></span><span class="separator"></span><span id="bodypart"></span></div>
   <div id="optionscontainer">
-    <label for="separator-button">Separator:</label>
-    <button id="separator-button" onclick="changeSeparator()"><div>Nothing</div></button>
+    <div id="separatorcontainer">
+      <label for="separator-button">Separating Character</label>
+      <button id="separator-button" onclick="changeSeparator()"><div>Nothing</div></button>
+    </div>
+    <div id="separatecomponentscontainer">
+      <label for="separatecomponents-button">Separate Components?</label>
+      <button id="separatecomponents-button" onclick="changeSeparateComponents()"><div>Yes</div></button>
+    </div>
   </div>
   <div id="footer">
     inspired by <a href="https://cohost.org/bethposting/post/6065965-cohost-users-who-cam" target="_blank">this</a> chost
@@ -20,7 +26,7 @@
     <br>
     tag <a class="tag" href="https://cohost.org/rc/tagged/animal%20gender%20bodypart" target="_blank">#animal gender bodypart</a> when sharing!
     <br>
-    <a href="https://github.com/SpiritAxolotl/spax.zone/blob/main/tests/animal-gender-bodypart/">v1.5</a>
+    <a href="https://github.com/SpiritAxolotl/spax.zone/blob/main/tests/animal-gender-bodypart/">v1.6</a>
   </div>
   <script>
     const button = document.querySelector(`#spin-button`);
@@ -30,6 +36,7 @@
     const atspan = document.querySelector(`#at`);
     const username = document.querySelector(`#username`);
     const separatorbutton = document.querySelector(`#separator-button`);
+    const separatecomponentsbutton = document.querySelector(`#separatecomponents-button`);
     const separatorspans = Array.from(document.querySelectorAll(`.separator`));
     const separators = [
       {
@@ -83,6 +90,24 @@
       setusername();
     };
     changeSeparator(localStorage.getItem("separator") ?? defaultseparator);
+    let separatecomponents = !!localStorage.getItem("separateComponents")==="true" ?? true;
+    const changeSeparateComponents = (n) => {
+      separatecomponents = n ?? separatecomponentsbutton.innerText !== "Yes";
+      if (separatecomponents) {
+        separatecomponentsbutton.innerHTML = `<div>Yes</div>`;
+        localStorage.setItem("separateComponents", true);
+      } else {
+        separatecomponentsbutton.innerHTML = `<div>No</div>`;
+        localStorage.setItem("separateComponents", false);
+      }
+      separatorspans.forEach(e => {
+        if (separatecomponents)
+          e.style.display = "inline-block";
+        else
+          e.style.display = "none";
+      });
+    };
+    changeSeparateComponents(localStorage.getItem("separateComponents")==="true" ?? true);
     const initsanitize = (arr) => {
       return Array.from(arr)
         //.filter(item => !item.match(/\s|\-/g))
@@ -104,7 +129,7 @@
       unhidden = true;
       username.style.visibility = "visible";
       button.disabled = true;
-      const elements = [animalspan, separatorspans[0], genderspan, separatorspans[1], partspan, atspan];
+      const elements = [animalspan, genderspan, partspan, atspan, ...separatorspans];
       elements.forEach(e => {
         e.classList.add("slide");
         e.style.opacity = 1;
