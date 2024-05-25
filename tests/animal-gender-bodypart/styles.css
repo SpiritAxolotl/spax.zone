@@ -1,6 +1,7 @@
 :root {
   --desaturated-yellow: rgb(35, 35, 0);
   --desaturated-red: rgb(34, 0, 0);
+  --color-cherry: rgb(131 37 79);
 }
 
 @font-face {
@@ -145,4 +146,14 @@ button {
 #optionscontainer {
   display: flex;
   flex-direction: column;
+}
+
+.tag {
+  border: solid 3px var(--color-cherry);
+  border-radius: 20px;
+  background-color: var(--color-cherry);
+  text-decoration: none;
+  white-space: pre;
+  color: white !important;
+  font-size: 0.75rem;
 }
