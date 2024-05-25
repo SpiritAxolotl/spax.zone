@@ -4,31 +4,73 @@
   <title>Tumblr-to-Cohost Username Generator</title>
   <link rel="stylesheet" href="./styles.css" type=text/css>
   <script src="./agbplist.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
   <h1>Tumblr-to-Cohost Username Generator</h1>
-  <button id="the-button" onclick="spin()"><div>Spin!</div></button>
-  <div id="username"><span id="at">@</span><span id="animal"></span><span id="gender"></span><span id="part"></span></div>
+  <button id="spin-button" onclick="spin()"><div>Spin!</div></button>
+  <div id="username"><span id="at">@</span><span id="animal"></span><span class="separator"></span><span id="gender"></span><span class="separator"></span><span id="bodypart"></span></div>
+  <div id="optionscontainer">
+    <label for="separator-button">Separator:</label>
+    <button id="separator-button" onclick="changeSeparator()"><div>Nothing</div></button>
+  </div>
   <div id="footer">
     inspired by <a href="https://cohost.org/bethposting/post/6065965-cohost-users-who-cam" target="_blank">this</a> chost
     <br>
     made by <a href="https://cohost.org/Spax" target="_blank">@Spax</a>
     <br>
-    v1.2
+    v1.3
   </div>
   <script>
-    const button = document.querySelector(`#the-button`);
+    const button = document.querySelector(`#spin-button`);
     const animalspan = document.querySelector(`#animal`);
     const genderspan = document.querySelector(`#gender`);
-    const partspan = document.querySelector(`#part`);
+    const partspan = document.querySelector(`#bodypart`);
     const atspan = document.querySelector(`#at`);
     const username = document.querySelector(`#username`);
+    const separatorbutton = document.querySelector(`#separator-button`);
+    const separatorspans = Array.from(document.querySelectorAll(`.separator`));
+    const separators = [
+      {
+        name: "Nothing",
+        char: ""
+      },
+      {
+        name: "Dash",
+        char: "-"
+      },
+      {
+        name: "Underscore",
+        char: "_"
+      },
+      {
+        name: "Space",
+        char: " "
+      }
+    ];
+    let separator = separators[0].char;
+    //because the % operator is REMAINDER not MODULO
+    const mod = (n, d) => {
+      return ((n % d) + d) % d;
+    };
+    let shift = false;
+    document.addEventListener('keydown', (e) => { shift = e.shiftKey; });
+    document.addEventListener('keyup', (e) => { shift = e.shiftKey; });
+    const changeSeparator = (n) => {
+      const custom = typeof n === "string";
+      const index = separators.indexOf(separators.find(item => item.char === (custom ? n : separator)));
+      const dir = custom ? 0 : shift ? -1 : 1;
+      const newseparator = separators[mod(index+dir, separators.length)];
+      localStorage.setItem("separator", newseparator.char);
+      separatorbutton.innerHTML = `<div>${newseparator.name}</div>`;
+      separator = newseparator.char;
+      document.querySelectorAll(`.separator`).forEach(e => e.innerText = separator);
+    };
+    changeSeparator(localStorage.getItem("separator") ?? "");
     const sanitize = (arr) => {
       return Array.from(arr)
         //.filter(item => !item.match(/\s|\-/g))
         //.map(item => !item.match(/\s|\-/g))
-        .map(item => item.toLowerCase().replaceAll(/[^\w]/g, ""));
+        .map(item => item.toLowerCase().replaceAll(/\s+/g, separator).replaceAll(/[^\w]/g, ""));
     };
     const animals = sanitize(animalList);
     const genders = sanitize(genderList);
@@ -40,16 +82,16 @@
     const hideAndPos = () => {
       unhidden = true;
       username.style.visibility = "visible";
-      const elements = [animalspan, genderspan, partspan, atspan];
+      button.disabled = true;
+      const elements = [animalspan, separatorspans[0], genderspan, separatorspans[1], partspan, atspan];
       elements.forEach(e => {
-        button.disabled = true;
         e.classList.add("slide");
         e.style.opacity = 1;
-        setTimeout(() => {
-          button.disabled = false;
-        }, 1250);
       });
-    }
+      setTimeout(() => {
+        button.disabled = false;
+      }, 1250);
+    };
     const spin = () => {
       if (!unhidden)
         hideAndPos();
