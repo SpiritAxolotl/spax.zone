@@ -2801,7 +2801,8 @@ const animalList = [
 ];
 
 const genderList = [
-  "girl"
+  "girl",
+  "boy"
   //look i'm just preparing to scale this
 ];
 
