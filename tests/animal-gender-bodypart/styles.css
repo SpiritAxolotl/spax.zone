@@ -111,6 +111,7 @@ button {
   cursor: pointer;
   width: min-content;
   & > div {
+    user-select: none;
     border: 0.075em solid white;
     color: white;
     border-radius: 0.5rem;
