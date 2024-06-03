@@ -144,7 +144,7 @@ button {
   & > span {
     opacity: 0;
     display: inline-block;
-    transition: transform, opacity, text-decoration-color, border-color, margin;
+    transition-property: transform, opacity, text-decoration-color, border-color, margin;
     transition-duration: 0.5s, 0.5s, 0.1s, 0.1s, 0.1s;
     transition-timing-function: ease-in, ease-in, ease, ease, ease;
     &:not(#at) {
@@ -152,16 +152,16 @@ button {
     }
     &#at {
       transform: translateX(-2rem);
-      transition-delay: 0.75s, 0, 0, 0, 0;
+      transition-delay: 0.75s, 0.75s, 0s, 0s, 0s;
     }
     &#gender {
-      transition-delay: 0.25s, 0, 0, 0, 0;
+      transition-delay: 0.25s, 0.25s, 0s, 0s, 0s;
     }
     &#bodypart {
-      transition-delay: 0.5s, 0, 0, 0, 0;
+      transition-delay: 0.5s, 0.5s, 0s, 0s, 0s;
     }
     &.separator {
-      transition-delay: 0.65s, 0, 0, 0, 0;
+      transition-delay: 0.65s, 0.65s, 0s, 0s, 0s;
     }
   }
 }
