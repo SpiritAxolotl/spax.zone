@@ -44,10 +44,23 @@ const chosen = {
 const sanitize = (str) => {
   return str.replaceAll(/\s+/g, separator);
 };
-const setusername = () => {
-  animalspan.innerText = sanitize(chosen.animal);
-  genderspan.innerText = sanitize(chosen.gender);
-  partspan.innerText = sanitize(chosen.part);
+const setusername = (component) => {
+  switch (component) {
+    case "animal":
+      animalspan.innerText = sanitize(chosen.animal);
+      break;
+    case "gender":
+      genderspan.innerText = sanitize(chosen.gender);
+      break;
+    case "part":
+      partspan.innerText = sanitize(chosen.part);
+      break;
+    default:
+      animalspan.innerText = sanitize(chosen.animal);
+      genderspan.innerText = sanitize(chosen.gender);
+      partspan.innerText = sanitize(chosen.part);
+      break;
+  }
 };
 const changeSeparator = (n) => {
   const custom = typeof n === "string";
@@ -144,7 +157,7 @@ const spin = (component) => {
       chosen.part = random(genitalbodypart ? genitals : bodyparts);
       break;
   }
-  setusername();
+  setusername(component);
 };
 
 animalspan.addEventListener("click", () => {
