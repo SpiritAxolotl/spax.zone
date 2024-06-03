@@ -144,24 +144,24 @@ button {
   & > span {
     opacity: 0;
     display: inline-block;
-    transition: transform, opacity;
-    transition-duration: 0.5s;
-    transition-timing-function: ease-in;
+    transition: transform, opacity, text-decoration-color, border-color, margin;
+    transition-duration: 0.5s, 0.5s, 0.1s, 0.1s, 0.1s;
+    transition-timing-function: ease-in, ease-in, ease, ease, ease;
     &:not(#at) {
       transform: translateY(-2rem);
     }
     &#at {
       transform: translateX(-2rem);
-      transition-delay: 0.75s;
+      transition-delay: 0.75s, 0, 0, 0, 0;
     }
     &#gender {
-      transition-delay: 0.25s;
+      transition-delay: 0.25s, 0, 0, 0, 0;
     }
     &#bodypart {
-      transition-delay: 0.5s;
+      transition-delay: 0.5s, 0, 0, 0, 0;
     }
     &.separator {
-      transition-delay: 0.65s;
+      transition-delay: 0.65s, 0, 0, 0, 0;
     }
   }
 }
@@ -184,18 +184,20 @@ button {
   }
 }
 
-#animal, #gender, #bodypart {
-  text-decoration-line: underline;
-  text-decoration-style: solid;
+#at, #animal, #gender, #bodypart {
   border-radius: 8px;
   border-style: solid;
   border-width: 3px;
   border-color: transparent;
   margin: 0 -3px;
-  cursor: pointer;
+  &:not(#at) {
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    cursor: pointer;
+  }
   &:hover {
     margin: 0;
-    text-decoration: none;
+    text-decoration-color: transparent;
   }
 }
 #animal {
