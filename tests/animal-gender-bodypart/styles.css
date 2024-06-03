@@ -71,7 +71,7 @@ html, body {
 }
 
 * {
-  box-sizing: c-box;
+  box-sizing: border-box;
   font-family: Lexend;
   text-align: center;
 }
@@ -138,7 +138,7 @@ button {
 
 #username {
   visibility: hidden;
-  margin: 2rem 0;
+  margin: 2rem 0 1rem;
   font-size: 2rem;
   & > span {
     opacity: 0;
