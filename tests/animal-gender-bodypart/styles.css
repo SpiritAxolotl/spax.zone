@@ -157,13 +157,13 @@ button {
   text-decoration-style: solid;
 }
 #animal {
-  text-decoration-color: red;
+  text-decoration-color: var(--color-mango);
 }
 #gender {
-  text-decoration-color: lightgreen;
+  text-decoration-color: var(--color-strawberry);
 }
 #bodypart {
-  text-decoration-color: lightskyblue;
+  text-decoration-color: var(--color-cherry);
 }
 
 .separator {
