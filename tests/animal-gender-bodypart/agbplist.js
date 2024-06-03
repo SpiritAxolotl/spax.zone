@@ -3409,6 +3409,7 @@ const vaginaList = [
   "zanja"
 ];
 
+//list is from https://en.wiktionary.org/wiki/Thesaurus:breasts
 const breastList = [
   "asset",
   "babylon",
