@@ -99,7 +99,7 @@ body {
 #copy-button {
   opacity: 0;
   margin-bottom: 2rem;
-  transition-property: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
   & > div {
     transition: background-color 0.25s ease-out;
   }
