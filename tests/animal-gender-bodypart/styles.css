@@ -1,13 +1,36 @@
 :root {
-  --desaturated-yellow: rgb(35, 35, 0);
-  --desaturated-red: rgb(34, 0, 0);
-  --color-notWhite: rgb(255 249 242);
-  --color-notBlack: rgb(25 25 25);
-  --color-cherry: rgb(131 37 79);
-  --color-strawberry: rgb(229 107 111);
-  --color-mango: rgb(255 171 92);
-  --color-longan: rgb(255 216 168);
-  --black: rgba(0,0,0,0.2);
+  --desaturated-yellow: 35 35 0;
+  --desaturated-red: 34 0 0;
+  --color-notWhite: 255 249 242;
+  --color-notBlack: 25 25 25;
+  --color-cherry: 131 37 79;
+  --color-strawberry: 229 107 111;
+  --color-mango: 255 171 92;
+  --color-longan: 255 216 168;
+  --disabled-opacity: 1;
+  --ease-pop: linear(
+    0,
+    0.706317972392746,
+    0.8965057166577356,
+    0.9793806636722006,
+    1,
+    0.984375,
+    0.9393441861213596,
+    0.8748402979258557,
+    0.7968939703624319,
+    0.7102310913533709,
+    0.618718433538229,
+    0.5256230677729052,
+    0.43377413477523075,
+    0.3456693009583003,
+    0.2635479083582337,
+    0.1894430570778458,
+    0.12521980673998806,
+    0.07260391260118129,
+    0.03320391543176782,
+    0.008528445051707747,
+    0
+  );
 }
 
 @font-face {
@@ -16,7 +39,7 @@
 }
 
 html {
-  background: linear-gradient(to bottom, var(--color-strawberry), var(--color-mango));
+  background: linear-gradient(to bottom, rgb(var(--color-strawberry)), rgb(var(--color-mango)));
 }
 html::after {
   content: "";
@@ -48,7 +71,7 @@ html, body {
 }
 
 * {
-  box-sizing: border-box;
+  box-sizing: c-box;
   font-family: Lexend;
   text-align: center;
 }
@@ -64,10 +87,6 @@ body {
   flex-direction: column;
 }
 
-button {
-  cursor: pointer;
-}
-
 #title {
   /* margin-top: 5rem; */
   font-size: 3rem;
@@ -77,6 +96,15 @@ button {
 #spin-button {
   font-size: 2rem;
 }
+#copy-button {
+  opacity: 0;
+  margin-bottom: 2rem;
+  transition-property: opacity 0.5s ease;
+  & > div {
+    transition: background-color 0.25s ease-out;
+  }
+}
+
 button {
   background: none;
   border: none;
@@ -100,8 +128,11 @@ button {
     transform: scale(0.94);
   }
   &:disabled > div {
-    background-color: black;
+    background-color: rgb(17, 17, 17, 0.9);
     transform: scale(1);
+  }
+  &:disabled {
+    cursor: default;
   }
 }
 
@@ -148,22 +179,41 @@ button {
   & > a:not(.tag) {
     color: white;
     margin: 1px;
-    /* background-color: var(--color-mango); */
+    /* background-color: rgb(var(--color-mango)); */
   }
 }
 
 #animal, #gender, #bodypart {
   text-decoration-line: underline;
   text-decoration-style: solid;
+  border-radius: 8px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: transparent;
+  margin: 0 -3px;
+  cursor: pointer;
+  &:hover {
+    margin: 0;
+    text-decoration: none;
+  }
 }
 #animal {
-  text-decoration-color: var(--color-mango);
+  text-decoration-color: rgb(var(--color-mango));
+  &:hover {
+    border-color: rgb(var(--color-mango));
+  }
 }
 #gender {
-  text-decoration-color: var(--color-strawberry);
+  text-decoration-color: rgb(var(--color-strawberry));
+  &:hover {
+    border-color: rgb(var(--color-strawberry));
+  }
 }
 #bodypart {
-  text-decoration-color: var(--color-cherry);
+  text-decoration-color: rgb(var(--color-cherry));
+  &:hover {
+    border-color: rgb(var(--color-cherry));
+  }
 }
 
 .separator {
@@ -184,11 +234,21 @@ button {
 }
 
 .tag {
-  border: solid 3px var(--color-cherry);
+  border: solid 3px rgb(var(--color-cherry));
   border-radius: 20px;
-  background-color: var(--color-cherry);
+  background-color: rgb(var(--color-cherry));
   text-decoration: none;
   white-space: pre;
   color: white !important;
   font-size: 0.75rem;
+}
+
+.flashgreen > div {
+  transition-timing-function: var(--ease-pop) !important;
+  background-color: rgb(86, 126, 86) !important;
+}
+
+.flashred > div {
+  transition-timing-function: var(--ease-pop) !important;
+  background-color: rgb(147, 46, 46) !important;
 }

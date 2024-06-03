@@ -5,6 +5,7 @@ const partspan = document.querySelector(`#bodypart`);
 const atspan = document.querySelector(`#at`);
 const username = document.querySelector(`#username`);
 const separatorbutton = document.querySelector(`#separator-button`);
+const copybutton = document.querySelector(`#copy-button`);
 const separatecomponentsbutton = document.querySelector(`#separatecomponents-button`);
 const genitalbodypartbutton = document.querySelector(`#genitalbodypart-button`);
 const separatorspans = Array.from(document.querySelectorAll(`.separator`));
@@ -120,13 +121,56 @@ const hideAndPos = () => {
   });
   setTimeout(() => {
     button.disabled = false;
+    copybutton.style.opacity = 1;
+    copybutton.disabled = false;
   }, 1250);
 };
-const spin = () => {
+const spin = (component) => {
   if (!unhidden)
     hideAndPos();
-  chosen.animal = random(animals);
-  chosen.gender = random(genders);
-  chosen.part = random(genitalbodypart ? genitals : bodyparts);
+  switch (component) {
+    case "animal":
+      chosen.animal = random(animals);
+      break;
+    case "gender":
+      chosen.gender = random(genders);
+      break;
+    case "part":
+      chosen.part = random(genitalbodypart ? genitals : bodyparts);
+      break;
+    default:
+      chosen.animal = random(animals);
+      chosen.gender = random(genders);
+      chosen.part = random(genitalbodypart ? genitals : bodyparts);
+      break;
+  }
   setusername();
 };
+
+animalspan.addEventListener("click", () => {
+  spin("animal");
+});
+genderspan.addEventListener("click", () => {
+  spin("gender");
+});
+partspan.addEventListener("click", () => {
+  spin("part");
+});
+
+copybutton.addEventListener("click", () => {
+  try {
+    writeClipboardText(username.innerText);
+  } catch (e) {}
+});
+
+async function writeClipboardText(text) {
+  try {
+      await navigator.clipboard.writeText(text);
+      copybutton.classList.add(`flashgreen`);
+      setTimeout(() => { copybutton.classList.remove(`flashgreen`) }, 250);
+  } catch (error) {
+      console.error(error.message);
+      copybutton.classList.add(`flashred`);
+      setTimeout(() => { copybutton.classList.remove(`flashred`) }, 250);
+  }
+}
