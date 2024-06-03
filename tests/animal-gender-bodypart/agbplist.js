@@ -2878,7 +2878,7 @@ const partList = [
   "Seminal vesicles",
   "Prostate",
   "Bulbourethral glands",
-  "Penis", //maybe add synonyms for this one??
+  "Penis",
   "Scrotum",
   "Pituitary gland",
   "Pineal gland",
@@ -3207,6 +3207,7 @@ const penisList = [
   "cockshaft",
   "glans",
   "glans penis",
+  "gock",
   "foreskin",
   "piss slit",
   "prepuce",
