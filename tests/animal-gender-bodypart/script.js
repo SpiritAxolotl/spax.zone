@@ -6,6 +6,7 @@ const atspan = document.querySelector(`#at`);
 const username = document.querySelector(`#username`);
 const separatorbutton = document.querySelector(`#separator-button`);
 const separatecomponentsbutton = document.querySelector(`#separatecomponents-button`);
+const genitalbodypartbutton = document.querySelector(`#genitalbodypart-button`);
 const separatorspans = Array.from(document.querySelectorAll(`.separator`));
 const separators = [
   {
@@ -59,7 +60,7 @@ const changeSeparator = (n) => {
   setusername();
 };
 changeSeparator(localStorage.getItem("separator") ?? defaultseparator);
-let separatecomponents = !!localStorage.getItem("separateComponents")==="true" ?? true;
+let separatecomponents = localStorage.getItem("separateComponents")==="true" ?? true;
 const changeSeparateComponents = (n) => {
   separatecomponents = n ?? separatecomponentsbutton.innerText !== "Yes";
   if (separatecomponents) {
@@ -77,6 +78,18 @@ const changeSeparateComponents = (n) => {
   });
 };
 changeSeparateComponents(localStorage.getItem("separateComponents")==="true" ?? true);
+let genitalbodypart = localStorage.getItem("genitalBodypart")==="true" ?? false;
+const changeGenitalBodypart = (n) => {
+  genitalbodypart = n ?? genitalbodypartbutton.innerText !== "Yes";
+  if (genitalbodypart) {
+    genitalbodypartbutton.innerHTML = `<div>Yes</div>`;
+    localStorage.setItem("genitalBodypart", true);
+  } else {
+    genitalbodypartbutton.innerHTML = `<div>No</div>`;
+    localStorage.setItem("genitalBodypart", false);
+  }
+};
+changeGenitalBodypart(localStorage.getItem("genitalBodypart")==="true" ?? false);
 const initsanitize = (arr) => {
   return Array.from(arr)
     //.filter(item => !item.match(/\s|\-/g))
@@ -89,7 +102,9 @@ const initsanitize = (arr) => {
 };
 const animals = initsanitize(animalList);
 const genders = initsanitize(genderList);
-const parts = initsanitize([...partList, ...boneList]);
+const bodyparts = initsanitize([...partList, ...boneList]);
+const genitals = initsanitize([...penisList, ...vaginaList, ...breastList]);
+//const parts = genitalbodypart ? genitals : bodyparts;
 const random = (arr) => {
   return arr[Math.floor(Math.random()*arr.length)];
 };
@@ -112,6 +127,6 @@ const spin = () => {
     hideAndPos();
   chosen.animal = random(animals);
   chosen.gender = random(genders);
-  chosen.part = random(parts);
+  chosen.part = random(genitalbodypart ? genitals : bodyparts);
   setusername();
 };
