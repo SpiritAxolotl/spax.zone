@@ -194,9 +194,11 @@ button {
     text-decoration-line: underline;
     text-decoration-style: solid;
     cursor: pointer;
+    &:hover {
+      margin: 0;
+    }
   }
   &:hover {
-    margin: 0;
     text-decoration-color: transparent;
   }
 }
