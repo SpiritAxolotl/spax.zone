@@ -99,9 +99,9 @@ body {
 #copy-button {
   opacity: 0;
   margin-bottom: 2rem;
-  transition: opacity 0.5s ease;
+  transition: inherit, inherit, opacity 0.5s ease;
   & > div {
-    transition: background-color 0.25s ease-out;
+    transition: inherit, inherit, background-color 0.25s ease-out;
   }
 }
 
