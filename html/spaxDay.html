@@ -1465,7 +1465,7 @@ DialogueLoop.Append(() => {
 diaManager.Once(DialogueEvent.Load, async () => {
   let loaded = false;
 
-  const vid = await fetch("/watchtillend.mp4");
+  const vid = await fetch("https://calmbubbles.github.io/zerasGift/video/watchtillend.mp4");
   const vidBlob = await vid.blob();
   
   giftVid = await URL.createObjectURL(vidBlob);
