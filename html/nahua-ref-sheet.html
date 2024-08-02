@@ -2,45 +2,94 @@
 <html manifest="manifest" lang="en-US">
   <head>
     <meta charset="utf-8">
-    <title>Nahua &quot;Ref&quot; Sheet</title>
+    <title>Nahua Ref Sheet</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="theme-color" content="#306850">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="A collection of refs for Nahua!">
-    <meta property="og:title" content="Nahua &quot;Ref&quot; Sheet">
-    <meta property="og:description" content="A collection of refs for Nahua!">
+    <meta name="description" content="Nahua's ref sheet!">
+    <meta property="og:title" content="Nahua Ref Sheet">
+    <meta property="og:description" content="Nahua's ref sheet!">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://spax.zone/images/faces/spax/Smirk.png" type="image/png">
     <link rel="icon" href="/images/icons/Smirk_Circle.png"></link>
     <link rel="stylesheet" href="/css/experimental.css" type=text/css>
     <link rel="canonical" href="https://spax.zone/html/nahua-ref-sheet"/>
+    <style>
+      #colors {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        & > div {
+          display: flex;
+          justify-content: center;
+          flex-direction: row;
+          gap: 10px;
+          & > div {
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+          }
+        }
+      }
+      #ref {
+        min-width: 600px;
+        width: 75%;
+        max-width: revert;
+      }
+    </style>
   </head>
   <body>
-    <article who="spax" emotion="smirk">
-      Hey! Here's my character &quot;Nahua&quot;!
+    <article type="art" id="ref">
+      !! Scroll down for clarifications !!
+      <img src="/images/art/nahua-bananas-refsheet.png">
+      Artist: 1LikeBananas
     </article>
-    <article who="spax" emotion="look">
-      No real ref sheet yet...
+    <article>
+      Extra clarifications:<br>
+      1. She has four fingers, not three.<br>
+      2. Yes, her gills (or <a href="https://en.wikipedia.org/wiki/External_gills">rami</a>) are stylized like that.<br>
+      3. Lore reasons for the minor transformative powers will be explained when I'm bothered to write it.<br>
+      If you need any other clarifications, <a href="https://cohost.org/Spax/ask">feel free to reach out and ask</a>!
     </article>
-    <article who="spax" emotion="smirk">
-      Until then, here are a collection of separate reference images:
+    <article>
+      If you got javascript enabled<noscript> (you don't)</noscript>, you can copy the hex colors by clicking on its respective square:<br>
+      <div id="colors">
+        <div>
+          <div style="background-color:#b0e4fa;"></div>
+          <div style="background-color:#d6fcfd;"></div>
+          <div style="background-color:#1b4050;"></div>
+        </div>
+        <div>
+          <div style="background-color:#f7d371;"></div>
+          <div style="background-color:#fdfbe5;"></div>
+          <div style="background-color:#ee8782;"></div>
+          <div style="background-color:#ede0be;"></div>
+        </div>
+      </div>
     </article>
-    <!--This is where fanart.js inserts stuff-->
-    <article class="end-of-fanart">
-      Other notes not described on the ref images:<br>
-      1. Nahua is female. She goes by she/her pronouns, and is aromantic.<br>
-      2. Nahua is <u>FLAT</u>.<br>
-      3. If it wasn't obvious, she's an <a href="https://en.wikipedia.org/wiki/Axolotl">axolotl</a>.<br>
-      4. She's 19 years old.
+    <article type="short">
+      Last updated: August 2nd, 2024
     </article>
-    <article class="end-of-fanart">
-      Final clarifications:<br>
-      1. The finned part of her tail goes along her spine, as seen in the valentine's day image.<br>
-      2. She has four fingers, not three.<br>
-      3. She has a full head of hair. She isn't mostly bald like early art depicts her as.<br>
-      4. Yes, her gills (or <a href="https://en.wikipedia.org/wiki/External_gills">rami</a>) are stylized like that.<br>
-      5. Her headphones are optional? I guess? She'll just look weird without them.
-    </article>
-    <script src="/js/fanart.js"></script>
+    <!--<script src="/js/fanart.js"></script>-->
+    <script>
+      async function writeClipboardText(text) {
+        try {
+          await navigator.clipboard.writeText(text);
+        } catch (error) {
+          console.error(error.message);
+        }
+      }
+      function rgbToHex(colors) {
+        let string = "#";
+        for (const c of colors) {
+          const hex = (+c).toString(16);
+          string += hex.length === 1 ? "0" + hex : hex;
+        }
+        return string;
+      }
+      for (const square of [...document.querySelectorAll(`#colors > div > div`)])
+        square.addEventListener("click", () => writeClipboardText(rgbToHex(getComputedStyle(square).backgroundColor.replace(/[^\d,]/g,"").split(","))));
+    </script>
   </body>
 </html>
