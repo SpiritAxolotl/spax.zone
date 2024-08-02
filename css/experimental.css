@@ -1,4 +1,4 @@
-@import url("faces.css");
+@import url("./faces.css");
 
 @font-face {
   font-family: DEP;
@@ -11,6 +11,10 @@
     url(https://spax.zone/fonts/DEP/DEP.woff) format("woff"),
     url(https://spax.zone/fonts/DEP/DEP.woff2) format("woff2"),
     url(https://spax.zone/fonts/DEP/DEP.otf) format("opentype");
+}
+
+* {
+  box-sizing: border-box;
 }
 
 html,
@@ -64,11 +68,11 @@ body {
   }
 }
 
-body > *:first-of-type(article) {
+body > article:first-of-type {
   margin-top: 5px;
 }
 
-body > *:last-of-type(article) {
+body > article:last-of-type {
   margin-bottom: 5px;
 }
 
@@ -83,13 +87,13 @@ article {
   overflow: hidden;
   width: 100%;
   flex-shrink: 0;
-  max-width: 564px;
-  min-height: 97px;
+  max-width: 600px;
+  min-height: 100px;
   user-select: none;
 }
 
 a {
-  &:is(:link,:visited) {
+  &:link, &:visited {
     color: var(--c2);
   }
   
@@ -104,17 +108,21 @@ a {
 
 
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 600px) {
   article {
-    /* minus padding (30px total) + border (6px total) */
-    width: calc(100% - 36px);
+    width: 100% !important;
+    &[type=art] {
+      min-width: revert !important;
+    }
   }
 }
 
 article[type=art] {
+  text-align: center;
   & > img {
     width: 100%;
-    /*height: 100px;*/
+    min-width: auto;
+    /* height: 100px; */
     /* margin: 0px 17.5px 7.5px 0px; */
     padding: 0;
     image-rendering: auto;
@@ -131,5 +139,9 @@ article[type=description] {
 article[type=title] {
   font-size: 25px;
   letter-spacing: 1px;
+  min-height: 0;
+}
+
+article[type=short] {
   min-height: 0;
 }
