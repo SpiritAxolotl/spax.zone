@@ -122,8 +122,6 @@ article[type=art] {
   & > img {
     width: 100%;
     min-width: auto;
-    /* height: 100px; */
-    /* margin: 0px 17.5px 7.5px 0px; */
     padding: 0;
     image-rendering: auto;
   }
