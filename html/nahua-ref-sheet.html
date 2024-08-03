@@ -15,33 +15,46 @@
     <link rel="stylesheet" href="/css/experimental.css" type=text/css>
     <link rel="canonical" href="https://spax.zone/html/nahua-ref-sheet">
     <style>
+      /* thank you cefqrn for the grid shenanigans */
       #colors {
-        display: flex;
-        flex-direction: column;
         margin-top: 10px;
+        display: grid;
         gap: 10px;
+        grid-template-columns: repeat(12, calc((100% - 3*10px)/12 - 10px * 2/3));
         & > div {
-          display: inherit;
-          gap: inherit;
-          & > div {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            cursor: pointer;
-          }
+          aspect-ratio: 1 / 1;
+          grid-column: span 4;
+          cursor: pointer;
+        }
+        & > div:nth-child(3) ~ div {
+          grid-column: span 3;
         }
       }
       #ref {
         min-width: 600px;
         width: 75%;
         max-width: revert;
+        & > img {
+          margin-bottom: 10px;
+        }
+      }
+      #clarifications-header {
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+      @media only screen and (max-width: 1200px) {
+        #clarifications-header {
+          display: none;
+        }
       }
     </style>
   </head>
   <body>
     <article type="art" id="ref">
-      !! Scroll down for clarifications !!
-      <img src="/images/art/nahua-bananas-refsheet.png" alt="A ref sheet of my character Nahua.">
-      Artist: 1LikeBananas
+      <span id="clarifications-header">!! Scroll down for clarifications !!</span>
+      <img src="/images/art/nahua-bananas-refsheet.png" alt="Reference sheet for Nahua (Na-hoo-wa), a light blue axolotl with dark blue, yellow, and orange accents. She's shown from the front (both clothed and nude) and back; she looks cheery in the clothed picture and flustered in the nude one, which is censored with an eye-popping smiley. She's wearing shorts, kneesocks, a tanktop with an up arrow on it, and headphones. She is 5 feet 3 inches (160 centimeters) tall, 19 years old, and uses she/they pronouns. Design notes: Always wears headphones or ear-coverings (she looks weird without them); doesn't wear furs (they stick uncomfortably to the mucus on her skin); yellow eyelash-things are optional, but iconic; as an amphibian, she doesn't have breasts; hair is made out of kelp or something, IDK, go wild; has minor transformative powers (lore).">
+      Artist: 1LikeBananas<br>
+      Alt text: <a href="https://goatygoats.com/">Goaty Goats</a>
     </article>
     <article>
       Extra clarifications:<br>
@@ -53,17 +66,13 @@
     <article>
       If you got javascript enabled<noscript> (you don't)</noscript>, you can copy the hex colors by clicking on its respective square:<br>
       <div id="colors">
-        <div>
-          <div style="background-color:#b0e4fa;"></div>
-          <div style="background-color:#d6fcfd;"></div>
-          <div style="background-color:#1b4050;"></div>
-        </div>
-        <div>
-          <div style="background-color:#f7d371;"></div>
-          <div style="background-color:#fdfbe5;"></div>
-          <div style="background-color:#ee8782;"></div>
-          <div style="background-color:#ede0be;"></div>
-        </div>
+        <div style="background-color:#b0e4fa;"></div>
+        <div style="background-color:#d6fcfd;"></div>
+        <div style="background-color:#1b4050;"></div>
+        <div style="background-color:#f7d371;"></div>
+        <div style="background-color:#fdfbe5;"></div>
+        <div style="background-color:#ee8782;"></div>
+        <div style="background-color:#ede0be;"></div>
       </div>
     </article>
     <article type="short">
@@ -86,7 +95,7 @@
         }
         return string;
       }
-      for (const square of [...document.querySelectorAll(`#colors > div > div`)])
+      for (const square of [...document.querySelectorAll(`#colors div[style]`)])
         square.addEventListener("click", () => writeClipboardText(rgbToHex(getComputedStyle(square).backgroundColor.replace(/[^\d,]/g,"").split(","))));
     </script>
   </body>
