@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+
+        <link rel="icon" href="/images/faces/claire/Happy.png">
+
+        <title>Text Box Demo</title>
+
+        <!-- No bootcrap here -->
+        <link rel="stylesheet" href="/css/styles.css" type="text/css">
+        <link rel="stylesheet" href="/css/game.css" type="text/css">
+
+        <style>
+
+* {
+    scrollbar-color : #86c06c #071821;
+}
+
+/* Must do */
+body {
+    margin: 0;
+}
+
+img {
+    image-rendering: pixelated;
+}
+
+/* Box centering */
+.textbox {
+    margin: 0.5vw auto;
+}
+
+/* Mobile thingy */
+@media only screen and (max-width : 860px) {
+    .textbox { --base-width: 98; }
+
+    /* Makes it look better for mobile */
+    .textbox:first-child { margin-top: 2vw; }
+}
+
+@keyframes shake-0 {
+    0% { transform: translate(-4%, 8%) rotate(4deg); }
+    25% { transform: translate(4%, 4%) rotate(-4deg); }
+    50% { transform: translate(12%, -4%) rotate(-4deg); }
+    70% { transform: translate(-8%, 16%) rotate(0deg); }
+    100% { transform: translate(4%, -8%) rotate(-4deg); }
+}
+
+@keyframes shake-1 {
+    0% { transform: translate(-4%, 12%) rotate(0deg); }
+    25% { transform: translate(8%, -4%) rotate(4deg); }
+    50% { transform: translate(12%, -4%) rotate(4deg); }
+    70% { transform: translate(-8%, 0%) rotate(0deg); }
+    100% { transform: translate(0%, -4%) rotate(-4deg); }
+}
+
+@keyframes shake-2 {
+    0% { transform: translate(-4%, 8%) rotate(-8deg); }
+    25% { transform: translate(-8%, -8%) rotate(-4deg); }
+    50% { transform: translate(4%, 4%) rotate(0deg); }
+    70% { transform: translate(8%, -4%) rotate(0deg); }
+    100% { transform: translate(-4%, 8%) rotate(-4deg); }
+}
+
+@keyframes shake-3 {
+    0% { transform: translate(8%, 4%) rotate(-8deg); }
+    25% { transform: translate(4%, 4%) rotate(-4deg); }
+    50% { transform: translate(0%, -4%) rotate(8deg); }
+    70% { transform: translate(-12%, 4%) rotate(0deg); }
+    100% { transform: translate(4%, -8%) rotate(-4deg); }
+}
+
+        </style>
+    </head>
+    
+    <body>
+        <div id="bg">
+            <div class="textbox"><img src="/images/faces/yoki/Surprised.png"><div>This is the most "precise" CSS replica of DEP's text box!</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/claire/Neutral.png"><div>Really?</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/yoki/Unsure_Smile.png"><div>Yeah...?</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/claire/Look.png"><div>Well, what happens if the text is too much?</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/claire/Look.png"><div>Will it keep it's "game" like structure?</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/yoki/Neutral.png"><div>I actually haven't thought of that.</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/yoki/Neutral.png"><div>Let me try.</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/yoki/Think.png"><div>*inhales*</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <br><br><br><br><br><br><br><br><br><br>
+            <div class="textbox"><img src="/images/faces/yoki/Upset.png"><div>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA-</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/aimottle/Neutral.png"><div>Hi guys!</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/yoki/Upset.png"><div>AAAAAAAAAAAAAAAAAAAA-</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/aimottle/Unsure.png"><div>Wait...</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/aimottle/Unsure.png"><div>What is she doing?</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/claire/Sigh.png"><div>She's trying to figure out if the text wraps.</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/yoki/Upset.png"><div>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA-</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/aimottle/Neutral.png"><div>...</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/aimottle/Unsure.png"><div>Why?</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/yoki/Surprised.png"><div>*hyperventilates*</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/claire/Sigh.png"><div>I already told you, to test text.</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/yoki/Think.png"><div>*inhales deeply*</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/aimottle/Unsure.png"><div>Normally, you're the one who I find doing this kind of weird $!*#.</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/claire/Sigh.png"><div>Shut up.</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/yoki/Upset.png"><div>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA!!!!!!!!!!!!!!!!</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/yoki/Surprised.png"><div>*coughs*</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <div class="textbox"><img src="/images/faces/claire/Aghast.png"><div>...</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/aimottle/Neutral.png"><div>...</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/yoki/Sweat_Drop.png"><div>*hyperventilates*</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/claire/Aghast.png"><div>Woah..</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/yoki/Sweat_Drop.png"><div>I... huff... am... huff... out of...</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/yoki/Sweat_Drop.png"><div>*inhales deeply*</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/yoki/Dizzy.png"><div>BREATH..</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <br><br><br><br><br>
+            <div class="textbox"><img src="/images/faces/claire/Aghast.png"><div>Yoki!</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/claire/Look.png"><div>You okay?</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/yoki/Sweat_Drop.png"><div>Yeah... yeah.</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/aimottle/Angry.png"><div>ARE YOU OUT OF YOUR MIND?!</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/yoki/Unsure_Smile.png"><div>Sorry.</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/yoki/Unsure_Smile.png"><div>I guess we can confirm that text does wrap keeping its game like structure.</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/aimottle/Unsure.png"><div>Uhhh.. cool.</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <br><br>
+            <div class="textbox"><img src="/images/faces/aimottle/Unsure.png"><div>Anyway...</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/aimottle/Neutral.png"><div>Can this thing have other images?</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/yoki/Neutral.png"><div>Probably.</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/aimottle/Neutral.png"><div>Mobile layout?</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/yoki/Neutral.png"><div>The stylesheet has no thingy.</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/yoki/Neutral.png"><div>But this demo has.</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/claire/Happy.png"><div>There's even different colored bar things.</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/yoki/Neutral.png"><div>Those are also only in the demo.</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/claire/Neutral.png"><div>Even the box centering?</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><img src="/images/faces/yoki/Unsure_Smile.png"><div>Yeah.</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <div class="textbox"><div>This Ad is brought to you by CalmBubbles :)</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <div class="textbox"><div>(Click <a href="/">here</a> to leave)</div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+            <br><br><br><br><br>
+            <div class="textbox" style="color: red; --base-width: 98"><img src="/images/faces/yoki/Upset.png"><div id="funny"></div><img class="arrow" src="/images/misc/next_arrow/next_arrow.png"></div>
+        </div>
+
+        <script src="/js/scrollparallax.js" type="text/javascript"></script>
+        <script>
+
+const funnyText = [
+    "NEVER use this stylesheet",
+    "with bootstraps!"
+];
+
+for (let i = 0; i < funnyText.length; i++) {
+    for (let j = 0; j < funnyText[i].length; j++) {
+        const span = document.createElement("span");
+
+        span.style.display = "inline-block";
+        span.style.whiteSpace = "pre-wrap";
+
+        if (funnyText[i][j] !== " ") span.style.animation = `shake-${Math.floor(Math.random() * 4)} 0.125s infinite ${Math.floor(Math.random()) === 0 ? "" : "reverse"}`;
+
+        span.append(funnyText[i][j]);
+        funny.append(span);
+    }
+
+    if (i !== funnyText.length - 1) funny.append(document.createElement("br"));
+}
+
+        </script>
+    </body>
+</html>
