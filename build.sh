@@ -1,1 +1,2 @@
 mv ./html/* .
+mv ./tests/* .
