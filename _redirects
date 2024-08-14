@@ -1,2 +1,4 @@
 /html/* /:splat
 /tests/* /:splat
+/main /
+/html/main /
