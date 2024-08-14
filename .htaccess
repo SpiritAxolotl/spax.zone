@@ -1,6 +1,0 @@
-#remove html file extension https://spax.zone/html/test.html
-# to https://spax.zone/html/test
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^\.]+)$ $1.html [NC, L]

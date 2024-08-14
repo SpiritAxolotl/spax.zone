@@ -45,7 +45,7 @@ Fanart.setData = function () {
   }
   
   let lastBox = document.createElement("article");
-  lastBox.innerHTML = `(<a href="/html/main">Click here</a> to go back to the main page!)`;
+  lastBox.innerHTML = `(<a href="./main.html">Click here</a> to go back to the main page!)`;
   
   while (document.getElementsByClassName("end-of-fanart").length > document.getElementsByClassName("moved").length) {
     let element = document.getElementsByClassName("end-of-fanart")[0];
