@@ -1,2 +1,2 @@
 ls
-mv ./html/ .
+mv ./html/* .
