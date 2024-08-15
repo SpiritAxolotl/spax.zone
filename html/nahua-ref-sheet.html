@@ -7,26 +7,27 @@
     <meta name="theme-color" content="#306850">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--<meta name="description" content="Nahua's ref sheet!">
-    <meta property="og:title" content="Nahua Ref Sheet">
-    <meta property="og:description" content="Nahua's ref sheet!">
-    <meta property="og:image" content="https://spax.zone/images/faces/spax/Smirk.png" type="image/png">-->
+    <meta property="og:title" content="Nahua Ref Sheet">-->
+    <!--<meta property="og:description" content="Nahua's ref sheet!">-->
+    <meta property="og:image" content="https://spax.zone/images/art/nahua-bananas-refsheet.png" type="image/png">
     <meta property="og:type" content="website">
     <link rel="icon" href="/images/icons/Smirk_Circle.png">
     <link rel="stylesheet" href="/css/experimental.css" type="text/css">
     <style>
       /* thank you cefqrn for the grid shenanigans */
       #colors {
+        display: flex;
+        flex-direction: column;
         margin-top: 10px;
-        display: grid;
         gap: 10px;
-        grid-template-columns: repeat(12, calc((100% - 3*10px)/12 - 10px * 2/3));
         & > div {
-          aspect-ratio: 1 / 1;
-          grid-column: span 4;
-          cursor: pointer;
-        }
-        & > div:nth-child(3) ~ div {
-          grid-column: span 3;
+          display: inherit;
+          gap: inherit;
+          & > div {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            cursor: pointer;
+          }
         }
       }
       #ref {
@@ -65,19 +66,23 @@
     <article>
       If you got javascript enabled<noscript> (you don't)</noscript>, you can copy the hex colors by clicking on its respective square:<br>
       <div id="colors">
-        <div style="background-color:#b0e4fa;"></div>
-        <div style="background-color:#d6fcfd;"></div>
-        <div style="background-color:#1b4050;"></div>
-        <div style="background-color:#f7d371;"></div>
-        <div style="background-color:#fdfbe5;"></div>
-        <div style="background-color:#ee8782;"></div>
-        <div style="background-color:#ede0be;"></div>
+        <div>
+          <div style="background-color:#b0e4fa;"></div>
+          <div style="background-color:#d6fcfd;"></div>
+          <div style="background-color:#1b4050;"></div>
+        </div>
+        <div>
+          <div style="background-color:#f7d371;"></div>
+          <div style="background-color:#fdfbe5;"></div>
+          <div style="background-color:#ee8782;"></div>
+          <div style="background-color:#ede0be;"></div>
+          <div style="background-color:#4e0101;"></div>
+      </div>
       </div>
     </article>
     <article type="short">
-      Last updated: August 2nd, 2024
+      Last updated: August 15th, 2024
     </article>
-    <!--<script src="/js/fanart.js"></script>-->
     <script>
       async function writeClipboardText(text) {
         try {
