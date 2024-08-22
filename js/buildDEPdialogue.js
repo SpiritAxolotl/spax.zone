@@ -13,7 +13,7 @@ processFile = (d) => {
     else if (dataIterator.pages?.[0]?.list) processDialogue(dataIterator.pages?.[0]?.list);
     else continue;
   }
-  fs.writeFileSync("./misc/dep_dialogue_dump.json", JSON.stringify(allDialogue));
+  fs.writeFileSync("./misc/dep_dialogue_dump.json", JSON.stringify(allDialogue), { encoding: "utf8" });
   fs.writeFileSync("./DEPalldialogue.html", renderHTML());
 };
 
