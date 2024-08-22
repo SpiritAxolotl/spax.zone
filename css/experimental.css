@@ -7,10 +7,10 @@
     url("../fonts/DEP/DEP.woff") format("woff"),
     url("../fonts/DEP/DEP.woff2") format("woff2"),
     url("../fonts/DEP/DEP.otf") format("opentype"),
-    url(https://spax.zone/fonts/DEP/DEP.ttf) format("truetype"),
-    url(https://spax.zone/fonts/DEP/DEP.woff) format("woff"),
-    url(https://spax.zone/fonts/DEP/DEP.woff2) format("woff2"),
-    url(https://spax.zone/fonts/DEP/DEP.otf) format("opentype");
+    url("https://spax.zone/fonts/DEP/DEP.ttf") format("truetype"),
+    url("https://spax.zone/fonts/DEP/DEP.woff") format("woff"),
+    url("https://spax.zone/fonts/DEP/DEP.woff2") format("woff2"),
+    url("https://spax.zone/fonts/DEP/DEP.otf") format("opentype");
 }
 
 * {
@@ -88,7 +88,7 @@ article {
   width: 100%;
   flex-shrink: 0;
   max-width: 600px;
-  min-height: 100px;
+  min-height: 133px;
   user-select: none;
 }
 
