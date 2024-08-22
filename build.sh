@@ -1,3 +1,3 @@
-node ./js/buildDEPdialogue.js > DEPalldialogue.html
+node ./js/buildDEPdialogue.js
 mv ./html/* .
 mv ./tests/* .
