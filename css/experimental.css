@@ -78,7 +78,7 @@ body > article:last-of-type {
 
 article {
   border: 3px solid var(--c1);
-  letter-spacing: 3.5px;
+  letter-spacing: 3px;
   line-height: 21px;
   background: black;
   padding: 15px;
