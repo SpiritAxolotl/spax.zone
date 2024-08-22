@@ -34,7 +34,7 @@ const processDialogue = (list) => {
       dialogue.text.push(
         listIterator.parameters[0]
           .replaceAll(/\\SE\[\d+\]/g, "") //sound effect cues
-          .replaceAll(/\\(\.)/g, "") //short pause cues
+          .replaceAll(/\\\./g, "") //short pause cues
           .replaceAll(/\\[^\{\}]/g, "") //anything else that's escaped (single characters)
       );
     } else if (listIterator.code === 101) { //face
