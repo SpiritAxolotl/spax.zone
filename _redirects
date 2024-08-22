@@ -2,3 +2,7 @@
 /tests/* /:splat
 /main /
 /html/main /
+/redirects/* /:splat
+/imsorry https://www.youtube.com/watch?v=dQw4w9WgXcQ
+/discord https://discord.gg/nsKxQvBY8P
+/videos/* https://cdn.spax.zone/:splat
