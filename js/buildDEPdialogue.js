@@ -1,4 +1,7 @@
 const fs = require('fs');
+const { JSDOM } = require('jsdom');
+
+const targetPage = "./html/DEPalldialogue.html";
 
 fs.readFile("./misc/dep_event_dump.json", "utf8", (err, data) => {
   if (err) throw err;
@@ -14,7 +17,12 @@ processFile = (d) => {
     else continue;
   }
   fs.writeFileSync("./misc/dep_dialogue_dump.json", JSON.stringify(allDialogue));
-  fs.writeFileSync("./html/DEPalldialogue.html", renderHTML());
+  fs.readFile(targetPage, "utf8", (err, html) => {
+    if (err) throw err;
+    const dom = new JSDOM(html);
+    const document = dom.window.document;
+    fs.writeFileSync(targetPage, renderHTML(dom, document));
+  });
 };
 
 const processDialogue = (list) => {
@@ -71,33 +79,13 @@ const escapeHTMLString = (unsafe) => {
   return unsafe.replaceAll(`"`, ``);
 };
 
-const renderHTML = () => {
-  const header = `<!DOCTYPE HTML>
-<html manifest="manifest" lang="en-US">
-  <head>
-    <meta charset="utf-8">
-    <title>All DEP Dialogue</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="theme-color" content="#306850">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="A dump of all dialogue in Temmie's game &quot;Dweller's Empty Path&quot;.">
-    <meta property="og:title" content="All DEP Dialogue">
-    <meta property="og:description" content="A dump of all dialogue in Temmie's game &quot;Dweller's Empty Path&quot;.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://spax.zone/images/faces/yoki/Neutral.png" type="image/png">
-    <link rel="icon" href="/images/faces/yoki/Neutral.png">
-    <link rel="stylesheet" href="/css/experimental.css" type="text/css">
-  </head>
-  <body>
-`;
-  const footer = `  </body>
-</html>`;
-  let body = "";
+const renderHTML = (dom, document) => {
+  let body = "\n";
   for (const dialogue of allDialogue) {
-    body += `    <article${dialogue.who ? ` who="${escapeHTMLString(dialogue.who)}"` : ""}${dialogue.emotion ? ` emotion="${escapeHTMLString(dialogue.emotion)}"` : ""}>
-      ${dialogue.text.map(e=>escapeHTML(e)).join("<br>\n      ")}
-    </article>
-`;
+    body += `  <article${dialogue.who ? ` who="${escapeHTMLString(dialogue.who)}"` : ""}${dialogue.emotion ? ` emotion="${escapeHTMLString(dialogue.emotion)}"` : ""}>
+    ${dialogue.text.map(e=>escapeHTML(e)).join("<br>\n      ")}
+  </article>\n`;
   }
-  return header + body + footer;
+  document.body.innerHTML = body;
+  return dom.serialize();
 };
