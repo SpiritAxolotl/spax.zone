@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-fs.readFile("/misc/dep_event_dump.json", "utf8", (err, data) => {
+fs.readFile("./misc/dep_event_dump.json", "utf8", (err, data) => {
   if (err) throw err;
   processFile(data);
 });
