@@ -78,8 +78,8 @@ body > article:last-of-type {
 
 article {
   border: 3px solid var(--c1);
-  letter-spacing: 4.5px;
-  line-height: 23px;
+  letter-spacing: 3.5px;
+  line-height: 21px;
   background: black;
   padding: 15px;
   color: var(--c1);
@@ -90,6 +90,7 @@ article {
   max-width: 600px;
   min-height: 133px;
   user-select: none;
+  white-space: nowrap;
 }
 
 a {
