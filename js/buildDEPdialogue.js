@@ -3,19 +3,21 @@ const { JSDOM } = require('jsdom');
 
 const targetPage = "./html/DEPalldialogue.html";
 
-fs.readFile("./misc/dep_event_dump.json", "utf8", (err, data) => {
-  if (err) throw err;
-  processFile(data);
-});
-
 const allDialogue = [];
-processFile = (d) => {
+fs.readFile("./misc/dep_event_dump.json", "utf8", (err, d) => {
+  if (err) throw err;
   const data = JSON.parse(d);
   for (const dataIterator of data) {
     if (dataIterator.list) processDialogue(dataIterator.list);
     else if (dataIterator.pages?.[0]?.list) processDialogue(dataIterator.pages?.[0]?.list);
     else continue;
   }
+  const startTime = Date.now();
+  for (let i=0; i<allDialogue.length; i++)
+    for (let j=i+1; j<allDialogue.length; j++)
+      if (JSON.stringify(allDialogue[i]) === JSON.stringify(allDialogue[j]))
+        allDialogue.splice(j, 1);
+  console.log(`it took ${(Date.now()-startTime)/1000} seconds to remove duplicates.`);
   fs.writeFileSync("./misc/dep_dialogue_dump.json", JSON.stringify(allDialogue));
   fs.readFile(targetPage, "utf8", (err, html) => {
     if (err) throw err;
@@ -23,7 +25,7 @@ processFile = (d) => {
     const document = dom.window.document;
     fs.writeFileSync(targetPage, renderHTML(dom, document));
   });
-};
+});
 
 const processDialogue = (list) => {
   const dialogue = {
