@@ -14,7 +14,7 @@ processFile = (d) => {
     else continue;
   }
   fs.writeFileSync("./misc/dep_dialogue_dump.json", JSON.stringify(allDialogue));
-  fs.writeFileSync("./DEPalldialogue.html", renderHTML());
+  fs.writeFileSync("./html/DEPalldialogue.html", renderHTML());
 };
 
 const processDialogue = (list) => {
