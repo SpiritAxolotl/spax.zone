@@ -39,11 +39,11 @@ const processDialogue = (list) => {
       );
     } else if (listIterator.code === 101) { //face
       pushTextbox(dialogue);
-      const match = listIterator.parameters[0].match(/^(\w+?)_(?:Portrait_)?(?:test_)?(\w+?)$/i);
-      if (match) {
+      const match = listIterator.parameters[0].match(/^(\w+?)(?:_(?:Portrait_)?(?:test_)?(\w+?))?$/i);
+      if (match?.[1])
         dialogue.who = match[1].toLowerCase();
+      if (match?.[2])
         dialogue.emotion = match[2].toLowerCase();
-      }
     } else {
       pushTextbox(dialogue);
       continue;
@@ -94,7 +94,7 @@ const renderHTML = (dom, document) => {
   let body = "\n";
   for (const dialogue of allDialogue) {
     body += `  <article${dialogue.who ? ` who="${escapeHTMLString(dialogue.who)}"` : ""}${dialogue.emotion ? ` emotion="${escapeHTMLString(dialogue.emotion)}"` : ""}>
-    ${dialogue.text.map(e=>escapeHTML(e)).join("<br>\n      ")}
+    ${dialogue.text.reduce((acc,e,i) => acc + escapeHTML(e) + `<br${e.match(/[^\w\s]\s*$/g)?" end":""}>\n      `, "")}
   </article>\n`;
   }
   document.body.innerHTML = body;
