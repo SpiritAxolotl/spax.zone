@@ -6,488 +6,489 @@ article[who]::before {
   aspect-ratio: 1/1;
   height: 97px;
   content: "";
-  background: url('../images/faces/Unknown.png') center/100% 100%;
+  background: url('/images/faces/Unknown.png') center/100% 100%;
   margin-right: 15px;
 }
 
 /* spax */
 
 article[who=spax]::before {
-  background-image: url('../images/faces/spax/Smirk.png');
+  background-image: url('/images/faces/spax/Smirk.png');
 }
 
 article[who=spax][emotion=blush]::before {
-  background-image: url('../images/faces/spax/Blush.png');
+  background-image: url('/images/faces/spax/Blush.png');
 }
 
 article[who=spax][emotion=confused]::before {
-  background-image: url('../images/faces/spax/Confused.png');
+  background-image: url('/images/faces/spax/Confused.png');
 }
 
 article[who=spax][emotion=disappointed]::before {
-  background-image: url('../images/faces/spax/Disappointed.png');
+  background-image: url('/images/faces/spax/Disappointed.png');
 }
 
 article[who=spax][emotion=dizzy]::before {
-  background-image: url('../images/faces/spax/Dizzy.png');
+  background-image: url('/images/faces/spax/Dizzy.png');
 }
 
 article[who=spax][emotion=enraged]::before {
-  background-image: url('../images/faces/spax/Enraged.png');
+  background-image: url('/images/faces/spax/Enraged.png');
 }
 
 article[who=spax][emotion=happy]::before {
-  background-image: url('../images/faces/spax/Happy.png');
+  background-image: url('/images/faces/spax/Happy.png');
 }
 
 article[who=spax][emotion=look]::before {
-  background-image: url('../images/faces/spax/Look.png');
+  background-image: url('/images/faces/spax/Look.png');
 }
 
 article[who=spax][emotion=neutral]::before {
-  background-image: url('../images/faces/spax/Neutral.png');
+  background-image: url('/images/faces/spax/Neutral.png');
 }
 
 article[who=spax][emotion=dizzy]::before {
-  background-image: url('../images/faces/spax/Dizzy.png');
+  background-image: url('/images/faces/spax/Dizzy.png');
 }
 
 article[who=spax][emotion=enraged]::before {
-  background-image: url('../images/faces/spax/Enraged.png');
+  background-image: url('/images/faces/spax/Enraged.png');
 }
 
 article[who=spax][emotion=pensive]::before {
-  background-image: url('../images/faces/spax/Pensive.png');
+  background-image: url('/images/faces/spax/Pensive.png');
 }
 
 article[who=spax][emotion=sleep]::before {
-  background-image: url('../images/faces/spax/Sleep.png');
+  background-image: url('/images/faces/spax/Sleep.png');
 }
 
 article[who=spax][emotion=smirk]::before {
-  background-image: url('../images/faces/spax/Smirk.png');
+  background-image: url('/images/faces/spax/Smirk.png');
 }
 
 article[who=spax][emotion=surprised]::before {
-  background-image: url('../images/faces/spax/Surprised.png');
+  background-image: url('/images/faces/spax/Surprised.png');
 }
 
 article[who=spax][emotion=sus]::before {
-  background-image: url('../images/faces/spax/Sus.png');
+  background-image: url('/images/faces/spax/Sus.png');
 }
 
-article[who=spax][emotion=sweat-drop]::before {
-  background-image: url('../images/faces/spax/Sweat_Drop.png');
+article[who=spax][emotion=sweat-drop]::before,
+article[who=spax][emotion=sweat_drop]::before {
+  background-image: url('/images/faces/spax/Sweat_Drop.png');
 }
 
 article[who=spax][emotion=talk]::before {
-  background-image: url('../images/faces/spax/Talk.png');
+  background-image: url('/images/faces/spax/Talk.png');
 }
 
 article[who=spax][emotion=woo]::before {
-  background-image: url('../images/faces/spax/Woo.png');
+  background-image: url('/images/faces/spax/Woo.png');
 }
 
 article[who=spax][emotion=worried]::before {
-  background-image: url('../images/faces/spax/Worried.png');
+  background-image: url('/images/faces/spax/Worried.png');
 }
 
 /* aimottle */
 
 article[who=aimottle]::before {
-  background-image: url('../images/faces/aimottle/Neutral.png');
+  background-image: url('/images/faces/aimottle/Neutral.png');
 }
 
 article[who=aimottle][emotion=angry]::before {
-  background-image: url('../images/faces/aimottle/Angry.png');
+  background-image: url('/images/faces/aimottle/Angry.png');
 }
 
 article[who=aimottle][emotion=neutral]::before {
-  background-image: url('../images/faces/aimottle/Neutral.png');
+  background-image: url('/images/faces/aimottle/Neutral.png');
 }
 
 article[who=aimottle][emotion=unsure]::before {
-  background-image: url('../images/faces/aimottle/Unsure.png');
+  background-image: url('/images/faces/aimottle/Unsure.png');
 }
 
 /* caina */
 
 article[who=caina]::before {
-  background-image: url('../images/faces/caina/Neutral.png');
+  background-image: url('/images/faces/caina/Neutral.png');
 }
 
 article[who=caina][emotion=concerned]::before {
-  background-image: url('../images/faces/caina/Concerned.png');
+  background-image: url('/images/faces/caina/Concerned.png');
 }
 
 article[who=caina][emotion=disapproval]::before {
-  background-image: url('../images/faces/caina/Disapproval.png');
+  background-image: url('/images/faces/caina/Disapproval.png');
 }
 
 article[who=caina][emotion=down]::before {
-  background-image: url('../images/faces/caina/Down.png');
+  background-image: url('/images/faces/caina/Down.png');
 }
 
 article[who=caina][emotion=laugh]::before {
-  background-image: url('../images/faces/caina/Laugh.png');
+  background-image: url('/images/faces/caina/Laugh.png');
 }
 
 article[who=caina][emotion=look]::before {
-  background-image: url('../images/faces/caina/Look.png');
+  background-image: url('/images/faces/caina/Look.png');
 }
 
 article[who=caina][emotion=neutral]::before {
-  background-image: url('../images/faces/caina/Neutral.png');
+  background-image: url('/images/faces/caina/Neutral.png');
 }
 
 article[who=caina][emotion=smile]::before {
-  background-image: url('../images/faces/caina/Smile.png');
+  background-image: url('/images/faces/caina/Smile.png');
 }
 
 article[who=caina][emotion=sneer]::before {
-  background-image: url('../images/faces/caina/Sneer.png');
+  background-image: url('/images/faces/caina/Sneer.png');
 }
 
 /* charles */
 
 article[who=charles]::before {
-  background-image: url('../images/faces/charles/Neutral.png');
+  background-image: url('/images/faces/charles/Neutral.png');
 }
 
-article[who=charles][emotion=look-down]::before {
-  background-image: url('../images/faces/charles/Look_Down.png');
+article[who=charles][emotion=look-down]::before,
+article[who=charles][emotion=look_down]::before {
+  background-image: url('/images/faces/charles/Look_Down.png');
 }
 
 article[who=charles][emotion=neutral]::before {
-  background-image: url('../images/faces/charles/Neutral.png');
+  background-image: url('/images/faces/charles/Neutral.png');
 }
 
-article[who=charles][emotion=sweat-drop]::before {
-  background-image: url('../images/faces/charles/Sweat_Drop.png');
+article[who=charles][emotion=sweat-drop]::before,
+article[who=charles][emotion=sweat_drop]::before {
+  background-image: url('/images/faces/charles/Sweat_Drop.png');
 }
 
 /* claire */
 
 article[who=claire]::before {
-  background-image: url('../images/faces/claire/Neutral.png');
+  background-image: url('/images/faces/claire/Neutral.png');
 }
 
 article[who=claire][emotion=aghast]::before {
-  background-image: url('../images/faces/claire/Aghast.png');
+  background-image: url('/images/faces/claire/Aghast.png');
 }
 
 article[who=claire][emotion=dizzy]::before {
-  background-image: url('../images/faces/claire/Dizzy.png');
+  background-image: url('/images/faces/claire/Dizzy.png');
 }
 
 article[who=claire][emotion=happy]::before {
-  background-image: url('../images/faces/claire/Happy.png');
+  background-image: url('/images/faces/claire/Happy.png');
 }
 
 article[who=claire][emotion=look]::before {
-  background-image: url('../images/faces/claire/Look.png');
+  background-image: url('/images/faces/claire/Look.png');
 }
 
 article[who=claire][emotion=mad]::before {
-  background-image: url('../images/faces/claire/Mad.png');
+  background-image: url('/images/faces/claire/Mad.png');
 }
 
 article[who=claire][emotion=neutral]::before {
-  background-image: url('../images/faces/claire/Neutral.png');
+  background-image: url('/images/faces/claire/Neutral.png');
 }
 
 article[who=claire][emotion=pensive]::before {
-  background-image: url('../images/faces/claire/Pensive.png');
+  background-image: url('/images/faces/claire/Pensive.png');
 }
 
 article[who=claire][emotion=sad]::before {
-  background-image: url('../images/faces/claire/Sad.png');
+  background-image: url('/images/faces/claire/Sad.png');
 }
 
 article[who=claire][emotion=sigh]::before {
-  background-image: url('../images/faces/claire/Sigh.png');
+  background-image: url('/images/faces/claire/Sigh.png');
 }
 
 /* dragon */
 
 article[who=dragon]::before {
-  background-image: url('../images/faces/dragon/Neutral.png');
+  background-image: url('/images/faces/dragon/Neutral.png');
 }
 
 article[who=dragon][emotion=dismiss]::before {
-  background-image: url('../images/faces/dragon/Dismiss.png');
+  background-image: url('/images/faces/dragon/Dismiss.png');
 }
 
 article[who=dragon][emotion=familiar]::before {
-  background-image: url('../images/faces/dragon/Familiar.png');
+  background-image: url('/images/faces/dragon/Familiar.png');
 }
 
 article[who=dragon][emotion=neutral]::before {
-  background-image: url('../images/faces/dragon/Neutral.png');
+  background-image: url('/images/faces/dragon/Neutral.png');
 }
 
 article[who=dragon][emotion=reveal]::before {
-  background-image: url('../images/faces/dragon/Reveal.png');
+  background-image: url('/images/faces/dragon/Reveal.png');
 }
 
 article[who=dragon][emotion=smile]::before {
-  background-image: url('../images/faces/dragon/Smile.png');
+  background-image: url('/images/faces/dragon/Smile.png');
 }
 
 article[who=dragon][emotion=stern]::before {
-  background-image: url('../images/faces/dragon/Stern.png');
+  background-image: url('/images/faces/dragon/Stern.png');
 }
 
 /* este */
 
 article[who=este]::before {
-  background-image: url('../images/faces/este/Stare.png');
+  background-image: url('/images/faces/este/Stare.png');
 }
 
 article[who=este][emotion=stare]::before {
-  background-image: url('../images/faces/este/Stare.png');
+  background-image: url('/images/faces/este/Stare.png');
 }
 
 /* fountain kids */
 
 article[who=krys]::before {
-  background-image: url('../images/faces/fountain/Krys.png');
+  background-image: url('/images/faces/fountain/Krys.png');
 }
 
 article[who=lerias]::before {
-  background-image: url('../images/faces/fountain/Lerias.png');
+  background-image: url('/images/faces/fountain/Lerias.png');
 }
 
 article[who=zusy]::before {
-  background-image: url('../images/faces/fountain/Zusy.png');
+  background-image: url('/images/faces/fountain/Zusy.png');
 }
 
 /* harp */
 
 article[who=harp]::before {
-  background-image: url('../images/faces/harp/Neutral.png');
+  background-image: url('/images/faces/harp/Neutral.png');
 }
 
 article[who=harp][emotion=excited]::before {
-  background-image: url('../images/faces/harp/Excited.png');
+  background-image: url('/images/faces/harp/Excited.png');
 }
 
 article[who=harp][emotion=neutral]::before {
-  background-image: url('../images/faces/harp/Neutral.png');
+  background-image: url('/images/faces/harp/Neutral.png');
 }
 
 /* heroes */
 
-article[who=chosenone]::before {
-  background-image: url('../images/faces/hero/ChosenOne.png');
-}
+article[who=chosenone]::before,
 article[who=hero][emotion=chosenone]::before {
-  background-image: url('../images/faces/hero/ChosenOne.png');
+  background-image: url('/images/faces/hero/ChosenOne.png');
 }
 
-article[who=cleric]::before {
-  background-image: url('../images/faces/hero/Cleric.png');
-}
+article[who=cleric]::before,
 article[who=hero][emotion=cleric]::before {
-  background-image: url('../images/faces/hero/Cleric.png');
+  background-image: url('/images/faces/hero/Cleric.png');
 }
 
-article[who=knight]::before {
-  background-image: url('../images/faces/hero/Knight.png');
-}
+article[who=knight]::before,
 article[who=hero][emotion=knight]::before {
-  background-image: url('../images/faces/hero/Knight.png');
+  background-image: url('/images/faces/hero/Knight.png');
 }
 
-article[who=rogue]::before {
-  background-image: url('../images/faces/hero/Rogue.png');
-}
+article[who=rogue]::before,
 article[who=hero][emotion=rogue]::before {
-  background-image: url('../images/faces/hero/Rogue.png');
+  background-image: url('/images/faces/hero/Rogue.png');
 }
 
 /* prince */
 
 article[who=prince]::before {
-  background-image: url('../images/faces/prince/Neutral.png');
+  background-image: url('/images/faces/prince/Neutral.png');
 }
 
 article[who=prince][emotion=appalled]::before {
-  background-image: url('../images/faces/prince/Appalled.png');
+  background-image: url('/images/faces/prince/Appalled.png');
 }
 
-article[who=prince][emotion=head-turn]::before {
-  background-image: url('../images/faces/prince/Head_Turn.png');
+article[who=prince][emotion=head-turn]::before,
+article[who=prince][emotion=head_turn]::before {
+  background-image: url('/images/faces/prince/Head_Turn.png');
 }
 
-article[who=prince][emotion=look-down]::before {
-  background-image: url('../images/faces/prince/Look_Down.png');
+article[who=prince][emotion=look-down]::before,
+article[who=prince][emotion=look_down]::before {
+  background-image: url('/images/faces/prince/Look_Down.png');
 }
 
 article[who=prince][emotion=look]::before {
-  background-image: url('../images/faces/prince/Look.png');
+  background-image: url('/images/faces/prince/Look.png');
 }
 
 article[who=prince][emotion=neutral]::before {
-  background-image: url('../images/faces/prince/Neutral.png');
+  background-image: url('/images/faces/prince/Neutral.png');
 }
 
 /* tem */
 
 article[who=tem]::before {
-  background-image: url('../images/faces/tem/Neutral.png');
+  background-image: url('/images/faces/tem/Neutral.png');
 }
 
-article[who=tem][emotion=look-down]::before {
-  background-image: url('../images/faces/tem/Look_Down.png');
+article[who=tem][emotion=look-down]::before,
+article[who=tem][emotion=look_down]::before {
+  background-image: url('/images/faces/tem/Look_Down.png');
 }
 
 article[who=tem][emotion=neutral]::before {
-  background-image: url('../images/faces/tem/Neutral.png');
+  background-image: url('/images/faces/tem/Neutral.png');
 }
 
 /* tigertaur */
 
 article[who=tigertaur]::before {
-  background-image: url('../images/faces/tigertaur/Neutral.png');
+  background-image: url('/images/faces/tigertaur/Neutral.png');
 }
 
 article[who=tigertaur][emotion=grin]::before {
-  background-image: url('../images/faces/tigertaur/Grin.png');
+  background-image: url('/images/faces/tigertaur/Grin.png');
 }
 
 article[who=tigertaur][emotion=neutral]::before {
-  background-image: url('../images/faces/tigertaur/Neutral.png');
+  background-image: url('/images/faces/tigertaur/Neutral.png');
 }
 
 /* woof */
 
 article[who=woof]::before {
-  background-image: url('../images/faces/woof/Awake.png');
+  background-image: url('/images/faces/woof/Awake.png');
 }
 
 article[who=woof][emotion=awake]::before {
-  background-image: url('../images/faces/woof/Awake.png');
+  background-image: url('/images/faces/woof/Awake.png');
 }
 
-article[who=woof][emotion=knocked-out]::before {
-  background-image: url('../images/faces/woof/KnockedOut.png');
+article[who=woof][emotion=knocked-out]::before,
+article[who=woof][emotion=knocked_out]::before {
+  background-image: url('/images/faces/woof/KnockedOut.png');
 }
 
 article[who=woof][emotion=look]::before {
-  background-image: url('../images/faces/woof/Look.png');
+  background-image: url('/images/faces/woof/Look.png');
 }
 
 article[who=woof][emotion=sleep]::before {
-  background-image: url('../images/faces/woof/Sleep.png');
+  background-image: url('/images/faces/woof/Sleep.png');
 }
 
 /* yoki */
 
 article[who=yoki]::before {
-  background-image: url('../images/faces/yoki/Neutral.png');
+  background-image: url('/images/faces/yoki/Neutral.png');
 }
 
 article[who=yoki][emotion=annoyed]::before {
-  background-image: url('../images/faces/yoki/Annoyed.png');
+  background-image: url('/images/faces/yoki/Annoyed.png');
 }
 
 article[who=yoki][emotion=disheartened]::before {
-  background-image: url('../images/faces/yoki/Disheartened.png');
+  background-image: url('/images/faces/yoki/Disheartened.png');
 }
 
 article[who=yoki][emotion=dizzy]::before {
-  background-image: url('../images/faces/yoki/Dizzy.png');
+  background-image: url('/images/faces/yoki/Dizzy.png');
 }
 
 article[who=yoki][emotion=look]::before {
-  background-image: url('../images/faces/yoki/Look.png');
+  background-image: url('/images/faces/yoki/Look.png');
 }
 
 article[who=yoki][emotion=meditative]::before {
-  background-image: url('../images/faces/yoki/Meditative.png');
+  background-image: url('/images/faces/yoki/Meditative.png');
 }
 
 article[who=yoki][emotion=neutral]::before {
-  background-image: url('../images/faces/yoki/Neutral.png');
+  background-image: url('/images/faces/yoki/Neutral.png');
 }
 
 article[who=yoki][emotion=smile]::before {
-  background-image: url('../images/faces/yoki/Smile.png');
+  background-image: url('/images/faces/yoki/Smile.png');
 }
 
 article[who=yoki][emotion=surprised]::before {
-  background-image: url('../images/faces/yoki/Surprised.png');
+  background-image: url('/images/faces/yoki/Surprised.png');
 }
 
-article[who=yoki][emotion=sweat-drop]::before {
-  background-image: url('../images/faces/yoki/Sweat_Drop.png');
+article[who=yoki][emotion=sweat-drop]::before,
+article[who=yoki][emotion=sweat_drop]::before {
+  background-image: url('/images/faces/yoki/Sweat_Drop.png');
 }
 
 article[who=yoki][emotion=think]::before {
-  background-image: url('../images/faces/yoki/Think.png');
+  background-image: url('/images/faces/yoki/Think.png');
 }
 
-article[who=yoki][emotion=unsure-smile]::before {
-  background-image: url('../images/faces/yoki/Unsure_Smile.png');
+article[who=yoki][emotion=unsure-smile]::before,
+article[who=yoki][emotion=unsure_smile]::before {
+  background-image: url('/images/faces/yoki/Unsure_Smile.png');
 }
 
 article[who=yoki][emotion=unsure]::before {
-  background-image: url('../images/faces/yoki/Unsure.png');
+  background-image: url('/images/faces/yoki/Unsure.png');
 }
 
 article[who=yoki][emotion=upset]::before {
-  background-image: url('../images/faces/yoki/Upset.png');
+  background-image: url('/images/faces/yoki/Upset.png');
 }
 
 /* younger yoki */
 
 article[who=youngeryoki]::before {
-  background-image: url('../images/faces/youngeryoki/Neutral.png');
+  background-image: url('/images/faces/youngeryoki/Neutral.png');
 }
 
 article[who=youngeryoki][emotion=concern]::before {
-  background-image: url('../images/faces/youngeryoki/Concern.png');
+  background-image: url('/images/faces/youngeryoki/Concern.png');
 }
 
 article[who=youngeryoki][emotion=happy]::before {
-  background-image: url('../images/faces/youngeryoki/Happy.png');
+  background-image: url('/images/faces/youngeryoki/Happy.png');
 }
 
 article[who=youngeryoki][emotion=look]::before {
-  background-image: url('../images/faces/youngeryoki/Look.png');
+  background-image: url('/images/faces/youngeryoki/Look.png');
 }
 
 article[who=youngeryoki][emotion=neutral]::before {
-  background-image: url('../images/faces/youngeryoki/Neutral.png');
+  background-image: url('/images/faces/youngeryoki/Neutral.png');
 }
 
 article[who=youngeryoki][emotion=sigh]::before {
-  background-image: url('../images/faces/youngeryoki/Sigh.png');
+  background-image: url('/images/faces/youngeryoki/Sigh.png');
 }
 
 /* zera */
 
 article[who=zera]::before {
-  background-image: url('../images/faces/zera/Neutral.png');
+  background-image: url('/images/faces/zera/Neutral.png');
 }
 
 article[who=zera][emotion=look]::before {
-  background-image: url('../images/faces/zera/Look.png');
+  background-image: url('/images/faces/zera/Look.png');
 }
 
 article[who=zera][emotion=neutral]::before {
-  background-image: url('../images/faces/zera/Neutral.png');
+  background-image: url('/images/faces/zera/Neutral.png');
 }
 
 article[who=zera][emotion=pout]::before {
-  background-image: url('../images/faces/zera/Pout.png');
+  background-image: url('/images/faces/zera/Pout.png');
 }
 
 article[who=zera][emotion=smile]::before {
-  background-image: url('../images/faces/zera/Smile.png');
+  background-image: url('/images/faces/zera/Smile.png');
 }
 
 article[who=zera][emotion=sneer]::before {
-  background-image: url('../images/faces/zera/Sneer.png');
+  background-image: url('/images/faces/zera/Sneer.png');
 }
