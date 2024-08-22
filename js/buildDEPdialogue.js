@@ -12,12 +12,7 @@ fs.readFile("./misc/dep_event_dump.json", "utf8", (err, d) => {
     else if (dataIterator.pages?.[0]?.list) processDialogue(dataIterator.pages?.[0]?.list);
     else continue;
   }
-  const startTime = Date.now();
-  for (let i=0; i<allDialogue.length; i++)
-    for (let j=i+1; j<allDialogue.length; j++)
-      if (JSON.stringify(allDialogue[i]) === JSON.stringify(allDialogue[j]))
-        allDialogue.splice(j, 1);
-  console.log(`it took ${(Date.now()-startTime)/1000} seconds to remove duplicates.`);
+  removeDuplicates();
   fs.writeFileSync("./misc/dep_dialogue_dump.json", JSON.stringify(allDialogue));
   fs.readFile(targetPage, "utf8", (err, html) => {
     if (err) throw err;
@@ -35,7 +30,7 @@ const processDialogue = (list) => {
   };
   for (const listIterator of list) {
     if (listIterator.code === 401) { //dialogue
-      if (dialogue.text.length >= 3) {
+      if (dialogue.text.length >= 4) { //4 lines max
         allDialogue.push({...dialogue});
         dialogue.text = [];
       }
@@ -52,13 +47,18 @@ const processDialogue = (list) => {
           dialogue.emotion = "";
           dialogue.text = [];
         }
-      const match = listIterator.parameters[0].match(/^(\w+?)_(?:Portrait_)?(\w+?)$/);
+      const match = listIterator.parameters[0].match(/^(\w+?)_(?:Portrait_)?(?:test_)?(\w+?)$/i);
       if (match) {
         dialogue.who = match[1].toLowerCase();
         dialogue.emotion = match[2].toLowerCase();
       }
     } else {
       if (dialogue.text.length > 0) {
+        //for 600_portrait_test_Enlarged which is just yoki
+        if (dialogue.who === "600") {
+          dialogue.who = "yoki";
+          dialogue.emotion = "neutral";
+        }
         allDialogue.push({...dialogue});
         dialogue.who = "";
         dialogue.emotion = "";
@@ -68,6 +68,15 @@ const processDialogue = (list) => {
     }
   }
 };
+
+const removeDuplicates = () => {
+  const startTime = Date.now();
+  for (let i=0; i<allDialogue.length; i++)
+    for (let j=i+1; j<allDialogue.length; j++)
+      if (JSON.stringify(allDialogue[i]) === JSON.stringify(allDialogue[j]))
+        allDialogue.splice(j, 1);
+  console.log(`it took ${(Date.now()-startTime)/1000} seconds to remove duplicates.`);
+}
 
 const escapeHTML = (unsafe) => {
   return unsafe
