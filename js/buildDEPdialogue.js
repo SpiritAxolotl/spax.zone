@@ -34,8 +34,8 @@ const processDialogue = (list) => {
       dialogue.text.push(
         listIterator.parameters[0]
           .replaceAll(/\\SE\[\d+\]/g, "") //sound effect cues
-          .replaceAll(/\\\./g, "") //short pause cues
-          .replaceAll(/\\./g, "") //anything else that's escaped (single characters)
+          .replaceAll(/\\(\.)/g, "") //short pause cues
+          .replaceAll(/\\[^\{\}]/g, "") //anything else that's escaped (single characters)
       );
     } else if (listIterator.code === 101) { //face
       pushTextbox(dialogue);
@@ -99,9 +99,16 @@ const renderHTML = (dom, document) => {
     if (dialogue.emotion)
       body += ` emotion="${escapeHTMLString(dialogue.emotion)}"`
     body += `>\n    `;
-    body += dialogue.text.reduce((acc,e,i)=>
+    let text = dialogue.text.reduce((acc,e)=>
       acc + escapeHTML(e) + `<br${e.match(/[^\w\s]\s*$/g)?" end":""}>\n    `, ""
-    ).replace(/<br(\s+end)?>\n\s{4}$/g, "");
+    ).replace(/<br(\s+end)?>\n\s+$/g, "");
+    let match = undefined;
+    while (match !== null) {
+      match = text.match(/\\\{([\s\S]+?)(?:\\\}|$)/);
+      if (match)
+        text = text.replace(match[0], `<span class="red">${match[1]}</span>`);
+    }
+    body += text;
     body += `\n  </article>\n`;
   }
   document.body.innerHTML = body;

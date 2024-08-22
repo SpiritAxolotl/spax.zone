@@ -3,10 +3,10 @@
 @font-face {
   font-family: DEP;
   src:
-    url("../fonts/DEP/DEP.ttf") format("truetype"),
-    url("../fonts/DEP/DEP.woff") format("woff"),
-    url("../fonts/DEP/DEP.woff2") format("woff2"),
-    url("../fonts/DEP/DEP.otf") format("opentype"),
+    url("/fonts/DEP/DEP.ttf") format("truetype"),
+    url("/fonts/DEP/DEP.woff") format("woff"),
+    url("/fonts/DEP/DEP.woff2") format("woff2"),
+    url("/fonts/DEP/DEP.otf") format("opentype"),
     url("https://spax.zone/fonts/DEP/DEP.ttf") format("truetype"),
     url("https://spax.zone/fonts/DEP/DEP.woff") format("woff"),
     url("https://spax.zone/fonts/DEP/DEP.woff2") format("woff2"),
@@ -35,6 +35,7 @@ body {
   --c2: #86c06c;
   --c3: #306850;
   --c4: #071821;
+  --red: #ff0000;
 }
 
 body {
@@ -46,7 +47,7 @@ body {
   align-items: center;
   gap: 5px;
   perspective: 550px;
-  background: repeat #306850 url("../images/bg/background_yoki.png");
+  background: repeat #306850 url("/images/bg/background_yoki.png");
   background-size: 960px;
   image-rendering: pixelated;
   height: fit-content;
@@ -92,6 +93,10 @@ article {
   user-select: none;
 }
 
+.red {
+  color: var(--red);
+}
+
 a {
   &:link, &:visited {
     color: var(--c2);
@@ -105,8 +110,6 @@ a {
     color: var(--c3);
   }
 }
-
-
 
 @media only screen and (max-width: 600px) {
   article {
