@@ -35,7 +35,7 @@ const processDialogue = (list) => {
         listIterator.parameters[0]
           .replaceAll(/\\SE\[\d+\]/g, "") //sound effect cues
           .replaceAll(/\\\./g, "") //short pause cues
-          .replaceAll(/\\/g, "") //anything else that's escaped
+          .replaceAll(/\\./g, "") //anything else that's escaped (single characters)
       );
     } else if (listIterator.code === 101) { //face
       pushTextbox(dialogue);
