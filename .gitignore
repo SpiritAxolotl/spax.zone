@@ -1,6 +1,6 @@
-**/.DS_Store
+.DS_Store
 venv
 doctrees
-.vscode/**
-node_modules/**
+.vscode/
+node_modules/
 misc/dep_dialogue_dump.json
