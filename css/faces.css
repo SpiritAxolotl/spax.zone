@@ -278,19 +278,31 @@ article[who=harp][emotion=neutral]::before {
 
 /* heroes */
 
-article[who=chosen-one]::before {
+article[who=chosenone]::before {
+  background-image: url('../images/faces/hero/ChosenOne.png');
+}
+article[who=hero][emotion=chosenone]::before {
   background-image: url('../images/faces/hero/ChosenOne.png');
 }
 
 article[who=cleric]::before {
   background-image: url('../images/faces/hero/Cleric.png');
 }
+article[who=hero][emotion=cleric]::before {
+  background-image: url('../images/faces/hero/Cleric.png');
+}
 
 article[who=knight]::before {
   background-image: url('../images/faces/hero/Knight.png');
 }
+article[who=hero][emotion=knight]::before {
+  background-image: url('../images/faces/hero/Knight.png');
+}
 
 article[who=rogue]::before {
+  background-image: url('../images/faces/hero/Rogue.png');
+}
+article[who=hero][emotion=rogue]::before {
   background-image: url('../images/faces/hero/Rogue.png');
 }
 
