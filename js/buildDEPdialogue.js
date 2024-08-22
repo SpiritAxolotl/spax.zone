@@ -91,11 +91,18 @@ const escapeHTMLString = (unsafe) => {
 };
 
 const renderHTML = (dom, document) => {
-  let body = "\n";
+  let body = `\n`;
   for (const dialogue of allDialogue) {
-    body += `  <article${dialogue.who ? ` who="${escapeHTMLString(dialogue.who)}"` : ""}${dialogue.emotion ? ` emotion="${escapeHTMLString(dialogue.emotion)}"` : ""}>
-    ${dialogue.text.reduce((acc,e,i) => acc + escapeHTML(e) + `<br${e.match(/[^\w\s]\s*$/g)?" end":""}>\n      `, "")}
-  </article>\n`;
+    body += `  <article`;
+    if (dialogue.who)
+      body += ` who="${escapeHTMLString(dialogue.who)}"`
+    if (dialogue.emotion)
+      body += ` emotion="${escapeHTMLString(dialogue.emotion)}"`
+    body += `>\n    `;
+    body += dialogue.text.reduce((acc,e,i)=>
+      acc + escapeHTML(e) + `<br${e.match(/[^\w\s]\s*$/g)?" end":""}>\n    `, ""
+    ).replace(/<br(\s+end)?>\n\s{4}$/g, "");
+    body += `\n  </article>\n`;
   }
   document.body.innerHTML = body;
   return dom.serialize();
