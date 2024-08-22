@@ -36,6 +36,12 @@ const processDialogue = (list) => {
           .replaceAll(/\\/g, "") //anything else that's escaped
       );
     } else if (listIterator.code === 101) { //face
+        if (dialogue.text.length > 0) {
+          allDialogue.push({...dialogue});
+          dialogue.who = "";
+          dialogue.emotion = "";
+          dialogue.text = [];
+        }
       const match = listIterator.parameters[0].match(/^(\w+?)_(?:Portrait_)?(\w+?)$/);
       if (match) {
         dialogue.who = match[1].toLowerCase();
