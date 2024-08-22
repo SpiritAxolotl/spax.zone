@@ -93,5 +93,5 @@ const renderHTML = () => {
     </article>
 `;
   }
-  console.log(header + body + footer);
+  return header + body + footer;
 };
