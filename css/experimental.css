@@ -69,11 +69,13 @@ body {
   }
 }
 
-body > article:first-of-type {
+body > article:first-of-type,
+body > noscript > article:first-of-type {
   margin-top: 5px;
 }
 
-body > article:last-of-type {
+body > article:last-of-type,
+body > noscript > article:last-of-type {
   margin-bottom: 5px;
 }
 
