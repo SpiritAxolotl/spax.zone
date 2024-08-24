@@ -93,9 +93,21 @@ article {
   max-width: 650px;
   min-height: 133px;
   word-wrap: break-word;
-  &[who] {
-    padding-left: 127px;
-  }
+}
+
+article[who] {
+  padding-left: 127px;
+}
+
+article[who]::before {
+  content: "";
+  display: block;
+  float: left;
+  aspect-ratio: 1/1;
+  height: 97px;
+  margin-left: -112px;
+  background: url("/images/faces/Unknown.png") center/100% 100%;
+  margin-right: 15px;
 }
 
 article::after {
