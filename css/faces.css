@@ -1,6 +1,7 @@
 /* this is definitely automatable */
 
 article[who]::before {
+  content: "";
   display: block;
   float: left;
   aspect-ratio: 1/1;
