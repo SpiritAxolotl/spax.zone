@@ -106,7 +106,7 @@ article::after {
   aspect-ratio: 5/4;
   z-index: 1;
   height: 8px;
-  background: url("/images/misc/next_arrow/next_arrow.png") center/100%;
+  background: url("/images/misc/next_arrow.png") center/100%;
   animation: alternate arrow 0.75s steps(2, jump-none) infinite;
 }
 
