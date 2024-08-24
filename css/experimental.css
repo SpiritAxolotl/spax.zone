@@ -83,6 +83,7 @@ article {
   line-height: 21px;
   background: black;
   padding: 15px;
+  padding-left: 127px;
   color: var(--c1);
   height: fit-content;
   overflow: hidden;
@@ -91,6 +92,7 @@ article {
   max-width: 600px;
   min-height: 133px;
   user-select: none;
+  word-wrap: break-word;
 }
 
 .red {
