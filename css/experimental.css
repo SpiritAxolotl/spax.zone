@@ -91,7 +91,6 @@ article {
   flex-shrink: 0;
   max-width: 650px;
   min-height: 133px;
-  user-select: none;
   word-wrap: break-word;
   &[who] {
     padding-left: 127px;
