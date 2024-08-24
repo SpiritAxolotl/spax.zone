@@ -93,6 +93,7 @@ article {
   max-width: 650px;
   min-height: 133px;
   word-wrap: break-word;
+  cursor: default;
 }
 
 article[who] {
@@ -166,7 +167,6 @@ article[type=art] {
   text-align: center;
   & > img {
     width: 100%;
-    min-width: auto;
     padding: 0;
     image-rendering: auto;
   }
