@@ -47,7 +47,7 @@ body {
   align-items: center;
   gap: 5px;
   perspective: 550px;
-  background: repeat #306850 url("/images/bg/background_yoki.png");
+  background: repeat var(--c3) url("/images/bg/background_yoki.png");
   background-size: 960px;
   image-rendering: pixelated;
   height: fit-content;
@@ -55,17 +55,17 @@ body {
 }
 
 @supports (scrollbar-color: auto) {
-  body {
-    scrollbar-color: #86c06c #e0f8cf;
+  * {
+    scrollbar-color: var(--c2) var(--c4);
   }
 }
 
 @supports selector(::-webkit-scrollbar) {
-  body::-webkit-scrollbar {
-    background: #86c06c;
+  ::-webkit-scrollbar {
+    background: var(--c2);
   }
-  body::-webkit-scrollbar-thumb {
-    background: #e0f8cf;
+  ::-webkit-scrollbar-thumb {
+    background: var(--c4);
   }
 }
 
@@ -89,7 +89,7 @@ article {
   overflow: hidden;
   width: 100%;
   flex-shrink: 0;
-  max-width: 600px;
+  max-width: 650px;
   min-height: 133px;
   user-select: none;
   word-wrap: break-word;
@@ -141,7 +141,7 @@ a {
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 650px) {
   article {
     width: 100% !important;
     &[type=art] {
