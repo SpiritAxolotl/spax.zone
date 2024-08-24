@@ -1,0 +1,174 @@
+/*
+
+Hello, this is a stylesheet that has the most "precise" 1:1 replica of DEP's text box.
+Quoted on precise, as the stylesheet has very small, but not that much noticable errors.
+Normal computers will always have math limits (I have more though), like floating points.
+But CSS has more limits (I still have more), so the stylesheet will show a little bit of errors.
+
+Please don't zoom in too much ;(
+
+- CalmBubbles :v
+
+
+----------
+
+
+Notes
+- This stylesheet manages word breaks and flow
+- This only adds textbox styles, margin is stored separately
+- Mobile scaling is also stored seperately. Don't panic, it is easy to do
+- The arrow animation has a step iterpolation to mimic the one in the game
+- Yes, you can remove the arrow :v
+
+----------
+
+Warnings
+
+- Remove the body's margin, padding, border.
+  They just add extra space, which makes scrollbars
+  appear for no reason.
+  I did not add that here since thats a global site thing
+
+- The structure of textboxes SHOULD BE like
+  `<div class="textbox"><div>text goes here</div><img src="/images/misc/next_arrow/next_arrow.png></div>`
+  `<div class="textbox"><img href="idk.png"><div>text goes here</div><img src="/images/misc/next_arrow/next_arrow.png></div>` (w/ portrait)
+
+  And NOT
+  `<div class="textbox">   <div>text goes here</div>   <img src="/images/misc/next_arrow/next_arrow.png>   </div>`
+  `
+    <div class="textbox">
+    <div>text goes here</div>
+    <img src="/images/misc/next_arrow/next_arrow.png>
+    </div>
+  `
+  `
+    <div class="textbox">
+    <div>
+    text goes here
+    </div>
+    <img src="/images/misc/next_arrow/next_arrow.png>
+    </div>`
+  `
+    <div class="textbox">
+        <div>
+            text goes here
+        </div>
+        <img src="/images/misc/next_arrow/next_arrow.png>
+    </div>
+  `
+  `                            (w/ portrait)
+    <div class="textbox">
+        <img href="idk.png">
+        <div>
+            text goes here
+        </div>
+        <img src="/images/misc/next_arrow/next_arrow.png>
+    </div>
+  `
+
+  Yes this is kinda a hassle to work with, but whitespaces may
+  BREAK THE PRECISION by adding spaces on places it shouldn't have.
+
+
+- If you don't want to show a portrait image, DON'T change the
+  style of the image (i.e `display: none`).
+  You SHOULD just delete or comment out the image.
+  The text section will have it's width cutoff if the image is still present
+
+
+- NEVER use this stylesheet with bootstrap stylesheets. They break almost everything
+
+
+- NEVER remove the div child. Just don't
+
+*/
+
+
+.textbox {
+    /*
+
+    sP - scaled pixels. Multiplied to scaler to match devices like:
+         property: calc(var(--scaler) * sP);
+    wP - website pixels. Normal CSS properties with a `px` unit
+    bW - the target base width
+    wW - window width. The width you used to test the style, for me it was 1280
+    
+    sP = wP / (((bW / 100) / 1333) * wW)
+    
+    */
+
+
+    /*
+    
+    Box width relative to screen width. Never add a unit. Change if wanted. Will auto scale
+
+    Recommended max: 98
+
+    */
+    --base-width: 50;
+    --scaler: calc(var(--base-width) / 1333);
+
+    position: relative;
+    background: black;
+    color: #e0f8cf;
+    width: calc(var(--scaler) * 1288vw);
+    min-height: calc(var(--scaler) * 261vw);
+    border: calc(var(--scaler) * 7vw) solid #e0f8cf;
+    border-bottom: calc(var(--scaler) * 6vw) solid #e0f8cf;
+    letter-spacing: calc(var(--scaler) * 10vw);
+    padding-left: calc(var(--scaler) * 31vw);
+    font-size: calc(var(--scaler) * 42vw);
+    line-height: calc(var(--scaler) * 42vw);
+    user-select: none;
+}
+
+.textbox div {
+    margin-top: calc(var(--scaler) * 40vw);
+    padding-bottom: calc(var(--scaler) * 40vw);
+    width: calc(var(--scaler) * 1014vw);
+    display: inline-block;
+    word-wrap: break-word;
+}
+
+.textbox div:nth-child(1) {
+    width: calc(var(--scaler) * 1253vw);
+}
+
+.textbox img {
+    pointer-events: none;
+}
+
+.textbox > img:not(.arrow) {
+    float: left;
+    margin-top: calc(var(--scaler) * 31vw);
+    margin-bottom: calc(var(--scaler) * 30vw);
+    margin-right: calc(var(--scaler) * 39vw);
+    width: calc(var(--scaler) * 200vw);
+}
+
+.textbox .arrow {
+    width: calc(var(--scaler) * 20vw);
+    position: absolute;
+    bottom: calc(var(--scaler) * -2vw);
+    left: 50%;
+    transform: translateX(-50%);
+    animation: alternate arrow 0.75s steps(2, jump-none) infinite;
+}
+
+@keyframes arrow {
+    0% { bottom: calc(var(--scaler) * 2vw); }
+
+    50% { bottom: 0; }
+
+    100% { bottom: calc(var(--scaler) * -2vw); }
+}
+
+
+/* For dialogue system only */
+.textbox[data-portrait-enabled="false"] .dialogue-line {
+    width: calc(var(--scaler) * 1253vw);
+}
+
+.textbox[data-portrait-enabled="true"] .dialogue-line {
+    width: calc(var(--scaler) * 1014vw);
+}
