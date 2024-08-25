@@ -43,7 +43,7 @@ const processDialogue = (list) => {
       if (match) {
         if (match[1])
           dialogue.who = match[1].toLowerCase();
-        if (match[2] && match[2] !== "Portrait")
+        if (match[2])
           dialogue.emotion = match[2].toLowerCase();
       }
     } else {
