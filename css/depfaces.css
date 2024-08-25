@@ -1,5 +1,9 @@
 /* this is definitely automatable */
 
+article[who]::before {
+  background: url("/images/faces/Unknown.png") center/100% 100%;
+}
+
 /* aimottle */
 
 article[who=aimottle]::before {
@@ -106,6 +110,7 @@ article[who=claire][emotion=neutral]::before {
   background-image: url("/images/faces/claire/Neutral.png");
 }
 
+article[who=claire][emotion=down]::before,
 article[who=claire][emotion=pensive]::before {
   background-image: url("/images/faces/claire/Pensive.png");
 }
@@ -218,11 +223,14 @@ article[who=prince][emotion=appalled]::before {
   background-image: url("/images/faces/prince/Appalled.png");
 }
 
+article[who=prince][emotion=headturn]::before,
 article[who=prince][emotion=head-turn]::before,
 article[who=prince][emotion=head_turn]::before {
   background-image: url("/images/faces/prince/Head_Turn.png");
 }
 
+article[who=prince][emotion=down]::before,
+article[who=prince][emotion=lookdown]::before,
 article[who=prince][emotion=look-down]::before,
 article[who=prince][emotion=look_down]::before {
   background-image: url("/images/faces/prince/Look_Down.png");
@@ -242,6 +250,8 @@ article[who=tem]::before {
   background-image: url("/images/faces/tem/Neutral.png");
 }
 
+article[who=tem][emotion=down]::before,
+article[who=tem][emotion=lookdown]::before,
 article[who=tem][emotion=look-down]::before,
 article[who=tem][emotion=look_down]::before {
   background-image: url("/images/faces/tem/Look_Down.png");
@@ -275,6 +285,7 @@ article[who=woof][emotion=awake]::before {
   background-image: url("/images/faces/woof/Awake.png");
 }
 
+article[who=woof][emotion=knockedout]::before,
 article[who=woof][emotion=knocked-out]::before,
 article[who=woof][emotion=knocked_out]::before {
   background-image: url("/images/faces/woof/KnockedOut.png");
