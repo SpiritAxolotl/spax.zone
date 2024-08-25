@@ -3,7 +3,7 @@ const { JSDOM } = require('jsdom');
 
 const targetPage = "./html/DEPalldialogue.html";
 
-const allDialogue = [];
+let allDialogue = [];
 fs.readFile("./misc/dep_event_dump.json", "utf8", (err, d) => {
   if (err) throw err;
   const data = JSON.parse(d);
@@ -71,10 +71,11 @@ const pushTextbox = (dialogue, overflow) => {
 
 const removeDuplicates = () => {
   const startTime = Date.now();
-  for (let i=0; i<allDialogue.length; i++)
+  /*for (let i=0; i<allDialogue.length; i++)
     for (let j=i+1; j<allDialogue.length; j++)
       if (JSON.stringify(allDialogue[i]) === JSON.stringify(allDialogue[j]))
-        allDialogue.splice(j--, 1);
+        allDialogue.splice(j--, 1);*/
+  allDialogue = [...new Set(allDialogue.map(e=>JSON.stringify(e)))].map(e=>JSON.parse(e));
   console.log(`it took ${(Date.now()-startTime)/1000} seconds to remove duplicates.`);
 }
 
