@@ -72,11 +72,15 @@ const pushTextbox = (dialogue, overflow) => {
 };
 
 const removeDuplicates = () => {
-  /*for (let i=0; i<allDialogue.length; i++)
-    for (let j=i+1; j<allDialogue.length; j++)
-      if (JSON.stringify(allDialogue[i]) === JSON.stringify(allDialogue[j]))
-        allDialogue.splice(j--, 1);*/
-  allDialogue = [...new Set(allDialogue.map(e=>JSON.stringify(e)))].map(e=>JSON.parse(e));
+  const uniqueSet = new Set();
+  allDialogue = allDialogue.filter(item => {
+    const stringified = JSON.stringify(item);
+    if (!uniqueSet.has(stringified)) {
+      uniqueSet.add(stringified);
+      return true;
+    }
+    return false;
+  });
 };
 
 const escapeHTML = (unsafe) => {
