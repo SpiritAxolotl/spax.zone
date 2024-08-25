@@ -159,6 +159,7 @@ article[who=este]::before {
   background-image: url("/images/faces/este/Stare.png");
 }
 
+article[who=este][emotion=portrait]::before,
 article[who=este][emotion=stare]::before {
   background-image: url("/images/faces/este/Stare.png");
 }
