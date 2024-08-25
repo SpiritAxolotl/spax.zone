@@ -39,11 +39,13 @@ const processDialogue = (list) => {
       );
     } else if (listIterator.code === 101) { //face
       pushTextbox(dialogue);
-      const match = listIterator.parameters[0].match(/^(\w+?)(?:_(?:Portrait_)?(?:test_)?(\w+?))?$/i);
-      if (match?.[1])
-        dialogue.who = match[1].toLowerCase();
-      if (match?.[2])
-        dialogue.emotion = match[2].toLowerCase();
+      const match = listIterator.parameters[0].match(/^(\w+?)(?:_(?:Portrait_)?(?:test_)?([\w_]+?))?$/i);
+      if (match) {
+        if (match[1])
+          dialogue.who = match[1].toLowerCase();
+        if (match[2] && match[2] !== "Portrait")
+          dialogue.emotion = match[2].toLowerCase();
+      }
     } else {
       pushTextbox(dialogue);
       continue;
