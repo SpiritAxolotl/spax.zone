@@ -75,7 +75,7 @@ const removeDuplicates = () => {
       if (JSON.stringify(allDialogue[i]) === JSON.stringify(allDialogue[j]))
         allDialogue.splice(j--, 1);*/
   allDialogue = [...new Set(allDialogue.map(e=>JSON.stringify(e)))].map(e=>JSON.parse(e));
-}
+};
 
 const escapeHTML = (unsafe) => {
   return unsafe
@@ -84,7 +84,7 @@ const escapeHTML = (unsafe) => {
     .replaceAll(`>`, "&gt;")
     .replaceAll(`"`, "&quot;")
     .replaceAll(`'`, "&#039;");
-}
+};
 const escapeHTMLString = (unsafe) => {
   return unsafe.replaceAll(`"`, ``);
 };
