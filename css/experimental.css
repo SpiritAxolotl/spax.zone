@@ -154,15 +154,6 @@ a {
   }
 }
 
-@media only screen and (max-width: 650px) {
-  article {
-    width: 100% !important;
-    &[type=art] {
-      min-width: revert !important;
-    }
-  }
-}
-
 article[type=art] {
   text-align: center;
   & > img {
@@ -187,4 +178,13 @@ article[type=title] {
 
 article[type=short] {
   min-height: 0;
+}
+
+@media only screen and (max-width: 650px) {
+  article {
+    width: 100%;
+    &[type=art] {
+      min-width: revert;
+    }
+  }
 }
