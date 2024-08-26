@@ -81,8 +81,8 @@ body article:last-of-type {
 article {
   position: relative;
   border: 3px solid var(--c1);
-  letter-spacing: 3px;
-  line-height: 21px;
+  letter-spacing: 4.25px;
+  line-height: 23px;
   background: black;
   padding: 15px;
   color: var(--c1);
@@ -90,14 +90,15 @@ article {
   overflow: hidden;
   width: 100%;
   flex-shrink: 0;
-  max-width: 650px;
+  max-width: 645px;
+  min-width: 645px;
   min-height: 133px;
   word-wrap: break-word;
   cursor: default;
 }
 
 article[who] {
-  padding-left: 127px;
+  padding-left: 130px;
 }
 
 article[who]::before {
@@ -106,18 +107,16 @@ article[who]::before {
   float: left;
   aspect-ratio: 1/1;
   height: 97px;
-  margin-left: -112px;
-  margin-right: 15px;
+  margin-left: -115px;
 }
 
 article::after {
   content: "";
   display: block;
   position: absolute;
-  left: 50%;
+  left: calc(50% - 5px);
   bottom: 0;
   aspect-ratio: 5/4;
-  z-index: 1;
   height: 8px;
   background: url("/images/misc/next_arrow.png") center/100%;
   animation: alternate arrow 0.75s steps(2, jump-none) infinite;
@@ -125,10 +124,10 @@ article::after {
 
 @keyframes arrow {
   0% {
-    bottom: 4px;
+    bottom: 2px;
   }
   50% {
-    bottom: 2px;
+    bottom: 1px;
   }
   100% {
     bottom: 0;
@@ -179,9 +178,10 @@ article[type=short] {
   min-height: 0;
 }
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 645px) {
   article {
-    width: 100%;
+    width: 100% !important;
+    min-width: revert;
     &[type=art] {
       min-width: revert;
     }
