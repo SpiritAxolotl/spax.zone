@@ -178,7 +178,7 @@ const textboxEquals = (a,b) => {
   return true;
 };
 
-module.exports = { targetPage, readPage, clearBelow, textboxEquals };
-
 if (require.main === module)
   main();
+
+module.exports = { targetPage, readPage, clearBelow, textboxEquals };
