@@ -3,20 +3,6 @@ const { JSDOM } = require('jsdom');
 
 const targetPage = "./html/DEPalldialogue.html";
 
-const overrides = [
-  {
-    who: "yoki",
-    emotion: "annoyed",
-    text: [
-      "That's you're only decent",
-      "quality. "
-    ],
-    index: 0,
-    replace: "you're",
-    replacer: "your"
-  }
-];
-
 let allDialogue = [];
 
 const main = () => {
@@ -29,7 +15,7 @@ const main = () => {
       else continue;
     }
     removeDuplicates();
-    applyOverrides(true);
+    await applyOverrides(true);
     fs.writeFileSync("./misc/dep_dialogue_dump.json", JSON.stringify(allDialogue));
     const dom = await readPage(targetPage);
     fs.writeFileSync(targetPage, renderHTML(dom, dom.window.document));
@@ -107,7 +93,16 @@ const removeDuplicates = () => {
   });
 };
 
-const applyOverrides = (duplicatesRemoved=false) => {
+const applyOverrides = async (duplicatesRemoved=false) => {
+  const overrides = await (async () => {
+    try {
+      const data = await fs.promises.readFile("./misc/dialogue_overrides.json", "utf8");
+      return JSON.parse(data);
+    } catch (err) {
+      console.error("Error reading file:", err);
+      throw err;
+    }
+  })();
   allDialogue.forEach(dialogue => {
     for (let i=0; i<overrides.length; i++) {
       const override = overrides[i];
