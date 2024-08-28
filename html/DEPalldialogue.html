@@ -16,14 +16,22 @@
     article {
       white-space: nowrap;
     }
-    @media only screen and (max-width: 600px) {
+    span.break {
+      display: block;
+    }
+    @media only screen and (max-width: 645px) {
       article {
         white-space: wrap;
       }
-      article br:not([end]) {
+      article span.break:not(.end) {
         display: none;
       }
     }
+    #buildbelowme {
+      display: none;
+    }
   </style>
 </head>
-<body></body></html>
+<body>
+  <div id="buildbelowme"></div>
+</body></html>

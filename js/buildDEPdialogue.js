@@ -3,24 +3,49 @@ const { JSDOM } = require('jsdom');
 
 const targetPage = "./html/DEPalldialogue.html";
 
-let allDialogue = [];
-fs.readFile("./misc/dep_event_dump.json", "utf8", (err, d) => {
-  if (err) throw err;
-  const data = JSON.parse(d);
-  for (const dataIterator of data) {
-    if (dataIterator.list) processDialogue(dataIterator.list);
-    else if (dataIterator.pages?.[0]?.list) processDialogue(dataIterator.pages?.[0]?.list);
-    else continue;
+const overrides = [
+  {
+    who: "yoki",
+    emotion: "annoyed",
+    text: [
+      "That's you're only decent",
+      "quality. "
+    ],
+    index: 0,
+    replace: "you're",
+    replacer: "your"
   }
-  removeDuplicates();
-  fs.writeFileSync("./misc/dep_dialogue_dump.json", JSON.stringify(allDialogue));
-  fs.readFile(targetPage, "utf8", (err, html) => {
+];
+
+let allDialogue = [];
+
+const main = () => {
+  fs.readFile("./misc/dep_event_dump.json", "utf8", async (err, d) => {
     if (err) throw err;
-    const dom = new JSDOM(html);
-    const document = dom.window.document;
-    fs.writeFileSync(targetPage, renderHTML(dom, document));
+    const data = JSON.parse(d);
+    for (const dataIterator of data) {
+      if (dataIterator.list) processDialogue(dataIterator.list);
+      else if (dataIterator.pages?.[0]?.list) processDialogue(dataIterator.pages?.[0]?.list);
+      else continue;
+    }
+    removeDuplicates();
+    applyOverrides(true);
+    fs.writeFileSync("./misc/dep_dialogue_dump.json", JSON.stringify(allDialogue));
+    const dom = await readPage(targetPage);
+    fs.writeFileSync(targetPage, renderHTML(dom, dom.window.document));
   });
-});
+};
+
+const readPage = async (page) => {
+  try {
+    const html = await fs.promises.readFile(page, "utf8");
+    const dom = new JSDOM(html);
+    return dom;
+  } catch (err) {
+    console.error("Error reading file:", err);
+    throw err;
+  }
+};
 
 const processDialogue = (list) => {
   const dialogue = {
@@ -53,8 +78,7 @@ const processDialogue = (list) => {
   }
 };
 
-const pushTextbox = (dialogue, overflow) => {
-  overflow ??= false;
+const pushTextbox = (dialogue, overflow=false) => {
   const length = dialogue.text.length;
   if ((overflow && length >= 4) || (!overflow && length > 0)) {
     //for 600_portrait_test_Enlarged which is just yoki
@@ -73,13 +97,28 @@ const pushTextbox = (dialogue, overflow) => {
 
 const removeDuplicates = () => {
   const uniqueSet = new Set();
-  allDialogue = allDialogue.filter(item => {
-    const stringified = JSON.stringify(item);
+  allDialogue = allDialogue.filter(dialogue => {
+    const stringified = JSON.stringify(dialogue);
     if (!uniqueSet.has(stringified)) {
       uniqueSet.add(stringified);
       return true;
     }
     return false;
+  });
+};
+
+const applyOverrides = (duplicatesRemoved=false) => {
+  allDialogue.forEach(dialogue => {
+    for (let i=0; i<overrides.length; i++) {
+      const override = overrides[i];
+      if (textboxEquals(override, dialogue)) {
+        dialogue.text[override.index] = dialogue.text[override.index].replace(override.replace, override.replacer);
+        if (duplicatesRemoved) {
+          overrides.splice(overrides.indexOf(override), 1);
+          i--;
+        }
+      }
+    }
   });
 };
 
@@ -95,6 +134,11 @@ const escapeHTMLString = (unsafe) => {
   return unsafe.replaceAll(`"`, ``);
 };
 
+const clearBelow = (document) => {
+  document.querySelectorAll(`#buildbelowme ~ *`).forEach(e=>e.remove());
+  document.body.innerHTML = document.body.innerHTML.replace(/\s+$/, "");
+};
+
 const renderHTML = (dom, document) => {
   let body = `\n`;
   for (const dialogue of allDialogue) {
@@ -105,8 +149,8 @@ const renderHTML = (dom, document) => {
       body += ` emotion="${escapeHTMLString(dialogue.emotion)}"`
     body += `>\n    `;
     let text = dialogue.text.reduce((acc,e)=>
-      acc + escapeHTML(e) + `<br${e.match(/[^\w\s]\s*$/g)?" end":""}>\n    `, ""
-    ).replace(/<br(\s+end)?>\n\s+$/g, "");
+      acc + escapeHTML(e) + `<span class="break${e.match(/[^\w\s]\s*$/g)?` end"`:`"`}></span>\n    `, ""
+    ).replace(/<span\s+class="break(\s+end)?"><\/span>\n\s+$/g, "");
     let match = undefined;
     while (match !== null) {
       match = text.match(/\\\{([\s\S]+?)(?:\\\}|$)/);
@@ -116,6 +160,25 @@ const renderHTML = (dom, document) => {
     body += text;
     body += `\n  </article>\n`;
   }
-  document.body.innerHTML = body;
+  clearBelow(document);
+  document.querySelector(`#buildbelowme`).outerHTML += body;
   return dom.serialize();
 };
+
+/* utils */
+
+const textboxEquals = (a,b) => {
+  if (a.who !== b.who || a.emotion !== b.emotion)
+    return false;
+  if (a.text.length !== b.text.length)
+    return false;
+  for (let i=0; i<a.text.length; i++)
+    if (a.text[i] !== b.text[i])
+      return false;
+  return true;
+};
+
+module.exports = { targetPage, readPage, clearBelow, textboxEquals };
+
+if (require.main === module)
+  main();
