@@ -20,7 +20,7 @@ const overrides = [
 let allDialogue = [];
 
 const main = () => {
-  fs.readFile("./misc/dep_event_dump.json", "utf8", async (err, d) => {
+  fs.readFile("https://cdn.spax.zone/dep_event_dump.json", "utf8", async (err, d) => {
     if (err) throw err;
     const data = JSON.parse(d);
     for (const dataIterator of data) {
