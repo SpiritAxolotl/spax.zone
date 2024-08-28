@@ -1,0 +1,59 @@
+[
+  {
+    "who": "yoki",
+    "emotion": "annoyed",
+    "text": [
+      "That's you're only decent",
+      "quality. "
+    ],
+    "index": 0,
+    "replace": "you're",
+    "replacer": "your"
+  },
+  {
+    "who": "yoki",
+    "emotion": "unsure_smile",
+    "text": [
+      "(I wish this was the gaurd",
+      "that always catches me ",
+      "when I leave somewhere.)"
+    ],
+    "index": 0,
+    "replace": "gaurd",
+    "replacer": "guard"
+  },
+  {
+    "who": "prince",
+    "emotion": "lookdown",
+    "text": [
+      "Actually, you don't need to ",
+      "answer that. I can tell by ",
+      "the look on you're face."
+    ],
+    "index": 2,
+    "replace": "you're",
+    "replacer": "your"
+  },
+  {
+    "who": "hero",
+    "emotion": "cleric",
+    "text": [
+      "Go forth...",
+      "And accept it's blessing."
+    ],
+    "index": 1,
+    "replace": "it's",
+    "replacer": "its"
+  },
+  {
+    "who": "yoki",
+    "emotion": "neutral",
+    "text": [
+      "The too sign's too faded",
+      "to read..."
+    ],
+    "index": 0,
+    "replace": "too ",
+    "replacer": ""
+  }
+]
