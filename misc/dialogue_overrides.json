@@ -55,5 +55,77 @@
     "index": 0,
     "replace": "too ",
     "replacer": ""
+  },
+  {
+    "who": "yoki",
+    "emotion": "look",
+    "text": [
+      "(Maybe you being effected ",
+      "by the barrier was for",
+      "the best...)"
+    ],
+    "index": 0,
+    "replace": "effected",
+    "replacer": "affected"
+  },
+  {
+    "who": "",
+    "emotion": "",
+    "text": [
+      "And some have chosen to live ",
+      "seperate from each other as a ",
+      "result."
+    ],
+    "index": 1,
+    "replace": "seperate",
+    "replacer": "separate"
+  },
+  {
+    "who": "",
+    "emotion": "",
+    "text": [
+      "They typically do not hold their ",
+      "largest aggresive form for very ",
+      "long."
+    ],
+    "index": 1,
+    "replace": "aggresive",
+    "replacer": "aggressive"
+  },
+  {
+    "who": "",
+    "emotion": "",
+    "text": [
+      "They constantly stablize and",
+      "destabilize their appearance ",
+      "based on their emotions."
+    ],
+    "index": 0,
+    "replace": "stablize",
+    "replacer": "stabilize"
+  },
+  {
+    "who": "yoki",
+    "emotion": "look",
+    "text": [
+      "When the Heroes activated ",
+      "one earlier, the light it ",
+      "omitted burnt me a little."
+    ],
+    "index": 2,
+    "replace": "omitted",
+    "replacer": "emitted"
+  },
+  {
+    "who": "claire",
+    "emotion": "look",
+    "text": [
+      "I just hope the world opens",
+      "it's eyes one day about how ",
+      "great Witchcraft is."
+    ],
+    "index": 1,
+    "replace": "it's",
+    "replacer": "its"
   }
 ]
