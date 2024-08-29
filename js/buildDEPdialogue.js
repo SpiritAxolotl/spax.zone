@@ -16,7 +16,7 @@ const getDEPEventDump = (callback) => {
   fs.readFile(eventDump, "utf8", (err, data) => {
     if (err)
       return callback(err, null);
-    return callback(null, data);
+    return callback(null, JSON.parse(data));
   });
 };
 
