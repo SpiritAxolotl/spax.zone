@@ -2,13 +2,27 @@ const fs = require('fs');
 const { JSDOM } = require('jsdom');
 
 const targetPage = "./html/DEPalldialogue.html";
+const eventDump = "./data/dep_event_dump.json";
 
 let allDialogue = [];
 
+const getDEPEventDump = (callback) => {
+  if (!fs.existsSync(eventDump)) {
+    return fetch("https://cdn.spax.zone/dep_event_dump.json")
+      .then(a => a.json())
+      .then(data => callback(null, data))
+      .catch(err => callback(null, err));
+  }
+  fs.readFile(eventDump, "utf8", (err, data) => {
+    if (err)
+      return callback(err, null);
+    return callback(null, data);
+  });
+};
+
 const main = () => {
-  fs.readFile("./misc/dep_event_dump.json", "utf8", async (err, d) => {
+  getDEPEventDump(async (err, data) => {
     if (err) throw err;
-    const data = JSON.parse(d);
     for (const dataIterator of data) {
       if (dataIterator.list) processDialogue(dataIterator.list);
       else if (dataIterator.pages?.[0]?.list) processDialogue(dataIterator.pages?.[0]?.list);
@@ -16,7 +30,7 @@ const main = () => {
     }
     removeDuplicates();
     await applyOverrides(true);
-    fs.writeFileSync("./misc/dep_dialogue_dump.json", JSON.stringify(allDialogue));
+    fs.writeFileSync("./data/dep_dialogue_dump.json", JSON.stringify(allDialogue));
     const dom = await readPage(targetPage);
     fs.writeFileSync(targetPage, renderHTML(dom, dom.window.document));
   });
@@ -96,7 +110,7 @@ const removeDuplicates = () => {
 const applyOverrides = async (duplicatesRemoved=false) => {
   const overrides = await (async () => {
     try {
-      const data = await fs.promises.readFile("./misc/dialogue_overrides.json", "utf8");
+      const data = await fs.promises.readFile("./data/dep_dialogue_overrides.json", "utf8");
       return JSON.parse(data);
     } catch (err) {
       console.error("Error reading file:", err);
