@@ -1,5 +1,6 @@
 const fs = require('fs');
 const { JSDOM } = require('jsdom');
+const { Timer } = require('./timer.js');
 
 const targetPage = "./html/DEPalldialogue.html";
 const eventDump = "./data/dep_event_dump.json";
@@ -21,18 +22,22 @@ const getDEPEventDump = (callback) => {
 };
 
 const main = () => {
+  const wholeTimer = new Timer("building the dialogue", false);
   getDEPEventDump(async (err, data) => {
     if (err) throw err;
+    const timer = new Timer("parsing dialogue JSON");
     for (const dataIterator of data) {
       if (dataIterator.list) processDialogue(dataIterator.list);
       else if (dataIterator.pages?.[0]?.list) processDialogue(dataIterator.pages?.[0]?.list);
       else continue;
     }
+    timer.stop("parse dialogue JSON");
     removeDuplicates();
     await applyOverrides(true);
     fs.writeFileSync("./data/dep_dialogue_dump.json", JSON.stringify(allDialogue));
     const dom = await readPage(targetPage);
     fs.writeFileSync(targetPage, renderHTML(dom, dom.window.document));
+    wholeTimer.stop("build the dialogue");
   });
 };
 
@@ -96,6 +101,7 @@ const pushTextbox = (dialogue, overflow=false) => {
 };
 
 const removeDuplicates = () => {
+  const timer = new Timer("Removing duplicates");
   const uniqueSet = new Set();
   allDialogue = allDialogue.filter(dialogue => {
     const stringified = JSON.stringify(dialogue);
@@ -105,6 +111,7 @@ const removeDuplicates = () => {
     }
     return false;
   });
+  timer.stop("remove duplicates");
 };
 
 const applyOverrides = async (duplicatesRemoved=false) => {
@@ -117,6 +124,7 @@ const applyOverrides = async (duplicatesRemoved=false) => {
       throw err;
     }
   })();
+  const timer = new Timer("applying overrides");
   for (let i=0; i<allDialogue.length; i++) {
     const dialogue = allDialogue[i];
     for (let j=0; j<overrides.length; j++) {
@@ -136,6 +144,7 @@ const applyOverrides = async (duplicatesRemoved=false) => {
       }
     }
   }
+  timer.stop("apply overrides");
 };
 
 const escapeHTML = (unsafe) => {
@@ -151,13 +160,16 @@ const escapeHTMLString = (unsafe) => {
 };
 
 const clearArea = (document) => {
+  const timer = new Timer("clearing the area");
   document.querySelectorAll(`#buildbelowme ~ :not(#buildaboveme):not(#buildaboveme ~ *)`)
     .forEach(e=>e.remove());
   document.body.innerHTML = document.body.innerHTML
     .replace(/(?<=<div id="buildbelowme"><\/div>)\s+(?=<div id="buildaboveme"><\/div>)/, "\n  ");
+  timer.stop("clear the area");
 };
 
 const renderHTML = (dom, document) => {
+  const timer = new Timer("rendering HTML");
   let body = ``;
   for (const dialogue of allDialogue) {
     body += `\n  <article`;
@@ -180,6 +192,7 @@ const renderHTML = (dom, document) => {
     body += text;
     body += `\n  </article>`;
   }
+  timer.stop("render HTML");
   clearArea(document);
   document.querySelector(`#buildbelowme`).outerHTML += body;
   return dom.serialize();
