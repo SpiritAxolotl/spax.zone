@@ -103,18 +103,25 @@ const applyOverrides = async (duplicatesRemoved=false) => {
       throw err;
     }
   })();
-  allDialogue.forEach(dialogue => {
-    for (let i=0; i<overrides.length; i++) {
-      const override = overrides[i];
+  for (let i=0; i<allDialogue.length; i++) {
+    const dialogue = allDialogue[i];
+    for (let j=0; j<overrides.length; j++) {
+      const override = overrides[j];
       if (textboxEquals(override, dialogue)) {
-        dialogue.text[override.index] = dialogue.text[override.index].replace(override.replace, override.replacer);
+        override.text[override.index] = override.text[override.index].replace(override.replace, override.replacer);
+        override.override = true;
+        delete override.index;
+        delete override.replace;
+        delete override.replacer;
+        allDialogue[i].typo = true;
+        allDialogue.splice(++i, 0, override);
         if (duplicatesRemoved) {
-          overrides.splice(overrides.indexOf(override), 1);
-          i--;
+          overrides.splice(j, 1);
+          j--;
         }
       }
     }
-  });
+  }
 };
 
 const escapeHTML = (unsafe) => {
@@ -142,6 +149,8 @@ const renderHTML = (dom, document) => {
       body += ` who="${escapeHTMLString(dialogue.who)}"`
     if (dialogue.emotion)
       body += ` emotion="${escapeHTMLString(dialogue.emotion)}"`
+    if (dialogue.typo)
+      body += ` class="typo"`;
     body += `>\n    `;
     let text = dialogue.text.reduce((acc,e)=>
       acc + escapeHTML(e) + `<span class="break${e.match(/[^\w\s]\s*$/g)?` end"`:`"`}></span>\n    `, ""
