@@ -136,15 +136,17 @@ const escapeHTMLString = (unsafe) => {
   return unsafe.replaceAll(`"`, ``);
 };
 
-const clearBelow = (document) => {
-  document.querySelectorAll(`#buildbelowme ~ *`).forEach(e=>e.remove());
-  document.body.innerHTML = document.body.innerHTML.replace(/\s+$/, "");
+const clearArea = (document) => {
+  document.querySelectorAll(`#buildbelowme ~ :not(#buildaboveme):not(#buildaboveme ~ *)`)
+    .forEach(e=>e.remove());
+  document.body.innerHTML = document.body.innerHTML
+    .replace(/(?<=<div id="buildbelowme"><\/div>)\s+(?=<div id="buildaboveme"><\/div>)/, "\n  ");
 };
 
 const renderHTML = (dom, document) => {
-  let body = `\n`;
+  let body = ``;
   for (const dialogue of allDialogue) {
-    body += `  <article`;
+    body += `\n  <article`;
     if (dialogue.who)
       body += ` who="${escapeHTMLString(dialogue.who)}"`
     if (dialogue.emotion)
@@ -162,9 +164,9 @@ const renderHTML = (dom, document) => {
         text = text.replace(match[0], `<span class="red">${match[1]}</span>`);
     }
     body += text;
-    body += `\n  </article>\n`;
+    body += `\n  </article>`;
   }
-  clearBelow(document);
+  clearArea(document);
   document.querySelector(`#buildbelowme`).outerHTML += body;
   return dom.serialize();
 };
@@ -185,4 +187,4 @@ const textboxEquals = (a,b) => {
 if (require.main === module)
   main();
 
-module.exports = { targetPage, readPage, clearBelow, textboxEquals };
+module.exports = { targetPage, readPage, clearArea, textboxEquals };

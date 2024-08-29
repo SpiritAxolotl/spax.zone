@@ -27,7 +27,8 @@
         display: none;
       }
     }
-    #buildbelowme {
+    #buildbelowme,
+    #buildaboveme {
       display: none;
     }
     .typo + * {
@@ -37,4 +38,19 @@
 </head>
 <body>
   <div id="buildbelowme"></div>
+  <div id="buildaboveme"></div>
+  <script>
+    const typos = [...document.querySelectorAll(`.typo`)];
+    const corrections = [...document.querySelectorAll(`.typo + *`)];
+    const showTypos = () => {
+      for (const element of [...typos, ...corrections])
+        element.removeAttribute("style");
+    };
+    const showCorrections = () => {
+      for (const element of corrections)
+        element.style.display = "block";
+      for (const element of typos)
+        element.style.display = "none";
+    };
+  </script>
 </body></html>
