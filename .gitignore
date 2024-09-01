@@ -3,5 +3,4 @@ venv
 doctrees
 .vscode/
 node_modules/
-data/dep_dialogue_dump.json
-data/dep_event_dump.json
+data/
