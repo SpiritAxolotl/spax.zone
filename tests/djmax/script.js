@@ -32,6 +32,7 @@ main();
 
 const randomSong = () => {
   const rand = allSongs[Math.floor(allSongs.length * Math.random())];
+  console.log(rand);
   document.querySelector(`#title`).innerText = rand.Title;
   document.querySelector(`#artist`).innerText = rand.Artist;
   document.querySelector(`#game`).innerText = rand.Game;
