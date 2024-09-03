@@ -32,21 +32,34 @@
     <audio></audio>
   </div>
   <div id="options">
-    <fieldset id="eligibility-include">
-    <legend>Eligibility to include:</legend>
-    <div>
-      <input type="checkbox" name="eligible" checked="">
-      <label for="eligible">Eligible</label>
+    <div id="merged-options">
+      <fieldset id="eligibility-include">
+      <legend>Eligibility to include:</legend>
+      <div>
+        <input type="checkbox" name="eligible" checked>
+        <label for="eligible">Eligible</label>
+      </div>
+      <div>
+        <input type="checkbox" name="maybe-eligible">
+        <label for="maybe-eligible">Maybe Eligible</label>
+      </div>
+      <div>
+        <input type="checkbox" name="not-eligible" disabled>
+        <label for="not-eligible">Not Eligible</label>
+      </div>
+      </fieldset>
+      <fieldset id="miscellaneous">
+        <legend>Misc:</legend>
+        <div>
+          <input type="checkbox" name="use-cobalt" checked>
+          <label for="use-cobalt">Render audio with cobalt</label>
+        </div>
+        <div>
+          <input type="checkbox" name="autoplay-audio" checked>
+          <label for="autoplay-audio">Autoplay audio</label>
+        </div>
+      </fieldset>
     </div>
-    <div>
-      <input type="checkbox" name="maybe-eligible">
-      <label for="maybe-eligible">Maybe Eligible</label>
-    </div>
-    <div>
-      <input type="checkbox" name="not-eligible" disabled>
-      <label for="not-eligible">Not Eligible</label>
-    </div>
-    </fieldset>
     <fieldset id="games-include">
     <legend>Games to include:</legend>
     <div>
@@ -59,7 +72,7 @@
     </fieldset>
   </div>
   <footer>
-    more options to come (and styling)<br>
+    styling coming soon<br>
     <a href="https://docs.google.com/spreadsheets/d/1FUUZuo1XvO-JkCSujy6Ml06QoLi-7o8g7rFkpcYsn9w/view">see the spreadsheet</a><br>
     audio embeds generated with <a href="https://cobalt.tools">cobalt.tools</a>' public api
   </footer>
