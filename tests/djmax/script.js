@@ -1,5 +1,3 @@
-//const fs = require("fs");
-
 const fetchJsonData = async (url) => {
   try {
     const response = await fetch(url);
@@ -21,32 +19,75 @@ const main = async () => {
     djmaxData[game].forEach(song => {
       song.Game = game;
     });
-    allSongs.push(...djmaxData[game].filter(song => {
-      return song.Eligible === "✓";
-    }));
   });
-  //console.log(allSongs.length);
+  updateSongsSelected();
+  genSongList();
 };
 
-main();
+const genSongList = (sample=false) => {
+  let target = [];
+  if (!sample) {
+    allSongs = [];
+    target = allSongs;
+  }
+  const options = parseOptions();
+  const eligibleKey = {
+    "✓": "eligible",
+    "?": "maybe-eligible",
+    "X": "not-eligible"
+  };
+  Object.keys(djmaxData).forEach(game => {
+    if (!options.games.includes(game)) return;
+    target.push(...djmaxData[game].filter(song => {
+      return options.eligibility.includes(eligibleKey[song.Eligible] ?? "maybe-eligible");
+    }));
+  });
+  if (target.length === 0)
+    document.querySelector(`#gimme`).disabled = true;
+  else if (target.length > 0)
+    document.querySelector(`#gimme`).removeAttribute("disabled");
+  if (sample)
+    return target;
+};
+
+const parseOptions = () => {
+  const options = {
+    eligibility: [],
+    games: []
+  };
+  for (const element of document.querySelectorAll(`#eligibility-include input:checked`))
+    options.eligibility.push(element.name);
+  for (const element of document.querySelectorAll(`#games-include input:not(#all):checked + label`))
+    options.games.push(element.innerText);
+  return options;
+};
 
 const randomSong = () => {
+  genSongList();
   const rand = allSongs[Math.floor(allSongs.length * Math.random())];
+  if (typeof rand !== "object") {
+    console.log("empty.............");
+    return;
+  }
   console.log(rand);
-  document.querySelector(`#title`).innerText = rand.Title;
-  document.querySelector(`#artist`).innerText = rand.Artist;
-  document.querySelector(`#game`).innerText = rand.Game;
+  document.querySelector(`#artist`).innerText = "Artist: " + rand.Artist;
+  document.querySelector(`#game`).innerText = "Game: " + rand.Game;
   if (rand.DLC) document.querySelector(`#game`).innerText += ` (${rand.DLC})`;
+  document.querySelector(`#notes`).innerText = "Notes: " + (rand.Notes ?? "none");
+  document.querySelector(`#eligibility`).innerText = "Eligiblity: " + rand.Eligible;
   if (rand.Link) {
+    document.querySelector(`#title`).innerText = "Title: ";
     cobaltFetch(rand.Link);
-    document.querySelector(`#title`).href = rand.Link;
+    const a = document.createElement("a");
+    a.href = rand.Link;
+    a.innerText = rand.Title;
+    document.querySelector(`#title`).appendChild(a);
+  } else {
+    document.querySelector(`#title`).innerText = "Title: " + rand.Title;
   }
 };
 
 const cobaltFetch = async (url) => {
-  const headers = new Headers();
-  headers.append("Accept", "application/json");
-  headers.append("Content-Type", "application/json");
   const response = await fetch("https://api.cobalt.tools/api/json", {
     method: "POST",
     headers: {
@@ -76,12 +117,46 @@ const cobaltFetch = async (url) => {
   });
 };
 
-/*const genYoutubeIframe = (id) => {
-  return `<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/${id}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`
-}
+const updateSongsSelected = () => {
+  updateTheAllCheckbox();
+  document.querySelector(`#songs-selected`)
+    .innerText = "Songs selected: " + genSongList(true).length;
+};
 
-const genSoundcloudIframe = (id) => {
-  return `<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1149367978&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>`
-}*/
+const updateTheAllCheckbox = () => {
+  const all = document.querySelector(`#all`);
+  const gamesSelected = document.querySelectorAll(`#games-include input:not(#all):checked`);
+  const games = document.querySelectorAll(`#games-include input:not(#all)`);
+  if (gamesSelected.length === games.length) {
+    all.indeterminate = false;
+    all.checked = true;
+  } else if (gamesSelected.length === 0) {
+    all.indeterminate = false;
+    all.checked = false;
+  } else if (gamesSelected.length < games.length) {
+    all.checked = false;
+    all.indeterminate = true;
+  }
+};
 
-//console.log("fuck");
+document.querySelector(`#all`).addEventListener("click", (e) => {
+  const all = document.querySelector(`#all`);
+  const games = document.querySelectorAll(`#games-include input:not(#all)`);
+  if (!all.checked && !all.indeterminate) {
+    all.indeterminate = false;
+    all.checked = false;
+    for (const game of games)
+      game.checked = false;
+  } else {
+    all.indeterminate = false;
+    all.checked = true;
+    for (const game of games)
+      game.checked = true;
+  }
+  updateSongsSelected();
+});
+
+for (const element of document.querySelectorAll(`#options > fieldset > div:not(:has(#all))`))
+  element.addEventListener("click", updateSongsSelected);
+
+main();

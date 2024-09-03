@@ -1,5 +1,6 @@
 const XLSX = require("xlsx");
 const fs = require("fs");
+const { JSDOM } = require("jsdom");
 
 const readXLSXFile = (filePath) => {
   const workbook = XLSX.readFile(filePath);
@@ -9,8 +10,12 @@ const readXLSXFile = (filePath) => {
     const sheet = workbook.Sheets[sheetName];
     const sheetData = [];
     let colNames = [];
-    for (let c=1; sheet[`${numToLabel(c)}1`]; c++)
-      colNames.push(sheet[`${numToLabel(c)}1`].v);
+    for (let c=1; sheet[`${numToLabel(c)}1`]; c++) {
+      let name = sheet[`${numToLabel(c)}1`].v;
+      if (name === "Elligible")
+        name = "Eligible";
+      colNames.push(name);
+    }
     let row = 2;
     let col = 1;
     let ref = sheet["!ref"].split(":").map(e=>{
@@ -62,7 +67,53 @@ const labelToNum = (l) => {
   return number;
 };
 
-const filePath = "./tests/djmax/moD Jam MAX.xlsx";
-const xlsxData = readXLSXFile(filePath);
+const xlsxPath = "./tests/djmax/moD Jam MAX.xlsx";
+const djmaxData = readXLSXFile(xlsxPath);
+const pagePath = "./tests/djmax/index.html";
+let dom = new JSDOM();
 
-fs.writeFileSync("./data/djmax.json", JSON.stringify(xlsxData));
+const main = () => {
+  (async () => {
+    fs.writeFileSync("./data/djmax.json", JSON.stringify(djmaxData));
+    dom = await readPage(pagePath);
+    fs.writeFileSync(pagePath, renderHTML(dom, dom.window.document));
+  })();
+};
+
+const readPage = async (page) => {
+  try {
+    const html = await fs.promises.readFile(page, "utf8");
+    const dom = new JSDOM(html);
+    return dom;
+  } catch (err) {
+    console.error("Error reading file:", err);
+    throw err;
+  }
+};
+
+const optimizeForTag = (name) => {
+  return name.toLowerCase().replaceAll(/\W+/g, "-");
+};
+
+const createOption = (name) => {
+  const tag = optimizeForTag(name);
+return `<div>
+  <input type="checkbox" name="${tag}" checked />
+  <label for="${tag}">${name}</label>
+</div>\n`;
+}
+
+const renderHTML = (dom, document) => {
+  let body = `\n    `;
+  document.querySelectorAll(`#buildbelowme ~ :not(#buildaboveme):not(#buildaboveme ~ *)`)
+    .forEach(e=>e.remove());
+  document.body.innerHTML = document.body.innerHTML
+    .replace(/(?<=<div id="buildbelowme"><\/div>)\s+(?=<div id="buildaboveme"><\/div>)/, "\n    ");
+  for (const game of Object.keys(djmaxData))
+    body += createOption(game).replaceAll("\n", "\n    ");
+  document.querySelector(`#buildbelowme`).outerHTML += body.replace(/\s+$/, "");
+  return dom.serialize();
+};
+
+if (require.main === module)
+  main();

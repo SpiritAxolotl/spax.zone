@@ -12,13 +12,51 @@
 <body>
   <h1>Random (Eligible) DJMax Song Generator</h1>
   <h2>For moD Jam MAX</h2>
+  <noscript>
+    <style>
+      #gimme,
+      #options {
+        display: none;
+      }
+    </style>
+    sory you need javascript &lt;/3
+  </noscript>
+  <p id="songs-selected"></p>
   <button onclick="javascript:randomSong()" id="gimme">gimme gimme</button>
   <div id="yeag">
-    <a id="title"></a>
+    <p id="title"></p>
     <p id="artist"></p>
     <p id="game"></p>
     <p id="notes"></p>
+    <p id="eligibility"></p>
     <audio></audio>
+  </div>
+  <div id="options">
+    <fieldset id="eligibility-include">
+    <legend>Eligibility to include:</legend>
+    <div>
+      <input type="checkbox" name="eligible" checked="">
+      <label for="eligible">Eligible</label>
+    </div>
+    <div>
+      <input type="checkbox" name="maybe-eligible">
+      <label for="maybe-eligible">Maybe Eligible</label>
+    </div>
+    <div>
+      <input type="checkbox" name="not-eligible" disabled>
+      <label for="not-eligible">Not Eligible</label>
+    </div>
+    </fieldset>
+    <fieldset id="games-include">
+    <legend>Games to include:</legend>
+    <div>
+      <input type="checkbox" name="all" id="all">
+      <label for="all">All</label>
+    </div>
+    <hr>
+    <div id="buildbelowme"></div>
+    <div id="buildaboveme"></div>
+    </fieldset>
   </div>
   <footer>
     more options to come (and styling)<br>
