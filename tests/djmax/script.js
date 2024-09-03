@@ -13,6 +13,26 @@ const fetchJsonData = async (url) => {
 
 let djmaxData = [];
 let allSongs = [];
+let options = [];
+
+const parseOptions = () => {
+  const tempOptions = {
+    "eligibility": [],
+    "games": [],
+    "misc": []
+  };
+  for (const element of document.querySelectorAll(`#eligibility-include input:checked`))
+    tempOptions.eligibility.push(element.name);
+  for (const element of document.querySelectorAll(`#games-include input:not(#all):checked + label`))
+    tempOptions.games.push(element.innerText);
+  for (const element of document.querySelectorAll(`#miscellaneous input:checked`))
+    tempOptions.misc.push(element.name);
+  options = tempOptions;
+};
+
+parseOptions();
+let audioVolume = +(localStorage.getItem("DJMAX_audioVolume") ?? 0.5);
+
 const main = async () => {
   djmaxData = await fetchJsonData("/data/djmax.json");
   Object.keys(djmaxData).forEach(game => {
@@ -26,7 +46,6 @@ const main = async () => {
 
 const genSongList = () => {
   allSongs = [];
-  const options = parseOptions();
   const eligibleKey = {
     "✓": "eligible",
     "?": "maybe-eligible",
@@ -46,20 +65,7 @@ const genSongList = () => {
     document.querySelector(`#gimme`).removeAttribute("disabled");
 };
 
-const parseOptions = () => {
-  const options = {
-    eligibility: [],
-    games: []
-  };
-  for (const element of document.querySelectorAll(`#eligibility-include input:checked`))
-    options.eligibility.push(element.name);
-  for (const element of document.querySelectorAll(`#games-include input:not(#all):checked + label`))
-    options.games.push(element.innerText);
-  return options;
-};
-
 const randomSong = () => {
-  //genSongList();
   const rand = allSongs[Math.floor(allSongs.length * Math.random())];
   if (typeof rand !== "object") {
     console.log("empty.............");
@@ -73,7 +79,8 @@ const randomSong = () => {
   document.querySelector(`#eligibility`).innerText = "Eligiblity: " + rand.Eligible;
   if (rand.Link) {
     document.querySelector(`#title`).innerText = "Title: ";
-    cobaltFetch(rand.Link);
+    if (options.misc.includes("use-cobalt"))
+      cobaltFetch(rand.Link);
     const a = document.createElement("a");
     a.href = rand.Link;
     a.innerText = rand.Title;
@@ -103,11 +110,15 @@ const cobaltFetch = async (url) => {
         if (content.url) {
           const audio = document.querySelector(`#yeag > audio`);
           audio.src = content.url;
-          audio.setAttribute("autoplay", "");
           audio.setAttribute("controls", "");
-          audio.volume = 0.5;
+          audio.addEventListener("volumechange", () => {
+            audioVolume = audio.volume;
+            localStorage.setItem("DJMAX_audioVolume", audioVolume);
+          });
+          audio.volume = audioVolume;
           audio.currentTime = 0;
-          audio.play();
+          if (options.misc.includes("autoplay-audio"))
+            audio.play();
         } else console.warn(content);
       } catch {}
   });
@@ -153,18 +164,20 @@ document.querySelector(`#all`).addEventListener("click", (e) => {
   updateSongsSelected();
 });
 
-for (const element of document.querySelectorAll(`#options > fieldset > div:not(:has(#all))`))
+for (const element of document.querySelectorAll(`#options fieldset > div:not(:has(#all))`))
   element.addEventListener("click", updateSongsSelected);
 
 document.querySelector(`#gimme`).addEventListener("click", () => {
+  parseOptions();
   randomSong();
-  const gimme = document.querySelector(`#gimme`);
-  gimme.disabled = true;
-  setTimeout(() => {
-    console.log(allSongs.length)
-    if (allSongs.length > 0)
-      gimme.removeAttribute("disabled");
-  }, 3000);
+  if (options.misc.includes("use-cobalt")) {
+    const gimme = document.querySelector(`#gimme`);
+    gimme.disabled = true;
+    setTimeout(() => {
+      if (allSongs.length > 0)
+        gimme.removeAttribute("disabled");
+    }, 3000);
+  }
 });
 
 main();
