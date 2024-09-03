@@ -22,7 +22,12 @@ const readXLSXFile = (filePath) => {
       while (col <= ref[1][0]) {
         const cell = numToLabel(col) + row;
         if (sheet[cell]) {
-          rowData[colNames[col-1] ?? "Notes"] = sheet[cell].v;
+          if (colNames[col-1])
+            rowData[colNames[col-1]] = sheet[cell].v;
+          else if (rowData.Notes)
+            rowData.Notes += `\n${sheet[cell].v}`;
+          else
+            rowData.Notes = sheet[cell].v;
           if (col === 1 && sheet[cell].l)
             rowData.Link = sheet[cell].l.Target;
         }
