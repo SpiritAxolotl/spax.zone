@@ -39,7 +39,7 @@ const readXLSXFile = (filePath) => {
         col++;
       }
       col = 1;
-      if (Object.keys(rowData).length > 0)
+      if (Object.keys(rowData).length > 0 && rowData.Title && rowData.Artist && rowData.Eligible)
         sheetData.push(rowData);
       row++;
     }

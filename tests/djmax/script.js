@@ -30,12 +30,14 @@ const genSongList = () => {
   const eligibleKey = {
     "✓": "eligible",
     "?": "maybe-eligible",
-    "X": "not-eligible"
+    "not recommended": "maybe-eligible",
+    "see notes": "maybe-eligible",
+    "x": "not-eligible"
   };
   Object.keys(djmaxData).forEach(game => {
     if (!options.games.includes(game)) return;
     allSongs.push(...djmaxData[game].filter(song => {
-      return options.eligibility.includes(eligibleKey[song.Eligible] ?? "maybe-eligible");
+      return options.eligibility.includes(eligibleKey[song.Eligible.toLowerCase()] ?? "not-eligible");
     }));
   });
   if (allSongs.length === 0)
