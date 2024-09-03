@@ -24,12 +24,8 @@ const main = async () => {
   genSongList();
 };
 
-const genSongList = (sample=false) => {
-  let target = [];
-  if (!sample) {
-    allSongs = [];
-    target = allSongs;
-  }
+const genSongList = () => {
+  allSongs = [];
   const options = parseOptions();
   const eligibleKey = {
     "✓": "eligible",
@@ -38,16 +34,14 @@ const genSongList = (sample=false) => {
   };
   Object.keys(djmaxData).forEach(game => {
     if (!options.games.includes(game)) return;
-    target.push(...djmaxData[game].filter(song => {
+    allSongs.push(...djmaxData[game].filter(song => {
       return options.eligibility.includes(eligibleKey[song.Eligible] ?? "maybe-eligible");
     }));
   });
-  if (target.length === 0)
+  if (allSongs.length === 0)
     document.querySelector(`#gimme`).disabled = true;
-  else if (target.length > 0)
+  else if (allSongs.length > 0 && document.querySelector(`#gimme`).disabled)
     document.querySelector(`#gimme`).removeAttribute("disabled");
-  if (sample)
-    return target;
 };
 
 const parseOptions = () => {
@@ -63,7 +57,7 @@ const parseOptions = () => {
 };
 
 const randomSong = () => {
-  genSongList();
+  //genSongList();
   const rand = allSongs[Math.floor(allSongs.length * Math.random())];
   if (typeof rand !== "object") {
     console.log("empty.............");
@@ -77,7 +71,7 @@ const randomSong = () => {
   document.querySelector(`#eligibility`).innerText = "Eligiblity: " + rand.Eligible;
   if (rand.Link) {
     document.querySelector(`#title`).innerText = "Title: ";
-    cobaltFetch(rand.Link);
+    //cobaltFetch(rand.Link);
     const a = document.createElement("a");
     a.href = rand.Link;
     a.innerText = rand.Title;
@@ -119,8 +113,9 @@ const cobaltFetch = async (url) => {
 
 const updateSongsSelected = () => {
   updateTheAllCheckbox();
+  genSongList();
   document.querySelector(`#songs-selected`)
-    .innerText = "Songs selected: " + genSongList(true).length;
+    .innerText = "Songs selected: " + allSongs.length;
 };
 
 const updateTheAllCheckbox = () => {
@@ -158,5 +153,16 @@ document.querySelector(`#all`).addEventListener("click", (e) => {
 
 for (const element of document.querySelectorAll(`#options > fieldset > div:not(:has(#all))`))
   element.addEventListener("click", updateSongsSelected);
+
+document.querySelector(`#gimme`).addEventListener("click", () => {
+  randomSong();
+  const gimme = document.querySelector(`#gimme`);
+  gimme.disabled = true;
+  setTimeout(() => {
+    console.log(allSongs.length)
+    if (allSongs.length > 0)
+      gimme.removeAttribute("disabled");
+  }, 3000);
+});
 
 main();
