@@ -71,7 +71,7 @@ const randomSong = () => {
   document.querySelector(`#eligibility`).innerText = "Eligiblity: " + rand.Eligible;
   if (rand.Link) {
     document.querySelector(`#title`).innerText = "Title: ";
-    //cobaltFetch(rand.Link);
+    cobaltFetch(rand.Link);
     const a = document.createElement("a");
     a.href = rand.Link;
     a.innerText = rand.Title;
