@@ -38,7 +38,7 @@ const randomSong = () => {
   document.querySelector(`#game`).innerText = rand.Game;
   if (rand.DLC) document.querySelector(`#game`).innerText += ` (${rand.DLC})`;
   if (rand.Link) {
-    //cobaltFetch(rand.Link);
+    cobaltFetch(rand.Link);
     document.querySelector(`#title`).href = rand.Link;
   }
 };
@@ -47,17 +47,33 @@ const cobaltFetch = async (url) => {
   const headers = new Headers();
   headers.append("Accept", "application/json");
   headers.append("Content-Type", "application/json");
-  const response = await fetch(url, {
+  const response = await fetch("https://api.cobalt.tools/api/json", {
     method: "POST",
+    headers: {
+      "Accept": "application/json",
+      "Content-Type": "application/json"
+    },
     body: JSON.stringify({
       url: url,
       filenamePattern: "basic",
       isAudioOnly: true,
-      aFormat: "ogg"
+      aFormat: "mp3"
     }),
-    headers: headers,
+  })
+    .then(response => response.json())
+    .then(content => {
+      try {
+        if (content.url) {
+          const audio = document.querySelector(`#yeag > audio`);
+          audio.src = content.url;
+          audio.setAttribute("autoplay", "");
+          audio.setAttribute("controls", "");
+          audio.volume = 0.5;
+          audio.currentTime = 0;
+          audio.play();
+        } else console.warn(content);
+      } catch {}
   });
-  console.log(response);
 };
 
 /*const genYoutubeIframe = (id) => {

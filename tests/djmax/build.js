@@ -51,8 +51,8 @@ const numToLabel = (n) => {
 const labelToNum = (l) => {
   let number = 0;
   for (let i = 0; i < l.length; i++) {
-      number *= 26;
-      number += l.charCodeAt(i) - 64;
+    number *= 26;
+    number += l.charCodeAt(i) - 64;
   }
   return number;
 };
