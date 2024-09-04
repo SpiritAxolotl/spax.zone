@@ -32,6 +32,10 @@ const parseOptions = () => {
 
 parseOptions();
 let audioVolume = +(localStorage.getItem("DJMAX_audioVolume") ?? 0.5);
+let songHistory = [];
+
+if (localStorage.getItem("DJMAX_history"))
+  songHistory = JSON.parse(localStorage.getItem("DJMAX_history"));
 
 const main = async () => {
   djmaxData = await fetchJsonData("/data/djmax.json");
@@ -72,6 +76,9 @@ const randomSong = () => {
     return;
   }
   console.log(rand);
+  songHistory.push(rand);
+  if (songHistory.length > 10) songHistory.splice(0, 1);
+  localStorage.setItem("DJMAX_history", JSON.stringify(songHistory));
   document.querySelector(`#artist`).innerText = "Artist: " + rand.Artist;
   document.querySelector(`#game`).innerText = "Game: " + rand.Game;
   if (rand.DLC) document.querySelector(`#game`).innerText += ` (${rand.DLC})`;
