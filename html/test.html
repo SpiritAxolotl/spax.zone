@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html manifest="manifest" lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <title>spax.zone</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#306850">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:image" content="https://spax.zone/images/faces/spax/Smirk.png" type="image/png">
+  <link rel="icon" href="/images/icons/Smirk_Circle.png">
+  <link rel="stylesheet" href="/css/experimental.css">
+  <style>
+    .test {
+      position: absolute;
+      width: 645px;
+      height: 133px;
+      left: -3px;
+      top: -3px;
+      display: none;
+      display: block;
+      mix-blend-mode: difference;
+    }
+    article {
+      white-space: nowrap;
+    }
+    span.break {
+      display: block;
+    }
+    @media only screen and (max-width: 645px) {
+      article {
+        white-space: wrap;
+      }
+      article span.break:not(.end) {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <article who="yoki" emotion="think">
+    I don't think I can fall back <span class="break"></span>
+    asleep after THAT.
+    <img src="/images/test/test1.png" class="test">
+  </article>
+  <article>
+    I was born and raised in the Castle<span class="break"></span>
+    Town near here.<span class="break end"></span>
+    Left sometime in my late youth to<span class="break"></span>
+    travel the world.
+    <img src="/images/test/test2.png" class="test">
+  </article>
+</body>
+</html>
