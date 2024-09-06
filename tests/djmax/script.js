@@ -138,10 +138,8 @@ const cobaltFetch = async (url) => {
 
 const handleAudio = async (content) => {
   const audio = document.querySelector(`#song-info > audio`);
-  audio.pause();
-  audio.currentTime = 0;
+  audio.removeAttribute("src");
   if (typeof content !== "object") {
-    audio.removeAttribute("src");
     audio.removeAttribute("controls");
     if (currentAudioBlob)
       URL.revokeObjectURL(currentAudioBlob);
@@ -153,6 +151,7 @@ const handleAudio = async (content) => {
         URL.revokeObjectURL(currentAudioBlob);
       currentAudioBlob = await response.blob();
       audio.src = URL.createObjectURL(currentAudioBlob);
+      audio.currentTime = 0;
       audio.volume = audioVolume;
       setTimeout(() => {
         document.querySelector(`#logo-button`).removeAttribute("disabled");
