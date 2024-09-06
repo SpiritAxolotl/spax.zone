@@ -94,6 +94,7 @@ const randomSong = () => {
     }
     const a = document.createElement("a");
     a.href = rand.Link;
+    a.target = "_blank";
     a.innerText = rand.Title;
     document.querySelector(`#title`).appendChild(a);
   } else {
