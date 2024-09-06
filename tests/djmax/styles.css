@@ -58,17 +58,16 @@ body, html {
   border: 3px black solid;
   border-radius: 0.5em;
   cursor: pointer;
+  padding: 5px 10px;
 }
 
 #logo-button:disabled {
   background-color: #bdbdbd;
-  cursor: wait;
+  cursor: not-allowed;
 }
 
 #logo-button > img {
   height: 75px;
-  width: 50px;
-  object-fit: contain;
 }
 
 #options {
