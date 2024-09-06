@@ -123,15 +123,15 @@ const cobaltFetch = async (url) => {
     .then(content => {
       try {
         if (content.status === "error") {
-          errors.innerHTML = `Uh oh! Cobalt gave an error.<br>Please click on <a href="${url}">this</a> link to listen to the song.<br>Cobalt's error:<br>${content.text}`;
+          errors.innerHTML = `Uh oh! Cobalt gave an error.<br>Please click on <a href="${url}" target="_blank">this</a> link to listen to the song.<br>Cobalt's error:<br>${content.text}`;
         } else if (content.url) {
           handleAudio(content);
         } else {
-          errors.innerHTML = `Uh oh! Cobalt didn't return a url but didn't give an error.<br>Please click on <a href="${url}">this</a> link to listen to the song.`;
+          errors.innerHTML = `Uh oh! Cobalt didn't return a url but didn't give an error.<br>Please click on <a href="${url}" target="_blank">this</a> link to listen to the song.`;
           console.warn(content);
         }
       } catch {
-        errors.innerHTML = `Uh oh! The request to cobalt failed.<br>Please click on <a href="${url}">this</a> link to listen to the song.`;
+        errors.innerHTML = `Uh oh! The request to cobalt failed.<br>Please click on <a href="${url}" target="_blank">this</a> link to listen to the song.`;
       }
   });
 };
