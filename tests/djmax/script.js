@@ -64,9 +64,9 @@ const genSongList = () => {
     }));
   });
   if (allSongs.length === 0)
-    document.querySelector(`#gimme`).disabled = true;
-  else if (allSongs.length > 0 && document.querySelector(`#gimme`).disabled)
-    document.querySelector(`#gimme`).removeAttribute("disabled");
+    document.querySelector(`#logo-button`).disabled = true;
+  else if (allSongs.length > 0 && document.querySelector(`#logo-button`).disabled)
+    document.querySelector(`#logo-button`).removeAttribute("disabled");
 };
 
 const randomSong = () => {
@@ -84,10 +84,14 @@ const randomSong = () => {
   if (rand.DLC) document.querySelector(`#game`).innerText += ` (${rand.DLC})`;
   document.querySelector(`#notes`).innerText = "Notes: " + (rand.Notes ?? "none");
   document.querySelector(`#eligibility`).innerText = "Eligiblity: " + rand.Eligible;
+  document.querySelector(`#errors`).innerText = "";
   if (rand.Link) {
     document.querySelector(`#title`).innerText = "Title: ";
     if (options.misc.includes("use-cobalt"))
       cobaltFetch(rand.Link);
+    else {
+      handleAudio();
+    }
     const a = document.createElement("a");
     a.href = rand.Link;
     a.innerText = rand.Title;
@@ -97,7 +101,10 @@ const randomSong = () => {
   }
 };
 
+let currentAudioBlob;
+
 const cobaltFetch = async (url) => {
+  const errors = document.querySelector(`#errors`);
   const response = await fetch("https://api.cobalt.tools/api/json", {
     method: "POST",
     headers: {
@@ -114,21 +121,43 @@ const cobaltFetch = async (url) => {
     .then(response => response.json())
     .then(content => {
       try {
-        if (content.url) {
-          const audio = document.querySelector(`#yeag > audio`);
-          audio.src = content.url;
-          audio.setAttribute("controls", "");
-          audio.addEventListener("volumechange", () => {
-            audioVolume = audio.volume;
-            localStorage.setItem("DJMAX_audioVolume", audioVolume);
-          });
-          audio.volume = audioVolume;
-          audio.currentTime = 0;
-          if (options.misc.includes("autoplay-audio"))
-            audio.play();
-        } else console.warn(content);
-      } catch {}
+        if (content.status === "error") {
+          errors.innerHTML = `Uh oh! Cobalt gave an error.<br>Please click on <a href="${url}">this</a> link to listen to the song.<br>Cobalt's error:<br>${content.text}`;
+        } else if (content.url) {
+          handleAudio(content);
+        } else {
+          errors.innerHTML = `Uh oh! Cobalt didn't return a url but didn't give an error.<br>Please click on <a href="${url}">this</a> link to listen to the song.`;
+          console.warn(content);
+        }
+      } catch {
+        errors.innerHTML = `Uh oh! The request to cobalt failed.<br>Please click on <a href="${url}">this</a> link to listen to the song.`;
+      }
   });
+};
+
+const handleAudio = async (content) => {
+  const audio = document.querySelector(`#song-info > audio`);
+  audio.pause();
+  audio.currentTime = 0;
+  if (typeof content !== "object") {
+    audio.removeAttribute("src");
+    audio.removeAttribute("controls");
+    if (currentAudioBlob)
+      URL.revokeObjectURL(currentAudioBlob);
+  } else {
+    const response = await fetch(content.url);
+    if (response.ok) {
+      audio.setAttribute("controls", "");
+      if (currentAudioBlob)
+        URL.revokeObjectURL(currentAudioBlob);
+      currentAudioBlob = await response.blob();
+      audio.src = URL.createObjectURL(currentAudioBlob);
+      audio.volume = audioVolume;
+      setTimeout(() => {
+        document.querySelector(`#logo-button`).removeAttribute("disabled");
+      }, 3000);
+    }
+  }
 };
 
 const updateSongsSelected = () => {
@@ -174,17 +203,21 @@ document.querySelector(`#all`).addEventListener("click", (e) => {
 for (const element of document.querySelectorAll(`#options fieldset > div:not(:has(#all))`))
   element.addEventListener("click", updateSongsSelected);
 
-document.querySelector(`#gimme`).addEventListener("click", () => {
+document.querySelector(`#logo-button`).addEventListener("click", () => {
   parseOptions();
   randomSong();
   if (options.misc.includes("use-cobalt")) {
-    const gimme = document.querySelector(`#gimme`);
-    gimme.disabled = true;
-    setTimeout(() => {
-      if (allSongs.length > 0)
-        gimme.removeAttribute("disabled");
-    }, 3000);
+    document.querySelector(`#logo-button`).disabled = true;
   }
+});
+
+document.querySelector(`#song-info > audio`).addEventListener("canplaythrough", () => {
+  if (options.misc.includes("autoplay-audio"))
+    document.querySelector(`#song-info > audio`).play();
+});
+document.querySelector(`#song-info > audio`).addEventListener("volumechange", () => {
+  audioVolume = document.querySelector(`#song-info > audio`).volume;
+  localStorage.setItem("DJMAX_audioVolume", audioVolume);
 });
 
 main();

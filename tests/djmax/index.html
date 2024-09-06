@@ -6,47 +6,53 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="small tool for moD Jam MAX">
-  <link rel="icon" href="/images/misc/horse.png">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://spax.zone/djmax/crown.png" type="image/png">
+  <meta name="theme-color" content="#fed837">
+  <link rel="icon" href="/tests/djmax/crown.png">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <h1>Random (Eligible) DJMax Song Generator</h1>
-  <h2>For moD Jam MAX</h2>
+  <header>
+    <h1>Random (Eligible) DJMax Song Generator</h1>
+    <h2>For moD Jam MAX</h2>
+    <p id="songs-selected"></p>
+  </header>
   <noscript>
     <style>
-      #gimme,
+      #logo-button,
       #options {
         display: none;
       }
     </style>
     sory you need javascript &lt;/3
   </noscript>
-  <p id="songs-selected"></p>
-  <button id="gimme" disabled>gimme gimme</button>
-  <div id="yeag">
-    <p id="title"></p>
-    <p id="artist"></p>
-    <p id="game"></p>
-    <p id="notes"></p>
-    <p id="eligibility"></p>
-    <audio></audio>
-  </div>
-  <div id="options">
-    <div id="merged-options">
+  <main>
+    <button id="logo-button"><img src="./logo.png"></button>
+    <div id="song-info">
+      <p id="title"></p>
+      <p id="artist"></p>
+      <p id="game"></p>
+      <p id="notes"></p>
+      <p id="eligibility"></p>
+      <p id="errors"></p>
+      <audio></audio>
+    </div>
+    <div id="options">
       <fieldset id="eligibility-include">
-      <legend>Eligibility to include:</legend>
-      <div>
-        <input type="checkbox" name="eligible" checked>
-        <label for="eligible">Eligible</label>
-      </div>
-      <div>
-        <input type="checkbox" name="maybe-eligible">
-        <label for="maybe-eligible">Maybe Eligible</label>
-      </div>
-      <div>
-        <input type="checkbox" name="not-eligible" disabled>
-        <label for="not-eligible">Not Eligible</label>
-      </div>
+        <legend>Eligibility to include:</legend>
+        <div>
+          <input type="checkbox" name="eligible" checked="checked">
+          <label for="eligible">Eligible</label>
+        </div>
+        <div>
+          <input type="checkbox" name="maybe-eligible">
+          <label for="maybe-eligible">Maybe Eligible</label>
+        </div>
+        <div>
+          <input type="checkbox" name="not-eligible" disabled="disabled">
+          <label for="not-eligible">Not Eligible</label>
+        </div>
       </fieldset>
       <fieldset id="miscellaneous">
         <legend>Misc:</legend>
@@ -60,21 +66,11 @@
         </div>
       </fieldset>
     </div>
-    <fieldset id="games-include">
-    <legend>Games to include:</legend>
-    <div>
-      <input type="checkbox" name="all" id="all">
-      <label for="all">All</label>
-    </div>
-    <hr>
-    <div id="buildbelowme"></div>
-    <div id="buildaboveme"></div>
-    </fieldset>
-  </div>
+  </main>
   <footer>
-    styling coming soon<br>
+    styling by <a href="https://marbelynrye.000.pe/">marbelynrye</a> and Spax<br>
     <a href="https://docs.google.com/spreadsheets/d/1FUUZuo1XvO-JkCSujy6Ml06QoLi-7o8g7rFkpcYsn9w/view">see the spreadsheet</a><br>
-    audio embeds generated with <a href="https://cobalt.tools">cobalt.tools</a>' public api
+    audio embeds generated with <a href="https://cobalt.tools/">cobalt.tools</a>' public api
   </footer>
 <script lang="javascript" src="./script.js"></script>
 </body>
