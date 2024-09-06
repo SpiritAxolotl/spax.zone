@@ -135,3 +135,9 @@ h2 {
 p {
   margin: 8px 0;
 }
+
+@media only screen and (max-width: 450px) {
+  #options {
+    grid-template-columns: 1fr;
+  }
+}
