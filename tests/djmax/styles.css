@@ -8,7 +8,7 @@ body {
   grid-template-rows: max-content auto max-content;
   background:
     /* radial-gradient(circle at center,#8c3d3f, transparent), */
-    radial-gradient(50% 50% at left, color-mix(in oklab, #256968, transparent), transparent),
+    radial-gradient(50% 50% at left, color-mix(in srgb-linear, #256968, transparent), transparent),
     linear-gradient(to bottom, #517d49, transparent, #a34b88),
     linear-gradient(to right, #1e8077, #575a5d, #7d4c2d)
   ;
