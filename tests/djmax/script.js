@@ -63,10 +63,11 @@ const genSongList = () => {
       return options.eligibility.includes(eligibleKey[song.Eligible.toLowerCase()] ?? "not-eligible");
     }));
   });
+  const logoButton = document.querySelector(`#logo-button`);
   if (allSongs.length === 0)
-    document.querySelector(`#logo-button`).disabled = true;
-  else if (allSongs.length > 0 && document.querySelector(`#logo-button`).disabled)
-    document.querySelector(`#logo-button`).removeAttribute("disabled");
+    logoButton.disabled = true;
+  else if (allSongs.length > 0 && logoButton.disabled)
+    logoButton.removeAttribute("disabled");
 };
 
 const randomSong = () => {
@@ -162,9 +163,9 @@ const handleAudio = async (content) => {
 
 const updateSongsSelected = () => {
   updateTheAllCheckbox();
+  parseOptions();
   genSongList();
-  document.querySelector(`#songs-selected`)
-    .innerText = "Songs selected: " + allSongs.length;
+  document.querySelector(`#songs-selected`).innerText = allSongs.length;
 };
 
 const updateTheAllCheckbox = () => {
@@ -200,24 +201,26 @@ document.querySelector(`#all`).addEventListener("click", (e) => {
   updateSongsSelected();
 });
 
-for (const element of document.querySelectorAll(`#options fieldset > div:not(:has(#all))`))
-  element.addEventListener("click", updateSongsSelected);
-
-document.querySelector(`#logo-button`).addEventListener("click", () => {
-  parseOptions();
-  randomSong();
-  if (options.misc.includes("use-cobalt")) {
-    document.querySelector(`#logo-button`).disabled = true;
-  }
-});
-
-document.querySelector(`#song-info > audio`).addEventListener("canplaythrough", () => {
-  if (options.misc.includes("autoplay-audio"))
-    document.querySelector(`#song-info > audio`).play();
-});
-document.querySelector(`#song-info > audio`).addEventListener("volumechange", () => {
-  audioVolume = document.querySelector(`#song-info > audio`).volume;
-  localStorage.setItem("DJMAX_audioVolume", audioVolume);
-});
+{
+  const logoButton = document.querySelector(`#logo-button`);
+  const audio = document.querySelector(`#song-info > audio`);
+  for (const element of document.querySelectorAll(`#options fieldset > div:not(:has(#all), [id])`))
+    element.addEventListener("click", updateSongsSelected);
+  
+  logoButton.addEventListener("click", () => {
+    parseOptions();
+    randomSong();
+    if (options.misc.includes("use-cobalt"))
+      logoButton.disabled = true;
+  });
+  audio.addEventListener("canplaythrough", () => {
+    if (options.misc.includes("autoplay-audio"))
+      audio.play();
+  });
+  audio.addEventListener("volumechange", () => {
+    audioVolume = audio.volume;
+    localStorage.setItem("DJMAX_audioVolume", audioVolume);
+  });
+}
 
 main();
