@@ -130,11 +130,10 @@ const applyOverrides = async (duplicatesRemoved=false) => {
     for (let j=0; j<overrides.length; j++) {
       const override = overrides[j];
       if (textboxEquals(override, dialogue)) {
-        override.text[override.index] = override.text[override.index].replace(override.replace, override.replacer);
+        for (const replace of override.replace)
+          override.text[replace.index] = override.text[replace.index].replace(replace.target, replace.new);
         override.override = true;
-        delete override.index;
         delete override.replace;
-        delete override.replacer;
         allDialogue[i].typo = true;
         allDialogue.splice(++i, 0, override);
         if (duplicatesRemoved) {

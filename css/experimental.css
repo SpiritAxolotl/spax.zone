@@ -46,8 +46,7 @@ body {
   flex-flow: column;
   align-items: center;
   gap: 5px;
-  background: repeat var(--c3) url("/images/bg/background_yoki.png");
-  background-size: 960px;
+  background: repeat var(--c3) url("/images/bg/background_yoki.png") center/960px;
   image-rendering: pixelated;
   height: fit-content;
   min-height: 100vh;
@@ -66,6 +65,10 @@ body {
   ::-webkit-scrollbar-thumb {
     background: var(--c4);
   }
+}
+
+article::selection {
+  background-color: var(--c3);
 }
 
 body article:first-of-type {
@@ -119,11 +122,12 @@ article::after {
   height: 8px;
   background: url("/images/misc/next_arrow.png") center/100%;
   animation: alternate arrow 0.75s steps(2, jump-none) infinite;
-  transition: opacity 0.075s;
+  transition: opacity 0.1s;
   opacity: 0;
 }
 
-article:hover::after {
+article:hover::after,
+article:active::after {
   opacity: 1;
 }
 
