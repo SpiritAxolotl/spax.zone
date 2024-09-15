@@ -131,7 +131,7 @@ const applyOverrides = async (duplicatesRemoved=false) => {
       const override = overrides[j];
       if (textboxEquals(override, dialogue)) {
         for (const replace of override.replace)
-          override.text[replace.index] = override.text[replace.index].replace(replace.target, replace.new);
+          override.text[replace.index] = (override.text[replace.index] ?? "").replace(replace.target, replace.new);
         override.override = true;
         delete override.replace;
         allDialogue[i].typo = true;
