@@ -46,6 +46,7 @@ const main = async () => {
   });
   updateSongsSelected();
   genSongList();
+  addEventListeners();
 };
 
 const genSongList = () => {
@@ -90,9 +91,8 @@ const randomSong = () => {
     document.querySelector(`#title`).innerText = "Title: ";
     if (options.misc.includes("use-cobalt"))
       cobaltFetch(rand.Link);
-    else {
+    else
       handleAudio();
-    }
     const a = document.createElement("a");
     a.href = rand.Link;
     a.target = "_blank";
@@ -201,7 +201,7 @@ document.querySelector(`#all`).addEventListener("click", (e) => {
   updateSongsSelected();
 });
 
-{
+const addEventListeners = () => {
   const logoButton = document.querySelector(`#logo-button`);
   const audio = document.querySelector(`#song-info > audio`);
   for (const element of document.querySelectorAll(`#options fieldset > div:not(:has(#all), [id])`))
@@ -221,6 +221,6 @@ document.querySelector(`#all`).addEventListener("click", (e) => {
     audioVolume = audio.volume;
     localStorage.setItem("DJMAX_audioVolume", audioVolume);
   });
-}
+};
 
-main();
+document.addEventListener("DOMContentLoaded", main);
