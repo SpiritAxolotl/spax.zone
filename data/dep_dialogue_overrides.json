@@ -6,9 +6,11 @@
       "That's you're only decent",
       "quality. "
     ],
-    "index": 0,
-    "replace": "you're",
-    "replacer": "your"
+    "replace": [{
+      "index": 0,
+      "target": "you're",
+      "new": "your"
+    }]
   },
   {
     "who": "yoki",
@@ -18,9 +20,11 @@
       "that always catches me ",
       "when I leave somewhere.)"
     ],
-    "index": 0,
-    "replace": "gaurd",
-    "replacer": "guard"
+    "replace": [{
+      "index": 0,
+      "target": "gaurd",
+      "new": "guard"
+    }]
   },
   {
     "who": "prince",
@@ -30,9 +34,11 @@
       "answer that. I can tell by ",
       "the look on you're face."
     ],
-    "index": 2,
-    "replace": "you're",
-    "replacer": "your"
+    "replace": [{
+      "index": 2,
+      "target": "you're",
+      "new": "your"
+    }]
   },
   {
     "who": "hero",
@@ -41,9 +47,11 @@
       "Go forth...",
       "And accept it's blessing."
     ],
-    "index": 1,
-    "replace": "it's",
-    "replacer": "its"
+    "replace": [{
+      "index": 1,
+      "target": "it's",
+      "new": "its"
+    }]
   },
   {
     "who": "yoki",
@@ -52,9 +60,11 @@
       "The too sign's too faded",
       "to read..."
     ],
-    "index": 0,
-    "replace": "too ",
-    "replacer": ""
+    "replace": [{
+      "index": 0,
+      "target": "too ",
+      "new": ""
+    }]
   },
   {
     "who": "yoki",
@@ -64,9 +74,11 @@
       "by the barrier was for",
       "the best...)"
     ],
-    "index": 0,
-    "replace": "effected",
-    "replacer": "affected"
+    "replace": [{
+      "index": 0,
+      "target": "effected",
+      "new": "affected"
+    }]
   },
   {
     "who": "",
@@ -76,9 +88,11 @@
       "seperate from each other as a ",
       "result."
     ],
-    "index": 1,
-    "replace": "seperate",
-    "replacer": "separate"
+    "replace": [{
+      "index": 1,
+      "target": "seperate",
+      "new": "separate"
+    }]
   },
   {
     "who": "",
@@ -88,9 +102,11 @@
       "largest aggresive form for very ",
       "long."
     ],
-    "index": 1,
-    "replace": "aggresive",
-    "replacer": "aggressive"
+    "replace": [{
+      "index": 1,
+      "target": "aggresive",
+      "new": "aggressive"
+    }]
   },
   {
     "who": "",
@@ -100,9 +116,11 @@
       "destabilize their appearance ",
       "based on their emotions."
     ],
-    "index": 0,
-    "replace": "stablize",
-    "replacer": "stabilize"
+    "replace": [{
+      "index": 0,
+      "target": "stablize",
+      "new": "stabilize"
+    }]
   },
   {
     "who": "yoki",
@@ -112,9 +130,11 @@
       "one earlier, the light it ",
       "omitted burnt me a little."
     ],
-    "index": 2,
-    "replace": "omitted",
-    "replacer": "emitted"
+    "replace": [{
+      "index": 2,
+      "target": "omitted",
+      "new": "emitted"
+    }]
   },
   {
     "who": "claire",
@@ -124,8 +144,55 @@
       "it's eyes one day about how ",
       "great Witchcraft is."
     ],
-    "index": 1,
-    "replace": "it's",
-    "replacer": "its"
+    "replace": [{
+      "index": 1,
+      "target": "it's",
+      "new": "its"
+    }]
+  },
+  {
+    "who": "yoki",
+    "emotion": "smile",
+    "text": [
+      "If I could... ",
+      "I'd just soley work at the ",
+      "Post Office."
+    ],
+    "replace": [{
+      "index": 1,
+      "target": "soley",
+      "new": "solely"
+    }]
+  },
+  {
+    "who": "dragon",
+    "emotion": "familiar",
+    "text": [
+      "I could think for my own.",
+      "I began to question my ",
+      "own existance and being."
+    ],
+    "replace": [{
+      "index": 2,
+      "target": "existance",
+      "new": "existence"
+    }]
+  },
+  {
+    "who": "yoki",
+    "emotion": "look",
+    "text": [
+      "Yeah...",
+      "Can I get a cranberry juice..?"
+    ],
+    "replace": [{
+      "index": 1,
+      "target": "juice..?",
+      "new": ""
+    },{
+      "index": 2,
+      "target": "",
+      "new": "juice..?"
+    }]
   }
 ]
