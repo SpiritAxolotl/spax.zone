@@ -43,11 +43,9 @@ body {
   font-family: DEP;
   font-size: 21px;
   display: flex;
-  justify-content: flex-start;
   flex-flow: column;
   align-items: center;
   gap: 5px;
-  perspective: 550px;
   background: repeat var(--c3) url("/images/bg/background_yoki.png");
   background-size: 960px;
   image-rendering: pixelated;
@@ -80,7 +78,7 @@ body article:last-of-type {
 
 article {
   position: relative;
-  border: 4px solid var(--c1);
+  border: 3.5px solid var(--c1);
   letter-spacing: 4.25px;
   line-height: 21px;
   background: black;
@@ -121,6 +119,12 @@ article::after {
   height: 8px;
   background: url("/images/misc/next_arrow.png") center/100%;
   animation: alternate arrow 0.75s steps(2, jump-none) infinite;
+  transition: opacity 0.075s;
+  opacity: 0;
+}
+
+article:hover::after {
+  opacity: 1;
 }
 
 @keyframes arrow {
@@ -139,27 +143,24 @@ article::after {
   color: var(--red);
 }
 
-a {
-  &:link, &:visited {
-    color: var(--c2);
-  }
-  
-  &:hover {
-    color: var(--c1);
-  }
-  
-  &:active {
-    color: var(--c3);
-  }
+
+a:link, a:visited {
+  color: var(--c2);
+}
+a:hover {
+  color: var(--c1);
+}
+a:active {
+  color: var(--c3);
 }
 
 article[type=art] {
   text-align: center;
-  & > img {
-    width: 100%;
-    padding: 0;
-    image-rendering: auto;
-  }
+}
+article[type=art] > img {
+  width: 100%;
+  padding: 0;
+  image-rendering: auto;
 }
 
 article[type=description] {
@@ -183,8 +184,8 @@ article[type=short] {
   article {
     width: 100% !important;
     min-width: revert;
-    &[type=art] {
-      min-width: revert;
-    }
+  }
+  article[type=art] {
+    min-width: revert;
   }
 }
