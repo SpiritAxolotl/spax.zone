@@ -116,6 +116,7 @@ article::after {
   content: "";
   display: block;
   position: absolute;
+  pointer-events: none;
   left: calc(50% - 5px);
   bottom: 0;
   aspect-ratio: 5/4;
@@ -129,6 +130,20 @@ article::after {
 article:hover::after,
 article:active::after {
   opacity: 1;
+}
+
+article span[title] {
+  text-decoration: underline;
+  cursor: help;
+}
+
+article textarea {
+  width: 100%;
+  background: inherit;
+  color: inherit;
+  font-family: inherit;
+  resize: none;
+  border: solid 2px var(--c1);
 }
 
 @keyframes arrow {
@@ -158,6 +173,8 @@ a:active {
   color: var(--c3);
 }
 
+/*TODO: turn "type" into basic classes*/
+
 article[type=art] {
   text-align: center;
 }
@@ -182,6 +199,21 @@ article[type=title] {
 
 article[type=short] {
   min-height: 0;
+}
+
+article[type=center] {
+  text-align: center;
+}
+
+article[type=webring] {
+  min-height: 0;
+  text-align: center;
+}
+
+article[type=buttons] img {
+  width: 88px;
+  height: 31px;
+  image-rendering: auto;
 }
 
 @media only screen and (max-width: 645px) {
