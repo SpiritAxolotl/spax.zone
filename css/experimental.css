@@ -175,42 +175,37 @@ a:active {
 
 /*TODO: turn "type" into basic classes*/
 
-article[type=art] {
+article.art {
   text-align: center;
 }
-article[type=art] > img {
+article.art > img {
   width: 100%;
   padding: 0;
   image-rendering: auto;
 }
 
-article[type=description] {
+article.description {
   font-size: 16px;
   letter-spacing: 1px;
   text-decoration: underline;
   min-height: 0;
 }
 
-article[type=title] {
+article.title {
   font-size: 25px;
   letter-spacing: 1px;
   min-height: 0;
 }
 
-article[type=short] {
+article.short {
   min-height: 0;
 }
 
-article[type=center] {
+article.center {
   text-align: center;
 }
 
-article[type=webring] {
-  min-height: 0;
-  text-align: center;
-}
-
-article[type=buttons] img {
+article.buttons img {
   width: 88px;
   height: 31px;
   image-rendering: auto;
@@ -221,7 +216,7 @@ article[type=buttons] img {
     width: 100% !important;
     min-width: revert;
   }
-  article[type=art] {
+  article.art {
     min-width: revert;
   }
 }
