@@ -1,3 +1,5 @@
+/main /
+/html/main /
 /imsorry https://www.youtube.com/watch?v=dQw4w9WgXcQ
 /nsfw https://www.youtube.com/watch?v=dQw4w9WgXcQ
 /discord https://discord.gg/nsKxQvBY8P
@@ -5,8 +7,6 @@
 /github https://github.com/SpiritAxolotl
 /github/* https://github.com/SpiritAxolotl/:splat
 /DEP/* https://dep.spax.zone/:splat
-/main /
-/html/main /
 /videos/* https://cdn.spax.zone/:splat
 /html/* /:splat
 /tests/* /:splat
