@@ -59,7 +59,9 @@ const processDialogue = (list) => {
   const dialogue = {
     who: "",
     emotion: "",
-    text: []
+    text: [],
+    type: "normal",
+    map: -1
   };
   for (const listIterator of list) {
     if (listIterator.code === 401) { //dialogue
@@ -79,6 +81,12 @@ const processDialogue = (list) => {
         if (match[2])
           dialogue.emotion = match[2].toLowerCase();
       }
+    } else if (listIterator.code === 102) { //options
+      pushTextbox(dialogue);
+      dialogue.type = "picker";
+      dialogue.text.push(...listIterator.parameters[0]);
+    //} else if (listIterator.code === 402) { //which branch
+      //probably do something with IDs for this bit
     } else {
       pushTextbox(dialogue);
       continue;
@@ -96,12 +104,17 @@ const pushTextbox = (dialogue, overflow=false) => {
     } else if (dialogue.who === "youngyoki") {
       dialogue.who = "youngeryoki";
     }
-    allDialogue.push({...dialogue});
+    if (dialogue.type === "picker")
+      allDialogue.splice(allDialogue.length-1, 0, {...dialogue});
+    else
+      allDialogue.push({...dialogue});
     if (!overflow) {
       dialogue.who = "";
       dialogue.emotion = "";
     }
     dialogue.text = [];
+    dialogue.type = "normal";
+    dialogue.map = -1;
   }
 };
 
@@ -181,11 +194,19 @@ const renderHTML = (dom, document) => {
       body += ` who="${escapeHTMLString(dialogue.who)}"`
     if (dialogue.emotion)
       body += ` emotion="${escapeHTMLString(dialogue.emotion)}"`
-    if (dialogue.typo)
-      body += ` class="typo"`;
+    if (dialogue.typo || dialogue.type !== "normal") {
+      const classes = [];
+      if (dialogue.typo) classes.push("typo");
+      if (dialogue.type !== "normal") classes.push(dialogue.type);
+      body += ` class="${escapeHTMLString(classes.join(" "))}"`;
+    }
     body += `>\n    `;
     let text = dialogue.text.reduce((acc,e)=>
-      acc + escapeHTML(e) + `<span class="break${e.match(/[^\w\s]\s*$/g)?` end"`:`"`}></span>\n    `, ""
+      acc +
+      (dialogue.type !== "normal" ? `<span class="highlight">` : "") +
+      escapeHTML(e) +
+      (dialogue.type !== "normal" ? `</span><br>` : `<span class="break${e.match(/[^\w\s]\s*$/g)?` end"`:`"`}></span>\n    `)
+    , ""
     ).replace(/<span\s+class="break(\s+end)?"><\/span>\n\s+$/g, "");
     let match = undefined;
     while (match !== null) {
@@ -205,6 +226,8 @@ const renderHTML = (dom, document) => {
 /* utils */
 
 const textboxEquals = (a,b) => {
+  if (typeof (a.map * b.map) === "number" && a.map !== b.map)
+    return false;
   if (a.who !== b.who || a.emotion !== b.emotion)
     return false;
   if (a.text.length !== b.text.length)
