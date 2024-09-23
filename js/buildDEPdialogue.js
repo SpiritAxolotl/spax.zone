@@ -93,6 +93,8 @@ const pushTextbox = (dialogue, overflow=false) => {
     if (dialogue.who === "600") {
       dialogue.who = "yoki";
       dialogue.emotion = "neutral";
+    } else if (dialogue.who === "youngyoki") {
+      dialogue.who = "youngeryoki";
     }
     allDialogue.push({...dialogue});
     if (!overflow) {
