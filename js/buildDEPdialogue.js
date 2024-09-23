@@ -28,7 +28,10 @@ const main = () => {
     const timer = new Timer("parsing dialogue JSON");
     for (const dataIterator of data) {
       if (dataIterator.list) processDialogue(dataIterator.list);
-      else if (dataIterator.pages?.[0]?.list) processDialogue(dataIterator.pages?.[0]?.list);
+      else if (dataIterator.pages)
+        for (const pagesIterator of dataIterator.pages)
+          if (pagesIterator.list)
+            processDialogue(pagesIterator.list);
       else continue;
     }
     timer.stop("parse dialogue JSON");
