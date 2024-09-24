@@ -41,7 +41,7 @@ const main = () => {
     await applyOverrides(true);
     fs.writeFileSync("./data/dep_dialogue_dump.json", JSON.stringify(allDialogue));
     const dom = await readPage(targetPage);
-    fs.writeFileSync(targetPage, renderHTML(dom, dom.window.document));
+    fs.writeFileSync(targetPage, buildHTML(dom, dom.window.document));
     wholeTimer.stop("build the dialogue");
   });
 };
@@ -187,43 +187,55 @@ const clearArea = (document) => {
   timer.stop("clear the area");
 };
 
-const renderHTML = (dom, document) => {
-  const timer = new Timer("rendering HTML");
-  let body = ``;
+const buildHTML = (dom, document) => {
+  clearArea(document);
+  const timer = new Timer("building HTML");
+  const buildaboveme = document.querySelector(`#buildaboveme`);
   for (const dialogue of allDialogue) {
-    body += `\n  <article`;
+    const article = document.createElement("article");
     if (dialogue.who)
-      body += ` who="${escapeHTMLString(dialogue.who)}"`
+      article.setAttribute("who", escapeHTMLString(dialogue.who));
     if (dialogue.emotion)
-      body += ` emotion="${escapeHTMLString(dialogue.emotion)}"`
+      article.setAttribute("emotion", escapeHTMLString(dialogue.emotion));
     if (dialogue.file !== -1)
-      body += ` file="${escapeHTMLString(dialogue.file)}"`
-    if (dialogue.typo || dialogue.type !== "normal") {
-      const classes = [];
-      if (dialogue.typo) classes.push("typo");
-      if (dialogue.type !== "normal") classes.push(dialogue.type);
-      body += ` class="${escapeHTMLString(classes.join(" "))}"`;
+      article.setAttribute("file", escapeHTMLString(dialogue.file));
+    if (dialogue.typo)
+      article.classList.add("typo");
+    if (dialogue.type !== "normal")
+      article.classList.add(dialogue.type);
+    article.innerText = "";
+    for (let i=0; i<dialogue.text.length; i++) {
+      const line = dialogue.text[i];
+      if (dialogue.type !== "normal") {
+        const hl = document.createElement("span");
+        hl.classList.add("highlight");
+        hl.innerHTML = escapeHTML(line);
+        article.appendChild(hl);
+        hl.outerHTML += `<br>`;
+      } else {
+        article.innerHTML += escapeHTML(line);
+        if (i < dialogue.text.length-1) {
+          const brspan = document.createElement("span");
+          brspan.classList.add("break");
+          if (line.match(/[^\w\s]\s*$/g)) //ends in punctuation
+            brspan.classList.add("end");
+          article.appendChild(brspan);
+        }
+      }
     }
-    body += `>\n    `;
-    let text = dialogue.text.reduce((acc,e)=>
-      acc +
-      (dialogue.type !== "normal" ? `<span class="highlight">` : "") +
-      escapeHTML(e) +
-      (dialogue.type !== "normal" ? `</span><br>` : `<span class="break${e.match(/[^\w\s]\s*$/g)?` end"`:`"`}></span>\n    `)
-    , ""
-    ).replace(/<span\s+class="break(\s+end)?"><\/span>\n\s+$/g, "");
+    //this is the only bit of code that's still really confusing.
+    //it just makes the text red if it has "\{" and stops it at the end or at "\}"
+    //if there's a clean way to do it in JSDOM I'd love to hear it
     let match = undefined;
     while (match !== null) {
-      match = text.match(/\\\{([\s\S]+?)(?:\\\}|$)/);
+      match = article.innerHTML.match(/\\\{([\s\S]+?)(?:\\\}|$)/);
       if (match)
-        text = text.replace(match[0], `<span class="red">${match[1]}</span>`);
+        article.innerHTML = article.innerHTML.replace(match[0], `<span class="red">${match[1]}</span>`);
     }
-    body += text;
-    body += `\n  </article>`;
+    document.body.insertBefore(article, buildaboveme);
+    article.outerHTML += "\n  ";
   }
-  timer.stop("render HTML");
-  clearArea(document);
-  document.querySelector(`#buildbelowme`).outerHTML += body;
+  timer.stop("build HTML");
   return dom.serialize();
 };
 
