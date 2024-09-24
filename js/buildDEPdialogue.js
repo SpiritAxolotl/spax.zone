@@ -116,7 +116,7 @@ const pushTextbox = (dialogue, overflow=false) => {
     }
     dialogue.text = [];
     dialogue.type = "normal";
-    dialogue.map = -1;
+    dialogue.file = -1;
   }
 };
 
@@ -230,7 +230,7 @@ const renderHTML = (dom, document) => {
 /* utils */
 
 const textboxEquals = (a,b) => {
-  if (typeof (a.map * b.map) === "number" && a.map !== b.map)
+  if (typeof (a.file * b.file) === "number" && a.file !== b.file)
     return false;
   if (a.who !== b.who || a.emotion !== b.emotion)
     return false;
