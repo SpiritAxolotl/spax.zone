@@ -28,11 +28,11 @@ const main = () => {
     const timer = new Timer("parsing dialogue JSON");
     for (const file of Object.keys(data)) {
       for (const dataIterator of data[file]) {
-        if (dataIterator.list) processDialogue(dataIterator.list, file);
+        if (dataIterator.list) processDialogue(dataIterator.list, file, dataIterator.id);
         else if (dataIterator.pages)
           for (const pagesIterator of dataIterator.pages)
             if (pagesIterator.list)
-              processDialogue(pagesIterator.list, file);
+              processDialogue(pagesIterator.list, file, dataIterator.id);
         else continue;
       }
     }
@@ -57,13 +57,19 @@ const readPage = async (page) => {
   }
 };
 
-const processDialogue = (list, file) => {
+const setLastDialogue = () => {
+  if (allDialogue.length > 0)
+    allDialogue[allDialogue.length-1].last = true;
+};
+
+const processDialogue = (list, file, id) => {
   const dialogue = {
     who: "",
     emotion: "",
     text: [],
     type: "normal",
-    file: file
+    file: file,
+    id: id
   };
   for (const listIterator of list) {
     if (listIterator.code === 401) { //dialogue
@@ -87,13 +93,17 @@ const processDialogue = (list, file) => {
       pushTextbox(dialogue);
       dialogue.type = "picker";
       dialogue.text.push(...listIterator.parameters[0]);
-    //} else if (listIterator.code === 402) { //which branch
+    } else if (listIterator.code === 402) { //which branch
       //probably do something with IDs for this bit
+      setLastDialogue();
+    } else if (listIterator.code === 411) {
+      setLastDialogue();
     } else {
       pushTextbox(dialogue);
       continue;
     }
   }
+  setLastDialogue();
 };
 
 const pushTextbox = (dialogue, overflow=false) => {
@@ -116,21 +126,38 @@ const pushTextbox = (dialogue, overflow=false) => {
     }
     dialogue.text = [];
     dialogue.type = "normal";
-    dialogue.file = -1;
   }
+};
+
+const dialogueLengthFrom = (n) => {
+  let i = 0;
+  while (n + i < allDialogue.length && !allDialogue[n + i].last)
+    i++;
+  return i + 1;
 };
 
 const removeDuplicates = () => {
   const timer = new Timer("Removing duplicates");
-  const uniqueSet = new Set();
-  allDialogue = allDialogue.filter(dialogue => {
-    const stringified = JSON.stringify(dialogue);
-    if (!uniqueSet.has(stringified)) {
-      uniqueSet.add(stringified);
-      return true;
+  for (let i=0; i<allDialogue.length; i+=dialogueLengthFrom(i)) {
+    const ilen = dialogueLengthFrom(i);
+    for (let j=i+ilen; j<allDialogue.length; j+=dialogueLengthFrom(j)) {
+      const jlen = dialogueLengthFrom(j);
+      if (allDialogue[i].file !== allDialogue[j].file) break;
+      if (ilen === jlen) {
+        let isDuplicate = true;
+        for (let k=0; k<ilen; k++) {
+          if (allDialogue[i+k].file !== allDialogue[j+k].file || !textboxEquals(allDialogue[i+k], allDialogue[j+k])) {
+            isDuplicate = false;
+            break;
+          }
+        }
+        if (isDuplicate) {
+          allDialogue.splice(j, jlen);
+          j -= jlen;
+        }
+      }
     }
-    return false;
-  });
+  }
   timer.stop("remove duplicates");
 };
 
@@ -191,7 +218,8 @@ const buildHTML = (dom, document) => {
   clearArea(document);
   const timer = new Timer("building HTML");
   const buildaboveme = document.querySelector(`#buildaboveme`);
-  for (const dialogue of allDialogue) {
+  for (let i=0; i<allDialogue.length; i++) {
+    const dialogue = allDialogue[i];
     const article = document.createElement("article");
     if (dialogue.who)
       article.setAttribute("who", escapeHTMLString(dialogue.who));
@@ -201,19 +229,22 @@ const buildHTML = (dom, document) => {
       article.setAttribute("file", escapeHTMLString(dialogue.file));
     if (dialogue.typo)
       article.classList.add("typo");
+    if (dialogue.last)
+      article.classList.add("last");
     if (dialogue.type !== "normal")
       article.classList.add(dialogue.type);
+    article.id = `textbox_${i}`;
     article.innerText = "";
     for (let i=0; i<dialogue.text.length; i++) {
       const line = dialogue.text[i];
       if (dialogue.type !== "normal") {
         const hl = document.createElement("span");
         hl.classList.add("highlight");
-        hl.innerHTML = escapeHTML(line);
+        hl.innerHTML = escapeHTML(line) + " ";
         article.appendChild(hl);
         hl.outerHTML += `<br>`;
       } else {
-        article.innerHTML += escapeHTML(line);
+        article.innerHTML += escapeHTML(line) + " ";
         if (i < dialogue.text.length-1) {
           const brspan = document.createElement("span");
           brspan.classList.add("break");
@@ -244,6 +275,8 @@ const buildHTML = (dom, document) => {
 const textboxEquals = (a,b) => {
   if (typeof (a.file * b.file) === "number" && a.file !== b.file)
     return false;
+  //if (typeof (a.id * b.id) === "number" && a.id !== b.id)
+  //  return false;
   if (a.who !== b.who || a.emotion !== b.emotion)
     return false;
   if (a.text.length !== b.text.length)
