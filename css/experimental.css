@@ -245,10 +245,10 @@ article.picker::after {
 
 @keyframes hl {
   0% {
-    background-color: rgb(var(--c2v) / 0.3);
+    background-color: var(--c2);
   }
   100% {
-    background-color: var(--c2);
+    background-color: rgb(var(--c2v) / 0.3);
   }
 }
 
