@@ -26,13 +26,15 @@ const main = () => {
   getDEPEventDump(async (err, data) => {
     if (err) throw err;
     const timer = new Timer("parsing dialogue JSON");
-    for (const dataIterator of data) {
-      if (dataIterator.list) processDialogue(dataIterator.list);
-      else if (dataIterator.pages)
-        for (const pagesIterator of dataIterator.pages)
-          if (pagesIterator.list)
-            processDialogue(pagesIterator.list);
-      else continue;
+    for (const file of Object.keys(data)) {
+      for (const dataIterator of data[file]) {
+        if (dataIterator.list) processDialogue(dataIterator.list, file);
+        else if (dataIterator.pages)
+          for (const pagesIterator of dataIterator.pages)
+            if (pagesIterator.list)
+              processDialogue(pagesIterator.list, file);
+        else continue;
+      }
     }
     timer.stop("parse dialogue JSON");
     removeDuplicates();
@@ -55,13 +57,13 @@ const readPage = async (page) => {
   }
 };
 
-const processDialogue = (list) => {
+const processDialogue = (list, file) => {
   const dialogue = {
     who: "",
     emotion: "",
     text: [],
     type: "normal",
-    map: -1
+    file: file
   };
   for (const listIterator of list) {
     if (listIterator.code === 401) { //dialogue
@@ -173,7 +175,7 @@ const escapeHTML = (unsafe) => {
     .replaceAll(`'`, "&#039;");
 };
 const escapeHTMLString = (unsafe) => {
-  return unsafe.replaceAll(`"`, ``);
+  return unsafe.replaceAll(/"|\s/g, "");
 };
 
 const clearArea = (document) => {
@@ -194,6 +196,8 @@ const renderHTML = (dom, document) => {
       body += ` who="${escapeHTMLString(dialogue.who)}"`
     if (dialogue.emotion)
       body += ` emotion="${escapeHTMLString(dialogue.emotion)}"`
+    if (dialogue.file !== -1)
+      body += ` file="${escapeHTMLString(dialogue.file)}"`
     if (dialogue.typo || dialogue.type !== "normal") {
       const classes = [];
       if (dialogue.typo) classes.push("typo");
