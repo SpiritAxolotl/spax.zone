@@ -71,7 +71,7 @@ body {
   }
 }
 
-article::selection {
+article::selection, article span::selection {
   background-color: var(--c3);
 }
 
