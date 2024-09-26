@@ -1,6 +1,6 @@
 const XLSX = require("xlsx");
 const fs = require("fs");
-const { JSDOM } = require("jsdom");
+const { parseHTML } = require("linkedom");
 
 const readXLSXFile = (filePath) => {
   const workbook = XLSX.readFile(filePath);
@@ -70,21 +70,21 @@ const labelToNum = (l) => {
 const xlsxPath = "./tests/djmax/moD Jam MAX.xlsx";
 const djmaxData = readXLSXFile(xlsxPath);
 const pagePath = "./tests/djmax/index.html";
-let dom = new JSDOM();
+let document;
 
 const main = () => {
   (async () => {
     fs.writeFileSync("./data/djmax.json", JSON.stringify(djmaxData));
-    dom = await readPage(pagePath);
-    fs.writeFileSync(pagePath, renderHTML(dom, dom.window.document));
+    document = await readPage(pagePath);
+    fs.writeFileSync(pagePath, renderHTML(document));
   })();
 };
 
 const readPage = async (page) => {
   try {
     const html = await fs.promises.readFile(page, "utf8");
-    const dom = new JSDOM(html);
-    return dom;
+    const dom = parseHTML(html);
+    return dom.document;
   } catch (err) {
     console.error("Error reading file:", err);
     throw err;
@@ -103,16 +103,14 @@ return `<div>
 </div>\n`;
 }
 
-const renderHTML = (dom, document) => {
-  let body = `\n    `;
-  document.querySelectorAll(`#buildbelowme ~ :not(#buildaboveme):not(#buildaboveme ~ *)`)
-    .forEach(e=>e.remove());
+const renderHTML = (document) => {
+  let body = `\n        `;
   document.body.innerHTML = document.body.innerHTML
-    .replace(/(?<=<div id="buildbelowme"><\/div>)\s+(?=<div id="buildaboveme"><\/div>)/, "\n    ");
+    .replace(/(?<=<div id="buildbelowme"><\/div>)[\s\S]*(?=<div id="buildaboveme"><\/div>)/, "\n        ");
   for (const game of Object.keys(djmaxData))
-    body += createOption(game).replaceAll("\n", "\n    ");
+    body += createOption(game).replaceAll("\n", "\n        ");
   document.querySelector(`#buildbelowme`).outerHTML += body.replace(/\s+$/, "");
-  return dom.serialize();
+  return document.toString();
 };
 
 if (require.main === module)
