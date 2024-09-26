@@ -7,7 +7,7 @@ const eventDump = "./data/dep_event_dump.json";
 
 const allDialogue = [[]];
 let currentThread = 0;
-const endOfThreadCodes = new Set([0, 111, 121, 402, 404]);
+const endOfThreadCodes = new Set([121, 402, 404]);
 //let pickerOption = -1;
 
 const getDEPEventDump = (callback) => {
