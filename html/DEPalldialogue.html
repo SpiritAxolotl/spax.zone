@@ -13,11 +13,18 @@
   <link rel="stylesheet" href="/css/experimental.css" type="text/css">
   <!-- hey! if you wanna see how this site gets built, check out spax.zone/js/buildDEPdialogue.js -->
   <style>
+    body {
+      gap: 15px;
+      margin: 5px 0;
+    }
+    body > div {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      gap: 5px;
+    }
     article {
       white-space: pre;
-    }
-    article.last {
-      margin-bottom: 10px;
     }
     span.break {
       display: block;
@@ -30,30 +37,9 @@
         display: none;
       }
     }
-    #buildbelowme,
-    #buildaboveme {
+    /*.typo + * {
       display: none;
-    }
-    .typo + * {
-      display: none;
-    }
+    }*/
   </style>
 </head>
-<body>
-  <div id="buildbelowme"></div>
-  <div id="buildaboveme"></div>
-  <script>
-    const typos = [...document.querySelectorAll(`.typo`)];
-    const corrections = [...document.querySelectorAll(`.typo + *`)];
-    const showTypos = () => {
-      for (const element of [...typos, ...corrections])
-        element.removeAttribute("style");
-    };
-    const showCorrections = () => {
-      for (const element of corrections)
-        element.style.display = "block";
-      for (const element of typos)
-        element.style.display = "none";
-    };
-  </script>
-</body></html>
+<body></body></html>
