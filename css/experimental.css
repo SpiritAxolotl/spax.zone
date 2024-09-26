@@ -32,15 +32,16 @@ body {
 }
 
 :root {
-  --c1: #e0f8cf;
-  --c2: #86c06c;
-  --c3: #306850;
-  --c4: #071821;
   --c1v: 224 248 207;
   --c2v: 134 192 108;
   --c3v: 48 104 80;
   --c4v: 7 24 33;
-  --red: #ff0000;
+  --r1v: 255 0 0;
+  --c1: rgb(var(--c1v));
+  --c2: rgb(var(--c2v));
+  --c3: rgb(var(--c3v));
+  --c4: rgb(var(--c4v));
+  --r1: rgb(var(--r1v));
 }
 
 body {
@@ -74,14 +75,6 @@ body {
 article::selection,
 article ::selection {
   background-color: var(--c3);
-}
-
-body article:first-of-type {
-  margin-top: 5px;
-}
-
-body article:last-of-type {
-  margin-bottom: 5px;
 }
 
 article {
@@ -164,7 +157,7 @@ article textarea {
 }
 
 .red {
-  color: var(--red);
+  color: var(--r1);
 }
 
 
@@ -218,7 +211,7 @@ article.picker {
   padding: 15px;
 }
 
-span.highlight {
+.highlight {
   display: inline-block;
   width: 100%;
   padding-left: 20px;
@@ -233,8 +226,8 @@ span.highlight {
   }
 }
 
-span.highlight:hover,
-span.highlight:active {
+.highlight:hover,
+.highlight:active {
   cursor: pointer;
   background-color: var(--c2);
   animation: alternate hl 0.4s linear infinite;
