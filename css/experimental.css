@@ -32,15 +32,15 @@ body {
 }
 
 :root {
-  --c1v: 224 248 207;
-  --c2v: 134 192 108;
-  --c3v: 48 104 80;
-  --c4v: 7 24 33;
+  --g1v: 224 248 207;
+  --g2v: 134 192 108;
+  --g3v: 48 104 80;
+  --g4v: 7 24 33;
   --r1v: 255 0 0;
-  --c1: rgb(var(--c1v));
-  --c2: rgb(var(--c2v));
-  --c3: rgb(var(--c3v));
-  --c4: rgb(var(--c4v));
+  --g1: rgb(var(--g1v));
+  --g2: rgb(var(--g2v));
+  --g3: rgb(var(--g3v));
+  --g4: rgb(var(--g4v));
   --r1: rgb(var(--r1v));
 }
 
@@ -51,7 +51,7 @@ body {
   flex-flow: column;
   align-items: center;
   gap: 5px;
-  background: repeat var(--c3) url("/images/bg/background_yoki.png") center/960px;
+  background: repeat var(--g3) url("/images/bg/background_yoki.png") center/960px;
   image-rendering: pixelated;
   height: fit-content;
   min-height: 100vh;
@@ -59,33 +59,33 @@ body {
 
 @supports (scrollbar-color: auto) {
   * {
-    scrollbar-color: var(--c2) var(--c4);
+    scrollbar-color: var(--g2) var(--g4);
   }
 }
 
 @supports selector(::-webkit-scrollbar) {
   ::-webkit-scrollbar {
-    background: var(--c2);
+    background: var(--g2);
   }
   ::-webkit-scrollbar-thumb {
-    background: var(--c4);
+    background: var(--g4);
   }
 }
 
 article::selection,
 article ::selection {
-  background-color: var(--c3);
+  background-color: var(--g3);
 }
 
 article {
   position: relative;
-  border: 3.5px solid var(--c1);
+  border: 3.5px solid var(--g1);
   letter-spacing: 4.25px;
   line-height: 21px;
   background: black;
   padding: 17px;
   padding-left: 18.359px;
-  color: var(--c1);
+  color: var(--g1);
   height: fit-content;
   overflow: hidden;
   width: 100%;
@@ -141,7 +141,7 @@ article textarea {
   color: inherit;
   font-family: inherit;
   resize: none;
-  border: solid 2px var(--c1);
+  border: solid 2px var(--g1);
 }
 
 @keyframes arrow {
@@ -162,13 +162,13 @@ article textarea {
 
 
 a:link, a:visited {
-  color: var(--c2);
+  color: var(--g2);
 }
 a:hover {
-  color: var(--c1);
+  color: var(--g1);
 }
 a:active {
-  color: var(--c3);
+  color: var(--g3);
 }
 
 /*TODO: turn "type" into basic classes*/
@@ -229,7 +229,7 @@ article.picker {
 .highlight:hover,
 .highlight:active {
   cursor: pointer;
-  background-color: var(--c2);
+  background-color: var(--g2);
   animation: alternate hl 0.4s linear infinite;
 }
 
@@ -239,10 +239,10 @@ article.picker::after {
 
 @keyframes hl {
   0% {
-    background-color: var(--c2);
+    background-color: var(--g2);
   }
   100% {
-    background-color: rgb(var(--c2v) / 0.3);
+    background-color: rgb(var(--g2v) / 0.3);
   }
 }
 
