@@ -7,6 +7,7 @@ const eventDump = "./data/dep_event_dump.json";
 
 const allDialogue = [[]];
 let currentThread = 0;
+const endOfThreadCodes = new Set([0, 111, 121, 402, 404]);
 //let pickerOption = -1;
 
 const getDEPEventDump = (callback) => {
@@ -93,10 +94,7 @@ const processDialogue = (list, file, id) => {
       pushTextbox(dialogue);
       dialogue.type = "picker";
       dialogue.text.push(...params[0]);
-    } else if (code === 402) { //which branch
-      pickerOption = params[0];
-    //} else if (listIterator.code === 411) {
-    } else if (code === 121 || code === 111) { //ensured end of thread
+    } else if (endOfThreadCodes.has(code)) { //ensured end of thread
       pushTextbox(dialogue, {bump: true});
     }
   }
