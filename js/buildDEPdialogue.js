@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { JSDOM } = require('jsdom');
+const { parseHTML } = require('linkedom');
 const { Timer } = require('./timer.js');
 
 const targetPage = "./html/DEPalldialogue.html";
@@ -40,8 +40,8 @@ const main = () => {
     removeDuplicates();
     await applyOverrides(true);
     fs.writeFileSync("./data/dep_dialogue_dump.json", JSON.stringify(allDialogue));
-    const dom = await readPage(targetPage);
-    fs.writeFileSync(targetPage, buildHTML(dom, dom.window.document));
+    const document = await readPage(targetPage);
+    fs.writeFileSync(targetPage, buildHTML(document));
     wholeTimer.stop("build the dialogue");
   });
 };
@@ -49,8 +49,8 @@ const main = () => {
 const readPage = async (page) => {
   try {
     const html = await fs.promises.readFile(page, "utf8");
-    const dom = new JSDOM(html);
-    return dom;
+    const dom = parseHTML(html);
+    return dom.document;
   } catch (err) {
     console.error("Error reading file:", err);
     throw err;
@@ -214,7 +214,7 @@ const clearArea = (document) => {
   timer.stop("clear the area");
 };
 
-const buildHTML = (dom, document) => {
+const buildHTML = (document) => {
   clearArea(document);
   const timer = new Timer("building HTML");
   const buildaboveme = document.querySelector(`#buildaboveme`);
@@ -267,7 +267,7 @@ const buildHTML = (dom, document) => {
     article.outerHTML += "\n  ";
   }
   timer.stop("build HTML");
-  return dom.serialize();
+  return document.toString();
 };
 
 /* utils */
