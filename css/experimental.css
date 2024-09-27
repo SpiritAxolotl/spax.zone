@@ -176,7 +176,7 @@ a:active {
 article.art {
   text-align: center;
 }
-article.art > img {
+article.art img {
   width: 100%;
   padding: 0;
   image-rendering: auto;
