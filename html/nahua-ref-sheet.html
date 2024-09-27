@@ -38,6 +38,9 @@
           margin-bottom: 10px;
         }
       }
+      #refcontainer {
+        position: relative;
+      }
       #clarifications-header {
         display: inline-block;
         margin-bottom: 10px;
@@ -47,12 +50,40 @@
           display: none;
         }
       }
+      #shitasscolors {
+        display: flex;
+        flex-flow: column;
+        gap: 1rem;
+      }
+      #shitasscolors div {
+        z-index: 1;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        border-radius: 100%;
+        width: 2.5%;
+        height: 4.2%;
+      }
     </style>
   </head>
   <body>
     <article class="art" id="ref">
       <span id="clarifications-header">!! Scroll down for clarifications !!</span>
-      <img src="/images/art/nahua-bananas-refsheet.png" alt="Reference sheet for Nahua (Na-hoo-wa), a light blue axolotl with dark blue, yellow, and orange accents. She's shown from the front (both clothed and nude) and back; she looks cheery in the clothed picture and flustered in the nude one, which is censored with an eye-popping smiley. She's wearing shorts, kneesocks, a tanktop with an up arrow on it, and headphones. She is 5 feet 3 inches (160 centimeters) tall, 19 years old, and uses she/they pronouns. Design notes: Always wears headphones or ear-coverings (she looks weird without them); doesn't wear furs (they stick uncomfortably to the mucus on her skin); yellow eyelash-things are optional, but iconic; as an amphibian, she doesn't have breasts; hair is made out of kelp or something, IDK, go wild; has minor transformative powers (lore).">
+      <div id="refcontainer">
+        <img src="/images/art/nahua-bananas-refsheet.png" alt="Reference sheet for Nahua (Na-hoo-wa), a light blue axolotl with dark blue, yellow, and orange accents. She's shown from the front (both clothed and nude) and back; she looks cheery in the clothed picture and flustered in the nude one, which is censored with an eye-popping smiley. She's wearing shorts, kneesocks, a tanktop with an up arrow on it, and headphones. She is 5 feet 3 inches (160 centimeters) tall, 19 years old, and uses she/they pronouns. Design notes: Always wears headphones or ear-coverings (she looks weird without them); doesn't wear furs (they stick uncomfortably to the mucus on her skin); yellow eyelash-things are optional, but iconic; as an amphibian, she doesn't have breasts; hair is made out of kelp or something, IDK, go wild; has minor transformative powers (lore).">
+        <div id="shitasscolors">
+          <!--I'm annoyed that windows doesn't display image colors properly so these divs are overlayed-->
+          <div style="background-color:#b0e4fa; top:16.20%; right:34.95%;"></div>
+          <div style="background-color:#d6fcfd; top:21.30%; right:34.75%;"></div>
+          <div style="background-color:#1b4050; top:26.10%; right:34.70%;"></div>
+          <div style="background-color:#f7d371; top:31.30%; right:34.75%;"></div>
+          <div style="background-color:#fdfbe5; top:36.35%; right:34.65%;"></div>
+          <div style="background-color:#ee8782; top:41.40%; right:34.55%;"></div>
+          <div style="background-color:#ede0be; top:46.70%; right:34.43%;"></div>
+          <div style="background-color:#4e0101; top:51.60%; right:34.35%;"></div>
+        </div>
+      </div>
       Artist: 1LikeBananas<br>
       Alt text: <a href="https://goatygoats.com/">Goaty Goats</a>
     </article>
@@ -81,7 +112,7 @@
       </div>
     </article>
     <article class="short">
-      Last updated: August 15th, 2024<br>
+      Last updated: September 26th, 2024<br>
     </article>
     <article class="short">
       (And <a href="./index.html">click here</a> to see the main page!)
@@ -102,7 +133,7 @@
         }
         return string;
       }
-      for (const square of [...document.querySelectorAll(`#colors div[style]`)])
+      for (const square of [...document.querySelectorAll(`#colors div[style], #shitasscolors div[style]`)])
         square.addEventListener("click", () => writeClipboardText(rgbToHex(getComputedStyle(square).backgroundColor.replace(/[^\d,]/g,"").split(","))));
     </script>
   </body>
