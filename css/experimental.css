@@ -14,24 +14,6 @@
     url("https://spax.zone/fonts/DEP/DEP.otf") format("opentype");
 }
 
-* {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  inset: 0;
-  width: 100vw;
-  height: max-content;
-  min-height: 100vh;
-  padding: 0;
-  margin: 0;
-  overflow: hidden auto;
-  image-rendering: pixelated;
-  font-smooth: never;
-  -webkit-font-smoothing: none;
-}
-
 :root {
   --g1v: 224 248 207;
   --g2v: 134 192 108;
@@ -71,6 +53,25 @@ body {
   --b1: rgb(var(--b1v));
   --w1: rgb(var(--w1v));
   --r1: rgb(var(--r1v));
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  inset: 0;
+  width: 100vw;
+  height: max-content;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  overflow: hidden auto;
+  image-rendering: pixelated;
+  font-smooth: never;
+  -webkit-font-smoothing: none;
 }
 
 body {
