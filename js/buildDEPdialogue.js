@@ -7,7 +7,7 @@ const eventDump = "./data/dep_event_dump.json";
 
 const allDialogue = [[]];
 let currentThread = 0;
-const endOfThreadCodes = new Set([121, 402, 404]);
+const endOfThreadCodes = new Set([121, 122, 402, 404]);
 //let pickerOption = -1;
 
 const getDEPEventDump = (callback) => {
@@ -68,7 +68,8 @@ const processDialogue = (list, file, id) => {
     text: [],
     type: "normal",
     file: file,
-    id: id
+    id: id,
+    align: "center"
   };
   for (const listIterator of list) {
     const code = listIterator.code;
@@ -94,6 +95,10 @@ const processDialogue = (list, file, id) => {
       pushTextbox(dialogue);
       dialogue.type = "picker";
       dialogue.text.push(...params[0]);
+      if (params[3] === 0)
+        dialogue.align = "start";
+      else if (params[3] === 2)
+        dialogue.align = "end";
     } else if (endOfThreadCodes.has(code)) { //ensured end of thread
       pushTextbox(dialogue, {bump: true});
     }
@@ -238,6 +243,8 @@ const buildHTML = (document) => {
         article.setAttribute("who", dialogue.who);
       if (dialogue.emotion)
         article.setAttribute("emotion", dialogue.emotion);
+      if (dialogue.align !== "center")
+        article.classList.add(dialogue.align);
       //if (dialogue.file !== -1)
       //  article.setAttribute("file", dialogue.file);
       //if (dialogue.typo)
