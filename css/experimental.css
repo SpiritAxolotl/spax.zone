@@ -205,21 +205,38 @@ article.short {
 }
 
 article.center {
+  align-self: center;
+}
+
+article .centertext {
+  text-align: center;
+}
+
+article .centertext {
+  width: 100%;
+  display: inline-block;
   text-align: center;
 }
 
 article.picker {
-  min-width: 368px;
+  min-width: 0;
   min-height: 0;
-  width: 368px;
+  width: min-content;
   margin-bottom: -5px;
   padding: 15px;
+}
+
+article.start {
+  align-self: start;
+}
+article.end {
+  align-self: end;
 }
 
 .highlight {
   display: inline-block;
   width: 100%;
-  padding-left: 20px;
+  padding: 0 20px;
   background-clip: padding-box;
   /* transition: background-color 0.1s; */
 }
@@ -264,11 +281,5 @@ article.buttons img {
   }
   article.art {
     min-width: revert;
-  }
-}
-
-@media only screen and (max-width: 368px) {
-  article.picker {
-    width: 100%;
   }
 }
