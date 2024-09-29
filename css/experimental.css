@@ -125,6 +125,11 @@ article::after {
   opacity: 0;
 }
 
+article.alwaysshowarrow::after {
+  opacity: 1;
+  transition: none;
+}
+
 article:hover::after,
 article:active::after {
   opacity: 1;
