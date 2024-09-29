@@ -23,6 +23,7 @@ body {
   inset: 0;
   width: 100vw;
   height: max-content;
+  min-height: 100vh;
   padding: 0;
   margin: 0;
   overflow: hidden auto;
@@ -36,11 +37,39 @@ body {
   --g2v: 134 192 108;
   --g3v: 48 104 80;
   --g4v: 7 24 33;
+  
+  --o1v: 244 211 132;
+  --o2v: 255 158 57;
+  --o3v: 255 91 57;
+  --o4v: 213 59 52;
+  --o5v: 190 38 45;
+  
+  --o6v: 143 45 52;
+  --p1v: 186 229 254;
+  --p2v: 98 115 242;
+  
+  --b1v: 0 0 0;
+  --w1v: 255 255 255;
   --r1v: 255 0 0;
+  
+  
   --g1: rgb(var(--g1v));
   --g2: rgb(var(--g2v));
   --g3: rgb(var(--g3v));
   --g4: rgb(var(--g4v));
+  
+  --o1: rgb(var(--o1v));
+  --o2: rgb(var(--o2v));
+  --o3: rgb(var(--o3v));
+  --o4: rgb(var(--o4v));
+  --o5: rgb(var(--o5v));
+  --o6: rgb(var(--o6v));
+  
+  --p1: rgb(var(--p1v));
+  --p2: rgb(var(--p2v));
+  
+  --b1: rgb(var(--b1v));
+  --w1: rgb(var(--w1v));
   --r1: rgb(var(--r1v));
 }
 
@@ -53,7 +82,6 @@ body {
   gap: 5px;
   background: repeat var(--g3) url("/images/bg/background_yoki.png") center/960px;
   image-rendering: pixelated;
-  min-height: 100vh;
 }
 
 @supports (scrollbar-color: auto) {
@@ -81,7 +109,7 @@ article {
   border: 3.5px solid var(--g1);
   letter-spacing: 4.25px;
   line-height: 21px;
-  background: black;
+  background: var(--b1);
   padding: 17px;
   padding-left: 18.359px;
   color: var(--g1);
