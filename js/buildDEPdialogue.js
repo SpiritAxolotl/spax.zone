@@ -5,8 +5,8 @@ const { Timer } = require('./timer.js');
 const targetPage = "./html/DEPalldialogue.html";
 const eventDump = "./data/dep_event_dump.json";
 
-const allDialogue = [[]];
-let currentThread = 0;
+const allDialogue = {};
+let persistThread = false;
 const endOfThreadCodes = new Set([121, 122, 402, 404]);
 //let pickerOption = -1;
 
@@ -31,16 +31,23 @@ const main = () => {
     const timer = new Timer("parsing dialogue JSON");
     for (const file of Object.keys(data)) {
       for (const dataIterator of data[file]) {
-        if (dataIterator.list) processDialogue(dataIterator.list, file, dataIterator.id);
-        else if (dataIterator.pages)
-          for (const pagesIterator of dataIterator.pages)
+        const info = {
+          file: file,
+          name: dataIterator.image?.characterName ?? "Common"
+        };
+        if (dataIterator.list) processDialogue(dataIterator.list, info);
+        else if (dataIterator.pages) {
+          for (const pagesIterator of dataIterator.pages) {
+            if (stringHasLength(pagesIterator.image?.characterName))
+              info.name = pagesIterator.image.characterName.replace(/[\W\-]+/, "");
             if (pagesIterator.list)
-              processDialogue(pagesIterator.list, file, dataIterator.id);
-        else continue;
+              processDialogue(pagesIterator.list, info);
+          }
+        } else continue;
       }
     }
     timer.stop("parse dialogue JSON");
-    allDialogue.pop();
+    //allDialogue.pop();
     removeDuplicateThreads();
     //await applyOverrides(true);
     fs.writeFileSync("./data/dep_dialogue_dump.json", JSON.stringify(allDialogue));
@@ -61,21 +68,22 @@ const readPage = async (page) => {
   }
 };
 
-const processDialogue = (list, file, id) => {
+const stringHasLength = (str) => {
+  return typeof str === "string" && str.length;
+}
+
+const processDialogue = (list, info) => {
   const dialogue = {
     who: "",
     emotion: "",
     text: [],
-    type: "normal",
-    file: file,
-    id: id,
-    align: "center"
+    type: "normal"
   };
   for (const listIterator of list) {
     const code = listIterator.code;
     const params = listIterator.parameters;
     if (code === 401) { //dialogue
-      pushTextbox(dialogue, {overflow: true});
+      pushTextbox(dialogue, info, {overflow: true});
       dialogue.text.push(
         params[0]
           .replaceAll(/\\SE\[\d+\]/g, "") //sound effect cues
@@ -83,7 +91,7 @@ const processDialogue = (list, file, id) => {
           .replaceAll(/\\[^\{\}]/g, "") //anything else that's escaped (single characters)
       );
     } else if (code === 101) { //face
-      pushTextbox(dialogue);
+      pushTextbox(dialogue, info);
       const match = params[0].match(/^(\w+?)(?:_(?:Portrait_)?(?:test_)?([\w_]+?))?$/i);
       if (match) {
         if (match[1])
@@ -92,7 +100,7 @@ const processDialogue = (list, file, id) => {
           dialogue.emotion = match[2].toLowerCase();
       }
     } else if (code === 102) { //options
-      pushTextbox(dialogue);
+      pushTextbox(dialogue, info);
       dialogue.type = "picker";
       dialogue.text.push(...params[0]);
       if (params[3] === 0)
@@ -100,16 +108,25 @@ const processDialogue = (list, file, id) => {
       else if (params[3] === 2)
         dialogue.align = "end";
     } else if (endOfThreadCodes.has(code)) { //ensured end of thread
-      pushTextbox(dialogue, {bump: true});
+      pushTextbox(dialogue, info, {bump: true});
     }
   }
-  pushTextbox(dialogue, {bump: true});
+  pushTextbox(dialogue, info, {bump: true});
 };
 
-const pushTextbox = (dialogue, options={overflow: false, bump: false}) => {
-  const thread = allDialogue[currentThread];
+const pushTextbox = (dialogue, info, options={overflow: false, bump: false}) => {
+  allDialogue[info.file] ??= {};
+  const file = allDialogue[info.file];
+  file[info.name] ??= [];
+  const characterName = file[info.name];
+  let currentThread = characterName.length;
+  if (persistThread)
+    currentThread = Math.max(0, characterName.length - 1);
   const length = dialogue.text.length;
   if ((options.overflow && length >= 4) || (!options.overflow && length > 0)) {
+    persistThread = true;
+    characterName[currentThread] ??= [];
+    const thread = characterName[currentThread];
     //for 600_portrait_test_Enlarged which is just yoki
     if (dialogue.who === "600") {
       dialogue.who = "yoki";
@@ -118,15 +135,15 @@ const pushTextbox = (dialogue, options={overflow: false, bump: false}) => {
       dialogue.who = "youngeryoki";
     }
     if (dialogue.type === "picker")
-      allDialogue[currentThread].splice(allDialogue[currentThread].length-1, 0, {...dialogue});
+      characterName[currentThread].splice(characterName[currentThread].length-1, 0, {...dialogue});
     else
       thread.push({...dialogue});
     /*if (pickerOption !== -1) {
-      const picker = allDialogue[currentThread-1].find(dl => dl.type === "picker");
+      const picker = characterName[currentThread-1].find(dl => dl.type === "picker");
       if (picker) {
         thread.from = pickerOption;
         picker.for ??= [];
-        picker.for[pickerOption] = [thread[0].file, thread[0].id];
+        picker.for[pickerOption] = [dialogue.file, dialogue.id];
       }
       pickerOption = -1;
     }*/
@@ -137,30 +154,34 @@ const pushTextbox = (dialogue, options={overflow: false, bump: false}) => {
     dialogue.text = [];
     dialogue.type = "normal";
     if (options.bump && thread.length > 0) {
-      currentThread++;
-      allDialogue[currentThread] = [];
+      persistThread = false;
     }
   }
 };
 
 const removeDuplicateThreads = () => {
   const timer = new Timer("Removing duplicates");
-  for (let i=0; i<allDialogue.length; i++) {
-    const ilen = allDialogue[i].length;
-    for (let j=i+1; j<allDialogue.length; j++) {
-      const jlen = allDialogue[j].length;
-      if (allDialogue[i][0].file !== allDialogue[j][0].file) break;
-      if (ilen === jlen) {
-        let isDuplicate = true;
-        for (let k=0; k<ilen; k++) {
-          if (allDialogue[i][k].file !== allDialogue[j][k].file || !textboxEquals(allDialogue[i][k], allDialogue[j][k])) {
-            isDuplicate = false;
-            break;
+  for (const file of Object.keys(allDialogue)) {
+    for (const characterName of Object.keys(allDialogue[file])) {
+      for (let i=0; i<allDialogue[file][characterName].length; i++) {
+        const threadi = allDialogue[file][characterName][i];
+        const ilen = threadi.length;
+        for (let j=i+1; j<allDialogue[file][characterName].length; j++) {
+          const threadj = allDialogue[file][characterName][j];
+          const jlen = threadj.length;
+          if (ilen === jlen) {
+            let isDuplicate = true;
+            for (let k=0; k<ilen; k++) {
+              if (!textboxEquals(threadi[k], threadj[k])) {
+                isDuplicate = false;
+                break;
+              }
+            }
+            if (isDuplicate) {
+              allDialogue[file][characterName].splice(j, 1);
+              j--;
+            }
           }
-        }
-        if (isDuplicate) {
-          allDialogue.splice(j, 1);
-          j--;
         }
       }
     }
@@ -225,73 +246,72 @@ const clearArea = (document) => {
 const buildHTML = (document) => {
   document.body.innerHTML = "";
   const timer = new Timer("building HTML");
-  const threadId = {index: 0, file: ""};
-  //let t = 0;
-  for (let i=0; i<allDialogue.length; i++) {
-    const thread = allDialogue[i];
-    const threaddiv = document.createElement("div");
-    threadId.index++;
-    if (threadId.file !== thread[0].file) {
-      threadId.index = 1;
-      threadId.file = thread[0].file;
-    }
-    threaddiv.id = `${thread[0].file}_${threadId.index}`;
-    for (let j=0; j<thread.length; j++) {
-      const dialogue = thread[j];
-      const article = document.createElement("article");
-      if (dialogue.who)
-        article.setAttribute("who", dialogue.who);
-      if (dialogue.emotion)
-        article.setAttribute("emotion", dialogue.emotion);
-      if (dialogue.align !== "center")
-        article.classList.add(dialogue.align);
-      //if (dialogue.file !== -1)
-      //  article.setAttribute("file", dialogue.file);
-      //if (dialogue.typo)
-      //  article.classList.add("typo");
-      //if (dialogue.last)
-      //  article.classList.add("last");
-      if (dialogue.type !== "normal")
-        article.classList.add(dialogue.type);
-      article.id = `${dialogue.file}_${threadId.index}_${j+1}`;
-      //article.setAttribute("num", t++);
-      for (let k=0; k<dialogue.text.length; k++) {
-        const line = dialogue.text[k];
-        if (dialogue.type === "picker") {
-          const linespan = document.createElement(dialogue.for ? "a" : "span");
-          article.appendChild(linespan);
-          //if (dialogue.for)
-          //  linespan.setAttribute("href", `#${dialogue.for[k].join("_")}`);
-          linespan.classList.add("line");
-          linespan.classList.add("highlight");
-          linespan.textContent += line;
-          if (i < dialogue.text.length-1)
-            linespan.textContent += " ";
-          article.appendChild(document.createElement("br"));
-        } else {
-          const linespan = document.createElement("span");
-          linespan.classList.add("line");
-          article.appendChild(linespan);
-          linespan.textContent += line;
-          if (k < dialogue.text.length-1) {
-            if (!dialogue.text[k].match(/\s+$/))
-              linespan.textContent += " ";
-            const brspan = document.createElement("span");
-            brspan.classList.add("break");
-            if (line.match(/[^\w\s]\s*$/g)) //ends in punctuation
-              brspan.classList.add("end");
-            article.appendChild(brspan);
+  for (const file of Object.keys(allDialogue)) {
+    for (const characterName of Object.keys(allDialogue[file])) {
+      for (let i=0; i<allDialogue[file][characterName].length; i++) {
+        const thread = allDialogue[file][characterName][i];
+        const threadsection = document.createElement("section");
+        let id = `${file}-${characterName}`;
+        if (allDialogue[file][characterName].length > 1)
+          id += `-${i+1}`;
+        threadsection.id = id;
+        for (let j=0; j<thread.length; j++) {
+          const dialogue = thread[j];
+          const article = document.createElement("article");
+          if (dialogue.who)
+            article.setAttribute("who", dialogue.who);
+          if (dialogue.emotion)
+            article.setAttribute("emotion", dialogue.emotion);
+          if (dialogue.align)
+            article.classList.add(dialogue.align);
+          /*
+          if (dialogue.file !== -1)
+            article.setAttribute("file", dialogue.file);
+          if (dialogue.typo)
+            article.classList.add("typo");
+          if (dialogue.last)
+            article.classList.add("last");
+          */
+          if (dialogue.type !== "normal")
+            article.classList.add(dialogue.type);
+          article.id = `${id}-${j+1}`;
+          for (let k=0; k<dialogue.text.length; k++) {
+            const line = dialogue.text[k];
+            if (dialogue.type === "picker") {
+              const linespan = document.createElement("span");
+              article.appendChild(linespan);
+              linespan.classList.add("line");
+              linespan.classList.add("highlight");
+              linespan.textContent += line;
+              if (i < dialogue.text.length-1)
+                linespan.textContent += " ";
+              article.appendChild(document.createElement("br"));
+            } else {
+              const linespan = document.createElement("span");
+              linespan.classList.add("line");
+              article.appendChild(linespan);
+              linespan.textContent += line;
+              if (k < dialogue.text.length-1) {
+                if (!dialogue.text[k].match(/\s+$/))
+                  linespan.textContent += " ";
+                const brspan = document.createElement("span");
+                brspan.classList.add("break");
+                if (line.match(/[^\w\s]\s*$/g)) //ends in punctuation
+                  brspan.classList.add("end");
+                article.appendChild(brspan);
+              }
+            }
           }
+          //this is the only bit of code that's still really confusing.
+          //it just makes the text red if it has "\{" and stops it at the end or at "\}"
+          //if there's a clean way to do it in linkedom I'd love to hear it
+          article.innerHTML = article.innerHTML.replace(/\\\{([\s\S]+?)(?:\\\}|$)/, `<span class="red">$1</span>`);
+          threadsection.appendChild(article);
         }
+        document.body.appendChild(threadsection);
+        threadsection.insertAdjacentHTML("beforebegin", "\n  ");
       }
-      //this is the only bit of code that's still really confusing.
-      //it just makes the text red if it has "\{" and stops it at the end or at "\}"
-      //if there's a clean way to do it in linkedom I'd love to hear it
-      article.innerHTML = article.innerHTML.replace(/\\\{([\s\S]+?)(?:\\\}|$)/, `<span class="red">$1</span>`);
-      threaddiv.appendChild(article);
     }
-    document.body.appendChild(threaddiv);
-    threaddiv.insertAdjacentHTML("beforebegin", "\n  ");
   }
   document.body.insertAdjacentHTML("beforeend", "\n");
   timer.stop("build HTML");
