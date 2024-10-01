@@ -261,14 +261,6 @@ const buildHTML = (document) => {
             article.setAttribute("emotion", dialogue.emotion);
           if (dialogue.align)
             article.classList.add(dialogue.align);
-          /*
-          if (dialogue.file !== -1)
-            article.setAttribute("file", dialogue.file);
-          if (dialogue.typo)
-            article.classList.add("typo");
-          if (dialogue.last)
-            article.classList.add("last");
-          */
           if (dialogue.type !== "normal")
             article.classList.add(dialogue.type);
           article.id = `${id}-${j+1}`;
