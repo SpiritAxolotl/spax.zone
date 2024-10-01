@@ -79,6 +79,7 @@ const processDialogue = (list, info) => {
     text: [],
     type: "normal"
   };
+  let lastCode = -1;
   for (const listIterator of list) {
     const code = listIterator.code;
     const params = listIterator.parameters;
@@ -107,9 +108,10 @@ const processDialogue = (list, info) => {
         dialogue.align = "start";
       else if (params[3] === 2)
         dialogue.align = "end";
-    } else if (endOfThreadCodes.has(code)) { //ensured end of thread
+    } else if (endOfThreadCodes.has(code) || (code === 411 && lastCode === 0)) { //ensured end of thread
       pushTextbox(dialogue, info, {bump: true});
     }
+    lastCode = code;
   }
   pushTextbox(dialogue, info, {bump: true});
 };
@@ -121,7 +123,7 @@ const pushTextbox = (dialogue, info, options={overflow: false, bump: false}) => 
   const characterName = file[info.name];
   let currentThread = characterName.length;
   if (persistThread)
-    currentThread = Math.max(0, characterName.length - 1);
+    currentThread = characterName.length - 1;
   const length = dialogue.text.length;
   if ((options.overflow && length >= 4) || (!options.overflow && length > 0)) {
     persistThread = true;
@@ -138,23 +140,32 @@ const pushTextbox = (dialogue, info, options={overflow: false, bump: false}) => 
       characterName[currentThread].splice(characterName[currentThread].length-1, 0, {...dialogue});
     else
       thread.push({...dialogue});
-    /*if (pickerOption !== -1) {
-      const picker = characterName[currentThread-1].find(dl => dl.type === "picker");
-      if (picker) {
-        thread.from = pickerOption;
-        picker.for ??= [];
-        picker.for[pickerOption] = [dialogue.file, dialogue.id];
-      }
-      pickerOption = -1;
-    }*/
     if (!options.overflow) {
       dialogue.who = "";
       dialogue.emotion = "";
     }
     dialogue.text = [];
     dialogue.type = "normal";
-    if (options.bump && thread.length > 0) {
+    if (options.bump)
       persistThread = false;
+  }
+};
+
+const removingHelper = (threadi, file, characterName, i) => {
+  for (let j=i+1; j<allDialogue[file][characterName].length; j++) {
+    const threadj = allDialogue[file][characterName][j];
+    if (threadi.length === threadj.length) {
+      let isDuplicate = true;
+      for (let k=0; k<threadi.length; k++) {
+        if (!textboxEquals(threadi[k], threadj[k])) {
+          isDuplicate = false;
+          break;
+        }
+      }
+      if (isDuplicate) {
+        allDialogue[file][characterName].splice(j, 1);
+        j--;
+      }
     }
   }
 };
@@ -165,24 +176,9 @@ const removeDuplicateThreads = () => {
     for (const characterName of Object.keys(allDialogue[file])) {
       for (let i=0; i<allDialogue[file][characterName].length; i++) {
         const threadi = allDialogue[file][characterName][i];
-        const ilen = threadi.length;
-        for (let j=i+1; j<allDialogue[file][characterName].length; j++) {
-          const threadj = allDialogue[file][characterName][j];
-          const jlen = threadj.length;
-          if (ilen === jlen) {
-            let isDuplicate = true;
-            for (let k=0; k<ilen; k++) {
-              if (!textboxEquals(threadi[k], threadj[k])) {
-                isDuplicate = false;
-                break;
-              }
-            }
-            if (isDuplicate) {
-              allDialogue[file][characterName].splice(j, 1);
-              j--;
-            }
-          }
-        }
+        removingHelper(threadi, file, characterName, i);
+        if (allDialogue[file]["Common"] && characterName !== "Common")
+          removingHelper(threadi, file, "Common", -1);
       }
     }
   }
@@ -251,7 +247,8 @@ const buildHTML = (document) => {
       for (let i=0; i<allDialogue[file][characterName].length; i++) {
         const thread = allDialogue[file][characterName][i];
         const threadsection = document.createElement("section");
-        let id = `${file}-${characterName}`;
+        const characterNameBetter = characterName[0].toUpperCase() + characterName.substring(1);
+        let id = `${file}-${characterNameBetter}`;
         if (allDialogue[file][characterName].length > 1)
           id += `-${i+1}`;
         threadsection.id = id;
