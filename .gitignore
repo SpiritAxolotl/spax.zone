@@ -4,3 +4,4 @@ doctrees
 .vscode/
 /node_modules/
 /data/
+/js/cobalt-webring.js
