@@ -7,8 +7,6 @@ const eventDump = "./data/dep_event_dump.json";
 
 const allDialogue = {};
 let persistThread = false;
-const endOfThreadCodes = new Set([121, 122, 402, 404]);
-//let pickerOption = -1;
 
 const getDEPEventDump = (callback) => {
   if (!fs.existsSync(eventDump)) {
@@ -47,11 +45,10 @@ const main = () => {
       }
     }
     timer.stop("parse dialogue JSON");
-    //allDialogue.pop();
     removeDuplicateThreads();
     //await applyOverrides(true);
     fs.writeFileSync("./data/dep_dialogue_dump.json", JSON.stringify(allDialogue));
-    const document = await readPage(targetPage);
+    const { document } = await readPage(targetPage);
     fs.writeFileSync(targetPage, buildHTML(document));
     wholeTimer.stop("build the dialogue");
   });
@@ -61,7 +58,7 @@ const readPage = async (page) => {
   try {
     const html = await fs.promises.readFile(page, "utf8");
     const dom = parseHTML(html);
-    return dom.document;
+    return dom;
   } catch (err) {
     console.error("Error reading file:", err);
     throw err;
@@ -72,6 +69,16 @@ const stringHasLength = (str) => {
   return typeof str === "string" && str.length;
 }
 
+const endOfThreadCodes = new Set([121, 122, 402, 404]);
+const isEndOfDialogue = (codelist) => {
+  const len = codelist.length-1;
+  if (endOfThreadCodes.has(codelist[len]))
+    return true;
+  if (codelist[len] === 411 && codelist[len-1] === 0)
+    return true;
+  return false;
+};
+
 const processDialogue = (list, info) => {
   const dialogue = {
     who: "",
@@ -79,9 +86,10 @@ const processDialogue = (list, info) => {
     text: [],
     type: "normal"
   };
-  let lastCode = -1;
+  const codelist = [];
   for (const listIterator of list) {
     const code = listIterator.code;
+    codelist.push(code);
     const params = listIterator.parameters;
     if (code === 401) { //dialogue
       pushTextbox(dialogue, info, {overflow: true});
@@ -108,10 +116,9 @@ const processDialogue = (list, info) => {
         dialogue.align = "start";
       else if (params[3] === 2)
         dialogue.align = "end";
-    } else if (endOfThreadCodes.has(code) || (code === 411 && lastCode === 0)) { //ensured end of thread
+    } else if (isEndOfDialogue(codelist)) {
       pushTextbox(dialogue, info, {bump: true});
     }
-    lastCode = code;
   }
   pushTextbox(dialogue, info, {bump: true});
 };
