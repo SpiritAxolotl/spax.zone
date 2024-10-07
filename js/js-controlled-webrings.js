@@ -8,8 +8,14 @@ by running the js before the site is deployed.
 const { readPage } = require("./buildDEPdialogue.js");
 const fs = require("fs");
 const { VM } = require("vm2");
+const { createHash } = require("crypto");
 
 const targetPage = "./html/index.html";
+
+const hashes = {
+  cobalt: "8b942969a4dfc0533b9cd2da30005a6bb31e8bce8c47060a5a784fd2a383482b",
+  cohost: "d18a582628a1a05783d36e62f4c1262cfff0dbdec717aff644f6d71b869e91d2"
+}
 
 const getJsFile = (local, link, callback) => {
   if (!fs.existsSync(local)) {
@@ -33,6 +39,18 @@ const getJsFile = (local, link, callback) => {
   });
 };
 
+const genHash = (str) => {
+  const hashObj = createHash("sha256");
+  let hash = "";
+  hashObj.on("readable", () => {
+    const d = hashObj.read();
+    if (d) hash = d.toString("hex");
+  });
+  hashObj.write(str.replaceAll("\r", "")); //normalize the damn thing
+  hashObj.end();
+  return hash;
+};
+
 const build = async () => {
   const { document, window } = await readPage(targetPage);
   const vm = new VM({
@@ -41,21 +59,53 @@ const build = async () => {
       window: window
     }
   });
-  getJsFile("./js/cobalt-webring.js", "https://instances.hyper.lol/assets/js/webring.js", (err, data) => {
+  getJsFile("./js/webrings/cobalt.js", "https://instances.hyper.lol/assets/js/webring.js", (err, data) => {
     if (err) console.error(err);
     else {
-      try {
+      if (genHash(data) === hashes.cobalt) {
         vm.run(data);
         const webring = document.querySelector(`#cobaltWebring`);
-        webring.removeAttribute("name");
-        webring.removeAttribute("id");
+        //webring.removeAttribute("name");
+        //webring.removeAttribute("id");
         webring.removeAttribute("style");
         webring.insertAdjacentHTML("afterbegin", "part of the cobalt webring<br><br>");
         webring.querySelector(`a:nth-of-type(3)`).href = "https://random.spax.zone/cobalt-webring";
+        const remove = document.querySelector(`#cobaltWebring .remove`);
+        if (remove) remove.remove();
+        fs.writeFileSync(targetPage, document.toString());
+      } else {
+        console.warn("the cobalt script's hash didn't match! make sure it didn't update!");
+      }
+    }
+  });
+  getJsFile("./js/webrings/cohost.js", "https://chaiaeran.github.io/Eggbug-Eggring/onionring-widget.js", async (err, data) => {
+    if (err) console.error(err);
+    else {
+      try {
+        if (genHash(data) === hashes.cohost) {
+          let editedData = data;
+          let eggsites = [];
+          await fetch("https://chaiaeran.github.io/Eggbug-Eggring/eggsites.json")
+            .then(response => response.json())
+            .then(data => eggsites = data);
+          editedData = editedData.replace(`const jsonRes = await fetch('https://chaiaeran.github.io/Eggbug-Eggring/eggsites.json')\n\n  var sites = await jsonRes.json()`, `var sites = ${JSON.stringify(eggsites)};`);
+          editedData = editedData.replace(`window.location.href`, `"https://spax.zone/"`);
+          editedData = editedData.replace(`This site is `, "");
+          editedData = editedData.replace(`← previous`, "&lt;-");
+          editedData = editedData.replace(`next →`, "-&gt;");
+          vm.run(editedData);
+          const randomATag = document.querySelector(`#eggbug-eggring a[href="javascript:void(0)"]`);
+          randomATag.href = "https://random.spax.zone/cohost-webring";
+          randomATag.removeAttribute("onclick");
+          const remove = document.querySelector(`#eggbug-eggring .remove`);
+          if (remove) remove.remove();
+          fs.writeFileSync(targetPage, document.toString());
+        } else {
+          console.warn("the cohost script's hash didn't match! make sure it didn't update!");
+        }
       } catch (error) {
         console.error("Error executing script:", error);
       }
-      fs.writeFileSync(targetPage, document.toString());
     }
   });
 };
