@@ -81,7 +81,7 @@ body {
   flex-flow: column;
   align-items: center;
   gap: 5px;
-  background: repeat var(--g3) url("/images/bg/background_yoki.png") center/960px;
+  background: repeat var(--g3) url("/images/bg/background_yoki.png") center 0px/960px;
   image-rendering: pixelated;
 }
 
