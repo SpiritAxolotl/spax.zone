@@ -46,7 +46,7 @@ const genHash = (str) => {
     const d = hashObj.read();
     if (d) hash = d.toString("hex");
   });
-  hashObj.write(str.replaceAll("\r", "")); //normalize the damn thing
+  hashObj.write(str.replaceAll("\r\n", "\n")); //normalize the damn thing
   hashObj.end();
   return hash;
 };
