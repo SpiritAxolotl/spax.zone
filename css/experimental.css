@@ -307,6 +307,13 @@ article.buttons img {
   image-rendering: auto;
 }
 
+article.webring table {
+  width: 100%;
+}
+article.webring img {
+  image-rendering: pixelated;
+}
+
 @media only screen and (max-width: 645px) {
   article:not(.picker) {
     width: 100% !important;
