@@ -14,7 +14,7 @@ const targetPage = "./html/index.html";
 const randomURL = "https://random.spax.zone/webrings";
 
 const hashes = {
-  cobalt: "8b942969a4dfc0533b9cd2da30005a6bb31e8bce8c47060a5a784fd2a383482b",
+  cobalt: "50373b424944bf5a6e58cbb216e73613c58d784fbd0ea4af45778f398ad82f16",
   cohost: "d18a582628a1a05783d36e62f4c1262cfff0dbdec717aff644f6d71b869e91d2"
 }
 
@@ -55,7 +55,7 @@ const genHash = (str) => {
     const d = hashObj.read();
     if (d) hash = d.toString("hex");
   });
-  hashObj.write(str.replaceAll("\r\n", "\n")); //normalize the damn thing
+  hashObj.write(str.replaceAll("\r\n", "\n").trim()); //normalize the damn thing
   hashObj.end();
   return hash;
 };
