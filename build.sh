@@ -5,3 +5,5 @@ node ./tests/djmax/build.js
 mv ./html/* .
 mv ./tests/* .
 rm -rf subdomains/*
+ls ./data
+ls ./data/webring-members
