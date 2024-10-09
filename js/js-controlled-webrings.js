@@ -80,7 +80,8 @@ const build = async () => {
       const webring = document.querySelector(`#cobaltWebring`);
       const oldContents = webring.innerHTML;
       webring.innerHTML = "";
-      if (genHash(data) === hashes.cobalt) {
+      const hash = genHash(data);
+      if (hash === hashes.cobalt) {
         vm.run(data);
         fs.writeFileSync(
           `${dataFolderName}/cobalt.json`,
@@ -95,7 +96,7 @@ const build = async () => {
         fs.writeFileSync(targetPage, document.toString());
       } else {
         webring.innerHTML = oldContents;
-        console.warn("the cobalt script's hash didn't match! make sure it didn't update!");
+        console.warn("the cobalt script's hash didn't match! make sure it didn't update!\nthe hash:", hash);
       }
     }
   });
@@ -109,7 +110,8 @@ const build = async () => {
       const oldContents = webring.innerHTML;
       webring.innerHTML = "";
       try {
-        if (genHash(data) === hashes.cohost) {
+        const hash = genHash(data);
+        if (hash === hashes.cohost) {
           let editedData = data;
           let eggsites = await fetchJSON("https://chaiaeran.github.io/Eggbug-Eggring/eggsites.json");
           fs.writeFileSync(`${dataFolderName}/cohost.json`, JSON.stringify(eggsites));
@@ -132,7 +134,7 @@ const build = async () => {
           fs.writeFileSync(targetPage, document.toString());
         } else {
           webring.innerHTML = oldContents;
-          console.warn("the cohost script's hash didn't match! make sure it didn't update!");
+          console.warn("the cohost script's hash didn't match! make sure it didn't update! the hash:", hash);
         }
       } catch (error) {
         webring.innerHTML = oldContents;
