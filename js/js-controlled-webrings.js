@@ -103,7 +103,7 @@ const build = async () => {
       try {
         if (genHash(data) === hashes.cohost) {
           let editedData = data;
-          let eggsites = fetchJSON("https://chaiaeran.github.io/Eggbug-Eggring/eggsites.json");
+          let eggsites = await fetchJSON("https://chaiaeran.github.io/Eggbug-Eggring/eggsites.json");
           fs.writeFileSync(`${dataFolderName}/cohost.json`, JSON.stringify(eggsites));
           editedData = editedData.replace(
             `const jsonRes = await fetch('https://chaiaeran.github.io/Eggbug-Eggring/eggsites.json')\n\n  var sites = await jsonRes.json()`,
