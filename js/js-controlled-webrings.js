@@ -79,7 +79,7 @@ const build = async () => {
     else {
       if (genHash(data) === hashes.cobalt) {
         vm.run(data);
-        fs.writeFileSync(`${dataFolderName}/cobalt.json`, JSON.stringify(vm.getGlobal("cobaltWebring_members")));
+        fs.writeFileSync(`${dataFolderName}/cobalt.json`, JSON.stringify(vm.getGlobal("cobaltWebring_members").map(e=>`https://${e}`)));
         const webring = document.querySelector(`#cobaltWebring`);
         //webring.removeAttribute("name");
         //webring.removeAttribute("id");
