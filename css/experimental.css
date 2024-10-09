@@ -208,8 +208,6 @@ a:active {
   color: var(--g3);
 }
 
-/*TODO: turn "type" into basic classes*/
-
 article.art {
   text-align: center;
 }
@@ -248,6 +246,10 @@ article .centertext {
   width: 100%;
   display: inline-block;
   text-align: center;
+}
+
+article .nowrap {
+  white-space: nowrap;
 }
 
 article.picker {

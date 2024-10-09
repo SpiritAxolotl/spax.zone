@@ -77,19 +77,24 @@ const build = async () => {
     (err, data) => {
     if (err) console.error(err);
     else {
+      const webring = document.querySelector(`#cobaltWebring`);
+      const oldContents = webring.innerHTML;
+      webring.innerHTML = "";
       if (genHash(data) === hashes.cobalt) {
         vm.run(data);
-        fs.writeFileSync(`${dataFolderName}/cobalt.json`, JSON.stringify(vm.getGlobal("cobaltWebring_members").map(e=>`https://${e}`)));
-        const webring = document.querySelector(`#cobaltWebring`);
+        fs.writeFileSync(
+          `${dataFolderName}/cobalt.json`,
+          JSON.stringify(vm.getGlobal("cobaltWebring_members")
+            .map(e=>`https://${e}`))
+        );
         //webring.removeAttribute("name");
         //webring.removeAttribute("id");
         webring.removeAttribute("style");
         webring.insertAdjacentHTML("afterbegin", "part of the cobalt webring<br><br>");
         webring.querySelector(`a:nth-of-type(3)`).href = `${randomURL}/cobalt`;
-        const remove = document.querySelector(`#cobaltWebring .remove`);
-        if (remove) remove.remove();
         fs.writeFileSync(targetPage, document.toString());
       } else {
+        webring.innerHTML = oldContents;
         console.warn("the cobalt script's hash didn't match! make sure it didn't update!");
       }
     }
@@ -100,30 +105,37 @@ const build = async () => {
     async (err, data) => {
     if (err) console.error(err);
     else {
+      const webring = document.querySelector(`#eggbug-eggring`);
+      const oldContents = webring.innerHTML;
+      webring.innerHTML = "";
       try {
         if (genHash(data) === hashes.cohost) {
           let editedData = data;
           let eggsites = await fetchJSON("https://chaiaeran.github.io/Eggbug-Eggring/eggsites.json");
           fs.writeFileSync(`${dataFolderName}/cohost.json`, JSON.stringify(eggsites));
           editedData = editedData.replace(
-            `const jsonRes = await fetch('https://chaiaeran.github.io/Eggbug-Eggring/eggsites.json')\n\n  var sites = await jsonRes.json()`,
+            `const jsonRes = await fetch('https://chaiaeran.github.io/Eggbug-Eggring/eggsites.json')\n\n  ` +
+            `var sites = await jsonRes.json()`,
             `var sites = ${JSON.stringify(eggsites)};`
           );
           editedData = editedData.replace(`window.location.href`, `"https://spax.zone/"`);
           editedData = editedData.replace(`This site is `, "");
           editedData = editedData.replace(`← previous`, "&lt;-");
           editedData = editedData.replace(`next →`, "-&gt;");
+          editedData = editedData.replace(/(?<=\$\{(?:random|index)Text\})[\s\n]+/g, "");
+          editedData = editedData.replace(/(?<=tag\.insertAdjacentHTML\('afterbegin', `[\s\S]*)  `/g, `\``);
           vm.run(editedData);
-          const randomATag = document.querySelector(`#eggbug-eggring a[href="javascript:void(0)"]`);
+          const randomATag = webring.querySelector(`a[href="javascript:void(0)"]`);
+          webring.querySelectorAll(`.webring-prev, .webring-next`).forEach(e=>e.classList.add("nowrap"));
           randomATag.href = `${randomURL}/cohost`;
           randomATag.removeAttribute("onclick");
-          const remove = document.querySelector(`#eggbug-eggring .remove`);
-          if (remove) remove.remove();
           fs.writeFileSync(targetPage, document.toString());
         } else {
+          webring.innerHTML = oldContents;
           console.warn("the cohost script's hash didn't match! make sure it didn't update!");
         }
       } catch (error) {
+        webring.innerHTML = oldContents;
         console.error("Error executing script:", error);
       }
     }
