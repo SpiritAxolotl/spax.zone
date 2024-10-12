@@ -123,6 +123,27 @@ const processDialogue = (list, info) => {
   pushTextbox(dialogue, info, {bump: true});
 };
 
+const correctInconsistencies = (dialogue) => {
+  //for 600_portrait_test_Enlarged which is just yoki
+  if (dialogue.who === "600") {
+    dialogue.who = "yoki";
+    dialogue.emotion = "neutral";
+  } else if (dialogue.who === "youngyoki") {
+    dialogue.who = "youngeryoki";
+  } else if (dialogue.who === "claire" && dialogue.emotion === "down") {
+    dialogue.emotion = "sad";
+  } else if (dialogue.who === "este" && dialogue.emotion === "portrait") {
+    dialogue.emotion = "stare";
+  } else if (dialogue.who === "charles" && dialogue.emotion === "downlook") {
+    dialogue.emotion = "look_down";
+  } else if (dialogue.who === "tem" && dialogue.emotion === "down") {
+    dialogue.emotion = "look_down";
+  } else if (dialogue.who === "hero") {
+    dialogue.who = dialogue.emotion;
+    dialogue.emotion = "";
+  }
+};
+
 const pushTextbox = (dialogue, info, options={overflow: false, bump: false}) => {
   allDialogue[info.file] ??= {};
   const file = allDialogue[info.file];
@@ -136,13 +157,7 @@ const pushTextbox = (dialogue, info, options={overflow: false, bump: false}) => 
     persistThread = true;
     characterName[currentThread] ??= [];
     const thread = characterName[currentThread];
-    //for 600_portrait_test_Enlarged which is just yoki
-    if (dialogue.who === "600") {
-      dialogue.who = "yoki";
-      dialogue.emotion = "neutral";
-    } else if (dialogue.who === "youngyoki") {
-      dialogue.who = "youngeryoki";
-    }
+    correctInconsistencies(dialogue);
     if (dialogue.type === "picker")
       characterName[currentThread].splice(characterName[currentThread].length-1, 0, {...dialogue});
     else

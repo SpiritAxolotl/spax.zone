@@ -1,82 +1,9 @@
-/* spax */
+@use "textboxes" as *;
 
-article[who=spax]::before {
-  background-image: url("/images/faces/spax/Smirk.png");
-}
-
-article[who=spax][emotion=blush]::before {
-  background-image: url("/images/faces/spax/Blush.png");
-}
-
-article[who=spax][emotion=confused]::before {
-  background-image: url("/images/faces/spax/Confused.png");
-}
-
-article[who=spax][emotion=disappointed]::before {
-  background-image: url("/images/faces/spax/Disappointed.png");
-}
-
-article[who=spax][emotion=dizzy]::before {
-  background-image: url("/images/faces/spax/Dizzy.png");
-}
-
-article[who=spax][emotion=enraged]::before {
-  background-image: url("/images/faces/spax/Enraged.png");
-}
-
-article[who=spax][emotion=happy]::before {
-  background-image: url("/images/faces/spax/Happy.png");
-}
-
-article[who=spax][emotion=look]::before {
-  background-image: url("/images/faces/spax/Look.png");
-}
-
-article[who=spax][emotion=neutral]::before {
-  background-image: url("/images/faces/spax/Neutral.png");
-}
-
-article[who=spax][emotion=dizzy]::before {
-  background-image: url("/images/faces/spax/Dizzy.png");
-}
-
-article[who=spax][emotion=enraged]::before {
-  background-image: url("/images/faces/spax/Enraged.png");
-}
-
-article[who=spax][emotion=pensive]::before {
-  background-image: url("/images/faces/spax/Pensive.png");
-}
-
-article[who=spax][emotion=sleep]::before {
-  background-image: url("/images/faces/spax/Sleep.png");
-}
-
-article[who=spax][emotion=smirk]::before {
-  background-image: url("/images/faces/spax/Smirk.png");
-}
-
-article[who=spax][emotion=surprised]::before {
-  background-image: url("/images/faces/spax/Surprised.png");
-}
-
-article[who=spax][emotion=sus]::before {
-  background-image: url("/images/faces/spax/Sus.png");
-}
-
-article[who=spax][emotion=sweat-drop]::before,
-article[who=spax][emotion=sweat_drop]::before {
-  background-image: url("/images/faces/spax/Sweat_Drop.png");
-}
-
-article[who=spax][emotion=talk]::before {
-  background-image: url("/images/faces/spax/Talk.png");
-}
-
-article[who=spax][emotion=woo]::before {
-  background-image: url("/images/faces/spax/Woo.png");
-}
-
-article[who=spax][emotion=worried]::before {
-  background-image: url("/images/faces/spax/Worried.png");
-}
+@include character-face("Spax",
+  "Blush", "Confused", "Disappointed",
+  "Dizzy", "Enraged", "Happy", "Look",
+  "Neutral", "Pensive", "Sleep", "Smirk",
+  "Surprised", "Sus", "Sweat_Drop",
+  "Talk", "Woo", "Worried"
+);

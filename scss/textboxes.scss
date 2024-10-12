@@ -1,0 +1,38 @@
+@use "str-permutations" as *;
+
+@mixin face($url) {
+  background-image: url($url);
+  background-position: center;
+  background-size: 100% 100%;
+}
+
+@function face-url($character, $emotion) {
+  @return "/images/faces/#{to-lower-case($character)}/#{$emotion}.png";
+}
+
+@mixin character-face($character, $emotions...) {
+  article[who="#{$character}" i] {
+    @each $emotion-case in $emotions {
+      @each $emotion in str-permutations($emotion-case) {
+        &[emotion="#{$emotion}" i]::before {
+          @include face(face-url($character, $emotion-case));
+        }
+      }
+    }
+  }
+}
+
+@mixin many-character-faces($folder, $characters...) {
+  @include character-face($folder, $characters...);
+  @each $character in $characters {
+    article[who="#{$character}" i]::before {
+      @include face(face-url($folder, $character));
+    }
+  }
+}
+
+$default-face: "/images/faces/Unknown.png";
+
+article[who]::before {
+  @include face($default-face);
+}
