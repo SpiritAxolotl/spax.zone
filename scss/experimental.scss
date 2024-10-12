@@ -1,5 +1,6 @@
-@import url("./depfaces.css");
-@import url("./customfaces.css");
+@use "sass:math";
+@use "depfaces";
+@use "customfaces";
 
 @font-face {
   font-family: DEP;
@@ -14,47 +15,38 @@
     url("https://spax.zone/fonts/DEP/DEP.otf") format("opentype");
 }
 
+$colors: (
+  g1: (224, 248, 207),
+  g2: (134, 192, 108),
+  g3: (48, 104, 80),
+  g4: (7, 24, 33),
+  
+  o1: (244, 211, 132),
+  o2: (255, 158, 57),
+  o3: (255, 91, 57),
+  o4: (213, 59, 52),
+  o5: (190, 38, 45),
+  o6: (143, 45, 52),
+  
+  p1: (186, 229, 254),
+  p2: (98, 115, 242),
+  
+  b1: (0, 0, 0),
+  w1: (255, 255, 255),
+  r1: (255, 0, 0)
+);
+
 :root {
-  --g1v: 224 248 207;
-  --g2v: 134 192 108;
-  --g3v: 48 104 80;
-  --g4v: 7 24 33;
-  
-  --o1v: 244 211 132;
-  --o2v: 255 158 57;
-  --o3v: 255 91 57;
-  --o4v: 213 59 52;
-  --o5v: 190 38 45;
-  --o6v: 143 45 52;
-  
-  --p1v: 186 229 254;
-  --p2v: 98 115 242;
-  
-  --b1v: 0 0 0;
-  --w1v: 255 255 255;
-  --r1v: 255 0 0;
-  
-  
-  --g1: rgb(var(--g1v));
-  --g2: rgb(var(--g2v));
-  --g3: rgb(var(--g3v));
-  --g4: rgb(var(--g4v));
-  
-  --o1: rgb(var(--o1v));
-  --o2: rgb(var(--o2v));
-  --o3: rgb(var(--o3v));
-  --o4: rgb(var(--o4v));
-  --o5: rgb(var(--o5v));
-  --o6: rgb(var(--o6v));
-  
-  --p1: rgb(var(--p1v));
-  --p2: rgb(var(--p2v));
-  
-  --b1: rgb(var(--b1v));
-  --w1: rgb(var(--w1v));
-  --r1: rgb(var(--r1v));
+  @each $name, $value in $colors {
+    --#{$name}v: #{$value};
+    --#{$name}: rgb(var(--#{$name}v));
+  }
 }
 
+@mixin font-smoothing($value) {
+  font-smooth: $value;
+  -webkit-font-smoothing: $value;
+}
 
 * {
   box-sizing: border-box;
@@ -69,8 +61,6 @@ body {
   padding: 0;
   margin: 0;
   overflow: hidden auto;
-  font-smooth: never;
-  -webkit-font-smoothing: none;
 }
 
 body {
@@ -80,6 +70,7 @@ body {
   flex-flow: column;
   align-items: center;
   gap: 5px;
+  @include font-smoothing(never);
   background: repeat var(--g3) url("/images/bg/background_yoki.png") center 0px/960px;
   image-rendering: pixelated;
 }
@@ -93,15 +84,11 @@ body {
 @supports selector(::-webkit-scrollbar) {
   ::-webkit-scrollbar {
     background: var(--g2);
+    
+    &-thumb {
+      background: var(--g4);
+    }
   }
-  ::-webkit-scrollbar-thumb {
-    background: var(--g4);
-  }
-}
-
-article::selection,
-article ::selection {
-  background-color: var(--g3);
 }
 
 article {
@@ -121,59 +108,168 @@ article {
   min-height: 133px;
   word-wrap: break-word;
   cursor: default;
-}
-
-article[who] {
-  padding-left: 131.26px;
-}
-
-article[who]::before {
-  content: "";
-  display: block;
-  position: absolute;
-  aspect-ratio: 1/1;
-  height: 97px;
-  left: 15px;
-  top: 15px;
-}
-
-article::after {
-  content: "";
-  display: block;
-  position: absolute;
-  pointer-events: none;
-  left: calc(50% - 5px);
-  bottom: 0;
-  aspect-ratio: 5/4;
-  height: 8px;
-  background: url("/images/misc/next_arrow.png") center/100%;
-  animation: alternate arrow 0.75s steps(2, jump-none) infinite;
-  transition: opacity 0.1s;
-  opacity: 0;
-}
-
-article.alwaysshowarrow::after {
-  opacity: 1;
-  transition: none;
-}
-
-article:hover::after,
-article:active::after {
-  opacity: 1;
-}
-
-article span[title] {
-  text-decoration: underline;
-  cursor: help;
-}
-
-article textarea {
-  width: 100%;
-  background: inherit;
-  color: inherit;
-  font-family: inherit;
-  resize: none;
-  border: solid 2px var(--g1);
+  
+  &::selection,
+  ::selection {
+    background-color: var(--g3);
+  }
+  
+  &[who] {
+    padding-left: 131.26px;
+    
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      aspect-ratio: 1/1;
+      height: 97px;
+      left: 15px;
+      top: 15px;
+    }
+  }
+  
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    pointer-events: none;
+    left: calc(50% - 5px);
+    bottom: 0;
+    aspect-ratio: 5/4;
+    height: 8px;
+    background: url("/images/misc/next_arrow.png") center/100%;
+    animation: alternate arrow 0.75s steps(2, jump-none) infinite;
+    transition: opacity 0.1s;
+    opacity: 0;
+  }
+  
+  &.alwaysshowarrow::after {
+    opacity: 1;
+    transition: none;
+  }
+  
+  &:hover::after,
+  &:active::after {
+    opacity: 1;
+  }
+  
+  span[title] {
+    text-decoration: underline;
+    cursor: help;
+  }
+  
+  textarea {
+    width: 100%;
+    background: inherit;
+    color: inherit;
+    font-family: inherit;
+    resize: none;
+    border: solid 2px var(--g1);
+  }
+  
+  &.important {
+    border-color: var(--r1);
+  }
+  
+  & .red {
+    color: var(--r1);
+  }
+  
+  &.art {
+    text-align: center;
+    
+    img {
+      width: 100%;
+      padding: 0;
+      image-rendering: auto;
+    }
+  }
+  
+  &.description {
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-decoration: underline;
+    min-height: 0;
+  }
+  
+  &.title {
+    font-size: 25px;
+    letter-spacing: 1px;
+    min-height: 0;
+  }
+  
+  &.short {
+    min-height: 0;
+  }
+  
+  &.center {
+    align-self: center;
+  }
+  
+  &.centertext {
+    text-align: center;
+  }
+  
+  .centertext {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+  }
+  
+  &.picker {
+    min-width: 0;
+    min-height: 0;
+    width: fit-content;
+    max-width: 100%;
+    margin-bottom: -5px;
+    padding: 15px;
+    
+    &::after {
+      content: none;
+    }
+  }
+  
+  &.start {
+    align-self: start;
+  }
+  
+  &.end {
+    align-self: end;
+  }
+  
+  &.buttons {
+    img {
+      width: 88px;
+      height: 31px;
+      image-rendering: auto;
+    }
+  }
+  
+  & .highlight {
+    display: inline-block;
+    width: 100%;
+    padding: 0 20px;
+    background-clip: padding-box;
+    
+    &:hover,
+    &:active {
+      cursor: pointer;
+      background-color: var(--g2);
+      animation: alternate hl 0.4s linear infinite;
+    }
+  }
+  
+  & a {
+    &:link, &:visited {
+      color: var(--g2);
+    }
+    &:hover {
+      color: var(--g1);
+    }
+    &:active {
+      color: var(--g3);
+    }
+  }
 }
 
 @keyframes arrow {
@@ -188,91 +284,13 @@ article textarea {
   }
 }
 
-.red {
-  color: var(--r1);
-}
-
-article.important {
-  border-color: var(--r1);
-}
-
-
-a:link, a:visited {
-  color: var(--g2);
-}
-a:hover {
-  color: var(--g1);
-}
-a:active {
-  color: var(--g3);
-}
-
-article.art {
-  text-align: center;
-}
-article.art img {
-  width: 100%;
-  padding: 0;
-  image-rendering: auto;
-}
-
-article.description {
-  font-size: 16px;
-  letter-spacing: 1px;
-  text-decoration: underline;
-  min-height: 0;
-}
-
-article.title {
-  font-size: 25px;
-  letter-spacing: 1px;
-  min-height: 0;
-}
-
-article.short {
-  min-height: 0;
-}
-
-article.center {
-  align-self: center;
-}
-
-article.centertext {
-  text-align: center;
-}
-
-article .centertext {
-  width: 100%;
-  display: inline-block;
-  text-align: center;
-}
-
-article .nowrap {
-  white-space: nowrap;
-}
-
-article.picker {
-  min-width: 0;
-  min-height: 0;
-  width: fit-content;
-  max-width: 100%;
-  margin-bottom: -5px;
-  padding: 15px;
-}
-
-article.start {
-  align-self: start;
-}
-article.end {
-  align-self: end;
-}
-
-.highlight {
-  display: inline-block;
-  width: 100%;
-  padding: 0 20px;
-  background-clip: padding-box;
-  /* transition: background-color 0.1s; */
+@keyframes hl {
+  0% {
+    background-color: var(--g2);
+  }
+  100% {
+    background-color: rgba(var(--g2v), 0.3);
+  }
 }
 
 @media screen and (prefers-reduced-motion) {
@@ -280,39 +298,6 @@ article.end {
   span.highlight:active {
     animation: none;
   }
-}
-
-.highlight:hover,
-.highlight:active {
-  cursor: pointer;
-  background-color: var(--g2);
-  animation: alternate hl 0.4s linear infinite;
-}
-
-article.picker::after {
-  content: none;
-}
-
-@keyframes hl {
-  0% {
-    background-color: var(--g2);
-  }
-  100% {
-    background-color: rgb(var(--g2v) / 0.3);
-  }
-}
-
-article.buttons img {
-  width: 88px;
-  height: 31px;
-  image-rendering: auto;
-}
-
-article.webring table {
-  width: 100%;
-}
-article.webring img {
-  image-rendering: pixelated;
 }
 
 @media only screen and (max-width: 645px) {
