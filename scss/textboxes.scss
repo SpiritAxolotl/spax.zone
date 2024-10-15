@@ -2,20 +2,20 @@
 
 @mixin face($url) {
   background-image: url($url);
-  background-position: center;
-  background-size: 100% 100%;
 }
 
 @function face-url($character, $emotion) {
   @return "/images/faces/#{to-lower-case($character)}/#{$emotion}.png";
 }
 
-@mixin character-face($character, $emotions...) {
-  article[who="#{$character}" i] {
+@mixin character-face($character-case, $emotions...) {
+  article[who="#{str-replace-all($character-case, '^', '')}" i] {
     @each $emotion-case in $emotions {
       @each $emotion in str-permutations($emotion-case) {
-        &[emotion="#{$emotion}" i]::before {
-          @include face(face-url($character, $emotion-case));
+        @each $character in str-permutations($character-case) {
+          &[emotion="#{$emotion}" i]::before {
+            @include face(face-url($character, str-replace-all($emotion-case, "^", "")));
+          }
         }
       }
     }
@@ -24,9 +24,11 @@
 
 @mixin many-character-faces($folder, $characters...) {
   @include character-face($folder, $characters...);
-  @each $character in $characters {
-    article[who="#{$character}" i]::before {
-      @include face(face-url($folder, $character));
+  @each $character-case in $characters {
+    @each $character in str-permutations($character-case) {
+      article[who="#{$character}" i]::before {
+        @include face(face-url($folder, str-replace-all($character-case, "^", "")));
+      }
     }
   }
 }
