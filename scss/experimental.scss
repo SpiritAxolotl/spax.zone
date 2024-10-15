@@ -69,10 +69,20 @@ body {
   display: flex;
   flex-flow: column;
   align-items: center;
+  margin: 5px 0;
   gap: 5px;
   @include font-smoothing(never);
   background: repeat var(--g3) url("/images/bg/background_yoki.png") center 0px/960px;
   image-rendering: pixelated;
+  
+  &.threads {
+    gap: 15px;
+  }
+  &.pre {
+    article {
+      white-space: pre;
+    }
+  }
 }
 
 @supports (scrollbar-color: auto) {
@@ -89,6 +99,13 @@ body {
       background: var(--g4);
     }
   }
+}
+
+section {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 5px;
 }
 
 article {
@@ -110,7 +127,7 @@ article {
   cursor: default;
   
   &::selection,
-  ::selection {
+  & ::selection {
     background-color: var(--g3);
   }
   
@@ -165,6 +182,10 @@ article {
     font-family: inherit;
     resize: none;
     border: solid 2px var(--g1);
+  }
+  
+  &.pre {
+    white-space: pre;
   }
   
   &.important {
@@ -227,6 +248,10 @@ article {
     &::after {
       content: none;
     }
+  }
+  
+  & span.break {
+    display: block;
   }
   
   &.start {
@@ -307,5 +332,11 @@ article {
   }
   article.art {
     min-width: revert;
+  }
+  article.pre {
+    white-space: wrap;
+  }
+  article span.break:not(.end) {
+    display: none;
   }
 }
