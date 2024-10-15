@@ -1,14 +1,17 @@
 @function str-permutations($string) {
   $result: ();
+  $has-dash: str-index($string, "-");
   $has-underscore: str-index($string, "_");
+  $has-carat: str-index($string, "^");
   
-  @if not $has-underscore {
+  @if not $has-dash and not $has-underscore and not $has-carat {
     @return ($string,);
   }
   
-  $dash-permutation: $string;
-  $underscore-permutation: $string;
-  $no-separator-permutation: $string;
+  $better-string: str-replace-all($string, "^", "_");
+  $dash-permutation: $better-string;
+  $underscore-permutation: $better-string;
+  $no-separator-permutation: $better-string;
   
   $dash-permutation: str-replace-all($dash-permutation, "_", "-");
   
