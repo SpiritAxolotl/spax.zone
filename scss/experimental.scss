@@ -41,6 +41,7 @@ $colors: (
     --#{$name}v: #{$value};
     --#{$name}: rgb(var(--#{$name}v));
   }
+  color-scheme: only dark;
 }
 
 @mixin font-smoothing($value) {
