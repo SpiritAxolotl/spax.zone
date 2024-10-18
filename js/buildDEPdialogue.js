@@ -13,7 +13,7 @@ const getDEPEventDump = (callback) => {
     return fetch("https://cdn.spax.zone/dep_event_dump.json")
       .then(a => a.json())
       .then(data => callback(null, data))
-      .catch(err => callback(null, err));
+      .catch(err => callback(err,  null));
   }
   fs.readFile(eventDump, "utf8", (err, data) => {
     if (err)
