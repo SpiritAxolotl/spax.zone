@@ -49,6 +49,32 @@ $colors: (
   -webkit-font-smoothing: $value;
 }
 
+@mixin textbox($size: "") {
+  position: relative;
+  border: 3.5px solid var(--g1);
+  letter-spacing: 4.25px;
+  line-height: 21px;
+  background: var(--b1);
+  padding: 17px;
+  padding-left: 18.359px;
+  color: var(--g1);
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  max-width: 645px;
+  min-width: 645px;
+  @if ($size != "short") {
+    min-height: 133px;
+  }
+  word-wrap: break-word;
+  cursor: default;
+  
+  ::selection,
+  * ::selection {
+    background-color: var(--g3);
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -110,27 +136,7 @@ section {
 }
 
 article {
-  position: relative;
-  border: 3.5px solid var(--g1);
-  letter-spacing: 4.25px;
-  line-height: 21px;
-  background: var(--b1);
-  padding: 17px;
-  padding-left: 18.359px;
-  color: var(--g1);
-  overflow: hidden;
-  width: 100%;
-  height: auto;
-  max-width: 645px;
-  min-width: 645px;
-  min-height: 133px;
-  word-wrap: break-word;
-  cursor: default;
-  
-  &::selection,
-  ::selection {
-    background-color: var(--g3);
-  }
+  @include textbox();
   
   &[who] {
     padding-left: 131.26px;
@@ -298,6 +304,16 @@ article {
       color: var(--g3);
     }
   }
+}
+
+details {
+  @include textbox("short");
+  /*& summary {
+    list-style: url("/images/misc/next_arrow.png");
+  }
+  &[open] summary {
+    list-style: url("/images/misc/next_arrow.png");
+  }*/
 }
 
 @keyframes arrow {
