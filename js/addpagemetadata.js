@@ -46,7 +46,7 @@ const addMetadata = (document) => {
   const leadingSpaces = (head.innerHTML.match(/^[\r\n]*( *)/)?.[1] ?? "").length;
   const createAndAddMetaTag = (tag) => {
     const meta = document.createElement("meta");
-    for (const [key, value] of Object.entries(tag).toReversed())
+    for (const [key, value] of Object.entries(tag).reverse())
       meta.setAttribute(key, value);
     head.insertAdjacentHTML("afterbegin", `\n${" ".repeat(leadingSpaces)}${meta.toString()}`);
   };
