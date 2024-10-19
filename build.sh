@@ -7,4 +7,3 @@ node ./tests/djmax/build.js
 mv ./html/* .
 mv ./tests/* .
 rm -rf subdomains/*
-cp ./images/faces/nahua/Neutral.png ./favicon.png
