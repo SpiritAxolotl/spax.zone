@@ -30,7 +30,7 @@ const defaultMetaTags = [
   },
   {
     "property": "og:image",
-    "content": "https://spax.zone/images/faces/spax/Smirk.png",
+    "content": "https://spax.zone/images/faces/nahua/Neutral.png",
     "type": "image/png"
   }
 ];
