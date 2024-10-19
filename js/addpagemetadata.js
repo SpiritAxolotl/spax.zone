@@ -73,9 +73,9 @@ const addMetadata = (document) => {
   const title = head.querySelector(`title`);
   const description = head.querySelector(`meta[name="description"]`);
   if (head.querySelector(`meta[property="twitter:card"][content="summary_large_image"]`) === null) {
-    if (head.querySelector(`meta[property="og:title"]`) === null && title !== null)
+    if (head.querySelector(`meta[name="og:title"]`) === null && title !== null)
       createAndAddTag("meta", {"name": "og:title", "content": title.textContent});
-    if (head.querySelector(`meta[property="og:description"]`) === null && description !== null)
+    if (head.querySelector(`meta[name="og:description"]`) === null && description !== null)
       createAndAddTag("meta", {"name": "og:description", "content": description.getAttribute("content")});
   }
   
