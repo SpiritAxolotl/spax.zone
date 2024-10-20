@@ -70,7 +70,7 @@ $colors: (
   cursor: default;
   
   ::selection,
-  * ::selection {
+  &::selection {
     background-color: var(--g3);
   }
 }
