@@ -35,7 +35,6 @@ const getJsFile = async (local, links) => {
       "User-Agent": "SPAX-WEBRING-FETCH"
     });
     
-    const errors = [];
     for (const link of links) {
       try {
         const response = await fetch(link, {
@@ -45,11 +44,10 @@ const getJsFile = async (local, links) => {
         if (response.ok)
           return await response.text();
       } catch (err) {
-        errors.push(err);
         continue;
       }
     }
-    throw new Error("Failed to fetch JS file from all provided links. All errors:", ...errors);
+    throw new Error("Failed to fetch JS file from all provided links.");
   } catch (err) {
     throw err;
   }
@@ -75,6 +73,12 @@ const genHash = (str) => {
   return hash;
 };
 
+const webringDown = (document, selector, webringName, err) => {
+  document.querySelector(selector).textContent =
+    `The ${webringName} is currently down! Might be a good idea to let Spax know.`;
+  console.error(err);
+};
+
 const build = async () => {
   const { document, window } = await readPage(targetPage);
   const vm = new VM({
@@ -88,11 +92,7 @@ const build = async () => {
     fs.mkdirSync(dataFolderName);
   
   //cobalt
-  {
-    const data = await getJsFile("./js/webrings/cobalt.js", [
-      "https://instances.hyper.lol/assets/js/webring.js", //main
-      "https://raw.githubusercontent.com/hyperdefined/CobaltTester/refs/heads/master/web/assets/js/webring.js" //fallback
-    ]);
+  try {
     const webring = document.querySelector(`#cobaltWebring`);
     const oldContents = webring.innerHTML;
     webring.innerHTML = "";
@@ -114,10 +114,12 @@ const build = async () => {
       webring.innerHTML = oldContents;
       console.warn("the cobalt script's hash didn't match! make sure it didn't update!\nthe hash:", hash);
     }
+  } catch (err) {
+    webringDown(document, "#cobaltWebring", "cobalt webring", err);
   }
   
   //cohost
-  {
+  try {
     const data = await getJsFile("./js/webrings/cohost.js", [
       "https://chaiaeran.github.io/Eggbug-Eggring/onionring-widget.js", //main
       "https://raw.githubusercontent.com/ChaiaEran/Eggbug-Eggring/refs/heads/main/onionring-widget.js" //fallback
@@ -156,6 +158,8 @@ const build = async () => {
       webring.innerHTML = oldContents;
       console.error("Error executing script:", error);
     }
+  } catch (err) {
+    webringDown(document, "#eggbug-eggring", "eggbug eggring", err);
   }
 };
 
