@@ -62,15 +62,8 @@ const fetchJSON = async (url) => {
 };
 
 const genHash = (str) => {
-  const hashObj = createHash("sha256");
-  let hash = "";
-  hashObj.on("readable", () => {
-    const d = hashObj.read();
-    if (d) hash = d.toString("hex");
-  });
-  hashObj.write(str.replaceAll("\r\n", "\n").trim()); //normalize the damn thing
-  hashObj.end();
-  return hash;
+  const normalized = str.replaceAll("\r\n", "\n").trim();
+  return createHash("sha256").update(normalized).digest("hex");
 };
 
 const webringDown = (document, selector, webringName, err) => {
@@ -95,7 +88,7 @@ const build = async () => {
   try {
     const data = await getJsFile("./js/webrings/cobalt.js", [
       "https://instances.hyper.lol/assets/js/webring.js", //main
-      "https://raw.githubusercontent.com/hyperdefined/CobaltTester/refs/heads/master/web/assets/js/webring.js" //fallback
+      //"https://raw.githubusercontent.com/hyperdefined/CobaltTester/refs/heads/master/web/assets/js/webring.js" //fallback
     ]);
     const webring = document.querySelector(`#cobaltWebring`);
     const oldContents = webring.innerHTML;
