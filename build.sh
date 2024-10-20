@@ -6,4 +6,3 @@ node ./js/js-controlled-webrings.js
 node ./tests/djmax/build.js
 mv ./html/* .
 mv ./tests/* .
-rm -rf subdomains/*
