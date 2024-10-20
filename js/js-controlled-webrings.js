@@ -35,6 +35,7 @@ const getJsFile = async (local, links) => {
       "User-Agent": "SPAX-WEBRING-FETCH"
     });
     
+    const errors = [];
     for (const link of links) {
       try {
         const response = await fetch(link, {
@@ -44,10 +45,11 @@ const getJsFile = async (local, links) => {
         if (response.ok)
           return await response.text();
       } catch (err) {
+        errors.push(err);
         continue;
       }
     }
-    throw new Error("Failed to fetch JS file from all provided links");
+    throw new Error("Failed to fetch JS file from all provided links. All errors:", ...errors);
   } catch (err) {
     throw err;
   }
