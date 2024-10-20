@@ -93,6 +93,10 @@ const build = async () => {
   
   //cobalt
   try {
+    const data = await getJsFile("./js/webrings/cobalt.js", [
+      "https://instances.hyper.lol/assets/js/webring.js", //main
+      "https://raw.githubusercontent.com/hyperdefined/CobaltTester/refs/heads/master/web/assets/js/webring.js" //fallback
+    ]);
     const webring = document.querySelector(`#cobaltWebring`);
     const oldContents = webring.innerHTML;
     webring.innerHTML = "";
