@@ -1,10 +1,3 @@
 [submodule "js/plugins"]
 	path = js/plugins
-	url = https://github.com/SpiritAxolotl/js-plugins
-[submodule "subdomains/DEP"]
-	path = subdomains/DEP
-	url = https://github.com/SpiritAxolotl/dwellers-empty-path-plus
-	branch = site
-[submodule "subdomains/random"]
-	path = subdomains/random
-	url = https://github.com/SpiritAxolotl/spax.zone-random
+	url = https://github.com/CalmBubbles/js-plugins
