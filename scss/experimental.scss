@@ -308,11 +308,11 @@ article {
 
 details {
   @include textbox("short");
-  cursor: pointer;
-  /*& summary {
-    list-style: url("/images/misc/next_arrow.png");
+  & summary {
+    cursor: pointer;
+    //list-style: url("/images/misc/next_arrow.png");
   }
-  &[open] summary {
+  /*&[open] summary {
     list-style: url("/images/misc/next_arrow.png");
   }*/
 }
