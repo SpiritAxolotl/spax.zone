@@ -308,6 +308,7 @@ article {
 
 details {
   @include textbox("short");
+  cursor: pointer;
   /*& summary {
     list-style: url("/images/misc/next_arrow.png");
   }
