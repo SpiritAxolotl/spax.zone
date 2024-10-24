@@ -12,74 +12,7 @@
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://spax.zone/images/misc/horse.png" type="image/png">
   <link rel="icon" href="/images/misc/horse.png">
-  <style>
-    @font-face {
-      font-family: Twemoji;
-      src:
-        url("../fonts/Twemoji.otf") format("opentype"),
-        url(https://spax.zone/fonts/Twemoji.otf) format("opentype");
-    }
-    html {
-      background-color: #c1694f;
-    }
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      width: 100vw;
-      margin: 0;
-      overscroll-behavior: none;
-      flex-direction: column;
-    }
-    h1, p {
-      font-family: Times, serif;
-    }
-    #horsebutton {
-      background: none;
-      border: none;
-      font-size: 3em;
-      font-family: inherit;
-      cursor: pointer;
-      > div {
-        border: 0.075em solid black;
-        border-radius: 0.2em;
-        background-color: #eee;
-        padding: 0.5em 1em;
-        pointer-events: none;
-        transition: all 0.15s ease;
-      }
-      &:hover > div {
-        background-color: #ddd;
-        transform: scale(0.96);
-      }
-      &:active > div {
-        background-color: #aaa;
-        transform: scale(0.94);
-      }
-      + p {
-        opacity: 0;
-        transition: opacity 0.1s ease;
-      }
-      &:hover + p, &:active + p {
-        opacity: 1;
-      }
-    }
-    img.emoji {
-      height: 1em;
-      width: 1em;
-      margin: 0 .05em 0 .1em;
-      vertical-align: -0.1em;
-    }
-    .glow {
-      text-shadow: 0 0 0.2em #ff0000;
-    }
-    #noscript {
-      font-size: 2em;
-      /*padding: 0 5em;*/
-      text-align: center;
-    }
-  </style>
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
   <noscript>
@@ -98,79 +31,8 @@
   <h1>The Horse Button™</h1>
   <button id="horsebutton" title="The Horse Button™"><div>🐴</div></button>
   <p>Please click <span class="glow">The Horse Button™</span> at your own risk.</p>
+  <h2 id="visiting"></h2>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
-<script>
-twemoji.parse(document.body, {
-  folder: "svg",
-  ext: ".svg"
-});
-
-async function checkProtocol(domain) {
-  let http = false;
-  let https = false;
-  try {
-    const httpResponse = await fetch(`http://${domain}`, { method: "HEAD" });
-    if (httpResponse.ok)
-      http = true;
-  } catch (error) {
-    // HTTP request failed
-  }
-
-  try {
-    const httpsResponse = await fetch(`https://${domain}`, { method: "HEAD" });
-    if (httpsResponse.ok)
-      https = true;
-  } catch (error) {
-    // HTTPS request failed
-  }
-  
-  if (https) return "https";
-  if (http) return "http";
-  return "http";
-}
-
-async function readTextFile(link) {
-  try {
-    const response = await fetch(link);
-    
-    if (!response.ok)
-      throw new Error(`Failed to fetch the file. Status: ${response.status}`);
-
-    const text = await response.text();
-    const lines = text.split("\n");
-    
-    return lines;
-  } catch (error) {
-    console.error("Error:", error.message);
-    return [];
-  }
-}
-
-let horseLinks = ["horse"];
-let horseLinksLength = 1;
-readTextFile("/misc/horse.txt")
-  .then(lines => {
-    //remove trailing \r stuff (it doesn't make a difference but it annoys me)
-    horseLinks = lines.map(link => link.replace("\r", ""));
-    horseLinksLength = horseLinks.length;
-  })
-  .catch(error => console.error("Error:", error));
-
-document.getElementById("horsebutton").onclick = () => {
-  if (!horseLinks.length)
-    return alert(`Congrats! You went to all ${horseLinksLength} .horse links! We are proud of you!! 🐴`);
-  const random = Math.floor(Math.random()*horseLinks.length);
-  const horseDomain = horseLinks.splice(random, 1)[0];
-  console.log(horseDomain);
-  const win = window.open(`http://${horseDomain}`, "_blank");
-  win.focus();
-  /*checkProtocol(horseDomain)
-    .then(http => {
-      const win = window.open(`${http}://${horseDomain}`, "_blank");
-      win.focus();
-    })
-    .catch(error => console.error("Error:", error));*/
-}
-</script>
+<script src="./script.js"></script>
 </body>
 </html>
