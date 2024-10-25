@@ -39,24 +39,27 @@ const main = async () => {
     folder: "svg",
     ext: ".svg"
   });
-  let horseLinks = await readJSONFile("/data/every_horse.json");
-  let horseLinksLength = horseLinks.length;
+  const horseLinks = await readJSONFile("/data/every_horse.json");
+  const horseLinksLength = horseLinks.length;
   const visiting = document.querySelector(`#visiting`);
+  const random = (arr) => {
+    return Math.floor(Math.random()*arr.length);
+  };
+  let horseDomain = "";
+  const genNextHorseLink = () => {
+    const randomIndex = random(horseLinks);
+    horseDomain = horseLinks.splice(randomIndex, 1)[0];
+    visiting.innerHTML = `About to visit <code>${horseDomain}</code>...`;
+  };
+  genNextHorseLink();
   document.querySelector(`#horsebutton`).addEventListener("click", async () => {
     if (!horseLinks.length)
       return alert(`Congrats! You went to all ${horseLinksLength} .horse links! We are proud of you!! 🐴`);
-    const random = Math.floor(Math.random()*horseLinks.length);
-    const horseDomain = horseLinks.splice(random, 1)[0];
     console.log(horseDomain);
-    visiting.style.opacity = "1";
-    visiting.innerHTML = `Visiting <code>${horseDomain}</code>...`;
     //const protocol = await checkProtocol(horseDomain);
-    setTimeout(() => {
-      const win = window.open(`http://${horseDomain}`, "_blank");
-      win.focus();
-      visiting.removeAttribute("style");
-      visiting.innerHTML = `Visiting...`;
-    }, 1000);
+    const win = window.open(`http://${horseDomain}`, "_blank");
+    win.focus();
+    genNextHorseLink();
   });
 };
 

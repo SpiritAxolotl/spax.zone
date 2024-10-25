@@ -4,9 +4,11 @@
     url("../fonts/Twemoji.otf") format("opentype"),
     url(https://spax.zone/fonts/Twemoji.otf) format("opentype");
 }
+
 html {
   background-color: #c1694f;
 }
+
 body {
   display: flex;
   justify-content: center;
@@ -17,9 +19,15 @@ body {
   overscroll-behavior: none;
   flex-direction: column;
 }
+
 h1, p {
   font-family: Times, serif;
 }
+
+h1 {
+  margin-bottom: 0;
+}
+
 #horsebutton {
   background: none;
   border: none;
@@ -34,39 +42,44 @@ h1, p {
     pointer-events: none;
     transition: all 0.15s ease;
   }
-  &:hover > div {
-    background-color: #ddd;
-    transform: scale(0.96);
+  &:hover {
+    & + #visiting {
+      opacity: 1;
+    }
+    & > div {
+      background-color: #ddd;
+      transform: scale(0.96);
+    }
   }
   &:active > div {
     background-color: #aaa;
     transform: scale(0.94);
   }
-  & + p {
-    opacity: 0;
-    transition: opacity 0.1s ease;
-  }
-  &:hover + p, &:active + p {
-    opacity: 1;
-  }
 }
+
 img.emoji {
   height: 1em;
   width: 1em;
   margin: 0 .05em 0 .1em;
   vertical-align: -0.1em;
 }
+
 .glow {
   text-shadow: 0 0 0.2em #ff0000;
 }
+
 #noscript {
   font-size: 2em;
   /*padding: 0 5em;*/
   text-align: center;
 }
+
 #visiting {
   opacity: 0;
+  transition: opacity 0.1s ease;
+  cursor: default;
 }
+
 code {
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 0.25rem;
