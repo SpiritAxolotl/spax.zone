@@ -52,13 +52,12 @@ const main = async () => {
     visiting.innerHTML = `About to visit <code>${horseDomain}</code>...`;
   };
   genNextHorseLink();
-  document.querySelector(`#horsebutton`).addEventListener("click", async () => {
+  document.querySelector(`#horsebutton`).addEventListener("click", () => {
     if (!horseLinks.length)
       return alert(`Congrats! You went to all ${horseLinksLength} .horse links! We are proud of you!! 🐴`);
     console.log(horseDomain);
     //const protocol = await checkProtocol(horseDomain);
-    const win = window.open(`http://${horseDomain}`, "_blank");
-    win.focus();
+    window.open(`http://${horseDomain}`, "_blank", "noopener"); //debating whether to have "noreferrer" too
     genNextHorseLink();
   });
 };
