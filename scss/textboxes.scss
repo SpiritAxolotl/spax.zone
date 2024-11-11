@@ -1,11 +1,12 @@
 @use "str-permutations" as *;
+@use "sass:string";
 
 @mixin face($url) {
   background-image: url($url);
 }
 
 @function face-url($character, $emotion) {
-  @return "/images/faces/#{to-lower-case($character)}/#{$emotion}.png";
+  @return "/images/faces/#{string.to-lower-case($character)}/#{$emotion}.png";
 }
 
 @mixin character-face($character-case, $emotions...) {
