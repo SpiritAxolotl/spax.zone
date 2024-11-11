@@ -1,4 +1,5 @@
 @use "sass:string";
+@use "sass:list";
 
 @function str-permutations($string) {
   $result: ();
@@ -22,14 +23,14 @@
   $no-separator-permutation: str-replace-all($no-separator-permutation, "-", "");
   $no-separator-permutation: str-replace-all($no-separator-permutation, "_", "");
   
-  $result: append($result, $dash-permutation);
+  $result: list.append($result, $dash-permutation);
   
   @if $dash-permutation != $underscore-permutation {
-    $result: append($result, $underscore-permutation);
+    $result: list.append($result, $underscore-permutation);
   }
   
   @if $no-separator-permutation != $dash-permutation and $no-separator-permutation != $underscore-permutation {
-    $result: append($result, $no-separator-permutation);
+    $result: list.append($result, $no-separator-permutation);
   }
   
   @return $result;
