@@ -1,8 +1,10 @@
+@use "sass:string";
+
 @function str-permutations($string) {
   $result: ();
-  $has-dash: str-index($string, "-");
-  $has-underscore: str-index($string, "_");
-  $has-carat: str-index($string, "^");
+  $has-dash: string.index($string, "-");
+  $has-underscore: string.index($string, "_");
+  $has-carat: string.index($string, "^");
   
   @if not $has-dash and not $has-underscore and not $has-carat {
     @return ($string,);
@@ -34,16 +36,16 @@
 }
 
 @function str-replace($string, $search, $replace: "") {
-  $index: str-index($string, $search);
+  $index: string.index($string, $search);
   @if $index {
-    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    @return string.slice($string, 1, $index - 1) + $replace + str-replace(string.slice($string, $index + string.length($search)), $search, $replace);
   }
   @return $string;
 }
 
 @function str-replace-all($string, $search, $replace: "") {
   $result: $string;
-  @while str-index($result, $search) {
+  @while string.index($result, $search) {
     $result: str-replace($result, $search, $replace);
   }
   @return $result;
