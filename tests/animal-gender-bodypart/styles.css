@@ -68,6 +68,20 @@ body {
   /* margin-top: 5rem; */
   font-size: 3rem;
   max-width: 650px;
+  & span {
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-thickness: 5px;
+  }
+  & span:first-of-type {
+    text-decoration-color: rgb(var(--color-mango));
+  }
+  & span:nth-of-type(2) {
+    text-decoration-color: rgb(var(--color-strawberry));
+  }
+  & span:last-of-type {
+    text-decoration-color: rgb(var(--color-cherry));
+  }
 }
 
 #spin-button {
