@@ -8,29 +8,6 @@
   --color-mango: 255 171 92;
   --color-longan: 255 216 168;
   --disabled-opacity: 1;
-  --ease-pop: linear(
-    0,
-    0.706317972392746,
-    0.8965057166577356,
-    0.9793806636722006,
-    1,
-    0.984375,
-    0.9393441861213596,
-    0.8748402979258557,
-    0.7968939703624319,
-    0.7102310913533709,
-    0.618718433538229,
-    0.5256230677729052,
-    0.43377413477523075,
-    0.3456693009583003,
-    0.2635479083582337,
-    0.1894430570778458,
-    0.12521980673998806,
-    0.07260391260118129,
-    0.03320391543176782,
-    0.008528445051707747,
-    0
-  );
 }
 
 @font-face {
@@ -98,10 +75,12 @@ body {
 }
 #copy-button {
   opacity: 0;
+  pointer-events: none;
   margin-bottom: 2rem;
-  transition: inherit, inherit, opacity 0.5s ease;
-  & > div {
-    transition: inherit, inherit, background-color 0.25s ease-out;
+  transition: opacity 0.5s ease;
+  &.clickable {
+    pointer-events: all;
+    opacity: 1;
   }
 }
 
@@ -248,12 +227,29 @@ button {
   font-size: 0.75rem;
 }
 
-.flashgreen > div {
-  transition-timing-function: var(--ease-pop) !important;
-  background-color: rgb(86, 126, 86) !important;
+/*.flash {
+  &.green > div {
+    animation: 0.25s ease-out flashgreen forwards;
+  }
+  &.red > div {
+    animation: 0.25s ease-out flashred forwards;
+  }
 }
 
-.flashred > div {
-  transition-timing-function: var(--ease-pop) !important;
-  background-color: rgb(147, 46, 46) !important;
+@keyframes flashgreen {
+  0% {
+    background-color: rgb(79, 205, 79, 0.5);
+  }
+  100% {
+    background-color: inherit;
+  }
 }
+
+@keyframes flashred {
+  0% {
+    background-color: rgb(147, 46, 46, 0.5);
+  }
+  100% {
+    background-color: inherit;
+  }
+}*/

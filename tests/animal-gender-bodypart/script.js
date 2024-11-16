@@ -47,18 +47,18 @@ const sanitize = (str) => {
 const setusername = (component) => {
   switch (component) {
     case "animal":
-      animalspan.innerText = sanitize(chosen.animal);
+      animalspan.textContent = sanitize(chosen.animal);
       break;
     case "gender":
-      genderspan.innerText = sanitize(chosen.gender);
+      genderspan.textContent = sanitize(chosen.gender);
       break;
     case "part":
-      partspan.innerText = sanitize(chosen.part);
+      partspan.textContent = sanitize(chosen.part);
       break;
     default:
-      animalspan.innerText = sanitize(chosen.animal);
-      genderspan.innerText = sanitize(chosen.gender);
-      partspan.innerText = sanitize(chosen.part);
+      animalspan.textContent = sanitize(chosen.animal);
+      genderspan.textContent = sanitize(chosen.gender);
+      partspan.textContent = sanitize(chosen.part);
       break;
   }
 };
@@ -70,13 +70,13 @@ const changeSeparator = (n) => {
   localStorage.setItem("separator", newseparator.char);
   separatorbutton.innerHTML = `<div>${newseparator.name}</div>`;
   separator = newseparator.char;
-  document.querySelectorAll(`.separator`).forEach(e => e.innerText = separator);
+  document.querySelectorAll(`.separator`).forEach(e => e.textContent = separator);
   setusername();
 };
 changeSeparator(localStorage.getItem("separator") ?? defaultseparator);
 let separatecomponents = localStorage.getItem("separateComponents")==="true" ?? true;
 const changeSeparateComponents = (n) => {
-  separatecomponents = n ?? separatecomponentsbutton.innerText !== "Yes";
+  separatecomponents = n ?? separatecomponentsbutton.textContent !== "Yes";
   if (separatecomponents) {
     separatecomponentsbutton.innerHTML = `<div>Yes</div>`;
     localStorage.setItem("separateComponents", true);
@@ -94,7 +94,7 @@ const changeSeparateComponents = (n) => {
 changeSeparateComponents(localStorage.getItem("separateComponents")==="true" ?? true);
 let genitalbodypart = localStorage.getItem("genitalBodypart")==="true" ?? false;
 const changeGenitalBodypart = (n) => {
-  genitalbodypart = n ?? genitalbodypartbutton.innerText !== "Yes";
+  genitalbodypart = n ?? genitalbodypartbutton.textContent !== "Yes";
   if (genitalbodypart) {
     genitalbodypartbutton.innerHTML = `<div>Yes</div>`;
     localStorage.setItem("genitalBodypart", true);
@@ -134,7 +134,7 @@ const hideAndPos = () => {
   });
   setTimeout(() => {
     button.disabled = false;
-    copybutton.style.opacity = 1;
+    copybutton.classList.add(`clickable`);
     copybutton.disabled = false;
   }, 1250);
 };
@@ -172,18 +172,19 @@ partspan.addEventListener("click", () => {
 
 copybutton.addEventListener("click", () => {
   try {
-    writeClipboardText(username.innerText);
+    writeClipboardText(username.textContent);
   } catch (e) {}
 });
 
 async function writeClipboardText(text) {
+  copybutton.classList.add(`flash`);
   try {
-      await navigator.clipboard.writeText(text);
-      copybutton.classList.add(`flashgreen`);
-      setTimeout(() => { copybutton.classList.remove(`flashgreen`) }, 250);
+    await navigator.clipboard.writeText(text);
+    copybutton.classList.add(`green`);
+    setTimeout(() => { copybutton.classList.remove(`green`, `flash`) }, 250);
   } catch (error) {
-      console.error(error.message);
-      copybutton.classList.add(`flashred`);
-      setTimeout(() => { copybutton.classList.remove(`flashred`) }, 250);
+    console.error(error.message);
+    copybutton.classList.add(`red`);
+    setTimeout(() => { copybutton.classList.remove(`red`, `flash`) }, 250);
   }
 }
