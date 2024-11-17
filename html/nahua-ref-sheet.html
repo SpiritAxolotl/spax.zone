@@ -11,15 +11,18 @@
         flex-direction: column;
         margin-top: 10px;
         gap: 10px;
-        & > div {
-          display: inherit;
-          gap: inherit;
-          & > div {
-            width: 100%;
-            aspect-ratio: 1/1;
-            cursor: pointer;
-          }
-        }
+      }
+      #colors div {
+        border-radius: 4px;
+      }
+      #colors > div {
+        display: inherit;
+        gap: inherit;
+      }
+      #colors > div > div {
+        width: 100%;
+        aspect-ratio: 1/1;
+        cursor: pointer;
       }
       #ref {
         width: 75%;
@@ -68,27 +71,30 @@
       3. Lore reasons for the minor transformative powers will be explained when I'm bothered to write it.<br>
       4. Her outfit doesn't need to be the one in the ref! She does tend to prefer more open/breathable clothing though.<br>
       5. She goes for a tomboy-ish look.<br>
-      If you need any other clarifications, feel free to reach out and ask me on discord!
+      <br>
+      If you need any other clarifications, feel free to reach out and ask me on discord!<br>
+      <br>
+      Oh, and you don't need my permission to draw her.
     </article>
     <article>
       If you got javascript enabled<noscript> (you don't)</noscript>, you can copy the hex colors by clicking on its respective square:<br>
       <div id="colors">
         <div>
-          <div style="background-color:#b0e4fa;"></div>
-          <div style="background-color:#d6fcfd;"></div>
-          <div style="background-color:#1b4050;"></div>
+          <div style="background-color:#9ae0ff;"></div>
+          <div style="background-color:#cbfffe;"></div>
+          <div style="background-color:#264755;"></div>
         </div>
         <div>
-          <div style="background-color:#f7d371;"></div>
-          <div style="background-color:#fdfbe5;"></div>
-          <div style="background-color:#ee8782;"></div>
-          <div style="background-color:#ede0be;"></div>
-          <div style="background-color:#4e0101;"></div>
+          <div style="background-color:#ffc759;"></div>
+          <div style="background-color:#fffbe2;"></div>
+          <div style="background-color:#ff7676;"></div>
+          <div style="background-color:#e3d2b0;"></div>
+          <div style="background-color:#590100;"></div>
         </div>
       </div>
     </article>
     <article class="short">
-      Last updated: November 10th, 2024<br>
+      Last updated: November 16th, 2024<br>
     </article>
     <article class="short">
       (And <a href="./index.html">click here</a> to see the main page!)
@@ -101,16 +107,15 @@
           console.error(error.message);
         }
       }
-      function rgbToHex(colors) {
-        let string = "#";
-        for (const c of colors) {
-          const hex = (+c).toString(16);
-          string += hex.length === 1 ? "0" + hex : hex;
-        }
-        return string;
+      for (const square of [...document.querySelectorAll(`#colors div[style]`)]) {
+        square.addEventListener("click", () => {
+          const styles = square.getAttribute("style");
+          const bgcolor = styles.match(/background-color:\s*#([a-f0-9]{3}|[a-f0-9]{6})\b/);
+          if (bgcolor) {
+            writeClipboardText(bgcolor[1]);
+          }
+        });
       }
-      for (const square of [...document.querySelectorAll(`#colors div[style], #shitasscolors div[style]`)])
-        square.addEventListener("click", () => writeClipboardText(rgbToHex(getComputedStyle(square).backgroundColor.replace(/[^\d,]/g,"").split(","))));
     </script>
   </body>
 </html>
