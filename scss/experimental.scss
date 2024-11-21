@@ -272,10 +272,19 @@ article {
   }
   
   &.buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    a {
+      display: block;
+    }
     img {
+      image-rendering: pixelated;
+    }
+    a, img {
       width: 88px;
       height: 31px;
-      image-rendering: auto;
     }
   }
   
