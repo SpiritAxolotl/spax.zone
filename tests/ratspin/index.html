@@ -38,10 +38,13 @@
       justify-content: center;
       flex-direction: column;
     }
+    body * {
+      transition: 0.2s ease-out;
+    }
     #rat {
       image-rendering: pixelated;
       aspect-ratio: 1/1;
-      height: min(100vh, 100vw);
+      height: 100vmin;
       z-index: 1;
       pointer-events: none;
     }
@@ -50,12 +53,13 @@
       margin: 0;
       position: absolute;
       top: 25%;
-      color: #26282c;
+      color: #ffffff;
       pointer-events: none;
       font-style: italic;
-      font-size: 32px;
+      font-size: 64px;
       text-align: center;
-      transition: opacity 0.2s ease-out;
+      transition-property: opacity, font-size;
+      padding: 0 20%;
     }
     #controls {
       position: absolute;
@@ -66,16 +70,18 @@
       flex-direction: column;
     }
     #controls > img {
+      image-rendering: pixelated;
       aspect-ratio: 1/1;
       width: 32px;
       cursor: pointer;
+      transition-property: width, height;
     }
     #playpause {
       margin-bottom: 12px;
     }
     @media only screen and (max-aspect-ratio: 1/2) {
       #click {
-        padding: 0 20%;
+        font-size: 32px;
       }
       #controls > img {
         width: 64px;
@@ -144,7 +150,7 @@
           freebird.volume = Math.max(0, freebird.volume - 0.1);
           break;
         default:
-          freebird.volume = 0.5;
+          freebird.volume = 0.2;
       }
       if (freebird.volume <= 0) {
         volumeDown.style.opacity = 0.5;
