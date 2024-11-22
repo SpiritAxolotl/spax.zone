@@ -48,11 +48,12 @@
       opacity: 1;
       margin: 0;
       position: absolute;
-      top: 20%;
+      top: 25%;
       color: #26282c;
       pointer-events: none;
       font-style: italic;
-      font-size: 40px;
+      font-size: 32px;
+      text-align: center;
       transition: opacity 0.2s ease-out;
     }
     #controls {
@@ -70,6 +71,14 @@
     }
     #playpause {
       margin-bottom: 12px;
+    }
+    @media only screen and (max-width: 512px) {
+      #click {
+        padding: 0 20%;
+      }
+      #controls > img {
+        width: 64px;
+      }
     }
   </style>
   <noscript>
