@@ -27,6 +27,7 @@
   <style>
     html, body {
       height: 100%;
+      overflow: hidden;
     }
     body {
       position: relative;
@@ -99,13 +100,13 @@
     </style>
   </noscript>
 </head>
-<body onclick="playFreebird()">
+<body>
   <p id="click">(click anywhere to start the solo)</p>
   <img id="rat" src="./ratspin.gif">
   <div id="controls">
-    <img id="playpause" src="./icons/play.png" onclick="togglePlayback()">
-    <img id="volumeup" src="./icons/plus.png" onclick="changeVolume('up')">
-    <img id="volumedown" src="./icons/minus.png" onclick="changeVolume('down')">
+    <img id="playpause" src="./icons/play.png">
+    <img id="volumeup" src="./icons/plus.png">
+    <img id="volumedown" src="./icons/minus.png">
   </div>
   <audio id="freebird" src="https://cdn.spax.zone/freebird.wav" loop controls></audio>
 </body>
@@ -114,6 +115,8 @@
   const freebird = document.querySelector(`audio#freebird`);
   freebird.removeAttribute(`controls`);
   const playpause = document.querySelector(`img#playpause`);
+  const volumeUp = document.querySelector(`img#volumeup`);
+  const volumeDown = document.querySelector(`img#volumedown`);
   const playFreebird = () => {
     if (!solo) {
       solo = true;
@@ -121,7 +124,6 @@
       freebird.play();
       const click = document.querySelector(`p#click`);
       click.style.opacity = "0";
-      document.body.removeAttribute("onclick");
       playpause.src = "./icons/pause.png";
       setTimeout(() => document.body.removeChild(click), 250);
     }
@@ -137,24 +139,10 @@
       }
     }
   };
-  const changeVolume = (dir) => {
+  const increaseVolume = () => {
     if (solo) {
-      const volumeUp = document.querySelector(`img#volumeup`);
-      const volumeDown = document.querySelector(`img#volumedown`);
-      switch (dir) {
-        case "up":
-          freebird.volume = Math.min(1, freebird.volume + 0.1);
-          break;
-        case "down":
-          freebird.volume = Math.max(0, freebird.volume - 0.1);
-          break;
-        default:
-          freebird.volume = 0.5;
-      }
-      if (freebird.volume <= 0) {
-        volumeDown.style.opacity = 0.5;
-        volumeUp.style.opacity = null;
-      } else if (freebird.volume >= 1) {
+      freebird.volume = Math.min(1, freebird.volume + 0.1);
+      if (freebird.volume >= 1) {
         volumeUp.style.opacity = 0.5;
         volumeDown.style.opacity = null;
       } else {
@@ -162,6 +150,22 @@
         volumeDown.style.opacity = null;
       }
     }
+  }
+  const decreaseVolume = () => {
+    if (solo) {
+      freebird.volume = Math.max(0, freebird.volume - 0.1);
+      if (freebird.volume <= 0) {
+        volumeDown.style.opacity = 0.5;
+        volumeUp.style.opacity = null;
+      } else {
+        volumeUp.style.opacity = null;
+        volumeDown.style.opacity = null;
+      }
+    }
   };
+  document.body.addEventListener("click", playFreebird, {once: true});
+  playpause.addEventListener("click", togglePlayback);
+  volumeUp.addEventListener("click", increaseVolume);
+  volumeDown.addEventListener("click", decreaseVolume);
 </script>
 </html>
