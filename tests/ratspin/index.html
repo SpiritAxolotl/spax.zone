@@ -19,67 +19,67 @@
   <meta name="msapplication-TileColor" content="#3e4248">
   <meta name="msapplication-TileImage" content="./favicons/ms-icon-144x144.png">
   <meta name="theme-color" content="#3e4248">
-</head>
-<style>
-  html {
-    height: 100%;
-  }
-  body {
-    position: relative;
-    background-color: #3e4248;
-    margin: 0;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-  #rat {
-    image-rendering: pixelated;
-    aspect-ratio: 1/1;
-    height: min(100vh, 100vw);
-    z-index: 1;
-    pointer-events: none;
-  }
-  #click {
-    opacity: 1;
-    margin: 0;
-    position: absolute;
-    top: 20%;
-    color: #26282c;
-    pointer-events: none;
-    font-style: italic;
-    font-size: 40px;
-    transition: opacity 0.2s ease-out;
-  }
-  #controls {
-    position: absolute;
-    right: 0;
-    top: 0;
-    margin: 16px;
-    display: flex;
-    flex-direction: column;
-  }
-  #controls > img {
-    aspect-ratio: 1/1;
-    width: 32px;
-    cursor: pointer;
-  }
-  #playpause {
-    margin-bottom: 12px;
-  }
-</style>
-<noscript>
   <style>
-    #click, #controls {
-      display: none;
+    html {
+      height: 100%;
     }
-    #freebird {
+    body {
+      position: relative;
+      background-color: #3e4248;
+      margin: 0;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    #rat {
+      image-rendering: pixelated;
+      aspect-ratio: 1/1;
+      height: min(100vh, 100vw);
+      z-index: 1;
+      pointer-events: none;
+    }
+    #click {
+      opacity: 1;
+      margin: 0;
       position: absolute;
-      bottom: 0;
+      top: 20%;
+      color: #26282c;
+      pointer-events: none;
+      font-style: italic;
+      font-size: 40px;
+      transition: opacity 0.2s ease-out;
+    }
+    #controls {
+      position: absolute;
+      right: 0;
+      top: 0;
+      margin: 16px;
+      display: flex;
+      flex-direction: column;
+    }
+    #controls > img {
+      aspect-ratio: 1/1;
+      width: 32px;
+      cursor: pointer;
+    }
+    #playpause {
+      margin-bottom: 12px;
     }
   </style>
-</noscript>
+  <noscript>
+    <style>
+      #click, #controls {
+        display: none;
+      }
+      #freebird {
+        position: absolute;
+        bottom: 0;
+      }
+    </style>
+  </noscript>
+</head>
 <body onclick="playFreebird()">
   <p id="click">(click anywhere to start the solo)</p>
   <img id="rat" src="./ratspin.gif">
