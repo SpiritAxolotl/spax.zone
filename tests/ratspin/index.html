@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rat Spin</title>
+  <link rel="apple-touch-icon" sizes="57x57" href="./favicons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="./favicons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="./favicons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="./favicons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="./favicons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="./favicons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="./favicons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="./favicons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="./favicons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="./favicons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicons/favicon-16x16.png">
+  <link rel="manifest" href="./favicons/manifest.json">
+  <meta name="msapplication-TileColor" content="#3e4248">
+  <meta name="msapplication-TileImage" content="./favicons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#3e4248">
+</head>
+<style>
+  html {
+    height: 100%;
+  }
+  body {
+    position: relative;
+    background-color: #3e4248;
+    margin: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  #rat {
+    image-rendering: pixelated;
+    aspect-ratio: 1/1;
+    height: min(100vh, 100vw);
+    z-index: 1;
+    pointer-events: none;
+  }
+  #click {
+    opacity: 1;
+    margin: 0;
+    position: absolute;
+    top: 20%;
+    color: #26282c;
+    pointer-events: none;
+    font-style: italic;
+    font-size: 40px;
+    transition: opacity 0.2s ease-out;
+  }
+  #controls {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+  #controls > img {
+    aspect-ratio: 1/1;
+    width: 32px;
+    cursor: pointer;
+  }
+  #playpause {
+    margin-bottom: 12px;
+  }
+</style>
+<noscript>
+  <style>
+    #click, #controls {
+      display: none;
+    }
+    #freebird {
+      position: absolute;
+      bottom: 0;
+    }
+  </style>
+</noscript>
+<body onclick="playFreebird()">
+  <p id="click">(click anywhere to start the solo)</p>
+  <img id="rat" src="./ratspin.gif">
+  <div id="controls">
+    <img id="playpause" src="./icons/play.png" onclick="togglePlayback()">
+    <img id="volumeup" src="./icons/plus.png" onclick="changeVolume('up')">
+    <img id="volumedown" src="./icons/minus.png" onclick="changeVolume('down')">
+  </div>
+  <audio id="freebird" src="https://cdn.spax.zone/freebird.wav" loop controls></audio>
+</body>
+<script>
+  let solo = false;
+  const freebird = document.querySelector(`audio#freebird`);
+  freebird.removeAttribute(`controls`);
+  const playpause = document.querySelector(`img#playpause`);
+  const playFreebird = () => {
+    if (!solo) {
+      solo = true;
+      freebird.volume = 0.5;
+      freebird.play();
+      const click = document.querySelector(`p#click`);
+      click.style.opacity = "0";
+      document.body.removeAttribute("onclick");
+      playpause.src = "./icons/pause.png";
+      setTimeout(() => document.body.removeChild(click), 250);
+    }
+  };
+  const togglePlayback = () => {
+    if (solo) {
+      if (freebird.paused) {
+        freebird.play();
+        playpause.src = "./icons/pause.png";
+      } else {
+        freebird.pause();
+        playpause.src = "./icons/play.png";
+      }
+    }
+  };
+  const changeVolume = (dir) => {
+    if (solo) {
+      const volumeUp = document.querySelector(`img#volumeup`);
+      const volumeDown = document.querySelector(`img#volumedown`);
+      switch (dir) {
+        case "up":
+          freebird.volume = Math.min(1, freebird.volume + 0.1);
+          break;
+        case "down":
+          freebird.volume = Math.max(0, freebird.volume - 0.1);
+          break;
+        default:
+          freebird.volume = 0.5;
+      }
+      if (freebird.volume <= 0) {
+        volumeDown.style.opacity = 0.5;
+        volumeUp.style.opacity = null;
+      } else if (freebird.volume >= 1) {
+        volumeUp.style.opacity = 0.5;
+        volumeDown.style.opacity = null;
+      } else {
+        volumeUp.style.opacity = null;
+        volumeDown.style.opacity = null;
+      }
+    }
+  };
+</script>
+</html>
