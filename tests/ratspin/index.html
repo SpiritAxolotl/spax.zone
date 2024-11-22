@@ -25,14 +25,13 @@
   <meta name="msapplication-TileImage" content="./favicons/ms-icon-144x144.png">
   <meta name="theme-color" content="#3e4248">
   <style>
-    html {
+    html, body {
       height: 100%;
     }
     body {
       position: relative;
       background-color: #3e4248;
       margin: 0;
-      height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -118,7 +117,7 @@
   const playFreebird = () => {
     if (!solo) {
       solo = true;
-      freebird.volume = 0.5;
+      freebird.volume = 0.2;
       freebird.play();
       const click = document.querySelector(`p#click`);
       click.style.opacity = "0";
@@ -150,7 +149,7 @@
           freebird.volume = Math.max(0, freebird.volume - 0.1);
           break;
         default:
-          freebird.volume = 0.2;
+          freebird.volume = 0.5;
       }
       if (freebird.volume <= 0) {
         volumeDown.style.opacity = 0.5;
