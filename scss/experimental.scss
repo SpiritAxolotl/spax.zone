@@ -347,7 +347,7 @@ details {
   }
 }
 
-@media screen and (prefers-reduced-motion) {
+@media only screen and (prefers-reduced-motion) {
   span.highlight:hover,
   span.highlight:active {
     animation: none;
