@@ -56,15 +56,16 @@
       color: #ffffff;
       pointer-events: none;
       font-style: italic;
-      font-size: 64px;
+      font-size: 5vw;
       text-align: center;
       transition-property: opacity, font-size;
-      padding: 0 20%;
+      /*padding: 0 20%;*/
     }
     #controls {
       position: absolute;
       right: 0;
       top: 0;
+      width: 5vh;
       margin: 16px;
       display: flex;
       flex-direction: column;
@@ -72,21 +73,21 @@
     #controls > img {
       image-rendering: pixelated;
       aspect-ratio: 1/1;
-      width: 32px;
+      width: 100%;
       cursor: pointer;
-      transition-property: width, height;
+      /*transition-property: width, height;*/
     }
     #playpause {
-      margin-bottom: 12px;
+      margin-bottom: 2vh;
     }
-    @media only screen and (max-aspect-ratio: 1/2) {
+    /*@media only screen and (max-aspect-ratio: 1/2) {
       #click {
-        font-size: 32px;
+        font-size: 2vh;
       }
       #controls > img {
         width: 64px;
       }
-    }
+    }*/
   </style>
   <noscript>
     <style>
@@ -100,13 +101,13 @@
     </style>
   </noscript>
 </head>
-<body>
+<body tabindex="0">
   <p id="click">(click anywhere to start the solo)</p>
   <img id="rat" src="./ratspin.gif">
-  <div id="controls">
-    <img id="playpause" src="./icons/play.png">
-    <img id="volumeup" src="./icons/plus.png">
-    <img id="volumedown" src="./icons/minus.png">
+  <div id="controls" role="tabpanel">
+    <img id="playpause" src="./icons/play.png" tabindex="1">
+    <img id="volumeup" src="./icons/plus.png" tabindex="2">
+    <img id="volumedown" src="./icons/minus.png" tabindex="3">
   </div>
   <audio id="freebird" src="https://cdn.spax.zone/freebird.wav" loop controls></audio>
 </body>
