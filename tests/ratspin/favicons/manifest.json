@@ -1,6 +1,8 @@
 {
  "name": "Rat Spin",
  "display": "standalone",
+ "theme_color": "#3e4248",
+ "background_color": "#3e4248",
  "icons": [
   {
    "src": "\/android-icon-36x36.png",
