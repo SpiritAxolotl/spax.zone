@@ -317,13 +317,19 @@ article {
 
 details {
   @include textbox("short");
-  & summary {
+  & > summary {
     cursor: pointer;
-    //list-style: url("/images/misc/next_arrow.png");
+    &::marker, &::-webkit-details-marker {
+      //content: url("/images/misc/next_arrow.png");
+      content: "> ";
+      color: var(--g2);
+    }
   }
-  /*&[open] summary {
-    list-style: url("/images/misc/next_arrow.png");
-  }*/
+  &[open] > summary {
+    &::marker, &::-webkit-details-marker {
+      content: "V ";
+    }
+  }
 }
 
 @keyframes arrow {
