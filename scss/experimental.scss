@@ -63,6 +63,7 @@ $colors: (
   height: auto;
   max-width: 645px;
   min-width: 645px;
+  transform: translateX(-8px);
   @if ($size != "short") {
     min-height: 133px;
   }
@@ -315,6 +316,10 @@ article {
   }
 }
 
+body[data-content="blog"] article {
+  max-width: calc(100% - 50px);
+}
+
 details {
   @include textbox("short");
   & > summary {
@@ -360,10 +365,11 @@ details {
   }
 }
 
-@media only screen and (max-width: 645px) {
+@media only screen and (max-width: 660px) {
   article:not(.picker) {
     width: 100% !important;
-    min-width: revert;
+    min-width: revert !important;
+    max-width: calc(100% - 15px) !important;
   }
   article.art {
     min-width: revert;
