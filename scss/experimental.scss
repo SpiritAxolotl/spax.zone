@@ -49,22 +49,20 @@ $colors: (
   -webkit-font-smoothing: $value;
 }
 
-@mixin textbox($size: "") {
+@mixin textbox($type: "") {
   position: relative;
-  border: 3.5px solid var(--g1);
-  letter-spacing: 4.25px;
-  line-height: 21px;
   background: var(--b1);
-  padding: 17px;
-  padding-left: 18.359px;
   color: var(--g1);
   overflow: hidden;
   width: 100%;
   height: auto;
   max-width: 645px;
   min-width: 645px;
-  transform: translateX(-8px);
-  @if ($size != "short") {
+  border: 3.5px solid var(--g1);
+  letter-spacing: 5px;
+  line-height: 27px;
+  padding: 17px;
+  @if ($type != "short") {
     min-height: 133px;
   }
   word-wrap: break-word;
@@ -111,6 +109,16 @@ body {
       white-space: pre;
     }
   }
+  &.accurate article {
+    letter-spacing: 4.25px;
+    line-height: 21px;
+    padding: 17px;
+    padding-left: 18.359px;
+    
+    &[who] {
+      padding-left: 131.26px;
+    }
+  }
 }
 
 @supports (scrollbar-color: auto) {
@@ -140,7 +148,7 @@ article {
   @include textbox();
   
   &[who] {
-    padding-left: 131.26px;
+    padding-left: 131px;
     
     &::before {
       content: "";
@@ -316,9 +324,9 @@ article {
   }
 }
 
-body[data-content="blog"] article {
+/*body[data-content="blog"] article {
   max-width: calc(100% - 50px);
-}
+}*/
 
 details {
   @include textbox("short");
@@ -365,11 +373,21 @@ details {
   }
 }
 
-@media only screen and (max-width: 660px) {
+@media only screen and (max-width: 645px) {
   article:not(.picker) {
     width: 100% !important;
     min-width: revert !important;
-    max-width: calc(100% - 15px) !important;
+    max-width: 100% !important;
+  }
+  article[who] {
+    padding-left: 15px;
+    &::before {
+      float: left;
+      position: relative;
+      left: 0;
+      top: 0;
+      margin: 0 18px 5px 0;
+    }
   }
   article.art {
     min-width: revert;
