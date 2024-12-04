@@ -99,6 +99,7 @@ input, textarea, button {
 textarea {
   resize: none;
   width: 400px;
+  max-width: 100%;
 }
 
 /*#drunkify {
