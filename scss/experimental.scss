@@ -98,7 +98,7 @@ body {
   margin: 5px 0;
   gap: 5px;
   @include font-smoothing(never);
-  background: repeat var(--g3) url("/images/bg/background_yoki.png") center 0px/960px;
+  background: url("/images/bg/background_yoki.png") center 0px/960px repeat fixed var(--g3);
   image-rendering: pixelated;
   
   &.threads {
