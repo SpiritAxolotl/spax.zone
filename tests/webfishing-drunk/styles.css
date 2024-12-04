@@ -33,17 +33,18 @@ body {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   font-family: "Accidental Presidency";
   color: var(--offwhite);
   text-shadow: 0 0 5px var(--offblack);
   text-align: center;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 body::before {
   width: 100vw;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   content: "";
   background-color: black;
   opacity: 0.3;
@@ -58,7 +59,7 @@ h1 {
   image-rendering: pixelated;
   width: 500px;
   height: min-content;
-  margin-top: 5%;
+  margin-top: 30px;
   animation: bob alternate ease-in-out 5s infinite;
 }
 
@@ -120,9 +121,8 @@ label[for="drunkoutput"] {
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
-  margin: 20px auto;
+  margin-top: auto;
+  margin-bottom: 20px;
 }
 
 a:link {
