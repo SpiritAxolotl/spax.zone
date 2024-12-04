@@ -120,6 +120,13 @@ drunkrange.addEventListener("input", () => {
   drunkifyAllText();
 });
 drunknumber.addEventListener("input", () => {
+  if (+drunknumber.value > 4) {
+    drunknumber.value = 4;
+  } else if (+drunknumber.value < 0) {
+    drunknumber.value = 0;
+  } else if (isNaN(+drunknumber.value)) {
+    drunknumber.value = 0;
+  }
   const val = +drunknumber.value;
   if (!isNaN(val))
     drunk_tier = val;
