@@ -100,13 +100,15 @@ const copy = document.querySelector(`#copy`);
 const validDrunkThings = [title, drunkinputlabel, drunknesslabel, drunkoutputlabel, regen, copy];
 const originalTexts = validDrunkThings.map(e=>e.textContent);
 
-const updateOutput = () => {
+const updateOutput = (updateplaceholder=true) => {
   const output = send_message(drunkinput.value);
   if (output.length > 0)
     drunkoutput.textContent = output;
-  else
+  else if (updateplaceholder)
     drunkoutput.placeholder = send_message(drunkinput.placeholder);
 };
+
+updateOutput(false);
 
 const drunkifyAllText = () => {
   for (let i=0; i<validDrunkThings.length; i++)
