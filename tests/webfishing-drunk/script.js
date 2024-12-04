@@ -8,11 +8,13 @@ const clamp = (min, val, max) => {
   return Math.max(min, Math.min(val, max));
 };
 
-const send_message = (text="", drunkness=drunk_tier) => {
+const send_message = (text="", options={drunkness: drunk_tier, hiccing: true}) => {
   if (text.replaceAll(" ", "") === "") return "";
   text = text.replaceAll(/[\[\]]/g, "");
   
-  drunkness = clamp(0, drunkness, 4);
+  options.drunkness ??= drunk_tier;
+  options.drunkness = clamp(0, Math.round(options.drunkness), 4);
+  options.hiccing ??= true;
   
   const breakdown = text.split(" ");
   let final_text = "";
@@ -24,8 +26,8 @@ const send_message = (text="", drunkness=drunk_tier) => {
   //const drunk_max = 0;
   
   //valid player instance stuff doesn't exist in this env
-  const drunk_chance = 0.13 * drunkness;
-  const drunk_max = drunkness;
+  const drunk_chance = 0.13 * options.drunkness;
+  const drunk_max = options.drunkness;
   
   let line_index = 0;
   for (let line of breakdown) {
@@ -51,9 +53,11 @@ const send_message = (text="", drunkness=drunk_tier) => {
               line = insert(line, slot, ",");
               break;
             case 4:
-              line = insert(line, slot, " -*HICC*- ");
-              cont = false;
-              break;
+              if (options.hiccing) {
+                line = insert(line, slot, " -*HICC*- ");
+                cont = false;
+                break;
+              }
             default: //0, 1
               line = insert(line, slot, line.charAt(slot));
           }
@@ -106,7 +110,7 @@ const updateOutput = () => {
 
 const drunkifyAllText = () => {
   for (let i=0; i<validDrunkThings.length; i++)
-    validDrunkThings[i].textContent = send_message(originalTexts[i]);
+    validDrunkThings[i].textContent = send_message(originalTexts[i], {hiccing: false});
 };
 
 drunkinput.addEventListener("input", updateOutput);
@@ -120,13 +124,14 @@ drunkrange.addEventListener("input", () => {
   drunkifyAllText();
 });
 drunknumber.addEventListener("input", () => {
-  if (+drunknumber.value > 4) {
+  if (+drunknumber.value > 4)
     drunknumber.value = 4;
-  } else if (+drunknumber.value < 0) {
+  if (+drunknumber.value < 0)
     drunknumber.value = 0;
-  } else if (isNaN(+drunknumber.value)) {
+  if (+drunknumber.value % 1 !== 0)
+    drunknumber.value = Math.round(+drunknumber.value);
+  if (isNaN(+drunknumber.value))
     drunknumber.value = 0;
-  }
   const val = +drunknumber.value;
   if (!isNaN(val))
     drunk_tier = val;

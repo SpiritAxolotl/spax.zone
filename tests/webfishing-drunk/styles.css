@@ -27,7 +27,6 @@ body {
   display: flex;
   position: relative;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
   background-color: var(--mud);
   background-image: url("./assets/screenshot-11.png");
@@ -36,7 +35,7 @@ body {
   background-repeat: no-repeat;
   font-family: "Accidental Presidency";
   color: var(--offwhite);
-  text-shadow: 0 0 5px black;
+  text-shadow: 0 0 5px var(--offblack);
   text-align: center;
   overflow: hidden;
 }
@@ -47,7 +46,7 @@ body::before {
   position: absolute;
   content: "";
   background-color: black;
-  opacity: 0.2;
+  opacity: 0.3;
   z-index: -1;
 }
 
@@ -59,11 +58,31 @@ h1 {
   image-rendering: pixelated;
   width: 500px;
   height: min-content;
+  margin-top: 5%;
+  animation: bob alternate ease-in-out 5s infinite;
+}
+
+@keyframes bob {
+  0% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(20px);
+  }
 }
 
 #title {
   margin-top: -20px;
   margin-bottom: 50px;
+  text-shadow:
+    -2px -2px 0 var(--offblack),
+    -2px 0px 0 var(--offblack),
+    2px -2px 0 var(--offblack),
+    2px 0px 0 var(--offblack),
+    -2px 2px 0 var(--offblack),
+    0px -2px 0 var(--offblack),
+    2px 2px 0 var(--offblack),
+    0px 2px 0 var(--offblack);
 }
 
 label {
