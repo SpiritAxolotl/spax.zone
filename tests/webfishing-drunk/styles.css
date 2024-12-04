@@ -1,0 +1,119 @@
+@font-face {
+  src: url("./assets/accidental_presidency.ttf");
+  font-family: "Accidental Presidency";
+}
+
+:root {
+  --swamp: #367d6b;
+  --navy: #050918;
+  --salmon: #ac0028;
+  --peach: #ffdeb1;
+  --mud: #682e18;
+  --olive: #73730f;
+  --offwhite: #ffeed5;
+  --offblack: #050b15;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: var(--mud);
+  background-image: url("./assets/screenshot-11.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: "Accidental Presidency";
+  color: var(--offwhite);
+  text-shadow: 0 0 5px black;
+  text-align: center;
+  overflow: hidden;
+}
+
+body::before {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  content: "";
+  background-color: black;
+  opacity: 0.2;
+  z-index: -1;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+#logo {
+  image-rendering: pixelated;
+  width: 500px;
+  height: min-content;
+}
+
+#title {
+  margin-top: -20px;
+  margin-bottom: 50px;
+}
+
+label {
+  font-size: 32px;
+}
+
+input, textarea, button {
+  background-color: var(--offwhite);
+  color: var(--offblack);
+  border: solid 2px var(--offblack);
+  border-radius: 3px;
+}
+
+textarea {
+  resize: none;
+  width: 400px;
+}
+
+/*#drunkify {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 100px;
+  height: 50px;
+  font-weight: 600;
+  font-size: 100%;
+}*/
+
+button {
+  cursor: pointer;
+}
+
+label[for="drunkoutput"] {
+  margin-top: 50px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  margin: 20px auto;
+}
+
+a:link {
+  color: var(--swamp);
+}
+a:visited {
+  color: var(--olive);
+}
+a:hover {
+  color: var(--offwhite);
+}
+a:active {
+  color: var(--mud);
+}
