@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WEBFISHING Drunk Text Generator</title>
+  <link rel="stylesheet" href="./styles.css">
+  <noscript>
+    <style>
+      *:has(#noscripth1) ~ * {
+        display: none;
+      }
+    </style>
+  </noscript>
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <img id="logo" src="./assets/logo-1.png" alt="the webfishing logo">
+  <h1 id="title">drunk text generator</h1>
+  <noscript>
+    <h1 id="noscripth1">you need javascript enabled, silly!!</h1>
+  </noscript>
+  <label for="drunkinput">Text input:</label>
+  <input type="text" name="drunkinput" id="drunkinput" autofocus placeholder="oh god im so drunk">
+  <label for="drunknessinput">Drunkness:</label>
+  <input type="range"  step="1" min="0" max="4" value="0" name="drunknessinput" id="drunknessrange">
+  <input type="number" step="1" min="0" max="4" value="0" name="drunknessinput" id="drunknessnumber">
+  <!--<button id="drunkify">drunkify!</button>-->
+  
+  <label for="drunkoutput">Drunk output:</label>
+  <textarea readonly placeholder="oo,hh go,'d ''i'm s'o drun'k" name="drunkoutput" id="drunkoutput"></textarea>
+  <div>
+    <button id="regen">regen</button>
+    <button id="copy">copy</button>
+  </div>
+  
+  <footer>
+    made by <a href="/">Spax</a><br>
+    drunk text generation and webfishing assets originally by lamedev<br>
+    <a href="https://spax.zone/repo/tests/webfishing-drunk/">see the source</a><br>
+    v1.0.0
+  </footer>
+  <!--options coming soon: disable UI drunk text, drunk UI (bobbing up and down), no instant generation (have button), ensure X many drunk permutations (max of 5-10 retries), markdown sanitization-->
+</body>
+</html>
