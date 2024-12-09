@@ -53,7 +53,7 @@ $colors: (
   position: relative;
   background: var(--b1);
   color: var(--g1);
-  overflow: hidden;
+  /* overflow: hidden; */
   width: 100%;
   height: auto;
   max-width: 645px;
@@ -74,7 +74,7 @@ $colors: (
   }
 }
 
-* {
+*, ::before, ::after {
   box-sizing: border-box;
 }
 
@@ -204,6 +204,29 @@ article {
   
   &.pre {
     white-space: pre;
+  }
+  
+  & em {
+    color: var(--g2);
+    font-style: normal;
+  }
+  & [hover] {
+    text-decoration: underline wavy var(--g2);
+  }
+  & [hover]:is(:hover, :active, :focus) {
+    position: relative;
+    &::before {
+      @include textbox();
+      height: auto;
+      width: max-content;
+      min-height: revert;
+      min-width: 0;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateY(-32px) translateX(-50%);
+      content: attr(hover);
+    }
   }
   
   &.important {
@@ -374,7 +397,7 @@ details {
 }
 
 @media only screen and (max-width: 645px) {
-  article:not(.picker) {
+  article:not(.picker), details {
     width: 100% !important;
     min-width: revert !important;
     max-width: 100% !important;
@@ -386,7 +409,8 @@ details {
       position: relative;
       left: 0;
       top: 0;
-      margin: 0 18px 5px 0;
+      margin-right: 18px;
+      margin-bottom: 5px;
     }
   }
   article.art {
@@ -402,4 +426,8 @@ details {
 
 .underline {
   text-decoration: underline;
+}
+
+body [title] {
+  cursor: help;
 }
