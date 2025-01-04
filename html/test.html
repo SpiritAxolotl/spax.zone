@@ -14,12 +14,7 @@
       display: block;
       mix-blend-mode: difference;
     }
-    article {
-      white-space: nowrap;
-    }
-    span.break {
-      display: block;
-    }
+    
     @media only screen and (max-width: 645px) {
       article {
         white-space: wrap;
@@ -30,7 +25,7 @@
     }
   </style>
 </head>
-<body>
+<body class="accurate nowrap">
   <article who="yoki" emotion="think">
     I don't think I can fall back <span class="break"></span>
     asleep after THAT.
@@ -42,6 +37,9 @@
     Left sometime in my late youth to<span class="break"></span>
     travel the world.
     <img src="/images/test/test2.png" class="test">
+  </article>
+  <article class="wrap inaccurate">
+    (You can disable "mix-blend-mode: difference" and/or "display: block" in devtools)
   </article>
 </body>
 </html>
