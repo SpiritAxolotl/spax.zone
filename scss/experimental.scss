@@ -109,7 +109,7 @@ body {
       white-space: pre;
     }
   }
-  &.accurate article {
+  &.accurate article:not(.inaccurate) {
     letter-spacing: 4.25px;
     line-height: 21px;
     padding: 17px;
@@ -118,6 +118,9 @@ body {
     &[who] {
       padding-left: 131.26px;
     }
+  }
+  &.nowrap article:not(.wrap) {
+    white-space: nowrap;
   }
 }
 
