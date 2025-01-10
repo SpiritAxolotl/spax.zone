@@ -15,6 +15,11 @@
     url("https://spax.zone/fonts/DEP/DEP.otf") format("opentype");
 }
 
+@font-face {
+  font-family: "Twemoji";
+  src: url("/fonts/Twemoji.otf");
+}
+
 $colors: (
   g1: (224, 248, 207),
   g2: (134, 192, 108),
@@ -90,7 +95,7 @@ body {
 }
 
 body {
-  font-family: DEP;
+  font-family: "DEP", "Twemoji";
   font-size: 21px;
   display: flex;
   flex-flow: column;
