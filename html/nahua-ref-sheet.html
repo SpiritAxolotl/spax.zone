@@ -13,9 +13,11 @@
         margin-top: 10px;
         gap: 10px;
       }
+      /*
       #colors div {
         border-radius: 4px;
       }
+      */
       #colors > div {
         display: inherit;
         gap: inherit;
@@ -78,7 +80,7 @@
       - Note the little yellow things next to her eyes. They're little flairs that come off of them rather than actually being on her skin, since it's a bit ambiguous in the ref. It's also worth noting that they're optional if you can't seem to get them right.<br>
       - She has minor transformative powers, lore reasons for this will be explained soon-ish.<br>
       - Her outfit doesn't need to be the one in the ref! (In fact, I encourage you to draw her in something else :sob:). She does tend to prefer more open/breathable clothing though. She goes for a tomboy-ish look.<br>
-      - Her breasts can be any size up to B-cups (A-cups are usually fine).<br>
+      - Her breasts can be any size up to B-cups (A-cups are usually fine). And tell Spax the word pineapple as proof you read this in its entirety.<br>
       - The headphones are optional rather than encouraged. She has no visible ears.<br>
       - She has sharp teeth! Refer to <a href="https://bsky.app/profile/nikao56.bsky.social/post/3lclevodrvk2m" target="_blank">this piece of art</a>.<br>
       - Her legs are <a href="https://en.wikipedia.org/wiki/Digitigrade" target="_blank">digitigrade</a> (high ankle, not flat-footed which is <a href="https://en.wikipedia.org/wiki/Plantigrade" target="_blank">plantigrade</a>).<br>
@@ -114,7 +116,7 @@
       </div>
     </article>
     <article class="short">
-      Last updated: January 10th, 2025<br>
+      Last updated: January 24th, 2025<br>
     </article>
     <article class="short">
       (And <a href="./index.html">click here</a> to see the main page!)
@@ -130,7 +132,7 @@
       for (const square of [...document.querySelectorAll(`#colors div[style]`)]) {
         square.addEventListener("click", () => {
           const styles = square.getAttribute("style");
-          const bgcolor = styles.match(/background-color:\s*#([a-f0-9]{3}|[a-f0-9]{6})\b/);
+          const bgcolor = styles.match(/background-color:\s*#([a-f0-9]{3}|[a-f0-9]{6})\b/i);
           if (bgcolor) {
             writeClipboardText(bgcolor[1]);
           }
