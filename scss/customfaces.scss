@@ -9,11 +9,10 @@
 );
 
 @include character-face("Nahua",
-  "Angry", "Bashful", "Confused",
-  "Disappointed", "Dizzy",
-  "Expressionless", "Happy",
-  "Joyful", "Look", "Nervous",
-  "Neutral", "Pensive", "Sad",
-  "Scared", "Shocked", "Sleepy",
-  "Sus"
+  "Angry", "Bashful", "Blushy^Look",
+  "Confused", "Disappointed", "Dizzy",
+  "Expressionless", "Happy", "Joyful",
+  "Look", "Look^Down", "Nervous", "Neutral",
+  "Pensive", "Sad", "Scared", "Shocked",
+  "Sigh", "Sleepy", "Smug", "Smug^Evil", "Sus"
 );
