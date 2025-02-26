@@ -1,9 +1,9 @@
 @use "sass:math";
 @use "variables";
-@use "DEPfont";
+@use "depfont";
 @use "depfaces";
 @use "customfaces";
-@use "textboxes.scss" as *;
+@use "textboxes.scss" as *; //i don't know why i need to include the .scss on this one in particular but the file breaks without it sooooo
 
 @font-face {
   font-family: "Twemoji";
