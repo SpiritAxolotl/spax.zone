@@ -1,0 +1,12 @@
+@use "variables";
+@use "depfont";
+@use "customfaces";
+@use "textboxes";
+
+#spaxstuff {
+  @include textboxes.textboxwrapper();
+}
+
+#spaxstuff article {
+  @include textboxes.textbox();
+}
