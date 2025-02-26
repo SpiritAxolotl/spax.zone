@@ -5,12 +5,18 @@
   background-image: url($url);
 }
 
+$default-face: "/images/faces/Unknown.png";
+
+article[who]::before {
+  @include face($default-face);
+}
+
 @function face-url($character, $emotion) {
   @return "/images/faces/#{string.to-lower-case($character)}/#{$emotion}.png";
 }
 
 @mixin character-face($character-case, $emotions...) {
-  article[who="#{str-replace-all($character-case, '^', '')}" i] {
+  &[who="#{str-replace-all($character-case, '^', '')}" i] {
     @each $emotion-case in $emotions {
       @each $emotion in str-permutations($emotion-case) {
         @each $character in str-permutations($character-case) {
@@ -27,15 +33,9 @@
   @include character-face($folder, $characters...);
   @each $character-case in $characters {
     @each $character in str-permutations($character-case) {
-      article[who="#{$character}" i]::before {
+      &[who="#{$character}" i]::before {
         @include face(face-url($folder, str-replace-all($character-case, "^", "")));
       }
     }
   }
-}
-
-$default-face: "/images/faces/Unknown.png";
-
-article[who]::before {
-  @include face($default-face);
 }

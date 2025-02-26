@@ -1,38 +1,40 @@
 @use "faces" as *;
 
-@include character-face("Aimottle", "Angry", "Neutral", "Unsure");
+@mixin depfaces() {
+  @include character-face("Aimottle", "Angry", "Neutral", "Unsure");
 
-@include character-face("Caina", "Concerned", "Disapproval", "Down", "Laugh", "Look", "Neutral", "Smile", "Sneer");
+  @include character-face("Caina", "Concerned", "Disapproval", "Down", "Laugh", "Look", "Neutral", "Smile", "Sneer");
 
-@include character-face("Charles", "Look_Down", "Neutral", "Sweat_Drop");
+  @include character-face("Charles", "Look_Down", "Neutral", "Sweat_Drop");
 
-@include character-face("Claire", "Aghast", "Dizzy", "Happy", "Look", "Mad", "Neutral", "Pensive", "Sad", "Sigh");
+  @include character-face("Claire", "Aghast", "Dizzy", "Happy", "Look", "Mad", "Neutral", "Pensive", "Sad", "Sigh");
 
-@include character-face("Dragon", "Dismiss", "Familiar", "Neutral", "Reveal", "Smile", "Stern");
+  @include character-face("Dragon", "Dismiss", "Familiar", "Neutral", "Reveal", "Smile", "Stern");
 
-@include character-face("Este", "Stare");
+  @include character-face("Este", "Stare");
 
-@include many-character-faces("fountain", "Krys", "Lerias", "Zusy");
+  @include many-character-faces("fountain", "Krys", "Lerias", "Zusy");
 
-@include character-face("HarP", "Excited", "Neutral");
+  @include character-face("HarP", "Excited", "Neutral");
 
-@include many-character-faces("hero", "Chosen^One", "Cleric", "Knight", "Rogue");
+  @include many-character-faces("hero", "Chosen^One", "Cleric", "Knight", "Rogue");
 
-@include character-face("Prince", "Appalled", "Head_Turn", "Look_Down", "Look", "Neutral");
+  @include character-face("Prince", "Appalled", "Head_Turn", "Look_Down", "Look", "Neutral");
 
-@include character-face("Tem", "Look_Down", "Neutral");
+  @include character-face("Tem", "Look_Down", "Neutral");
 
-@include character-face("Tigertaur", "Grin", "Neutral");
+  @include character-face("Tigertaur", "Grin", "Neutral");
 
-@include character-face("Woof", "Awake", "Knocked^Out", "Look", "Sleep");
+  @include character-face("Woof", "Awake", "Knocked^Out", "Look", "Sleep");
 
-@include character-face("Yoki",
-  "Annoyed", "Disheartened", "Dizzy",
-  "Look", "Meditative", "Neutral", "Smile",
-  "Surprised", "Sweat_Drop", "Think",
-  "Unsure_Smile", "Unsure", "Upset"
-);
+  @include character-face("Yoki",
+    "Annoyed", "Disheartened", "Dizzy",
+    "Look", "Meditative", "Neutral", "Smile",
+    "Surprised", "Sweat_Drop", "Think",
+    "Unsure_Smile", "Unsure", "Upset"
+  );
 
-@include character-face("Younger^Yoki", "Concern", "Happy", "Look", "Neutral", "Sigh");
+  @include character-face("Younger^Yoki", "Concern", "Happy", "Look", "Neutral", "Sigh");
 
-@include character-face("Zera", "Look", "Neutral", "Pout", "Smile", "Sneer");
+  @include character-face("Zera", "Look", "Neutral", "Pout", "Smile", "Sneer");
+}

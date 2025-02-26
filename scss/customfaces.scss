@@ -1,18 +1,20 @@
 @use "faces" as *;
 
-@include character-face("Spax",
-  "Blush", "Confused", "Disappointed",
-  "Dizzy", "Enraged", "Happy", "Look",
-  "Neutral", "Pensive", "Sleep", "Smirk",
-  "Surprised", "Sus", "Sweat_Drop",
-  "Talk", "Woo", "Worried"
-);
+@mixin customfaces() {
+  @include character-face("Spax",
+    "Blush", "Confused", "Disappointed",
+    "Dizzy", "Enraged", "Happy", "Look",
+    "Neutral", "Pensive", "Sleep", "Smirk",
+    "Surprised", "Sus", "Sweat_Drop",
+    "Talk", "Woo", "Worried"
+  );
 
-@include character-face("Nahua",
-  "Angry", "Bashful", "Blushy^Look",
-  "Confused", "Disappointed", "Dizzy",
-  "Expressionless", "Happy", "Joyful",
-  "Look", "Look^Down", "Nervous", "Neutral",
-  "Pensive", "Sad", "Scared", "Shocked",
-  "Sigh", "Sleepy", "Smug", "Smug^Evil", "Sus"
-);
+  @include character-face("Nahua",
+    "Angry", "Bashful", "Blushy^Look",
+    "Confused", "Disappointed", "Dizzy",
+    "Expressionless", "Happy", "Joyful",
+    "Look", "Look^Down", "Nervous", "Neutral",
+    "Pensive", "Sad", "Scared", "Shocked",
+    "Sigh", "Sleepy", "Smug", "Smug^Evil", "Sus"
+  );
+}
