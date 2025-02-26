@@ -1,3 +1,5 @@
+@use "depfont";
+
 @mixin box($type: "") {
   font-family: "DEP";
   font-size: 21px;
