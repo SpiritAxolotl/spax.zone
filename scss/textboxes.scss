@@ -1,0 +1,290 @@
+@mixin box($type: "") {
+  font-family: "DEP";
+  font-size: 21px;
+  position: relative;
+  background: var(--b1);
+  color: var(--g1);
+  /* overflow: hidden; */
+  width: 100%;
+  height: auto;
+  max-width: 645px;
+  min-width: 645px;
+  border: 3.5px solid var(--g1);
+  letter-spacing: 5px;
+  line-height: 27px;
+  padding: 17px;
+  image-rendering: pixelated;
+  @if ($type != "short") {
+    min-height: 133px;
+  }
+  word-wrap: break-word;
+  cursor: default;
+  
+  ::selection,
+  &::selection {
+    background-color: var(--g3);
+  }
+  
+  &, ::before, ::after {
+    box-sizing: border-box;
+  }
+}
+
+@mixin textboxwrapper {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 5px;
+}
+
+@mixin textbox() {
+  @include box();
+  
+  &[who] {
+    padding-left: 131px;
+    
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      aspect-ratio: 1/1;
+      height: 97px;
+      left: 15px;
+      top: 15px;
+      background-position: center;
+      background-size: 100% 100%;
+    }
+  }
+  
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    pointer-events: none;
+    left: calc(50% - 5px);
+    bottom: 0;
+    aspect-ratio: 5/4;
+    height: 8px;
+    background: url("/images/misc/next_arrow.png") center/100%;
+    animation: alternate arrow 0.75s steps(2, jump-none) infinite;
+    transition: opacity 0.1s;
+    opacity: 0;
+  }
+  
+  &.alwaysshowarrow::after {
+    opacity: 1;
+    transition: none;
+  }
+  
+  &:hover::after,
+  &:active::after {
+    opacity: 1;
+  }
+  
+  span[title] {
+    text-decoration: underline;
+    cursor: help;
+  }
+  
+  textarea {
+    width: 100%;
+    background: inherit;
+    color: inherit;
+    font-family: inherit;
+    resize: none;
+    border: solid 2px var(--g1);
+  }
+  
+  &.pre {
+    white-space: pre;
+  }
+  
+  em {
+    color: var(--g2);
+    font-style: normal;
+  }
+  [hover] {
+    text-decoration: underline wavy var(--g2);
+  }
+  [hover]:is(:hover, :active, :focus) {
+    position: relative;
+    &::before {
+      @include box();
+      height: auto;
+      width: max-content;
+      min-height: revert;
+      min-width: 0;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateY(-32px) translateX(-50%);
+      content: attr(hover);
+    }
+  }
+  
+  &.important {
+    border-color: var(--r1);
+  }
+  
+  .red {
+    color: var(--r1);
+  }
+  
+  &.art {
+    text-align: center;
+    
+    img {
+      width: 100%;
+      padding: 0;
+      image-rendering: auto;
+    }
+  }
+  
+  &.description {
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-decoration: underline;
+    min-height: 0;
+  }
+  
+  &.title {
+    font-size: 25px;
+    letter-spacing: 1px;
+    min-height: 0;
+  }
+  
+  &.short {
+    min-height: 0;
+  }
+  
+  &.center {
+    align-self: center;
+  }
+  
+  &.centertext {
+    text-align: center;
+  }
+  
+  .centertext {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+  }
+  
+  &.picker {
+    min-width: 0;
+    min-height: 0;
+    width: fit-content;
+    max-width: 100%;
+    margin-bottom: -5px;
+    padding: 15px;
+    
+    &::after {
+      content: none;
+    }
+  }
+  
+  span.break {
+    display: block;
+  }
+  
+  &.start {
+    align-self: start;
+  }
+  
+  &.end {
+    align-self: end;
+  }
+  
+  &.buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    a {
+      display: block;
+    }
+    img {
+      image-rendering: pixelated;
+    }
+    a, img {
+      width: 88px;
+      height: 31px;
+    }
+  }
+  
+  .highlight {
+    display: inline-block;
+    width: 100%;
+    padding: 0 20px;
+    background-clip: padding-box;
+    
+    &:hover,
+    &:active {
+      cursor: pointer;
+      background-color: var(--g2);
+      animation: alternate hl 0.4s linear infinite;
+    }
+  }
+  
+  a {
+    &:link, &:visited {
+      color: var(--g2);
+    }
+    &:hover {
+      color: var(--g1);
+    }
+    &:active {
+      color: var(--g3);
+    }
+  }
+  
+  @media only screen and (max-width: 645px) {
+    &:not(.picker) {
+      width: 100% !important;
+      min-width: revert !important;
+      max-width: 100% !important;
+    }
+    &[who] {
+      padding-left: 15px;
+      &::before {
+        float: left;
+        position: relative;
+        left: 0;
+        top: 0;
+        margin-right: 18px;
+        margin-bottom: 5px;
+      }
+    }
+    &.art {
+      min-width: revert;
+    }
+    &.pre {
+      white-space: wrap;
+    }
+    span.break:not(.end) {
+      display: none;
+    }
+  }
+}
+
+@keyframes arrow {
+  0% {
+    bottom: 2px;
+  }
+  50% {
+    bottom: 1px;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+@keyframes hl {
+  0% {
+    background-color: var(--g2);
+  }
+  100% {
+    background-color: rgba(var(--g2v), 0.3);
+  }
+}
