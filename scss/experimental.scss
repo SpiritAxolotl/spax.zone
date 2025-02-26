@@ -1,8 +1,8 @@
 @use "sass:math";
 @use "variables";
 @use "depfont";
-@use "depfaces";
-@use "customfaces";
+@use "depfaces" as *;
+@use "customfaces" as *;
 @use "textboxes.scss" as *; //i don't know why i need to include the .scss on this one in particular but the file breaks without it sooooo
 
 @font-face {
@@ -13,6 +13,10 @@
 @mixin font-smoothing($value) {
   font-smooth: $value;
   -webkit-font-smoothing: $value;
+}
+
+:root {
+  color-scheme: only dark;
 }
 
 *, ::before, ::after {
@@ -87,6 +91,8 @@ section {
 
 article {
   @include textbox();
+  @include depfaces();
+  @include customfaces();
 }
 
 .underline {
