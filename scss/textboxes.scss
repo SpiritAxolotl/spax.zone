@@ -1,4 +1,5 @@
 @use "depfont";
+@use "sass:string";
 
 @mixin box($type: "") {
   font-family: "DEP";
@@ -20,7 +21,7 @@
     min-height: 133px;
   }
   word-wrap: break-word;
-  cursor: default;
+  //cursor: default;
   
   ::selection,
   &::selection {
@@ -126,10 +127,6 @@
   
   &.important {
     border-color: var(--r1);
-  }
-  
-  .red {
-    color: var(--r1);
   }
   
   &.art {
