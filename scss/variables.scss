@@ -25,3 +25,9 @@ $colors: (
     --#{$name}: rgb(var(--#{$name}v));
   }
 }
+
+@each $name, $value in $colors {
+  .#{$name} {
+    color: var(--#{$name});
+  }
+}

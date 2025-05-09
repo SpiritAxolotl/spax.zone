@@ -99,6 +99,14 @@ article {
   text-decoration: underline;
 }
 
+.bilinear {
+  image-rendering: smooth;
+}
+
+.pixelated {
+  image-rendering: pixelated;
+}
+
 body [title] {
   cursor: help;
 }
