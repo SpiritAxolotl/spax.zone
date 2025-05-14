@@ -1,10 +1,10 @@
 .DS_Store
 venv
 doctrees
-.vscode/
+/.vscode/
 /node_modules/
 /data/
 /js/webrings/
 /subdomains/
 package-lock.json
-css/
+/css/

@@ -1,4 +1,3 @@
-npm install --silent
 sass scss/experimental.scss:css/experimental.css
 sass scss/depfont.scss:css/depfont.css
 sass scss/customfaces.scss:css/customfaces.css
