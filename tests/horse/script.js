@@ -39,7 +39,7 @@ const main = async () => {
     folder: "svg",
     ext: ".svg"
   });
-  const horseLinks = await readJSONFile("/data/every_horse.json");
+  const horseLinks = await readJSONFile("https://api.spax.zone/data/every_horse.json");
   const horseLinksLength = horseLinks.length;
   const visiting = document.querySelector(`#visiting`);
   const random = (arr) => {
