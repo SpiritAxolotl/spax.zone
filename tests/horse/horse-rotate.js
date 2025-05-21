@@ -116,8 +116,8 @@ const sortHorseList = () => {
 };
 
 const incrementProgress = async () => {
-  const p = Math.floor(progress * horseList.length);
-  progress = (p+1)/horseList.length;
+  const p = Math.round(progress * horseList.length);
+  progress = ((p+1)%horseList.length)/horseList.length;
   fs.writeFileSync(horseListProgressFile, `${progress}`);
   return p;
 };
