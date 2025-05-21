@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--<link rel="stylesheet" href="https://spax.zone/css/yugoslavia.css" type="text/css">-->
+    <style>
+:root {
+  --g1v: 224, 248, 207;
+  --g1: rgb(var(--g1v));
+  --g2v: 134, 192, 108;
+  --g2: rgb(var(--g2v));
+  --g3v: 48, 104, 80;
+  --g3: rgb(var(--g3v));
+  --g4v: 7, 24, 33;
+  --g4: rgb(var(--g4v));
+  --o1v: 244, 211, 132;
+  --o1: rgb(var(--o1v));
+  --o2v: 255, 158, 57;
+  --o2: rgb(var(--o2v));
+  --o3v: 255, 91, 57;
+  --o3: rgb(var(--o3v));
+  --o4v: 213, 59, 52;
+  --o4: rgb(var(--o4v));
+  --o5v: 190, 38, 45;
+  --o5: rgb(var(--o5v));
+  --o6v: 143, 45, 52;
+  --o6: rgb(var(--o6v));
+  --p1v: 186, 229, 254;
+  --p1: rgb(var(--p1v));
+  --p2v: 98, 115, 242;
+  --p2: rgb(var(--p2v));
+  --b1v: 0, 0, 0;
+  --b1: rgb(var(--b1v));
+  --w1v: 255, 255, 255;
+  --w1: rgb(var(--w1v));
+  --r1v: 255, 0, 0;
+  --r1: rgb(var(--r1v));
+}
+
+@font-face {
+  font-family: DEP;
+  src: url("/fonts/DEP/DEP.ttf") format("truetype"), url("/fonts/DEP/DEP.woff") format("woff"), url("/fonts/DEP/DEP.woff2") format("woff2"), url("/fonts/DEP/DEP.otf") format("opentype"), url("https://spax.zone/fonts/DEP/DEP.ttf") format("truetype"), url("https://spax.zone/fonts/DEP/DEP.woff") format("woff"), url("https://spax.zone/fonts/DEP/DEP.woff2") format("woff2"), url("https://spax.zone/fonts/DEP/DEP.otf") format("opentype");
+}
+article[who]::before {
+  background-image: url("/images/faces/Unknown.png");
+}
+
+@keyframes arrow {
+  0% {
+    bottom: 2px;
+  }
+  50% {
+    bottom: 1px;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+@keyframes hl {
+  0% {
+    background-color: var(--g2);
+  }
+  100% {
+    background-color: rgba(var(--g2v), 0.3);
+  }
+}
+#spaxstuff {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 5px;
+}
+
+#spaxstuff article {
+  font-family: "DEP";
+  font-size: 21px;
+  position: relative;
+  background: var(--b1);
+  color: var(--g1);
+  /* overflow: hidden; */
+  width: 100%;
+  height: auto;
+  max-width: 645px;
+  min-width: 645px;
+  border: 3.5px solid var(--g1);
+  letter-spacing: 5px;
+  line-height: 27px;
+  padding: 17px;
+  image-rendering: pixelated;
+  min-height: 133px;
+  word-wrap: break-word;
+  cursor: default;
+}
+#spaxstuff article ::selection, #spaxstuff article::selection {
+  background-color: var(--g3);
+}
+#spaxstuff article, #spaxstuff article ::before, #spaxstuff article ::after {
+  box-sizing: border-box;
+}
+#spaxstuff article[who] {
+  padding-left: 131px;
+}
+#spaxstuff article[who]::before {
+  content: "";
+  display: block;
+  position: absolute;
+  aspect-ratio: 1/1;
+  height: 97px;
+  left: 15px;
+  top: 15px;
+  background-position: center;
+  background-size: 100% 100%;
+}
+#spaxstuff article::after {
+  content: "";
+  display: block;
+  position: absolute;
+  pointer-events: none;
+  left: calc(50% - 5px);
+  bottom: 0;
+  aspect-ratio: 5/4;
+  height: 8px;
+  background: url("/images/misc/next_arrow.png") center/100%;
+  animation: alternate arrow 0.75s steps(2, jump-none) infinite;
+  transition: opacity 0.1s;
+  opacity: 0;
+}
+#spaxstuff article.alwaysshowarrow::after {
+  opacity: 1;
+  transition: none;
+}
+#spaxstuff article:hover::after, #spaxstuff article:active::after {
+  opacity: 1;
+}
+#spaxstuff article span[title] {
+  text-decoration: underline;
+  cursor: help;
+}
+#spaxstuff article textarea {
+  width: 100%;
+  background: inherit;
+  color: inherit;
+  font-family: inherit;
+  resize: none;
+  border: solid 2px var(--g1);
+}
+#spaxstuff article.pre {
+  white-space: pre;
+}
+#spaxstuff article em {
+  color: var(--g2);
+  font-style: normal;
+}
+#spaxstuff article [hover] {
+  text-decoration: underline wavy var(--g2);
+}
+#spaxstuff article [hover]:is(:hover, :active, :focus) {
+  position: relative;
+}
+#spaxstuff article [hover]:is(:hover, :active, :focus)::before {
+  font-family: "DEP";
+  font-size: 21px;
+  position: relative;
+  background: var(--b1);
+  color: var(--g1);
+  /* overflow: hidden; */
+  width: 100%;
+  height: auto;
+  max-width: 645px;
+  min-width: 645px;
+  border: 3.5px solid var(--g1);
+  letter-spacing: 5px;
+  line-height: 27px;
+  padding: 17px;
+  image-rendering: pixelated;
+  min-height: 133px;
+  word-wrap: break-word;
+  cursor: default;
+  height: auto;
+  width: max-content;
+  min-height: revert;
+  min-width: 0;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateY(-32px) translateX(-50%);
+  content: attr(hover);
+}
+#spaxstuff article [hover]:is(:hover, :active, :focus)::before ::selection, #spaxstuff article [hover]:is(:hover, :active, :focus)::before::selection {
+  background-color: var(--g3);
+}
+#spaxstuff article [hover]:is(:hover, :active, :focus)::before, #spaxstuff article [hover]:is(:hover, :active, :focus)::before ::before, #spaxstuff article [hover]:is(:hover, :active, :focus)::before ::after {
+  box-sizing: border-box;
+}
+#spaxstuff article.important {
+  border-color: var(--r1);
+}
+#spaxstuff article .red {
+  color: var(--r1);
+}
+#spaxstuff article.art {
+  text-align: center;
+}
+#spaxstuff article.art img {
+  width: 100%;
+  padding: 0;
+  image-rendering: auto;
+}
+#spaxstuff article.description {
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-decoration: underline;
+  min-height: 0;
+}
+#spaxstuff article.title {
+  font-size: 25px;
+  letter-spacing: 1px;
+  min-height: 0;
+}
+#spaxstuff article.short {
+  min-height: 0;
+}
+#spaxstuff article.center {
+  align-self: center;
+}
+#spaxstuff article.centertext {
+  text-align: center;
+}
+#spaxstuff article .centertext {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+}
+#spaxstuff article.picker {
+  min-width: 0;
+  min-height: 0;
+  width: fit-content;
+  max-width: 100%;
+  margin-bottom: -5px;
+  padding: 15px;
+}
+#spaxstuff article.picker::after {
+  content: none;
+}
+#spaxstuff article span.break {
+  display: block;
+}
+#spaxstuff article.start {
+  align-self: start;
+}
+#spaxstuff article.end {
+  align-self: end;
+}
+#spaxstuff article.buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+#spaxstuff article.buttons a {
+  display: block;
+}
+#spaxstuff article.buttons img {
+  image-rendering: pixelated;
+}
+#spaxstuff article.buttons a, #spaxstuff article.buttons img {
+  width: 88px;
+  height: 31px;
+}
+#spaxstuff article .highlight {
+  display: inline-block;
+  width: 100%;
+  padding: 0 20px;
+  background-clip: padding-box;
+}
+#spaxstuff article .highlight:hover, #spaxstuff article .highlight:active {
+  cursor: pointer;
+  background-color: var(--g2);
+  animation: alternate hl 0.4s linear infinite;
+}
+#spaxstuff article a:link, #spaxstuff article a:visited {
+  color: var(--g2);
+}
+#spaxstuff article a:hover {
+  color: var(--g1);
+}
+#spaxstuff article a:active {
+  color: var(--g3);
+}
+@media only screen and (max-width: 645px) {
+  #spaxstuff article:not(.picker) {
+    width: 100% !important;
+    min-width: revert !important;
+    max-width: 100% !important;
+  }
+  #spaxstuff article[who] {
+    padding-left: 15px;
+  }
+  #spaxstuff article[who]::before {
+    float: left;
+    position: relative;
+    left: 0;
+    top: 0;
+    margin-right: 18px;
+    margin-bottom: 5px;
+  }
+  #spaxstuff article.art {
+    min-width: revert;
+  }
+  #spaxstuff article.pre {
+    white-space: wrap;
+  }
+  #spaxstuff article span.break:not(.end) {
+    display: none;
+  }
+}
+#spaxstuff article[who=Spax i][emotion=Blush i]::before {
+  background-image: url("/images/faces/spax/Blush.png");
+}
+#spaxstuff article[who=Spax i][emotion=Confused i]::before {
+  background-image: url("/images/faces/spax/Confused.png");
+}
+#spaxstuff article[who=Spax i][emotion=Disappointed i]::before {
+  background-image: url("/images/faces/spax/Disappointed.png");
+}
+#spaxstuff article[who=Spax i][emotion=Dizzy i]::before {
+  background-image: url("/images/faces/spax/Dizzy.png");
+}
+#spaxstuff article[who=Spax i][emotion=Enraged i]::before {
+  background-image: url("/images/faces/spax/Enraged.png");
+}
+#spaxstuff article[who=Spax i][emotion=Happy i]::before {
+  background-image: url("/images/faces/spax/Happy.png");
+}
+#spaxstuff article[who=Spax i][emotion=Look i]::before {
+  background-image: url("/images/faces/spax/Look.png");
+}
+#spaxstuff article[who=Spax i][emotion=Neutral i]::before {
+  background-image: url("/images/faces/spax/Neutral.png");
+}
+#spaxstuff article[who=Spax i][emotion=Pensive i]::before {
+  background-image: url("/images/faces/spax/Pensive.png");
+}
+#spaxstuff article[who=Spax i][emotion=Sleep i]::before {
+  background-image: url("/images/faces/spax/Sleep.png");
+}
+#spaxstuff article[who=Spax i][emotion=Smirk i]::before {
+  background-image: url("/images/faces/spax/Smirk.png");
+}
+#spaxstuff article[who=Spax i][emotion=Surprised i]::before {
+  background-image: url("/images/faces/spax/Surprised.png");
+}
+#spaxstuff article[who=Spax i][emotion=Sus i]::before {
+  background-image: url("/images/faces/spax/Sus.png");
+}
+#spaxstuff article[who=Spax i][emotion=Sweat-Drop i]::before {
+  background-image: url("/images/faces/spax/Sweat_Drop.png");
+}
+#spaxstuff article[who=Spax i][emotion=Sweat_Drop i]::before {
+  background-image: url("/images/faces/spax/Sweat_Drop.png");
+}
+#spaxstuff article[who=Spax i][emotion=SweatDrop i]::before {
+  background-image: url("/images/faces/spax/Sweat_Drop.png");
+}
+#spaxstuff article[who=Spax i][emotion=Talk i]::before {
+  background-image: url("/images/faces/spax/Talk.png");
+}
+#spaxstuff article[who=Spax i][emotion=Woo i]::before {
+  background-image: url("/images/faces/spax/Woo.png");
+}
+#spaxstuff article[who=Spax i][emotion=Worried i]::before {
+  background-image: url("/images/faces/spax/Worried.png");
+}
+#spaxstuff article[who=Nahua i][emotion=Angry i]::before {
+  background-image: url("/images/faces/nahua/Angry.png");
+}
+#spaxstuff article[who=Nahua i][emotion=Bashful i]::before {
+  background-image: url("/images/faces/nahua/Bashful.png");
+}
+#spaxstuff article[who=Nahua i][emotion=Blank i]::before {
+  background-image: url("/images/faces/nahua/Blank.png");
+}
+#spaxstuff article[who=Nahua i][emotion=Blushy-Look i]::before {
+  background-image: url("/images/faces/nahua/BlushyLook.png");
+}
+#spaxstuff article[who=Nahua i][emotion=Blushy_Look i]::before {
+  background-image: url("/images/faces/nahua/BlushyLook.png");
+}
+#spaxstuff article[who=Nahua i][emotion=BlushyLook i]::before {
+  background-image: url("/images/faces/nahua/BlushyLook.png");
+}
+#spaxstuff article[who=Nahua i][emotion=Confused i]::before {
+  background-image: url("/images/faces/nahua/Confused.png");
+}
+#spaxstuff article[who=Nahua i][emotion=Disappointed i]::before {
+  background-image: url("/images/faces/nahua/Disappointed.png");
+}
+#spaxstuff article[who=Nahua i][emotion=Dizzy i]::before {
+  background-image: url("/images/faces/nahua/Dizzy.png");
+}
+#spaxstuff article[who=Nahua i][emotion=Expressionless i]::before {
+  background-image: url("/images/faces/nahua/Expressionless.png");
+}
+#spaxstuff article[who=Nahua i][emotion=Happy i]::before {
+  background-image: url("/images/faces/nahua/Happy.png");
+}
+#spaxstuff article[who=Nahua i][emotion=Joyful i]::before {
+  background-image: url("/images/faces/nahua/Joyful.png");
+}
+#spaxstuff article[who=Nahua i][emotion=Look i]::before {
+  background-image: url("/images/faces/nahua/Look.png");
+}
+#spaxstuff article[who=Nahua i][emotion=Look-Down i]::before {
+  background-image: url("/images/faces/nahua/LookDown.png");
+}
+#spaxstuff article[who=Nahua i][emotion=Look_Down i]::before {
+  background-image: url("/images/faces/nahua/LookDown.png");
+}
+#spaxstuff article[who=Nahua i][emotion=LookDown i]::before {
+  background-image: url("/images/faces/nahua/LookDown.png");
+}
+#spaxstuff article[who=Nahua i][emotion=Nervous i]::before {
+  background-image: url("/images/faces/nahua/Nervous.png");
+}
+#spaxstuff article[who=Nahua i][emotion=Neutral i]::before {
+  background-image: url("/images/faces/nahua/Neutral.png");
+}
+#spaxstuff article[who=Nahua i][emotion=Pensive i]::before {
+  background-image: url("/images/faces/nahua/Pensive.png");
+}
+#spaxstuff article[who=Nahua i][emotion=Sad i]::before {
+  background-image: url("/images/faces/nahua/Sad.png");
+}
+#spaxstuff article[who=Nahua i][emotion=Scared i]::before {
+  background-image: url("/images/faces/nahua/Scared.png");
+}
+#spaxstuff article[who=Nahua i][emotion=Shocked i]::before {
+  background-image: url("/images/faces/nahua/Shocked.png");
+}
+#spaxstuff article[who=Nahua i][emotion=Sigh i]::before {
+  background-image: url("/images/faces/nahua/Sigh.png");
+}
+#spaxstuff article[who=Nahua i][emotion=Sleepy i]::before {
+  background-image: url("/images/faces/nahua/Sleepy.png");
+}
+#spaxstuff article[who=Nahua i][emotion=Smug i]::before {
+  background-image: url("/images/faces/nahua/Smug.png");
+}
+#spaxstuff article[who=Nahua i][emotion=Smug-Evil i]::before {
+  background-image: url("/images/faces/nahua/SmugEvil.png");
+}
+#spaxstuff article[who=Nahua i][emotion=Smug_Evil i]::before {
+  background-image: url("/images/faces/nahua/SmugEvil.png");
+}
+#spaxstuff article[who=Nahua i][emotion=SmugEvil i]::before {
+  background-image: url("/images/faces/nahua/SmugEvil.png");
+}
+#spaxstuff article[who=Nahua i][emotion=Sus i]::before {
+  background-image: url("/images/faces/nahua/Sus.png");
+}
+    </style>
+  </head>
+  <body id="spaxstuff">
+    <article who="nahua" emotion="smug" id="faceclick">You should visit <a href="https://spax.zone/" target="_blank">spax.zone</a>.</article>
+    <script>
+      (() => {
+        const face = document.querySelector(`#faceclick`);
+        const styles = getComputedStyle(face);
+        const beforestyles = getComputedStyle(face, "::before");
+        let g = 0;
+        const getNumStyle = (style="", pseudoElt) => {
+          let arr = pseudoElt === "::before" ? beforestyles : styles;
+          return +arr[style].match(/(\d+(?:\.\d+)?)px$/, "")[1];
+        };
+        face.addEventListener("click", (e) => {
+          if (g > 0) clearTimeout(g);
+          if (e.offsetX >= getNumStyle("padding-top") && e.offsetX <= getNumStyle("padding-top") + getNumStyle("width", "::before")
+          && e.offsetY >= getNumStyle("padding-top") && e.offsetY <= getNumStyle("padding-top") + getNumStyle("height", "::before")) {
+            face.setAttribute("emotion", "blank");
+            g = setTimeout(() => { face.setAttribute("emotion", "smug"); }, 3000);
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const { readPage } = require("./buildDEPdialogue.js");
+const { readPage } = require("./utils.js");
 
 const blacklist = ["main2.html"];
 

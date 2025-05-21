@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { parseHTML } = require('linkedom');
+const { readPage } = require('./utils.js');
 const { Timer } = require('./timer.js');
 
 const targetPage = "./html/DEPalldialogue.html";
@@ -52,17 +52,6 @@ const main = () => {
     fs.writeFileSync(targetPage, buildHTML(document));
     wholeTimer.stop("build the dialogue");
   });
-};
-
-const readPage = async (page) => {
-  try {
-    const html = await fs.promises.readFile(page, "utf8");
-    const dom = parseHTML(html);
-    return dom;
-  } catch (err) {
-    console.error("Error reading file:", err);
-    throw err;
-  }
 };
 
 const stringHasLength = (str) => {
@@ -347,4 +336,4 @@ const textboxEquals = (a,b) => {
 if (require.main === module)
   main();
 
-module.exports = { targetPage, readPage, clearArea, textboxEquals };
+module.exports = { targetPage, clearArea, textboxEquals };

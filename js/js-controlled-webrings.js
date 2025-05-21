@@ -5,7 +5,7 @@ most of my webpages static. This js file is my attempt at maximizing their compa
 by running the js before the site is deployed.
 */
 
-const { readPage } = require("./buildDEPdialogue.js");
+const { readPage } = require("./utils.js");
 const fs = require("fs");
 const { VM } = require("vm2");
 const { createHash } = require("crypto");
