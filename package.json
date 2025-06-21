@@ -1,4 +1,7 @@
 {
+  "name": "spax.zone",
+  "version": "1.0.0",
+  "scripts" : { "dev" : "rm -rf ./.build/ && rsync -avq --exclude='.*' --exclude='/node_modules/' . ./.build/ && cd .build/ && ./build.sh" },
   "dependencies": {
     "linkedom": "^0.18.5",
     "sass": "^1.79.5",
