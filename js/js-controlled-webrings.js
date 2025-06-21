@@ -85,7 +85,7 @@ const build = async () => {
     fs.mkdirSync(dataFolderName);
   
   //cobalt
-  try {
+  /*try {
     const data = await getJsFile("./js/webrings/cobalt.js", [
       "https://instances.hyper.lol/assets/js/webring.js", //main
       //"https://raw.githubusercontent.com/hyperdefined/CobaltTester/refs/heads/master/web/assets/js/webring.js" //fallback
@@ -113,7 +113,7 @@ const build = async () => {
     }
   } catch (err) {
     webringDown(document, "#cobaltWebring", "cobalt webring", err);
-  }
+  }*/
   
   //cohost
   try {

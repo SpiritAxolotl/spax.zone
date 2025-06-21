@@ -3,7 +3,7 @@
 @use "depfont";
 @use "depfaces" as *;
 @use "customfaces" as *;
-@use "textboxes.scss" as *; //i don't know why i need to include the .scss on this one in particular but the file breaks without it sooooo
+@use "textboxes" as *;
 
 @font-face {
   font-family: "Twemoji";
@@ -69,19 +69,15 @@ body {
   }
 }
 
-@supports (scrollbar-color: auto) {
-  * {
-    scrollbar-color: var(--g2) var(--g4);
-  }
+* {
+  scrollbar-color: var(--g2) var(--g4);
 }
 
-@supports selector(::-webkit-scrollbar) {
-  ::-webkit-scrollbar {
-    background: var(--g2);
-    
-    &-thumb {
-      background: var(--g4);
-    }
+::-webkit-scrollbar {
+  background: var(--g2);
+  
+  &-thumb {
+    background: var(--g4);
   }
 }
 
