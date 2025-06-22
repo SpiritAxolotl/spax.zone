@@ -33,7 +33,7 @@
   }
 }
 
-@mixin textboxwrapper {
+@mixin textboxwrapper() {
   display: flex;
   flex-flow: column;
   align-items: center;
