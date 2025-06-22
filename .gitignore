@@ -6,5 +6,6 @@ doctrees
 /data/
 /js/webrings/
 /subdomains/
-package-lock.json
+/package-lock.json
 /css/
+/.build/
