@@ -6,6 +6,6 @@ sass scss/yugoslavia.scss:css/yugoslavia.css --silence-deprecation=mixed-decls
 node ./js/addpagemetadata.js
 node ./js/buildDEPdialogue.js
 node ./js/js-controlled-webrings.js
-node ./tests/djmax/build.js
+# node ./tests/djmax/build.js
 mv ./html/* .
 mv ./tests/* .
