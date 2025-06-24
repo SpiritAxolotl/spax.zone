@@ -49,7 +49,7 @@ const defaultTags = {
 //don't add og: title and description to pages with <meta property="twitter:card" content="summary_large_image">
 //maybe add lang="en-US" to the html tag?
 
-const filepath = "./html/";
+const filepath = "./";
 
 const propertyIsGeneric = (tagname, tag) => {
   switch (tagname) {

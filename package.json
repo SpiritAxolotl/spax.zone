@@ -2,7 +2,11 @@
   "name": "spax.zone",
   "version": "1.0.0",
   "scripts": {
-    "dev": "rm -rf ./.build/ && rsync -avq --exclude='.*' --exclude='/node_modules/' . ./.build/ && cd .build/ && ./build.sh"
+    "dev": "npm run build && npm run serve-dev",
+    "serve-dev": "vite --config vite.dev.config.js",
+    "serve": "vite preview",
+    "build": "vite build",
+    "watch": "vite build --watch"
   },
   "dependencies": {
     "linkedom": "^0.18.5",
