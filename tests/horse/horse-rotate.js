@@ -138,7 +138,7 @@ const parseHorseListSite = (document) => {
   const stats = document.querySelector(`main.page-content div.wrapper div.home p:nth-of-type(2)`).textContent
     .match(/There are currently (\d+) horse domains. \(Last checked at: (\d{1,2} [A-Z][a-z]*, \d{1,})\)/);
   list = Array.from(document.querySelectorAll(`#the-list + p > a`))
-    .map(a => a.href.match(/(?<=https?:\/\/)[\w_-]+(?:\.[\w_-]+)*/)[0]);
+    .map(a => a.textContent.match(/[\w_-]+(?:\.[\w_-]+)*/)[0]);
   list.splice(list.findIndex(e=>e==="horse"), 1);
   return list;
 };
@@ -236,7 +236,7 @@ const main = async () => {
   await fetchHorseList();
   for (const job in jobs)
     scheduler.addSimpleIntervalJob(jobs[job]);
-  //await horseRotate();
+  await horseRotate();
 };
 
 if (require.main === module)
