@@ -146,7 +146,16 @@ function copyFilesPlugin() {
       }
       
       // Copy all other root directories and files
-      const rootItems = ["css", "images", "scss", "data", "fonts", "js"];
+      const rootItems = [
+        "css",
+        "images",
+        "buttons",
+        "audio",
+        "scss",
+        "data",
+        "fonts",
+        "js"
+      ];
       rootItems.forEach(item => {
         const srcPath = `./${item}`;
         const destPath = `./.build/${item}`;
