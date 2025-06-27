@@ -20,7 +20,7 @@ const getHTMLFile = async (link, local, ua) => {
     const headers = new Headers({
       "Accept": "text/html",
       "Content-Type": "text/html",
-      "User-Agent": `${ua?ua + " ":""}(https://spax.zone/repo/tests/horse)`
+      "User-Agent": `${ua?ua + " (":""}https://spax.zone/repo/tests/horse${ua?")":""}`
     });
     
     const response = await fetch(link, {
@@ -133,24 +133,45 @@ const binAdjust = (domain, ...arr) => {
   }
 };
 
+const parseHorseListSite = (document) => {
+  let list = [];
+  const stats = document.querySelector(`main.page-content div.wrapper div.home p:nth-of-type(2)`).textContent
+    .match(/There are currently (\d+) horse domains. \(Last checked at: (\d{1,2} [A-Z][a-z]*, \d{1,})\)/);
+  list = Array.from(document.querySelectorAll(`#the-list + p > a`))
+    .map(a => a.href.match(/(?<=https?:\/\/)[\w_-]+(?:\.[\w_-]+)*/)[0]);
+  list.splice(list.findIndex(e=>e==="horse"), 1);
+  return list;
+};
+
 const fetchHorseList = async () => {
   console.log("Fetching horselist from every.horse...");
   const filepath = "data/every_horse.json";
   try {
-    const data = await getHTMLFile("https://every.horse", "https://spax.zone/data/every.horse.html", "Spax's Periodic Horse Domain Check-Up");
+    const data = await getHTMLFile("https://every.horse", undefined, "Spax's Periodic Horse Domain Check-Up");
     const { document } = parseHTML(data);
-    const stats = document.querySelector(`main.page-content div.wrapper div.home p:nth-of-type(2)`).textContent
-      .match(/There are currently (\d+) horse domains. \(Last checked at: (\d{1,2} [A-Z][a-z]*, \d{1,})\)/);
-    horseList = Array.from(document.querySelectorAll(`#the-list + p > a`))
-      .map(a => a.href.match(/(?<=https?:\/\/)[\w_-]+(?:\.[\w_-]+)*/)[0]);
-    horseList.splice(horseList.findIndex(e=>e==="horse"), 1);
+    horseList = parseHorseListSite(document);
     sortHorseList();
     console.log("Horselist retreived!");
     fs.writeFileSync(`./${filepath}`, JSON.stringify(horseList));
+    return;
   } catch (err) {
-    console.log("Unable to get new horselist. Using old list... (Oh and here's the error)");
+    console.log("Unable to get new horselist. Here's the error:");
     console.error(err);
-    horseList = getJSONFile(`https://spax.zone/${filepath}`);
+    console.log("Attempting to use an archived list...");
+  }
+  try {
+    const data = await getHTMLFile(`https://web.archive.org/web/${(new Date()).getFullYear()}0000000000/https://every.horse`, undefined, "Spax's Periodic Horse Domain Check-Up");
+    const { document } = parseHTML(data);
+    horseList = parseHorseListSite(document);
+    sortHorseList();
+    console.log("Horselist retreived!");
+    fs.writeFileSync(`./${filepath}`, JSON.stringify(horseList));
+    return;
+  } catch {
+    console.log("Unable to get archived horselist. Here's the error:");
+    console.error(err);
+    //console.log("Attempting to use an old list...");
+    //horseList = getJSONFile(`https://spax.zone/${filepath}`);
   }
 };
 
