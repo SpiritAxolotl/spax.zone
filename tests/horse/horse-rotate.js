@@ -7,6 +7,9 @@ let progress = 0;
 const scheduler = new ToadScheduler();
 const horseListProgressFile = `./data/horseListProgress.txt`;
 let horseList = ["every.horse"];
+const everyHorseFilepath = "data/every_horse.json";
+const actualHorseFilepath = "data/actual_horse.json";
+const registeredHorseFilepath = "data/registered_horse.json";
 const horseBins = {
   registered: new Set(), //as in JUST registered and no ip
   blank: new Set(),
@@ -131,6 +134,8 @@ const binAdjust = (domain, ...arr) => {
       horseBins[bin].delete(domain);
     }
   }
+  fs.writeFileSync(`./${actualHorseFilepath}`, JSON.stringify([...horseBins.actual]));
+  fs.writeFileSync(`./${registeredHorseFilepath}`, JSON.stringify([...horseBins.registered]));
 };
 
 const parseHorseListSite = (document) => {
@@ -145,14 +150,13 @@ const parseHorseListSite = (document) => {
 
 const fetchHorseList = async () => {
   console.log("Fetching horselist from every.horse...");
-  const filepath = "data/every_horse.json";
   try {
     const data = await getHTMLFile("https://every.horse", undefined, "Spax's Periodic Horse Domain Check-Up");
     const { document } = parseHTML(data);
     horseList = parseHorseListSite(document);
     sortHorseList();
     console.log("Horselist retreived!");
-    fs.writeFileSync(`./${filepath}`, JSON.stringify(horseList));
+    fs.writeFileSync(`./${everyHorseFilepath}`, JSON.stringify(horseList));
     return;
   } catch (err) {
     console.log("Unable to get new horselist. Here's the error:");
@@ -160,12 +164,12 @@ const fetchHorseList = async () => {
     console.log("Attempting to use an archived list...");
   }
   try {
-    const data = await getHTMLFile(`https://web.archive.org/web/${(new Date()).getFullYear()}0000000000/https://every.horse`, undefined, "Spax's Periodic Horse Domain Check-Up");
+    const data = await getHTMLFile(`https://web.archive.org/web/${(new Date()).getFullYear() + 1}0000000000/https://every.horse`, undefined, "Spax's Periodic Horse Domain Check-Up");
     const { document } = parseHTML(data);
     horseList = parseHorseListSite(document);
     sortHorseList();
     console.log("Horselist retreived!");
-    fs.writeFileSync(`./${filepath}`, JSON.stringify(horseList));
+    fs.writeFileSync(`./${everyHorseFilepath}`, JSON.stringify(horseList));
     return;
   } catch {
     console.log("Unable to get archived horselist. Here's the error:");
@@ -229,10 +233,12 @@ const jobs = {
   horseRotate: new SimpleIntervalJob({ seconds: 60 * 5, }, tasks.horseRotate) //5m
 };
 
-if (!fs.existsSync(horseListProgressFile))
-  fs.writeFileSync(horseListProgressFile, `${progress}`);
-
 const main = async () => {
+  if (!fs.existsSync(horseListProgressFile))
+    fs.writeFileSync(horseListProgressFile, `${progress}`);
+  else
+    progress = +fs.readFileSync(horseListProgressFile);
+  
   await fetchHorseList();
   for (const job in jobs)
     scheduler.addSimpleIntervalJob(jobs[job]);
