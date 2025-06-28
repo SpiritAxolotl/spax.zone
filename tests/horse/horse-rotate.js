@@ -233,12 +233,20 @@ const jobs = {
   horseRotate: new SimpleIntervalJob({ seconds: 60 * 5, }, tasks.horseRotate) //5m
 };
 
-const main = async () => {
+const restoreProgress = () => {
   if (!fs.existsSync(horseListProgressFile))
     fs.writeFileSync(horseListProgressFile, `${progress}`);
   else
     progress = +fs.readFileSync(horseListProgressFile);
   
+  if (fs.existsSync(actualHorseFilepath))
+    horseBins.actual = new Set(JSON.parse(fs.readFileSync(actualHorseFilepath)));
+  if (fs.existsSync(registeredHorseFilepath))
+    horseBins.registered = new Set(JSON.parse(fs.readFileSync(registeredHorseFilepath)));
+};
+
+const main = async () => {
+  restoreProgress();
   await fetchHorseList();
   for (const job in jobs)
     scheduler.addSimpleIntervalJob(jobs[job]);
