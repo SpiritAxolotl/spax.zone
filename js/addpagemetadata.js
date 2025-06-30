@@ -95,6 +95,7 @@ const addMetadata = (document) => {
 (async () => {
   try {
     const files = await fs.promises.readdir(filepath);
+    files.push(...(await fs.promises.readdir(filepath + "horse/")).map(e=>`horse/${e}`));
     for (let i=0; i<files.length; i++) {
       const file = files[i];
       const fullpath = path.join(filepath, file);
