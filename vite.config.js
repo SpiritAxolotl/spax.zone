@@ -235,9 +235,10 @@ export default defineConfig({
     }
   },
   
+  /*
   // Development server configuration
   server: {
-    port: 3000,
+    port: 2319,
     open: true,
     // Serve from .build directory for development
     root: ".build",
@@ -249,11 +250,12 @@ export default defineConfig({
   
   // Preview server also serves from .build
   preview: {
-    port: 4173,
+    port: 2319,
     open: true,
     // Serve from .build directory
     outDir: ".build"
   },
+  */
   
   // Use our custom plugins
   plugins: [
