@@ -56,8 +56,6 @@ h1, h2, h3, h4, h5, h6, p, button {
   font-family: "Univerza Sans", Times, serif;
 }
 
-
-
 #atyourownrisk {
   margin-top: 0;
 }
@@ -89,11 +87,11 @@ button {
   border: none;
   font-size: 3rem;
   font-family: inherit;
-
+  
   &[disabled] > div {
     background-color: var(--w3);
   }
-
+  
   & > div {
     border: var(--border);
     border-radius: var(--border-radius);
@@ -104,18 +102,18 @@ button {
     transition-property: background-color, transform;
     transition-timing-function: ease;
   }
-
+  
   &:not([disabled]):hover {
     & + #visiting {
       opacity: 1;
     }
-
+    
     & > div {
       background-color: var(--w2);
       transform: scale(0.96);
     }
   }
-
+  
   &:not([disabled]):active > div {
     background-color: var(--w3);
     transform: scale(0.94);
