@@ -202,7 +202,7 @@ const horseRotate = async () => {
       }).then((response) => {
         responseStatus = response.status;
         const regex = new RegExp(`https?:\\/\\/${horseList[p]}`);
-        if (response.redirected && response.url.match(regex) !== null) {
+        if (response.redirected && response.url.match(regex) === null) {
           binAdjust(horseList[p], "redirects");
           console.log("Verdict: Redirect");
           return;
