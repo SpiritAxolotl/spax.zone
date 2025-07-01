@@ -10,6 +10,7 @@ let horseList = ["every.horse"];
 const everyHorseFilepath = "data/every_horse.json";
 const actualHorseFilepath = "data/actual_horse.json";
 const registeredHorseFilepath = "data/registered_horse.json";
+const redirectsHorseFilepath = "data/redirects_horse.json";
 const horseBins = {
   registered: new Set(), //as in JUST registered and no ip
   blank: new Set(),
@@ -136,6 +137,7 @@ const binAdjust = (domain, ...arr) => {
   }
   fs.writeFileSync(`./${actualHorseFilepath}`, JSON.stringify([...horseBins.actual]));
   fs.writeFileSync(`./${registeredHorseFilepath}`, JSON.stringify([...horseBins.registered]));
+  fs.writeFileSync(`./${redirectsHorseFilepath}`, JSON.stringify([...horseBins.redirects]));
 };
 
 const parseHorseListSite = (document) => {
@@ -199,17 +201,24 @@ const horseRotate = async () => {
         headers: headers
       }).then((response) => {
         responseStatus = response.status;
-        if (response.ok) {
+        const regex = new RegExp(`https?:\\/\\/${horseList[p]}`);
+        if (response.redirected && response.url.match(regex) !== null) {
+          binAdjust(horseList[p], "redirects");
+          console.log("Verdict: Redirect");
+          return;
+        } else if (response.ok) {
           return response.text();
         } else {
           binAdjust(horseList[p], "registered");
-          return "";
+          console.log("Verdict: Registered but IP-less");
+          return;
         }
       }).then((text) => {
-        if (text !== "") {
+        if (text && text !== "") {
           document = parseHTML(text);
           binAdjust(horseList[p], "actual");
           console.log("Verdict: Actual");
+          return;
         }
       }).catch((e) => {
         binAdjust(horseList[p], "registered");
@@ -243,6 +252,8 @@ const restoreProgress = () => {
     horseBins.actual = new Set(JSON.parse(fs.readFileSync(actualHorseFilepath)));
   if (fs.existsSync(registeredHorseFilepath))
     horseBins.registered = new Set(JSON.parse(fs.readFileSync(registeredHorseFilepath)));
+  if (fs.existsSync(redirectsHorseFilepath))
+    horseBins.redirects = new Set(JSON.parse(fs.readFileSync(redirectsHorseFilepath)));
 };
 
 const main = async () => {
