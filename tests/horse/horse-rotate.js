@@ -201,8 +201,8 @@ const horseRotate = async () => {
         headers: headers
       }).then((response) => {
         responseStatus = response.status;
-        const regex = new RegExp(`^https?:\\/\\/(?:\\w+\\.)*${horseList[p].replaceAll(".", "\\.")}(?:$|\\/)`);
-      if (response.redirected && response.url.match(regex) === null) {
+        const regex = new RegExp(`^https?:\\/\\/(?:[\\w_-]+\\.)*${horseList[p].replaceAll(".", "\\.")}(?:$|\\/)`);
+        if (response.redirected && response.url.match(regex) === null) {
           binAdjust(horseList[p], "redirects");
           console.log("Verdict: Redirect");
           return;
