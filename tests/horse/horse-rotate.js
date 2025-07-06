@@ -7,16 +7,30 @@ let progress = 0;
 const scheduler = new ToadScheduler();
 const horseListProgressFile = `./data/horseListProgress.txt`;
 let horseList = ["every.horse"];
-const everyHorseFilepath = "data/every_horse.json";
-const actualHorseFilepath = "data/actual_horse.json";
-const registeredHorseFilepath = "data/registered_horse.json";
-const redirectsHorseFilepath = "data/redirects_horse.json";
+
+const dataDirectory = `data`;
+const everyHorseFilepath = `${dataDirectory}/every_horse.json`;
+const actualHorseFilepath = `${dataDirectory}/actual_horse.json`;
+const registeredHorseFilepath = `${dataDirectory}/registered_horse.json`;
+const redirectsHorseFilepath = `${dataDirectory}/redirects_horse.json`;
+const blankHorseFilepath = `${dataDirectory}/blank_horse.json`;
+//const everyHorseDataFilepath = `${dataDirectory}/every_horse_data.json`;
+
 const horseBins = {
   registered: new Set(), //as in JUST registered and no ip
   blank: new Set(),
   parked: new Set(),
   redirects: new Set(),
   actual: new Set()
+};
+//let everyHorseData = {};
+
+const horseFilepath = (horseType) => {
+  return `data/${horseType}_horse.json`;
+};
+
+const createAnsiHyperlink = (url, text) => {
+  return `\u001b]8;;${url}\u001b\\${text}\u001b]8;;\u001b\\`;
 };
 
 const getHTMLFile = async (link, local, ua) => {
@@ -70,8 +84,8 @@ const getJSONFile = async (link) => {
 //for transparency, this method was written by claude.ai, based off of my old code which wasn't as good
 //i edited out the comments and tweaked it to my own preferences
 //my old code can be found in this gist: https://gist.github.com/SpiritAxolotl/a8bbe4dea39eedb4a750c66702a44a7f
-const sortHorseList = () => {
-  horseList.sort((a, b) => {
+const sortHorseList = (list) => {
+  list.sort((a, b) => {
     const aMatch = a.match(/((?:[\w_-]+\.)*)((?:[\w_-]+\.)[\w_-]+)/);
     const bMatch = b.match(/((?:[\w_-]+\.)*)((?:[\w_-]+\.)[\w_-]+)/);
     
@@ -116,7 +130,7 @@ const sortHorseList = () => {
     return a.localeCompare(b);
   });
   
-  return horseList;
+  return list;
 };
 
 const incrementProgress = async () => {
@@ -135,9 +149,10 @@ const binAdjust = (domain, ...arr) => {
       horseBins[bin].delete(domain);
     }
   }
-  fs.writeFileSync(`./${actualHorseFilepath}`, JSON.stringify([...horseBins.actual]));
-  fs.writeFileSync(`./${registeredHorseFilepath}`, JSON.stringify([...horseBins.registered]));
-  fs.writeFileSync(`./${redirectsHorseFilepath}`, JSON.stringify([...horseBins.redirects]));
+  fs.writeFileSync(`./${actualHorseFilepath}`, JSON.stringify(sortHorseList([...horseBins.actual])));
+  fs.writeFileSync(`./${registeredHorseFilepath}`, JSON.stringify(sortHorseList([...horseBins.registered])));
+  fs.writeFileSync(`./${redirectsHorseFilepath}`, JSON.stringify(sortHorseList([...horseBins.redirects])));
+  fs.writeFileSync(`./${blankHorseFilepath}`, JSON.stringify(sortHorseList([...horseBins.blank])));
 };
 
 const parseHorseListSite = (document) => {
@@ -156,8 +171,8 @@ const fetchHorseList = async () => {
     const data = await getHTMLFile("https://every.horse", undefined, "Spax's Periodic Horse Domain Check-Up");
     const { document } = parseHTML(data);
     horseList = parseHorseListSite(document);
-    sortHorseList();
-    console.log("Horselist retreived!");
+    sortHorseList(horseList);
+    console.log("Horselist retreived!\n");
     fs.writeFileSync(`./${everyHorseFilepath}`, JSON.stringify(horseList));
     return;
   } catch (err) {
@@ -169,8 +184,8 @@ const fetchHorseList = async () => {
     const data = await getHTMLFile(`https://web.archive.org/web/${(new Date()).getFullYear() + 1}0000000000/https://every.horse`, undefined, "Spax's Periodic Horse Domain Check-Up");
     const { document } = parseHTML(data);
     horseList = parseHorseListSite(document);
-    sortHorseList();
-    console.log("Horselist retreived!");
+    sortHorseList(horseList);
+    console.log("Horselist retreived!\n");
     fs.writeFileSync(`./${everyHorseFilepath}`, JSON.stringify(horseList));
     return;
   } catch {
@@ -181,13 +196,17 @@ const fetchHorseList = async () => {
   }
 };
 
-const horseRotate = async () => {
-  console.log(`Current progress: ${(progress * 100).toFixed(3)}%`);
-  const p = await incrementProgress();
-  console.log("Current horse domain:", horseList[p]);
-  
+const horseRotate = async (domain) => {
+  let p = 0;
+  const debugDomain = typeof domain !== "string";
+  if (!debugDomain) {
+    console.log(`Current progress: ${(progress * 100).toFixed(3)}%`);
+    p = await incrementProgress();
+  }
+  const horse = domain ?? horseList[p];
+  console.log("Current horse domain:", createAnsiHyperlink(`http://${horse}`, horse));
   let document = undefined;
-  let responseStatus = -1;
+  let fetchResponse = new Response();
   try {
     const headers = new Headers({
       "Accept": "text/html",
@@ -196,40 +215,50 @@ const horseRotate = async () => {
     });
     
     try {
-      fetch(`http://${horseList[p]}`, {
+      fetch(`http://${horse}`, {
         method: "GET",
         headers: headers
       }).then((response) => {
-        responseStatus = response.status;
-        const regex = new RegExp(`^https?:\\/\\/(?:[\\w_-]+\\.)*${horseList[p].replaceAll(".", "\\.")}(?:$|\\/)`);
+        fetchResponse = response;
+        const regex = new RegExp(`^https?:\\/\\/(?:[\\w_-]+\\.)*${horse.replaceAll(".", "\\.")}(?:$|\\/)`);
         if (response.redirected && response.url.match(regex) === null) {
-          binAdjust(horseList[p], "redirects");
-          console.log("Verdict: Redirect");
+          binAdjust(horse, "redirects");
+          console.log("Verdict: Redirect\n");
           return;
         } else if (response.ok) {
           return response.text();
         } else {
-          binAdjust(horseList[p], "registered");
-          console.log("Verdict: Registered but IP-less");
+          binAdjust(horse, "registered");
+          console.log("Verdict: Registered but IP-less\n");
           return;
         }
       }).then((text) => {
         if (text && text !== "") {
           document = parseHTML(text);
-          binAdjust(horseList[p], "actual");
-          console.log("Verdict: Actual");
+          const url = new URL(fetchResponse.url);
+          if (text.includes(`<script>window.onload=function(){window.location.href="/lander"}</script>`) || (url.pathname === "/lander" && document.querySelector(`body > div#root:empty`))) { //blank
+            binAdjust(horse, "blank");
+            console.log("Verdict: Blank\n");
+          } else {
+            binAdjust(horse, "actual");
+            console.log("Verdict: Actual\n");
+          }
+          return;
+        } else if (text === "") {
+          binAdjust(horse, "blank");
+          console.log("Verdict: Blank\n");
           return;
         }
       }).catch((e) => {
-        binAdjust(horseList[p], "registered");
-        console.log("Verdict: Registered but IP-less");
+        binAdjust(horse, "registered");
+        console.log("Verdict: Registered but IP-less\n");
       });
     } catch (e) {
-      binAdjust(horseList[p], "registered");
+      binAdjust(horse, "registered");
       console.log("Verdict: Registered but IP-less");
     }
   } catch (err) {
-    throw err;
+    console.error(err);
   }
 };
 
@@ -254,6 +283,8 @@ const restoreProgress = () => {
     horseBins.registered = new Set(JSON.parse(fs.readFileSync(registeredHorseFilepath)));
   if (fs.existsSync(redirectsHorseFilepath))
     horseBins.redirects = new Set(JSON.parse(fs.readFileSync(redirectsHorseFilepath)));
+  if (fs.existsSync(blankHorseFilepath))
+    horseBins.blank = new Set(JSON.parse(fs.readFileSync(blankHorseFilepath)));
 };
 
 const main = async () => {
@@ -275,4 +306,5 @@ start horselist rotate pull
   go to .horse website based on index
   determine it to be one of five things
   put the domain into categorical json files based on what it was determined to be
+
 */
