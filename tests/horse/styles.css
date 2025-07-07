@@ -184,6 +184,7 @@ img.emoji {
   opacity: 0;
   transition: opacity 0.1s ease;
   cursor: default;
+  text-align: center;
 }
 
 code {
