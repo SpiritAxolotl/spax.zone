@@ -33,6 +33,10 @@
   --info-padding: 2rem;
 }
 
+* {
+  touch-action: manipulation;
+}
+
 body {
   position: relative;
   display: flex;
@@ -46,7 +50,6 @@ body {
   flex-direction: column;
   background-color: var(--hb2);
   color: var(--hb4);
-  touch-action: manipulation;
 }
 
 a {
@@ -143,8 +146,8 @@ button {
   border: var(--border);
   /*margin: var(--info-offset);
   padding: 2rem;*/
-  width: calc(100% - var(--info-offset));
-  height: calc(100% - var(--info-offset));
+  width: calc(100dvw - var(--info-offset));
+  height: calc(100dvh - var(--info-offset));
   background-color: var(--hb1);
   transition: opacity 0.15s ease;
   & > iframe {
@@ -191,6 +194,7 @@ img.emoji {
   transition: opacity 0.1s ease;
   cursor: default;
   text-align: center;
+  user-select: none;
 }
 
 code {
@@ -203,9 +207,9 @@ code {
   #horsebutton:not([disabled]) ~ #visiting {
     opacity: 1;
   }
-  #horsebutton:has(~ #visiting:active) {
+  /*#horsebutton:has(~ #visiting:active) {
     animation: 0.25s pop ease alternate;
-  }
+  }*/
 }
 
 @keyframes pop {
