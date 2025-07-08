@@ -57,7 +57,7 @@
   </p>
   <script>
     //if embedded into index.html:
-    if (window.self !== window.top && window.top.location.href.match(/https?:\/\/(spax\.zone|127\.0\.0\.1:\d+|localhost:\d+)(?:\/tests)?\/horse\/(?:index(?:\.html)?)?/) !== null) {
+    if (window.self !== window.top && window.top.location.href.match(/https?:\/\/(spax\.zone|127\.0\.0\.1:\d+|localhost:\d+|[0-9a-f]{12}\.ngrok-free\.app)(?:\/tests)?\/horse\/(?:index(?:\.html)?)?/) !== null) {
       document.body.style["background-color"] = "var(--hb1)";
       document.querySelector(`#replaceforcontext`).textContent = "this website";
     }
