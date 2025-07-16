@@ -204,7 +204,7 @@ const horseRotate = async (domain) => {
     p = await incrementProgress();
   }
   const horse = domain ?? horseList[p];
-  console.log("Current horse domain:", createAnsiHyperlink(`http://${horse}`, horse));
+  console.log("Current horse domain:", createAnsiHyperlink(`http://${horse}`, horse), `(${horse})`);
   let document = undefined;
   let fetchResponse = new Response();
   try {
