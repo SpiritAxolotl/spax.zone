@@ -223,35 +223,36 @@ const horseRotate = async (domain) => {
         const regex = new RegExp(`^https?:\\/\\/(?:[\\w_-]+\\.)*${horse.replaceAll(".", "\\.")}(?:$|\\/)`);
         if (response.redirected && response.url.match(regex) === null) {
           binAdjust(horse, "redirects");
-          console.log("Verdict: Redirect\n");
+          console.log("Verdict: Redirect");
           return;
         } else if (response.ok) {
           return response.text();
         } else {
           binAdjust(horse, "registered");
-          console.log("Verdict: Registered but IP-less\n");
+          console.log("Verdict: Registered but IP-less");
           return;
         }
       }).then((text) => {
         if (text && text !== "") {
           document = parseHTML(text);
           const url = new URL(fetchResponse.url);
-          if (text.includes(`<script>window.onload=function(){window.location.href="/lander"}</script>`) || (url.pathname === "/lander" && document.querySelector(`body > div#root:empty`))) { //blank
+          if (text.includes(`<script>window.onload=function(){window.location.href="/lander"}</script>`)
+          || (url.pathname === "/lander" && document.querySelector(`body > div#root:empty`))) { //blank
             binAdjust(horse, "blank");
-            console.log("Verdict: Blank\n");
+            console.log("Verdict: Blank");
           } else {
             binAdjust(horse, "actual");
-            console.log("Verdict: Actual\n");
+            console.log("Verdict: Actual");
           }
           return;
         } else if (text === "") {
           binAdjust(horse, "blank");
-          console.log("Verdict: Blank\n");
+          console.log("Verdict: Blank");
           return;
         }
       }).catch((e) => {
         binAdjust(horse, "registered");
-        console.log("Verdict: Registered but IP-less\n");
+        console.log("Verdict: Registered but IP-less");
       });
     } catch (e) {
       binAdjust(horse, "registered");
@@ -260,6 +261,7 @@ const horseRotate = async (domain) => {
   } catch (err) {
     console.error(err);
   }
+  console.log(`Current date and time: ${(new Date()).toString()}\n`);
 };
 
 const tasks = {
