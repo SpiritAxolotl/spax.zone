@@ -196,9 +196,9 @@ const fetchHorseList = async () => {
   }
 };
 
-const horseRotate = async (domain) => {
+const horseRotate = async (params={domain:undefined}) => {
   let p = 0;
-  const debugDomain = typeof domain === "string";
+  const debugDomain = typeof params.domain === "string";
   if (!debugDomain) {
     console.log(`Current progress: ${(progress * 100).toFixed(3)}%`);
     p = await incrementProgress();
