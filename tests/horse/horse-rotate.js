@@ -204,6 +204,7 @@ const horseRotate = async (domain) => {
     p = await incrementProgress();
   }
   const horse = domain ?? horseList[p];
+  console.log(`Current date and time: ${(new Date()).toString()}`);
   console.log("Current horse domain:", createAnsiHyperlink(`http://${horse}`, horse), `(${horse})`);
   let document = undefined;
   let fetchResponse = new Response();
@@ -261,7 +262,6 @@ const horseRotate = async (domain) => {
   } catch (err) {
     console.error(err);
   }
-  console.log(`Current date and time: ${(new Date()).toString()}\n`);
 };
 
 const tasks = {
