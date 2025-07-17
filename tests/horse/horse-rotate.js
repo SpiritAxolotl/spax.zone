@@ -224,13 +224,13 @@ const horseRotate = async (domain) => {
         const regex = new RegExp(`^https?:\\/\\/(?:[\\w_-]+\\.)*${horse.replaceAll(".", "\\.")}(?:$|\\/)`);
         if (response.redirected && response.url.match(regex) === null) {
           binAdjust(horse, "redirects");
-          console.log("Verdict: Redirect");
+          console.log("Verdict: Redirect\n");
           return;
         } else if (response.ok) {
           return response.text();
         } else {
           binAdjust(horse, "registered");
-          console.log("Verdict: Registered but IP-less");
+          console.log("Verdict: Registered but IP-less\n");
           return;
         }
       }).then((text) => {
@@ -240,24 +240,24 @@ const horseRotate = async (domain) => {
           if (text.includes(`<script>window.onload=function(){window.location.href="/lander"}</script>`)
           || (url.pathname === "/lander" && document.querySelector(`body > div#root:empty`))) { //blank
             binAdjust(horse, "blank");
-            console.log("Verdict: Blank");
+            console.log("Verdict: Blank\n");
           } else {
             binAdjust(horse, "actual");
-            console.log("Verdict: Actual");
+            console.log("Verdict: Actual\n");
           }
           return;
         } else if (text === "") {
           binAdjust(horse, "blank");
-          console.log("Verdict: Blank");
+          console.log("Verdict: Blank\n");
           return;
         }
       }).catch((e) => {
         binAdjust(horse, "registered");
-        console.log("Verdict: Registered but IP-less");
+        console.log("Verdict: Registered but IP-less\n");
       });
     } catch (e) {
       binAdjust(horse, "registered");
-      console.log("Verdict: Registered but IP-less");
+      console.log("Verdict: Registered but IP-less\n");
     }
   } catch (err) {
     console.error(err);
