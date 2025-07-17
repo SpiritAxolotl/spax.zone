@@ -203,7 +203,7 @@ const horseRotate = async (params={domain:undefined}) => {
     console.log(`Current progress: ${(progress * 100).toFixed(3)}%`);
     p = await incrementProgress();
   }
-  const horse = domain ?? horseList[p];
+  const horse = params.domain ?? horseList[p];
   console.log(`Current date and time: ${(new Date()).toString()}`);
   console.log("Current horse domain:", /*createAnsiHyperlink(`http://${horse}`, horse),*/ horse);
   let document = undefined;
