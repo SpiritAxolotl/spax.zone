@@ -205,7 +205,7 @@ const horseRotate = async (domain) => {
   }
   const horse = domain ?? horseList[p];
   console.log(`Current date and time: ${(new Date()).toString()}`);
-  console.log("Current horse domain:", /*createAnsiHyperlink(`http://${horse}`, horse),*/ `(${horse})`);
+  console.log("Current horse domain:", /*createAnsiHyperlink(`http://${horse}`, horse),*/ horse);
   let document = undefined;
   let fetchResponse = new Response();
   try {
