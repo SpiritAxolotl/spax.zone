@@ -32,10 +32,11 @@ body {
   padding: 0;
   margin: 0;
   overflow: hidden auto;
+  touch-action: manipulation;
 }
 
 body {
-  font-family: "DEP", "Twemoji";
+  font-family: "DEP", "Twemoji", monospace;
   font-size: 21px;
   display: flex;
   flex-flow: column;

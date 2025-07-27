@@ -2,7 +2,7 @@ const fs = require('fs');
 const { readPage } = require('./utils.js');
 const { Timer } = require('./timer.js');
 
-const targetPage = "./html/DEPalldialogue.html";
+const targetPage = "./DEPalldialogue.html";
 const eventDump = "./data/dep_event_dump.json";
 
 const allDialogue = {};

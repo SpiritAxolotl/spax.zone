@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Why The Horse Button™</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#c1694f">
+  <meta name="description" content="Learn why I made this silly website">
+  <meta property="og:image" content="https://spax.zone/images/misc/horse.png" type="image/png">
+  <link rel="icon" href="/images/misc/horse.png">
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+    body {
+      display: block;
+      padding: var(--info-padding);
+    }
+  </style>
+</head>
+<body>
+  <h1 id="how">How did we get here?</h1>
+  <p>
+    Hi! I'm <a href="/" target="_top">Spax</a>, the creator of <span id="replaceforcontext"><a href="." target="_top">The Horse Button™</a></span>. You might be asking yourself: what the hell did you make and why? And to that, I can at least try to explain everything. (If you want the tl;dr, <a href="#tldr">click here to jump to the bottom</a>)
+  </p>
+  <h1 id="beginning">The beginning</h1>
+  <p>
+    So, in about 2023, I discovered a site called <a href="https://every.horse" target="_top">every.horse</a>, a periodically-updating list cataloging every registered .horse domain. The creator of this website <a href="https://boat.horse/blog/every-horse" target="_top">has his own write-up on why his site exists too</a>. I clicked on a few links on the site and I vividly remember stumbling across this primitive pixel art RPG that ran in the browser. I thought it was neat and then left the site and resumed whatever it was I was doing.
+  </p>
+  <p>
+    About a year later, in February 2024, I wanted to go back to this site because someone's Discord avatar reminded me of one of the character portraits in the game, but I could not find anything in my browsing history, and have been unable to find this silly game ever since. I then felt determined to find this game. I had forgotten the domain for <a href="https://every.horse" target="_top">every.horse</a>, so I myself requested the zone file for the .horse domain, and pretty soon after, I had a list of roughly 3000 .horse domains in a text file. I sent it to one of the Discord servers I was in, and I soon decided to make a horse button, where upon pressing it, you'd be sent to a random registered .horse domain, thinking the journey to find this game would be more fun as a random button.
+  </p>
+  <h1 id="nerd">Nerd emoji</h1>
+  <p>
+    With the idea devised, I—in the middle of the night, having to wake up at 7am for school the next day—cobbled together a prototype that had <i>a</i> button with the intended functionality. The page was completely devoid of css, and I had converted the text file of .horse domains into a json file stored on my repository. The same day (at night though), I polished the site a bit more with some css, and added a bit of <code>noscript</code> code the next day.
+  </p>
+  <h1 id="reception">Reception</h1>
+  <p>
+    With the site still in an early prototype, I sent it to some of my friends and a couple of servers I was in, with the disclaimer of "please click at your own risk Lol". People seemed to really like it! For a good few hours, I and others had spent some time clicking the button and sending the highlights to each other. Even after the first week, there had just been times in the rest of 2024 where I'd bring up the horse button in a voice chat or group chat, followed with "what is that??", and having another session of sending highlights. Many great memories have been made.
+  </p>
+  <h1 id="perfect">Nothing can be perfect</h1>
+  <p>
+    Somehow, I keep going back to this site. The original goal was to find one particular game in a sea of domains, but the project had become something more than that. I wanted to make the site better than it already was. Why? I've learned about a lot of workflows over the years, from game developer talks, friends, etc. What I have learned about myself, is that my ideal workflow is: getting <i>something</i> out, and polishing it over time as my skills develop. And this project seems to be no exception. I've had plenty of ideas to improve the site, Useful settings, silly (but subtle) references, better UI/UX practices, etc.
+  </p>
+  <h1 id="nerd2">Nerd emoji 2</h1>
+  <p>
+    In October 2024, I decided to work on the website yet again. I had just moved my site's content from Github Pages to Cloudflare Pages, which gave me a lot more flexibility upfront (most notably build instructions). I split the <code>horse.html</code> file into typical <code>index.html</code>/<code>styles.css</code>/<code>script.js</code> files. The json file with all the horse domains I had requested myself was already out of date, so I made an extra <code>get-horselist.js</code> file that would be run every time I pushed to my repository too, since I was learning how to use node.js at the time. It scraped the <a href="https://every.horse" target="_top">every.horse</a> site (that I had finally remembered), which a part of me felt bad about, but I decided to not do anything about because I didn't know what else to do. I had also added a hostname preview when the button was hovered over, so that part of the fun was seeing <i>what</i> site you would go to before being greeted with its page contents.
+  </p>
+  <h1 id="more">The nagging thought that more could be done</h1>
+  <p>
+    All-in-all, this was a pretty solid state of the website, but there was something nagging at me, telling me that there was a better way to approach the website; that scraping a website every time a push was made was inefficient and clumsy; that it's not fun to manually sift through a bunch of blank and ip-less sites to find something that actually has an interesting webpage. I had been a high school graduate for almost a year, and had taken up some jobs in my gap year before going off to college, and work had drained my energy most days. Once my life had become a little less busy, I started to tinker with the horse button and made large changes to the <code>get-horselist.js</code> (now-renamed <code>horse-rotate.js</code>), before my life became Very busy again and couldn't actually work on it anymore. But then a month later, I was finally able to put aside time and make the changes I wanted to.
+  </p>
+  <h1 id="nerd3">You guessed it! Nerd emoji 3</h1>
+  <p>
+    This section of the story is still in progress, as I am currently working on the horse button's entire refactor. A few things to note: <code>horse-rotate.js</code> now scrapes <a href="https://every.horse" target="_top">every.horse</a> every 24 hours, updating <a href="https://api.spax.zone/every_horse.json" target="_top">this dynamic list</a>, and pings one of the .horse domains before doing the next one in the list every 5 minutes. As for the scraping, I've let the owner of the site, Ryan Bateman, know that I've been doing this, and requested a sister json file that others (me) could fetch from without it necessarily being scraping at that point. He responded that he was currently on a trip, but he'd be happy to just share the python script he wrote to request the zone file, once he's back. This means that hopefully I'll just be able to have a fresh source for the every-horse list! I'm also planning on adding some quality of life settings, and if I'm able to figure out how to do it, possibly have a rating system for all horse domains? Might be fun, but we'll see how difficult that is to implement. The big feature that I would like to have is filtering for the different sorts of websites (ip-less, parked, redirects, blank, and all that's left). So far, just the ip-less sites have a filtered list, but I'll add the rest soon.
+  </p>
+  <h1 id="tldr">TL;DR</h1>
+  <p>
+    So that's why the website was made! I hope you enjoyed the read!
+  </p>
+  <script>
+    //if embedded into index.html:
+    if (window.self !== window.top && window.top.location.href.match(/https?:\/\/(spax\.zone|127\.0\.0\.1:\d+|localhost:\d+|[0-9a-f]{12}\.ngrok-free\.app)(?:\/tests)?\/horse\/(?:index(?:\.html)?)?/) !== null) {
+      document.body.style["background-color"] = "var(--hb1)";
+      document.querySelector(`#replaceforcontext`).textContent = "this website";
+    }
+  </script>
+</body>
+</html>

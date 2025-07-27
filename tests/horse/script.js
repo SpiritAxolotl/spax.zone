@@ -39,27 +39,55 @@ const main = async () => {
     folder: "svg",
     ext: ".svg"
   });
-  const horseLinks = await readJSONFile("/data/every_horse.json");
+  const horseLinks = await readJSONFile("https://api.spax.zone/every_horse.json");
   const horseLinksLength = horseLinks.length;
   const visiting = document.querySelector(`#visiting`);
+  const button = document.querySelector(`#horsebutton`);
+  const whatThisIs = document.querySelector(`#whatthisis`);
   const random = (arr) => {
     return Math.floor(Math.random()*arr.length);
   };
   let horseDomain = "";
   const genNextHorseLink = () => {
+    window.removeEventListener("focus", genNextHorseLink);
     const randomIndex = random(horseLinks);
     horseDomain = horseLinks.splice(randomIndex, 1)[0];
     visiting.innerHTML = `About to visit <code>${horseDomain}</code>...`;
   };
   genNextHorseLink();
-  document.querySelector(`#horsebutton`).addEventListener("click", () => {
+  document.querySelector(`#whatisthis`).addEventListener("click", () => {
+    whatThisIs.style["pointer-events"] = "all";
+    whatThisIs.style["opacity"] = "1";
+  });
+  document.querySelector(`#closewhat`).addEventListener("click", () => {
+    whatThisIs.style["pointer-events"] = "none";
+    whatThisIs.style["opacity"] = "0";
+  });
+  button.addEventListener("click", () => {
     if (!horseLinks.length)
       return alert(`Congrats! You went to all ${horseLinksLength} .horse links! We are proud of you!! 🐴`);
     console.log(horseDomain);
     //const protocol = await checkProtocol(horseDomain);
+    window.addEventListener("focus", genNextHorseLink);
     window.open(`http://${horseDomain}`, "_blank", "noopener"); //debating whether to have "noreferrer" too
-    genNextHorseLink();
   });
+  button.removeAttribute(`disabled`);
 };
 
 main();
+
+/*
+settings that i would like to implement soon:
+- toggle to save history across refreshes (will include the sites you have been to already in chronological order)
+- ability to skip horse sites (with cooldown)
+- filters for site types (and which to include)
+- shitpost mode
+
+also a reporting feature so blatantly malicious sites get blacklisted from the list
+
+also maybe a disclaimer that The Horse Button is not a registered trademark and all uses of the trademark symbol are for satirical purposes only
+
+also maybe a rating system to rate certain horse websites and determine the best one of them all
+
+also for the backend maybe a periodic archive of the sites via web.archive.org? maybe initially if a new domain (with content) is detected and every 3 months otherwise. there's history in these sites!!
+*/
