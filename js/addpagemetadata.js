@@ -49,7 +49,7 @@ const defaultTags = {
 //don't add og: title and description to pages with <meta property="twitter:card" content="summary_large_image">
 //maybe add lang="en-US" to the html tag?
 
-const filepath = "./html/";
+const filepath = "./";
 
 const propertyIsGeneric = (tagname, tag) => {
   switch (tagname) {
@@ -95,6 +95,7 @@ const addMetadata = (document) => {
 (async () => {
   try {
     const files = await fs.promises.readdir(filepath);
+    files.push(...(await fs.promises.readdir(filepath + "horse/")).map(e=>`horse/${e}`));
     for (let i=0; i<files.length; i++) {
       const file = files[i];
       const fullpath = path.join(filepath, file);

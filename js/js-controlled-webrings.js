@@ -10,7 +10,7 @@ const fs = require("fs");
 const { VM } = require("vm2");
 const { createHash } = require("crypto");
 
-const targetPage = "./html/index.html";
+const targetPage = "./index.html";
 const randomURL = "https://random.spax.zone/webrings";
 
 const hashes = {

@@ -1,75 +1,190 @@
 @font-face {
   font-family: Twemoji;
   src:
-    url("../fonts/Twemoji.otf") format("opentype"),
+    url("/fonts/Twemoji.otf") format("opentype"),
     url(https://spax.zone/fonts/Twemoji.otf) format("opentype");
 }
 
-html {
-  background-color: #c1694f;
+@font-face {
+  font-family: "Univerza Sans";
+  src: url(https://cdn.spax.zone/UniverzaSans-Regular.woff2) format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --hb1: #D99E82;
+  --hb2: #C1694F;
+  --hb3: #662113;
+  --hb4: #292F33;
+  
+  --w1: #eee;
+  --w2: #ddd;
+  --w3: #aaa;
+  
+  --border: 0.2rem solid var(--hb4);
+  --border-radius: 0.5rem;
+  --info-offset: 3rem;
+  --info-padding: 2rem;
+}
+
+* {
+  touch-action: manipulation;
 }
 
 body {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   width: 100vw;
   margin: 0;
+  overflow: none;
   overscroll-behavior: none;
   flex-direction: column;
+  background-color: var(--hb2);
+  color: var(--hb4);
 }
 
-h1, p {
-  font-family: Times, serif;
+a {
+  color: var(--hb3);
 }
 
-h1 {
-  margin-bottom: 0;
+h1, h2, h3, h4, h5, h6, p, button {
+  font-family: "Univerza Sans", Times, serif;
+}
+
+#atyourownrisk {
+  margin-top: 0;
+}
+
+button {
+  cursor: pointer;
+  color: var(--hb4);
+  background-color: var(--w1);
+  transition: background-color 0.15s ease;
+  
+  &[disabled] {
+    cursor: not-allowed;
+    background-color: var(--w3);
+  }
+  
+  &:not([disabled]) {
+    &:hover {
+      background-color: var(--w2);
+    }
+    
+    &:active {
+      background-color: var(--w3);
+    }
+  }
 }
 
 #horsebutton {
   background: none;
   border: none;
-  font-size: 3em;
+  font-size: 3rem;
   font-family: inherit;
-  cursor: pointer;
-  & > div {
-    border: 0.075em solid black;
-    border-radius: 0.2em;
-    background-color: #eee;
-    padding: 0.5em 1em;
-    pointer-events: none;
-    transition: all 0.15s ease;
+  
+  &[disabled] > div {
+    background-color: var(--w3);
   }
-  &:hover {
+  
+  & > div {
+    border: var(--border);
+    border-radius: var(--border-radius);
+    background-color: var(--w1);
+    padding: 1.25rem 2.5rem;
+    pointer-events: none;
+    transition-duration: 0.15s;
+    transition-property: background-color, transform;
+    transition-timing-function: ease;
+  }
+  
+  &:not([disabled]):hover {
     & + #visiting {
       opacity: 1;
     }
+    
     & > div {
-      background-color: #ddd;
+      background-color: var(--w2);
       transform: scale(0.96);
     }
   }
-  &:active > div {
-    background-color: #aaa;
+  
+  &:not([disabled]):active > div {
+    background-color: var(--w3);
     transform: scale(0.94);
   }
 }
 
+#backupwhatisthis {
+  display: none;
+}
+
+#whatisthis, #backupwhatisthis {
+  position: absolute;
+  left: 2rem;
+  top: 2rem;
+  border: var(--border);
+  border-radius: var(--border-radius);
+  background: none;
+  font-size: 1.5rem;
+  padding: 0.25rem;
+}
+
+#whatthisis {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  border: var(--border);
+  /*margin: var(--info-offset);
+  padding: 2rem;*/
+  width: calc(100dvw - var(--info-offset));
+  height: calc(100dvh - var(--info-offset));
+  background-color: var(--hb1);
+  transition: opacity 0.15s ease;
+  & > iframe {
+    width: 100%;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+    overflow: auto;
+    border: none;
+  }
+}
+
+#closewhat {
+  position: absolute;
+  right: calc(var(--info-padding) / 2);
+  top: calc(var(--info-padding) / 2);
+  border: var(--border);
+  border-radius: 100px;
+  width: var(--info-offset);
+  height: var(--info-offset);
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 0;
+  z-index: 1;
+}
+
 img.emoji {
-  height: 1em;
-  width: 1em;
-  margin: 0 .05em 0 .1em;
-  vertical-align: -0.1em;
+  width: 3rem;
+  margin: 0 0.15rem 0 0.3rem;
+  vertical-align: -0.3rem;
 }
 
 .glow {
-  text-shadow: 0 0 0.2em #ff0000;
+  text-shadow: 0 0 0.6rem #ff0000;
 }
 
 #noscript {
-  font-size: 2em;
+  font-size: 2rem;
   /*padding: 0 5em;*/
   text-align: center;
 }
@@ -78,9 +193,45 @@ img.emoji {
   opacity: 0;
   transition: opacity 0.1s ease;
   cursor: default;
+  text-align: center;
+  user-select: none;
 }
 
 code {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: #0000001a;
   border-radius: 0.25rem;
+}
+
+/* for mobile devices that can't hover with touch controls */
+@media (max-aspect-ratio: 2/3) {
+  #horsebutton:not([disabled]) ~ #visiting {
+    opacity: 1;
+  }
+  /*#horsebutton:has(~ #visiting:active) {
+    animation: 0.25s pop ease alternate;
+  }*/
+}
+
+@keyframes pop {
+  0% {
+    transform: initial;
+  }
+  20% {
+    transform: rotate(10deg) scale(1.1);
+  }
+  40% {
+    transform: rotate(-10deg) scale(1.2);
+  }
+  50% {
+    transform: rotate(0deg) scale(1.3);
+  }
+  60% {
+    transform: rotate(-10deg) scale(1.2);
+  }
+  80% {
+    transform: rotate(10deg) scale(1.1);
+  }
+  100% {
+    transform: initial;
+  }
 }

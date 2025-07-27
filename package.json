@@ -1,12 +1,18 @@
 {
   "name": "spax.zone",
   "version": "1.0.0",
-  "scripts" : { "dev" : "rm -rf ./.build/ && rsync -avq --exclude='.*' --exclude='/node_modules/' . ./.build/ && cd .build/ && ./build.sh" },
+  "scripts": {
+    "dev": "npm run build && npm run serve-dev",
+    "serve-dev": "vite --config vite.dev.config.js",
+    "serve": "vite preview",
+    "build": "vite build",
+    "watch": "vite build --watch"
+  },
   "dependencies": {
     "linkedom": "^0.18.5",
     "sass": "^1.79.5",
     "toad-scheduler": "^3.0.1",
-    "vm2": "^3.9.19",
-    "xlsx": "^0.18.5"
+    "vite": "^6.3.5",
+    "vm2": "^3.9.19"
   }
 }

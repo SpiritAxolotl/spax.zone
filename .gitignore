@@ -4,8 +4,10 @@ doctrees
 /.vscode/
 /node_modules/
 /data/
+!/data/dep_dialogue_overrides.json
 /js/webrings/
 /subdomains/
 /package-lock.json
 /css/
 /.build/
+/build-entry.js
