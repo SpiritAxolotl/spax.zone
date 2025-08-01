@@ -3,7 +3,7 @@
   <head>
     <title>All Custom DEP Character Sprites</title>
     <meta name="description" content="A collection of all of the custom DEP sprites supported on this website.">
-    <link rel="stylesheet" href="css/experimental.css" type="text/css">
+    <link rel="stylesheet" href="/css/experimental.css" type="text/css">
     <style>
       #face-selector {
         display: flex;
@@ -19,15 +19,16 @@
         height: 97px;
         cursor: pointer;
         box-sizing: content-box;
+        outline-style: solid;
+        outline-offset: 0px;
+        outline-width: 3px;
+        outline-color: transparent;
       }
       #face-name:not([who], [emotion]) {
         text-align: center;
       }
       .selected {
-        outline-width: 3px;
-        outline-color: var(--g1);
-        outline-style: solid;
-        outline-offset: 0px;
+        outline-color: var(--g1) !important;
       }
       /*details[name="spaxshow"] {
         transition: opacity 0.15s linear;
@@ -80,7 +81,7 @@
     const writeClipboardText = async (text, element) => {
       try {
         await navigator.clipboard.writeText(text);
-        element.style["outline-color"] = "var(--a1)";
+        element.setAttribute("style", "outline-color: var(--a1) !important"); // !important doesn't work when using setter on style["outline-color"]
         // clicked = true;
         setTimeout(_=>{
           // clicked = false;
@@ -111,7 +112,7 @@
       writeClipboardText(`<article who="nahua" emotion="${getEmotion(element).join("").toLowerCase()}">\n    \n  </article>`, element);
     };
     
-    const doubleTapTimeWindow = 400
+    const doubleTapTimeWindow = 400;
     let lastTap = null;
     let tapTimeout = null;
 
