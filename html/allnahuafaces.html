@@ -5,7 +5,30 @@
     <meta name="description" content="A collection of all of the custom DEP sprites supported on this website.">
     <link rel="stylesheet" href="/css/experimental.css" type="text/css">
     <style>
-      details[name="spaxshow"] {
+      #face-selector {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 5px;
+        max-width: 647px;
+      }
+      #face-selector > img {
+        aspect-ratio: 1/1;
+        height: 97px;
+        cursor: pointer;
+        box-sizing: content-box;
+      }
+      #face-name:not([who], [emotion]) {
+        text-align: center;
+      }
+      .selected {
+        outline-width: 3px;
+        outline-color: var(--g1);
+        outline-style: solid;
+        outline-offset: 0px;
+      }
+      /*details[name="spaxshow"] {
         transition: opacity 0.15s linear;
       }
       details[name="spaxshow"]:not([open]) {
@@ -16,129 +39,80 @@
       }
       details[name="spaxshow"]:not([open]) ~ article[who="spax"] {
         display: none;
-      }
+      }*/
     </style>
   </head>
   <body>
-    <article who="nahua" emotion="angry">
-      Nahua<br>Angry
+    <article id="face-selector">
+      <img src="/images/faces/nahua/Angry.png">
+      <img src="/images/faces/nahua/Bashful.png">
+      <img src="/images/faces/nahua/BlushyLook.png">
+      <img src="/images/faces/nahua/Confused.png">
+      <img src="/images/faces/nahua/Disappointed.png">
+      <img src="/images/faces/nahua/Dizzy.png">
+      <img src="/images/faces/nahua/Expressionless.png">
+      <img src="/images/faces/nahua/Happy.png">
+      <img src="/images/faces/nahua/Joyful.png">
+      <img src="/images/faces/nahua/Look.png">
+      <img src="/images/faces/nahua/LookDown.png">
+      <img src="/images/faces/nahua/Nervous.png">
+      <img src="/images/faces/nahua/Neutral.png">
+      <img src="/images/faces/nahua/Pensive.png">
+      <img src="/images/faces/nahua/Sad.png">
+      <img src="/images/faces/nahua/Scared.png">
+      <img src="/images/faces/nahua/Shocked.png">
+      <img src="/images/faces/nahua/Sigh.png">
+      <img src="/images/faces/nahua/Sleepy.png">
+      <img src="/images/faces/nahua/Smug.png">
+      <img src="/images/faces/nahua/SmugEvil.png">
+      <img src="/images/faces/nahua/Sus.png">
     </article>
-    <article who="nahua" emotion="bashful">
-      Nahua<br>Bashful
-    </article>
-    <article who="nahua" emotion="blushylook">
-      Nahua<br>Blushy Look
-    </article>
-    <article who="nahua" emotion="confused">
-      Nahua<br>Confused
-    </article>
-    <article who="nahua" emotion="disappointed">
-      Nahua<br>Disappointed
-    </article>
-    <article who="nahua" emotion="dizzy">
-      Nahua<br>Dizzy
-    </article>
-    <article who="nahua" emotion="expressionless">
-      Nahua<br>Expressionless
-    </article>
-    <article who="nahua" emotion="happy">
-      Nahua<br>Happy
-    </article>
-    <article who="nahua" emotion="joyful">
-      Nahua<br>Joyful
-    </article>
-    <article who="nahua" emotion="look">
-      Nahua<br>Look
-    </article>
-    <article who="nahua" emotion="lookdown">
-      Nahua<br>Look Down
-    </article>
-    <article who="nahua" emotion="nervous">
-      Nahua<br>Nervous
-    </article>
-    <article who="nahua" emotion="neutral">
-      Nahua<br>Neutral
-    </article>
-    <article who="nahua" emotion="pensive">
-      Nahua<br>Pensive
-    </article>
-    <article who="nahua" emotion="sad">
-      Nahua<br>Sad
-    </article>
-    <article who="nahua" emotion="scared">
-      Nahua<br>Scared
-    </article>
-    <article who="nahua" emotion="shocked">
-      Nahua<br>Shocked
-    </article>
-    <article who="nahua" emotion="sigh">
-      Nahua<br>Sigh
-    </article>
-    <article who="nahua" emotion="sleepy">
-      Nahua<br>Sleepy
-    </article>
-    <article who="nahua" emotion="smug">
-      Nahua<br>Smug
-    </article>
-    <article who="nahua" emotion="smugevil">
-      Nahua<br>Smug Evil
-    </article>
-    <article who="nahua" emotion="sus">
-      Nahua<br>Sus
-    </article>
-    <details name="spaxshow">
-      <summary>Legacy "Spax" Facial Expressions</summary>
-    </details>
-    <article who="spax" emotion="blush">
-      Spax<br>Blush
-    </article>
-    <article who="spax" emotion="confused">
-      Spax<br>Confused
-    </article>
-    <article who="spax" emotion="disappointed">
-      Spax<br>Disappointed
-    </article>
-    <article who="spax" emotion="dizzy">
-      Spax<br>Dizzy
-    </article>
-    <article who="spax" emotion="enraged">
-      Spax<br>Enraged
-    </article>
-    <article who="spax" emotion="happy">
-      Spax<br>Happy
-    </article>
-    <article who="spax" emotion="look">
-      Spax<br>Look
-    </article>
-    <article who="spax" emotion="neutral">
-      Spax<br>Neutral
-    </article>
-    <article who="spax" emotion="pensive">
-      Spax<br>Pensive
-    </article>
-    <article who="spax" emotion="sleep">
-      Spax<br>Sleep
-    </article>
-    <article who="spax" emotion="smirk">
-      Spax<br>Smirk
-    </article>
-    <article who="spax" emotion="surprised">
-      Spax<br>Surprised
-    </article>
-    <article who="spax" emotion="sus">
-      Spax<br>Sus
-    </article>
-    <article who="spax" emotion="sweat-drop">
-      Spax<br>Sweat Drop
-    </article>
-    <article who="spax" emotion="talk">
-      Spax<br>Talk
-    </article>
-    <article who="spax" emotion="woo">
-      Spax<br>Woo
-    </article>
-    <article who="spax" emotion="worried">
-      Spax<br>Worried
+    <article id="face-name">
+      Hover over or click on a face!
     </article>
   </body>
+  <script>
+    const faceName = document.querySelector(`#face-name`);
+    const faceSelector = document.querySelector(`#face-selector`);
+    let clicked = false;
+    
+    const writeClipboardText = async (text, element) => {
+      try {
+        await navigator.clipboard.writeText(text);
+        element.style["outline-color"] = "var(--r1)";
+        clicked = true;
+        setTimeout(_=>{
+          clicked = false;
+          element.style["outline-color"] = "";
+        }, 1000);
+      } catch (error) {
+        console.error(error.message);
+      }
+    };
+    
+    const getEmotion = (element) => {
+      return element.src
+        .match(/(\w+)\.png/)[1]
+        .split(/(?<=[a-z])(?=[A-Z])/);
+    };
+    
+    const faceUpdate = (event, element) => {
+      if (clicked) return;
+      [...document.querySelectorAll(`.selected`)].forEach(e=>e.classList.remove(`selected`));
+      element.classList.add(`selected`);
+      const emotions = getEmotion(element);
+      faceName.textContent = emotions.join(" ");
+      faceName.setAttribute("who", "Nahua");
+      faceName.setAttribute("emotion", emotions.join(""));
+    };
+    
+    const faceCopy = (event, element) => {
+      writeClipboardText(`<article who="nahua" emotion="${getEmotion(element).join("").toLowerCase()}">\n    \n  </article>`, element);
+    };
+    
+    [...document.querySelectorAll(`#face-selector > img`)].forEach(element => {
+      element.addEventListener("mouseover", event => faceUpdate(event, element));
+      element.addEventListener("click", event => faceCopy(event, element));
+    });
+  </script>
 </html>
