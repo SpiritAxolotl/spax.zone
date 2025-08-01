@@ -3,7 +3,7 @@
   <head>
     <title>All Custom DEP Character Sprites</title>
     <meta name="description" content="A collection of all of the custom DEP sprites supported on this website.">
-    <link rel="stylesheet" href="/css/experimental.css" type="text/css">
+    <link rel="stylesheet" href="css/experimental.css" type="text/css">
     <style>
       #face-selector {
         display: flex;
@@ -14,6 +14,7 @@
         max-width: 647px;
       }
       #face-selector > img {
+        transition: outline-color 0.25s ease-in-out;
         aspect-ratio: 1/1;
         height: 97px;
         cursor: pointer;
@@ -74,15 +75,15 @@
   <script>
     const faceName = document.querySelector(`#face-name`);
     const faceSelector = document.querySelector(`#face-selector`);
-    let clicked = false;
+    // let clicked = false;
     
     const writeClipboardText = async (text, element) => {
       try {
         await navigator.clipboard.writeText(text);
-        element.style["outline-color"] = "var(--r1)";
-        clicked = true;
+        element.style["outline-color"] = "var(--a1)";
+        // clicked = true;
         setTimeout(_=>{
-          clicked = false;
+          // clicked = false;
           element.style["outline-color"] = "";
         }, 1000);
       } catch (error) {
@@ -97,7 +98,7 @@
     };
     
     const faceUpdate = (event, element) => {
-      if (clicked) return;
+      // if (clicked) return; 
       [...document.querySelectorAll(`.selected`)].forEach(e=>e.classList.remove(`selected`));
       element.classList.add(`selected`);
       const emotions = getEmotion(element);
@@ -110,9 +111,32 @@
       writeClipboardText(`<article who="nahua" emotion="${getEmotion(element).join("").toLowerCase()}">\n    \n  </article>`, element);
     };
     
+    const doubleTapTimeWindow = 400
+    let lastTap = null;
+    let tapTimeout = null;
+
+    const touchyHandler = (event, element) => {
+      const now = Date.now();
+      if (lastTap && (now - lastTap) < doubleTapTimeWindow) { // Double tap
+        clearTimeout(tapTimeout);
+        faceCopy(null, element);
+        lastTap = null;
+      } else {
+        faceUpdate(null, element);
+        lastTap = now;
+        tapTimeout = setTimeout(() => {
+          lastTap = null;
+        }, doubleTapTimeWindow);
+      }
+    };
+
     [...document.querySelectorAll(`#face-selector > img`)].forEach(element => {
       element.addEventListener("mouseover", event => faceUpdate(event, element));
       element.addEventListener("click", event => faceCopy(event, element));
+      element.addEventListener("touchstart", event => {
+        event.preventDefault();
+        touchyHandler(event, element);
+      });
     });
   </script>
 </html>
