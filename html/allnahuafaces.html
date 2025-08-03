@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>All Custom DEP Character Sprites</title>
+    <title>All Nahua DEP Character Portraits</title>
     <meta name="description" content="A collection of all of the custom DEP sprites supported on this website.">
     <link rel="stylesheet" href="/css/experimental.css" type="text/css">
     <style>
@@ -14,7 +14,7 @@
         max-width: 647px;
       }
       #face-selector > img {
-        transition: outline-color 0.25s ease-in-out;
+        transition: outline-color 0.15s ease;
         aspect-ratio: 1/1;
         height: 97px;
         cursor: pointer;
@@ -27,8 +27,8 @@
       #face-name:not([who], [emotion]) {
         text-align: center;
       }
-      .selected {
-        outline-color: var(--g1) !important;
+      #face-selector > img.selected {
+        outline-color: var(--g1);
       }
       /*details[name="spaxshow"] {
         transition: opacity 0.15s linear;
@@ -76,15 +76,26 @@
   <script>
     const faceName = document.querySelector(`#face-name`);
     const faceSelector = document.querySelector(`#face-selector`);
-    // let clicked = false;
+    const allFaces = [...document.querySelectorAll(`#face-selector > img`)];
+    
+    let outlineTimeout = 0;
+    
+    const removeSelected = () => {
+      [...document.querySelectorAll(`.selected`)].forEach(e=>e.classList.remove(`selected`));
+      allFaces.forEach(e=>{
+        if (e.style["outline-color"] === "var(--g2)") {
+          e.style["outline-color"] = "";
+        }
+      });
+      clearTimeout(outlineTimeout);
+    };
     
     const writeClipboardText = async (text, element) => {
       try {
         await navigator.clipboard.writeText(text);
-        element.setAttribute("style", "outline-color: var(--a1) !important"); // !important doesn't work when using setter on style["outline-color"]
-        // clicked = true;
-        setTimeout(_=>{
-          // clicked = false;
+        removeSelected();
+        element.style["outline-color"] = "var(--g2)";
+        outlineTimeout = setTimeout(_=>{
           element.style["outline-color"] = "";
         }, 1000);
       } catch (error) {
@@ -98,9 +109,8 @@
         .split(/(?<=[a-z])(?=[A-Z])/);
     };
     
-    const faceUpdate = (event, element) => {
-      // if (clicked) return; 
-      [...document.querySelectorAll(`.selected`)].forEach(e=>e.classList.remove(`selected`));
+    const faceUpdate = (element, event) => {
+      removeSelected();
       element.classList.add(`selected`);
       const emotions = getEmotion(element);
       faceName.textContent = emotions.join(" ");
@@ -108,35 +118,36 @@
       faceName.setAttribute("emotion", emotions.join(""));
     };
     
-    const faceCopy = (event, element) => {
+    const faceCopy = (element, event) => {
       writeClipboardText(`<article who="nahua" emotion="${getEmotion(element).join("").toLowerCase()}">\n    \n  </article>`, element);
     };
     
     const doubleTapTimeWindow = 400;
     let lastTap = null;
     let tapTimeout = null;
-
-    const touchyHandler = (event, element) => {
+    
+    const touchyHandler = (element, event) => {
+      console.log("touch input!");
       const now = Date.now();
       if (lastTap && (now - lastTap) < doubleTapTimeWindow) { // Double tap
-        clearTimeout(tapTimeout);
-        faceCopy(null, element);
+        if (tapTimeout) clearTimeout(tapTimeout);
+        faceCopy(element);
         lastTap = null;
       } else {
-        faceUpdate(null, element);
+        faceUpdate(element);
         lastTap = now;
-        tapTimeout = setTimeout(() => {
+        tapTimeout = setTimeout(_=>{
           lastTap = null;
         }, doubleTapTimeWindow);
       }
     };
-
-    [...document.querySelectorAll(`#face-selector > img`)].forEach(element => {
-      element.addEventListener("mouseover", event => faceUpdate(event, element));
-      element.addEventListener("click", event => faceCopy(event, element));
+    
+    allFaces.forEach(element => {
+      element.addEventListener("mouseover", event => faceUpdate(element, event));
+      element.addEventListener("mousedown", event => faceCopy(element, event));
       element.addEventListener("touchstart", event => {
         event.preventDefault();
-        touchyHandler(event, element);
+        touchyHandler(element, event);
       });
     });
   </script>
