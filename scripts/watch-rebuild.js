@@ -3,6 +3,7 @@
 const chokidar = require('chokidar');
 const { exec } = require('child_process');
 const { promisify } = require('util');
+const path = require('path');
 
 const execAsync = promisify(exec);
 
@@ -29,19 +30,21 @@ async function rebuild() {
 
 // Watch source files for changes
 const filesToWatch = [
-  'html/**/*.html',
-  'js/**/*.js',
-  'scss/**/*.scss',
-  'css/**/*.css',
-  'data/**/*.json'
+  'html',
+  'js',
+  'scss',
+  'css',
+  'data'
 ];
 
 console.log('🔥 Starting file watcher for live reload...');
+console.log('👀 Watching directories:', filesToWatch);
 
 const watcher = chokidar.watch(filesToWatch, {
   ignored: /(^|[\/\\])\../, // ignore dotfiles
   persistent: true,
-  ignoreInitial: true
+  ignoreInitial: true,
+  recursive: true // watch subdirectories
 });
 
 // Debounce rebuilds to avoid too many rapid rebuilds
@@ -81,6 +84,10 @@ watcher.on('unlink', (path) => {
 
 watcher.on('ready', () => {
   console.log('👀 Watching for changes...');
+});
+
+watcher.on('error', error => {
+  console.error('❌ File watcher error:', error);
 });
 
 // Handle graceful shutdown

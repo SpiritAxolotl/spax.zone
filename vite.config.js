@@ -183,9 +183,12 @@ function customBuildPlugin() {
         await execAsync("node ../js/addpagemetadata.js");
         console.log("✓ addpagemetadata.js completed");
         
-        // Temporarily commented out due to network dependency
-        // await execAsync("node ../js/buildDEPdialogue.js");
-        // console.log("✓ buildDEPdialogue.js completed");
+        try {
+          await execAsync("node ../js/buildDEPdialogue.js");
+          console.log("✓ buildDEPdialogue.js completed");
+        } catch (dialogueError) {
+          console.warn("⚠ buildDEPdialogue.js failed (network dependency), continuing:", dialogueError.message);
+        }
         
         await execAsync("node ../js/js-controlled-webrings.js");
         console.log("✓ js-controlled-webrings.js completed");

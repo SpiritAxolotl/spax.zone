@@ -2,8 +2,6 @@ const fs = require("fs");
 const path = require("path");
 const { readPage } = require("./utils.js");
 
-// Test comment for cache invalidation - updated again
-
 const blacklist = ["main2.html"];
 
 const defaultTags = {
