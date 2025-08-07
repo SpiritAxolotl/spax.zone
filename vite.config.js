@@ -7,8 +7,121 @@ import { exec } from "child_process";
 import { promisify } from "util";
 import fs from "fs";
 import path from "path";
+import crypto from "crypto";
 
 const execAsync = promisify(exec);
+
+// Cache file path
+const CACHE_FILE = "./.build-cache.json";
+
+// Helper function to calculate file hash
+function calculateFileHash(filePath) {
+  if (!fs.existsSync(filePath)) return null;
+  const content = fs.readFileSync(filePath);
+  return crypto.createHash('md5').update(content).digest('hex');
+}
+
+// Helper function to load cache
+function loadCache() {
+  if (!fs.existsSync(CACHE_FILE)) return {};
+  try {
+    return JSON.parse(fs.readFileSync(CACHE_FILE, 'utf8'));
+  } catch (error) {
+    console.warn('Failed to load cache, starting fresh:', error.message);
+    return {};
+  }
+}
+
+// Helper function to save cache
+function saveCache(cache) {
+  try {
+    fs.writeFileSync(CACHE_FILE, JSON.stringify(cache, null, 2));
+  } catch (error) {
+    console.warn('Failed to save cache:', error.message);
+  }
+}
+
+// Helper function to check if files have changed
+function hasJavaScriptFilesChanged() {
+  const cache = loadCache();
+  const jsFiles = [
+    './js/addpagemetadata.js',
+    './js/js-controlled-webrings.js',
+    './js/buildDEPdialogue.js', // Include even though temporarily disabled
+    './build-entry.js'
+  ];
+  
+  let hasChanged = false;
+  const newCache = { ...cache };
+  
+  for (const filePath of jsFiles) {
+    const currentHash = calculateFileHash(filePath);
+    const cachedHash = cache[filePath];
+    
+    if (currentHash !== cachedHash) {
+      console.log(`File changed: ${filePath}`);
+      hasChanged = true;
+      newCache[filePath] = currentHash;
+    }
+  }
+  
+  if (hasChanged) {
+    saveCache(newCache);
+  }
+  
+  return hasChanged;
+}
+
+// Live reload plugin for development
+function liveReloadPlugin() {
+  return {
+    name: "live-reload",
+    configureServer(server) {
+      // Watch source files for changes
+      const filesToWatch = [
+        './html/**/*.html',
+        './js/**/*.js',
+        './scss/**/*.scss',
+        './css/**/*.css',
+        './data/**/*.json'
+      ];
+      
+      const chokidar = require('chokidar');
+      
+      // Watch for file changes
+      const watcher = chokidar.watch(filesToWatch, {
+        ignored: /(^|[\/\\])\../, // ignore dotfiles
+        persistent: true,
+        ignoreInitial: true
+      });
+      
+      watcher.on('change', (path) => {
+        console.log(`File changed: ${path}`);
+        
+        // Trigger full page reload for any changes
+        server.ws.send({
+          type: 'full-reload'
+        });
+      });
+      
+      watcher.on('add', (path) => {
+        console.log(`File added: ${path}`);
+        server.ws.send({
+          type: 'full-reload'
+        });
+      });
+      
+      watcher.on('unlink', (path) => {
+        console.log(`File removed: ${path}`);
+        server.ws.send({
+          type: 'full-reload'
+        });
+      });
+      
+      console.log('🔥 Live reload enabled - watching for file changes...');
+    }
+  };
+}
 
 // Plugin to compile SCSS files
 function scssCompilePlugin() {
@@ -52,6 +165,14 @@ function customBuildPlugin() {
   return {
     name: "custom-build",
     async writeBundle() {
+      console.log("Checking for JavaScript file changes...");
+      
+      // Check if JavaScript files have changed
+      if (!hasJavaScriptFilesChanged()) {
+        console.log("⚡ No JavaScript changes detected, skipping custom build scripts");
+        return;
+      }
+      
       console.log("Running custom build scripts on .build directory...");
       
       try {
@@ -62,8 +183,9 @@ function customBuildPlugin() {
         await execAsync("node ../js/addpagemetadata.js");
         console.log("✓ addpagemetadata.js completed");
         
-        await execAsync("node ../js/buildDEPdialogue.js");
-        console.log("✓ buildDEPdialogue.js completed");
+        // Temporarily commented out due to network dependency
+        // await execAsync("node ../js/buildDEPdialogue.js");
+        // console.log("✓ buildDEPdialogue.js completed");
         
         await execAsync("node ../js/js-controlled-webrings.js");
         console.log("✓ js-controlled-webrings.js completed");
