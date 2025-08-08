@@ -7,8 +7,8 @@ by running the js before the site is deployed.
 
 const { readPage } = require("./utils.js");
 const fs = require("fs");
-const Jinter = require("jintr").default;
 const { createHash } = require("crypto");
+const vm = require("vm");
 
 const targetPage = "./index.html";
 const randomURL = "https://random.spax.zone/webrings";
@@ -74,12 +74,6 @@ const webringDown = (document, selector, webringName, err) => {
 
 const build = async () => {
   const { document, window } = await readPage(targetPage);
-  const interpreter = new Jinter({
-    scope: {
-      document: document,
-      window: window
-    }
-  });
   const dataFolderName = "./data/webring-members";
   if (!fs.existsSync(dataFolderName))
     fs.mkdirSync(dataFolderName);
@@ -141,11 +135,23 @@ const build = async () => {
         editedData = editedData.replace(`next →`, "-&gt;");
         editedData = editedData.replace(/(?<=\$\{(?:random|index)Text\})[\s\n]+/g, "");
         editedData = editedData.replace(/(?<=tag\.insertAdjacentHTML\('afterbegin', `[\s\S]*)  `/g, `\``);
-        interpreter.evaluate(editedData);
+
+        // ! IMPORTANT: Use Node's VM for this script to preserve DOM prototype methods like insertAdjacentHTML.
+        const sandbox = {
+          document,
+          window,
+          console,
+          fetch: typeof fetch !== "undefined" ? fetch : undefined
+        };
+        vm.createContext(sandbox);
+        vm.runInContext(editedData, sandbox);
+
         const randomATag = webring.querySelector(`a[href="javascript:void(0)"]`);
         webring.querySelectorAll(`.webring-prev, .webring-next`).forEach(e=>e.classList.add("nowrap"));
-        randomATag.href = `${randomURL}/cohost`;
-        randomATag.removeAttribute("onclick");
+        if (randomATag) {
+          randomATag.href = `${randomURL}/cohost`;
+          randomATag.removeAttribute("onclick");
+        }
         fs.writeFileSync(targetPage, document.toString());
       } else {
         webring.innerHTML = oldContents;
