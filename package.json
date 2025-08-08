@@ -9,10 +9,10 @@
     "watch": "vite build --watch"
   },
   "dependencies": {
+    "jintr": "^3.3.1",
     "linkedom": "^0.18.5",
     "sass": "^1.79.5",
     "toad-scheduler": "^3.0.1",
-    "vite": "^6.3.5",
-    "vm2": "^3.9.19"
+    "vite": "^6.3.5"
   }
 }
