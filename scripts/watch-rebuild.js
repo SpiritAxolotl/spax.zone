@@ -11,18 +11,18 @@ let rebuilding = false;
 
 async function rebuild() {
   if (rebuilding) {
-    console.log('⏳ Rebuild already in progress, skipping...');
+  console.log('Rebuild already in progress, skipping...');
     return;
   }
   
   rebuilding = true;
-  console.log('🔨 Rebuilding...');
+  console.log('Rebuilding...');
   
   try {
     await execAsync('npm run build');
-    console.log('✅ Rebuild completed');
+    console.log('Rebuild completed');
   } catch (error) {
-    console.error('❌ Rebuild failed:', error.message);
+    console.error('Rebuild failed:', error.message);
   } finally {
     rebuilding = false;
   }
@@ -37,8 +37,8 @@ const filesToWatch = [
   'data'
 ];
 
-console.log('🔥 Starting file watcher for live reload...');
-console.log('👀 Watching directories:', filesToWatch);
+console.log('Starting file watcher for live reload...');
+console.log('Watching directories:', filesToWatch);
 
 const watcher = chokidar.watch(filesToWatch, {
   ignored: /(^|[\/\\])\../, // ignore dotfiles
@@ -51,7 +51,7 @@ const watcher = chokidar.watch(filesToWatch, {
 let rebuildTimeout;
 
 watcher.on('change', (path) => {
-  console.log(`📝 File changed: ${path}`);
+  console.log(`File changed: ${path}`);
   
   // Clear previous timeout
   if (rebuildTimeout) {
@@ -63,7 +63,7 @@ watcher.on('change', (path) => {
 });
 
 watcher.on('add', (path) => {
-  console.log(`➕ File added: ${path}`);
+  console.log(`File added: ${path}`);
   
   if (rebuildTimeout) {
     clearTimeout(rebuildTimeout);
@@ -73,7 +73,7 @@ watcher.on('add', (path) => {
 });
 
 watcher.on('unlink', (path) => {
-  console.log(`➖ File removed: ${path}`);
+  console.log(`File removed: ${path}`);
   
   if (rebuildTimeout) {
     clearTimeout(rebuildTimeout);
@@ -83,22 +83,22 @@ watcher.on('unlink', (path) => {
 });
 
 watcher.on('ready', () => {
-  console.log('👀 Watching for changes...');
+  console.log('Watching for changes...');
 });
 
 watcher.on('error', error => {
-  console.error('❌ File watcher error:', error);
+  console.error('File watcher error:', error);
 });
 
 // Handle graceful shutdown
 process.on('SIGINT', () => {
-  console.log('\n👋 Stopping file watcher...');
+  console.log('\nStopping file watcher...');
   watcher.close();
   process.exit(0);
 });
 
 process.on('SIGTERM', () => {
-  console.log('\n👋 Stopping file watcher...');
+  console.log('\nStopping file watcher...');
   watcher.close();
   process.exit(0);
 });

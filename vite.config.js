@@ -11,8 +11,8 @@ import crypto from "crypto";
 
 const execAsync = promisify(exec);
 
-// Cache file path
-const CACHE_FILE = "./.build-cache.json";
+// Cache file path (outside .build to survive Vite's emptyOutDir)
+const CACHE_FILE = "./.js-build-cache.json";
 
 // Helper function to calculate file hash
 function calculateFileHash(filePath) {
