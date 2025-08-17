@@ -10,6 +10,7 @@ doctrees
 /package-lock.json
 /css/
 /.build/
+/.js-build-cache.json
 /build-entry.js
 # Logs
 logs
