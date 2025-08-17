@@ -12,23 +12,6 @@ This is where I host most of the things I've made! The only dependency I use is 
 
 `spax.zone` is registered with porkbun and hosted with cloudflare pages' free plan. Here are the [build instructions](/build.sh) and the [redirects](/_redirects), but the tl;dr is everything in [`/html/`](/html/) and [`/tests/`](/tests/) gets moved into the root directory, relevant javascript files (for node.js) are run, and SCSS is compiled to raw css.
 
-## development
-
-For local development with live reload:
-
-```bash
-# Build and start dev server with automatic reload on file changes
-npm run dev-watch
-
-# Or just build once and start dev server
-npm run dev
-
-# Standard build
-npm run build
-```
-
-The `dev-watch` command watches source directories (`html`, `js`, `scss`, `css`, `data`) and automatically rebuilds and reloads your browser when files change.
-
 ## subdomains
 [`spax.zone` has a few subdomains](/subdomains.md)
 

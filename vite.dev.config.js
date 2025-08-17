@@ -6,11 +6,6 @@ export default defineConfig({
   server: {
     port: 2319,
     open: true,
-    allowedHosts: [".ngrok-free.app"],
-    // Force full page reload when files change in .build directory
-    watch: {
-      usePolling: true,
-      interval: 1000
-    }
+    allowedHosts: [".ngrok-free.app"]
   }
 });
