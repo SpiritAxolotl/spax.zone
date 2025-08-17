@@ -17,6 +17,9 @@ This is where I host most of the things I've made! The only dependency I use is 
 
 ## contributing
 Contributions are welcome! Just please format things like how I do until I set up a prettier.
+
+The only thing this project requires is [node.js](https://nodejs.org). Make sure you have it installed in the commandline by running `node -v`, and install all dependencies with `npm i`.
+
 For everything:
 - two-space indentation (with spaces not tabs)
 - no trailing whitespace on lines with code
@@ -38,6 +41,22 @@ For css/scss:
 For html:
 - `id` and `class` case is dependent on the file. stick to the case that the file uses
 - idk man just make it look clean
+
+
+## development
+
+```bash
+# Build and start dev server with automatic reload on file changes
+npm run dev-watch
+
+# Or just build once and start dev server
+npm run dev
+
+# Standard build
+npm run build
+```
+
+The `dev-watch` command watches source directories (`html`, `js`, `scss`, `css`, `data`) and automatically rebuilds and reloads the browser tabs when files change.
 
 ## license
 No license! I reserve the rights to all of my code. Please ask me for permission before you use things I made unless you have the intention of [contributing](#contributing). You can find my contacts on my [main github profile](https://spax.zone/github).  
