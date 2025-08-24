@@ -1,8 +1,10 @@
 # spax.zone
 
-> [!NOTE]
+<!--
+>> [!NOTE]
 > The 1000th commit on this repository was reached! It's been a wild ride these past almost three years of working on my site (including the two-year-long hiatus). Thank you all for the invaluable feedback on everything as I continue to learn more about web development and programming in general. Here's to the next 1000 commits!  
 > (I'll remove this notice in roughly the next month)
+-->
 
 a webbed site for a webbed creachure<sup>[<i><a href="https://en.wikipedia.org/wiki/Citation_needed">citation needed</a></i>]</sup>
 
@@ -45,10 +47,12 @@ For everything:
 For javascript:
 - semicolons everywhere that warrants one
 - camelCase
-- `const` arrow functions (`=>`) instead of `function`s
+- `const` arrow functions (`=>`) instead of `function`s (generators are exempt since the syntax is unsupported)
 - doublequotes (`"`) or backticks (`` ` ``), prefering backticks if they're more useful
 - a space in between keywords like `if` `else`
 - forgo curly brackets (`{}`) for single-line `if`/`else`/`for`/`while` statements
+- client-side javascript files go in `/js`
+- server-side javascript files (meant to be run with node) go in `/scripts`
 
 For css/scss:
 - NO sass. only scss
@@ -85,6 +89,7 @@ In no particular order:
 - Mathew
 - CalmBubbles
 - 1LikeBananas
+- Zvitorep
 - HeySora
 - Sudospective
 - wavebeem

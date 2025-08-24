@@ -44,17 +44,17 @@ function saveCache(cache) {
 // Helper function to check if files have changed
 function hasJavaScriptFilesChanged() {
   const cache = loadCache();
-  const jsFiles = [
-    "./js/addpagemetadata.js",
-    "./js/js-controlled-webrings.js",
-    "./js/buildDEPdialogue.js", // Include even though temporarily disabled
+  const scripts = [
+    "./scripts/addpagemetadata.js",
+    "./scripts/js-controlled-webrings.js",
+    "./scripts/buildDEPdialogue.js",
     "./build-entry.js"
   ];
   
   let hasChanged = false;
   const newCache = { ...cache };
   
-  for (const filePath of jsFiles) {
+  for (const filePath of scripts) {
     const currentHash = calculateFileHash(filePath);
     const cachedHash = cache[filePath];
     
@@ -168,10 +168,13 @@ function customBuildPlugin() {
       console.log("Checking for JavaScript file changes...");
       
       // Check if JavaScript files have changed
+      //commenting out for now because it does not work as intended
+      /*
       if (!hasJavaScriptFilesChanged()) {
         console.log("⚡ No JavaScript changes detected, skipping custom build scripts");
         return;
       }
+      */
       
       console.log("Running custom build scripts on .build directory...");
       
@@ -180,17 +183,17 @@ function customBuildPlugin() {
         process.chdir(".build");
         
         // Run your Node.js scripts from the build directory
-        await execAsync("node ../js/addpagemetadata.js");
+        await execAsync("node ../scripts/addpagemetadata.js");
         console.log("✓ addpagemetadata.js completed");
         
         try {
-          await execAsync("node ../js/buildDEPdialogue.js");
+          await execAsync("node ../scripts/buildDEPdialogue.js");
           console.log("✓ buildDEPdialogue.js completed");
         } catch (dialogueError) {
           console.warn("⚠ buildDEPdialogue.js failed (network dependency), continuing:", dialogueError.message);
         }
         
-        await execAsync("node ../js/js-controlled-webrings.js");
+        await execAsync("node ../scripts/js-controlled-webrings.js");
         console.log("✓ js-controlled-webrings.js completed");
         
         /*
