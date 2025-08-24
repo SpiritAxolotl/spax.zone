@@ -59,13 +59,13 @@ function customBuildPlugin() {
         process.chdir(".build");
         
         // Run your Node.js scripts from the build directory
-        await execAsync("node ../js/addpagemetadata.js");
+        await execAsync("node ../scripts/addpagemetadata.js");
         console.log("✓ addpagemetadata.js completed");
         
-        await execAsync("node ../js/buildDEPdialogue.js");
+        await execAsync("node ../scripts/buildDEPdialogue.js");
         console.log("✓ buildDEPdialogue.js completed");
         
-        await execAsync("node ../js/js-controlled-webrings.js");
+        await execAsync("node ../scripts/js-controlled-webrings.js");
         console.log("✓ js-controlled-webrings.js completed");
         
         /*
