@@ -166,11 +166,11 @@ const parseHorseListSite = (document) => {
 };
 
 const fetchHorseList = async () => {
-  console.log("Fetching horselist from every.horse...");
+  console.log("Fetching horselist from every.horse/horse.json...");
   try {
-    const data = await getHTMLFile("https://every.horse", undefined, "Spax's Periodic Horse Domain Check-Up");
-    const { document } = parseHTML(data);
-    horseList = parseHorseListSite(document);
+    horseList = JSON.parse(await getHTMLFile("https://every.horse/horse.json", undefined, "Spax's Periodic Horse Domain Check-Up"));
+    //const { document } = parseHTML(data);
+    //horseList = parseHorseListSite(document);
     sortHorseList(horseList);
     console.log("Horselist retreived!\n");
     fs.writeFileSync(`./${everyHorseFilepath}`, JSON.stringify(horseList));
@@ -178,10 +178,11 @@ const fetchHorseList = async () => {
   } catch (err) {
     console.log("Unable to get new horselist. Here's the error:");
     console.error(err);
+    /*
     console.log("Attempting to use an archived list...");
   }
   try {
-    const data = await getHTMLFile(`https://web.archive.org/web/${(new Date()).getFullYear() + 1}0000000000/https://every.horse`, undefined, "Spax's Periodic Horse Domain Check-Up");
+    const data = await getHTMLFile(`https://web.archive.org/web/${(new Date()).getFullYear() + 1}0000000000/https://every.horse/horse.json`, undefined, "Spax's Periodic Horse Domain Check-Up");
     const { document } = parseHTML(data);
     horseList = parseHorseListSite(document);
     sortHorseList(horseList);
@@ -193,6 +194,7 @@ const fetchHorseList = async () => {
     console.error(err);
     //console.log("Attempting to use an old list...");
     //horseList = getJSONFile(`https://spax.zone/${filepath}`);
+    */
   }
 };
 
