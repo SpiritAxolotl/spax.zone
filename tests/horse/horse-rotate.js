@@ -185,17 +185,18 @@ const horseRotate = async (params={sld:""}) => {
     const targetHorse = horseData[horseList[p]];
     targetHorse.status = status;
     delete targetHorse.redirect;
+    if (status !== "dead") targetHorse.lastVisited = new Date();
     let consoleStatus = status.substring(0,1).toUpperCase() + status.substring(1);
     switch (status) {
       case "redirect":
         targetHorse.redirect = updates.redirect;
+        break;
       case "registered":
         consoleStatus += " but IP-less";
+        break;
       case "dead":
         consoleStatus += " 💀";
         break;
-      default:
-        targetHorse.lastVisited = new Date();
     }
     
     fs.writeFileSync(`./${horseDataFilepath}`, JSON.stringify(horseData));
