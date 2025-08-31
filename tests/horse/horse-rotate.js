@@ -249,6 +249,11 @@ const horseRotate = async (params={sld:"", firstRun:false}) => {
       return horseUpdate("down", {status: response.status});
     }).then((text) => {
       if (text && text !== "") {
+        /*let quirksMode = false;
+        if (!text.match(/^\s*<!DOCTYPE HTML>/i)
+          || !text.match(/^\s*<html>[\s\S]*<head>[\s\S]*<\/head>[\s\S]*<body>[\s\S]*<\/body>[\s\S]*<\/html>/i)) {
+          quirksMode = true;
+        }*/
         document = parseHTML(text).document;
         const url = new URL(fetchResponse.url);
         if (text.includes(`<script>window.onload=function(){window.location.href="/lander"}</script>`)
@@ -305,14 +310,26 @@ const getUnvisitedHorses = () => {
   return sortedHorseDataKeys.filter(horse=>horseData[horse].status === "unvisited");
 };
 
-const main = async () => {
+const main = async (params={rebuildCache:false, debugDomain:""}) => {
+  if (params.rebuildCache) {
+    fs.writeFileSync(horseDataFilepath, `{}`);
+  } else if (params.debugDomain !== "") {
+    console.log(`Debugging domain ${params.debugDomain}.horse...`);
+    await horseRotate({
+      sld: params.debugDomain,
+      firstRun: false
+    });
+    return;
+  }
   let firstRun = restoreProgress();
   const success = await fetchHorseList();
   const unvisitedHorses = getUnvisitedHorses();
   if (success) {
-    if (firstRun || unvisitedHorses.length > 0) {
+    if (firstRun || params.rebuildCache || unvisitedHorses.length > 0) {
       if (firstRun)
         console.log("First run detected! Removing the rotation cooldown...\n");
+      else if (params.rebuildCache)
+        console.log("Rebuilding cache...\n");
       else if (unvisitedHorses.length > 0)
         console.log(`New site${unvisitedHorses.length>1?"s":""} added to the list! Quickly visiting...\n`);
       while (unvisitedHorses.length > 0) {
@@ -331,5 +348,20 @@ const main = async () => {
   }
 };
 
-if (require.main === module)
-  main();
+if (require.main === module) {
+  let debugDomain = "";
+  let rebuildCache = false;
+  //first arg is the nodejs binary, second is the script path
+  if (process.argv.length > 1 && process.argv[2].match(/^\-\w+/)) {
+    const args = [...new Set(process.argv[2].substring(1).split(""))];
+    if (args.includes("r")) { //rebuild cache
+      rebuildCache = true;
+    } else if (args.includes("s")) {
+      debugDomain = process.argv[3].replace(/\.horse$/, "");
+    }
+  }
+  main({
+    rebuildCache: rebuildCache,
+    debugDomain: debugDomain
+  });
+}
