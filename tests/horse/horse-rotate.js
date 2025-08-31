@@ -357,7 +357,6 @@ if (require.main === module) {
   let debugDomain = "";
   let rebuildCache = false;
   //first arg is the nodejs binary, second is the script path
-  console.log(process.argv.length);
   if (process.argv.length >= 3 && process.argv[2].match(/^\-\w+/)) {
     const args = [...new Set(process.argv[2].substring(1).split(""))];
     if (args.includes("r")) { //rebuild cache
