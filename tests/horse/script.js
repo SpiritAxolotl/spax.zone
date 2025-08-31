@@ -39,7 +39,10 @@ const main = async () => {
     folder: "svg",
     ext: ".svg"
   });
-  const horseLinks = await readJSONFile("https://api.spax.zone/every_horse.json");
+  //const horseLinks = await readJSONFile("https://api.spax.zone/every_horse.json");
+  //const horseLinksLength = horseLinks.length;
+  const horseData = await readJSONFile("https://api.spax.zone/horse_data.json");
+  const horseLinks = Object.keys(horseData).filter(sld=>horseData[sld].status === "actual");
   const horseLinksLength = horseLinks.length;
   const visiting = document.querySelector(`#visiting`);
   const button = document.querySelector(`#horsebutton`);
@@ -51,7 +54,7 @@ const main = async () => {
   const genNextHorseLink = () => {
     window.removeEventListener("focus", genNextHorseLink);
     const randomIndex = random(horseLinks);
-    horseDomain = horseLinks.splice(randomIndex, 1)[0];
+    horseDomain = horseLinks.splice(randomIndex, 1)[0] + ".horse";
     visiting.innerHTML = `About to visit <code>${horseDomain}</code>...`;
   };
   genNextHorseLink();
@@ -64,7 +67,7 @@ const main = async () => {
     whatThisIs.style["opacity"] = "0";
   });
   button.addEventListener("click", () => {
-    if (!horseLinks.length)
+    if (horseLinks.length < 1)
       return alert(`Congrats! You went to all ${horseLinksLength} .horse links! We are proud of you!! 🐴`);
     console.log(horseDomain);
     //const protocol = await checkProtocol(horseDomain);
