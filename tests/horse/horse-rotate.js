@@ -1,6 +1,7 @@
 const fs = require("fs");
 const { ToadScheduler, SimpleIntervalJob, Task, AsyncTask } = require("toad-scheduler");
 const { parseHTML } = require("linkedom");
+const { defaultHTML, detectParkedDomain } = require("./parked-domain-detection.js");
 
 /**
  * progress represented by [0-1) so the general order is maintained when new sites are added
@@ -138,7 +139,7 @@ const incrementProgress = (sld="") => {
   return p;
 };
 
-/*const parseHorseListSite = (document) => {
+/*const parseHorseListSite = (document=parseHTML(defaultHTML).document) => {
   let list = [];
   const stats = document.querySelector(`main.page-content div.wrapper div.home p:nth-of-type(2)`).textContent
     .match(/There are currently (\d+) horse domains. \(Last checked at: (\d{1,2} [A-Z][a-z]*, \d{1,})\)/);
@@ -200,6 +201,11 @@ const horseRotate = async (params={sld:"", firstRun:false}) => {
       case "registered":
         consoleStatus += " but IP-less";
         break;
+      case "down":
+        consoleStatus += " for some reason";
+        if (updates.status)
+          consoleStatus += ` (status ${updates.status})`;
+        break;
       case "dead":
         consoleStatus += " 💀";
         break;
@@ -217,7 +223,7 @@ const horseRotate = async (params={sld:"", firstRun:false}) => {
   console.log(`Current date and time: ${(new Date()).toString()}`);
   console.log("Current horse domain:", /*createAnsiHyperlink(`http://${horse}`, horse),*/ horse);
   
-  let document = undefined;
+  let document = parseHTML(defaultHTML).document;
   let fetchResponse = new Response();
   try {
     const headers = new Headers({
@@ -231,33 +237,32 @@ const horseRotate = async (params={sld:"", firstRun:false}) => {
       headers: headers
     }).then((response) => {
       fetchResponse = response;
-      const regex = new RegExp(`^https?:\\/\\/(?:[\\w_-]+\\.)*${horse.replaceAll(".", "\\.")}(?:$|\\/)`);
-      if (response.redirected && response.url.match(regex) === null) {
-        horseUpdate({status:"redirect", redirect: response.url});
-        return;
+      const sameUrlRegex = new RegExp(`^https?:\\/\\/(?:[\\w_-]+\\.)*${horse.replaceAll(".", "\\.")}(?:$|\\/)`);
+      if (response.redirected && response.url.match(sameUrlRegex) === null) {
+        return horseUpdate({status:"redirect", redirect: response.url});
       } else if (response.ok) {
         return response.text();
-      } else {
-        horseUpdate("registered");
-        return;
       }
+      return horseUpdate("down", {status: response.status});
     }).then((text) => {
       if (text && text !== "") {
-        document = parseHTML(text);
+        document = parseHTML(text).document;
         const url = new URL(fetchResponse.url);
         if (text.includes(`<script>window.onload=function(){window.location.href="/lander"}</script>`)
-        || (url.pathname === "/lander" && document.querySelector(`body > div#root:empty`))) { //blank
-          horseUpdate("blank");
-        } else {
-          horseUpdate("actual");
+        || (url.pathname.startsWith("/lander") && document.querySelector(`body > #root:empty`))
+        || (url.pathname.startsWith("/defaultsite") && document.querySelector(`body > #partner:empty`))) {
+          return horseUpdate("blank");
         }
-        return;
+        const isParked = detectParkedDomain(document, params.sld);
+        if (isParked) {
+          return horseUpdate("parked");
+        }
+        return horseUpdate("actual");
       } else if (text === "") {
-        horseUpdate("blank");
-        return;
+        return horseUpdate("blank");
       }
     }).catch((e) => {
-      horseUpdate("registered");
+      return horseUpdate("registered");
     });
   } catch (err) {
     console.error(err);
@@ -265,8 +270,8 @@ const horseRotate = async (params={sld:"", firstRun:false}) => {
 };
 
 const tasks = {
-  fetchHorseList: new AsyncTask("fetch horselist", fetchHorseList),
-  horseRotate: new Task("horse rotate", horseRotate)
+  fetchHorseList: new AsyncTask("fetch horselist", _=>fetchHorseList()),
+  horseRotate: new Task("horse rotate", _=>horseRotate())
 };
 const jobs = {
   fetchHorseList: new SimpleIntervalJob({ days: 1 }, tasks.fetchHorseList),
@@ -274,19 +279,22 @@ const jobs = {
 };
 
 const restoreProgress = () => {
+  const restoreHorseData = () => {
+    if (fs.existsSync(horseDataFilepath))
+      horseData = JSON.parse(fs.readFileSync(horseDataFilepath));
+  };
   if (!fs.existsSync(horseProgressFile))
     fs.writeFileSync(horseProgressFile, `${progress}`);
   else {
     const progressText = fs.readFileSync(horseProgressFile);
     if (progressText.includes("new")) {
+      restoreHorseData();
       return true;
     } else if (typeof (+progressText) === "number" && !isNaN(+progressText)) {
       progress = +progressText;
     }
   }
-  
-  if (fs.existsSync(horseDataFilepath))
-    horseData = JSON.parse(fs.readFileSync(horseDataFilepath));
+  restoreHorseData();
   return false;
 };
 
