@@ -192,27 +192,30 @@ const horseRotate = async (params={sld:"", firstRun:false}) => {
     const targetHorse = horseData[horseList[p]];
     targetHorse.status = status;
     delete targetHorse.redirect;
+    delete targetHorse.statusCode;
     if (status !== "dead") targetHorse.lastVisited = new Date();
-    let consoleStatus = status.substring(0,1).toUpperCase() + status.substring(1);
+    let consoleVerdict = status.substring(0,1).toUpperCase() + status.substring(1);
     switch (status) {
       case "redirect":
         targetHorse.redirect = updates.redirect;
         break;
       case "registered":
-        consoleStatus += " but IP-less";
+        consoleVerdict += " but IP-less";
         break;
       case "down":
-        consoleStatus += " for some reason";
-        if (updates.status)
-          consoleStatus += ` (status ${updates.status})`;
+        consoleVerdict += " for some reason";
+        if (updates.status) {
+          consoleVerdict += ` (status ${updates.status})`;
+          targetHorse.statusCode = updates.status;
+        }
         break;
       case "dead":
-        consoleStatus += " 💀";
+        consoleVerdict += " 💀";
         break;
     }
     
     fs.writeFileSync(`./${horseDataFilepath}`, JSON.stringify(horseData));
-    console.log(`Verdict: ${consoleStatus}\n`);
+    console.log(`Verdict: ${consoleVerdict}\n`);
   };
   
   const specifiedDomain = typeof params.sld === "string" && params.sld.length > 0;
@@ -239,7 +242,7 @@ const horseRotate = async (params={sld:"", firstRun:false}) => {
       fetchResponse = response;
       const sameUrlRegex = new RegExp(`^https?:\\/\\/(?:[\\w_-]+\\.)*${horse.replaceAll(".", "\\.")}(?:$|\\/)`);
       if (response.redirected && response.url.match(sameUrlRegex) === null) {
-        return horseUpdate({status:"redirect", redirect: response.url});
+        return horseUpdate({status: "redirect", redirect: response.url});
       } else if (response.ok) {
         return response.text();
       }
