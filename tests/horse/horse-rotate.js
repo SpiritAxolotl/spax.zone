@@ -180,7 +180,7 @@ const fetchHorseList = async () => {
   return true;
 };
 
-const horseRotate = async (params={sld:""}) => {
+const horseRotate = async (params={sld:"", firstRun:false}) => {
   let p = 0;
   
   const horseUpdate = (status="", updates={}) => {
@@ -207,7 +207,7 @@ const horseRotate = async (params={sld:""}) => {
   };
   
   const specifiedDomain = typeof params.sld === "string" && params.sld.length > 0;
-  if (!specifiedDomain) {
+  if (!specifiedDomain || params.firstRun) {
     console.log(`Current progress: ${(progress * 100).toFixed(4)}%`);
     p = incrementProgress();
   }
@@ -303,7 +303,10 @@ const main = async () => {
       else if (unvisitedHorses.length > 0)
         console.log(`New site${unvisitedHorses.length>1?"s":""} added to the list! Quickly visiting...\n`);
       while (unvisitedHorses.length > 0) {
-        await horseRotate(unvisitedHorses.shift());
+        await horseRotate({
+          sld: unvisitedHorses.shift(),
+          firstRun: firstRun
+        });
       }
       console.log("Unvisited sites have all been visited! Starting normal rotation...\n");
     }
