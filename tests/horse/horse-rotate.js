@@ -2,7 +2,9 @@ const fs = require("fs");
 const { ToadScheduler, SimpleIntervalJob, Task, AsyncTask } = require("toad-scheduler");
 const { parseHTML } = require("linkedom");
 
-//progress represented by [0-1) so the general order is maintained when new sites are added
+/**
+ * progress represented by [0-1) so the general order is maintained when new sites are added
+ */
 let progress = 0;
 const scheduler = new ToadScheduler();
 const dataDirectory = `./data`;
@@ -125,7 +127,8 @@ const sortHorseList = (list=[]) => {
   });
 };
 
-const incrementProgress = () => {
+const incrementProgress = (sld="") => {
+  if (sld !== "") return sortedHorseDataKeys.indexOf(sld);
   const len = sortedHorseDataKeys.length;
   let p = Math.round(progress * len);
   while (sortedHorseDataKeys[p].status === "dead" && !horseList.includes(sortedHorseDataKeys[p]))
@@ -207,10 +210,9 @@ const horseRotate = async (params={sld:"", firstRun:false}) => {
   };
   
   const specifiedDomain = typeof params.sld === "string" && params.sld.length > 0;
-  if (!specifiedDomain || params.firstRun) {
+  if (params.sld === "")
     console.log(`Current progress: ${(progress * 100).toFixed(4)}%`);
-    p = incrementProgress();
-  }
+  p = incrementProgress(params.sld);
   const horse = specifiedDomain ? `${params.sld}.horse` : getHorseFromList(p);
   console.log(`Current date and time: ${(new Date()).toString()}`);
   console.log("Current horse domain:", /*createAnsiHyperlink(`http://${horse}`, horse),*/ horse);
