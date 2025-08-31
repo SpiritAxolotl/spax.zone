@@ -7,8 +7,8 @@ by running the js before the site is deployed.
 
 const { readPage } = require("./utils.js");
 const fs = require("fs");
-const { VM } = require("vm2");
 const { createHash } = require("crypto");
+const vm = require("vm");
 
 const targetPage = "./index.html";
 const randomURL = "https://random.spax.zone/webrings";
@@ -74,12 +74,6 @@ const webringDown = (document, selector, webringName, err) => {
 
 const build = async () => {
   const { document, window } = await readPage(targetPage);
-  const vm = new VM({
-    sandbox: {
-      document: document,
-      window: window
-    }
-  });
   const dataFolderName = "./data/webring-members";
   if (!fs.existsSync(dataFolderName))
     fs.mkdirSync(dataFolderName);
@@ -95,10 +89,10 @@ const build = async () => {
     webring.innerHTML = "";
     const hash = genHash(data);
     if (hash === hashes.cobalt) {
-      vm.run(data);
+      interpreter.evaluate(data);
       fs.writeFileSync(
         `${dataFolderName}/cobalt.json`,
-        JSON.stringify(vm.getGlobal("cobaltWebring_members")
+        JSON.stringify(interpreter.scope.get("cobaltWebring_members")
           .map(e=>`https://${e}`))
       );
       //webring.removeAttribute("name");
@@ -141,11 +135,23 @@ const build = async () => {
         editedData = editedData.replace(`next →`, "-&gt;");
         editedData = editedData.replace(/(?<=\$\{(?:random|index)Text\})[\s\n]+/g, "");
         editedData = editedData.replace(/(?<=tag\.insertAdjacentHTML\('afterbegin', `[\s\S]*)  `/g, `\``);
-        vm.run(editedData);
+
+        // ! IMPORTANT: Use Node's VM for this script to preserve DOM prototype methods like insertAdjacentHTML.
+        const sandbox = {
+          document,
+          window,
+          console,
+          fetch: typeof fetch !== "undefined" ? fetch : undefined
+        };
+        vm.createContext(sandbox);
+        vm.runInContext(editedData, sandbox);
+
         const randomATag = webring.querySelector(`a[href="javascript:void(0)"]`);
         webring.querySelectorAll(`.webring-prev, .webring-next`).forEach(e=>e.classList.add("nowrap"));
-        randomATag.href = `${randomURL}/cohost`;
-        randomATag.removeAttribute("onclick");
+        if (randomATag) {
+          randomATag.href = `${randomURL}/cohost`;
+          randomATag.removeAttribute("onclick");
+        }
         fs.writeFileSync(targetPage, document.toString());
       } else {
         webring.innerHTML = oldContents;
