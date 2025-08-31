@@ -150,12 +150,15 @@ const getHorseFromList = (n) => {
 };
 
 const fetchHorseList = async () => {
-  console.log("Fetching horselist from every.horse/horse.json...");
+  if (horseList.length > 1)
+    console.log("Starting daily fetch of the horselist from every.horse/horse.json...");
+  else
+    console.log("Fetching horselist from every.horse/horse.json...");
   const horseDomainRegex = /((?:[\w_-]+\.)*[\w_-]+)(?=\.horse)/;
-  let pureHorseList = [...horseList];
+  let originalHorseList = [...horseList];
   try {
-    pureHorseList = await getJSONFile(everyHorseLink);
-    fs.writeFileSync(everyHorseBackupFile, JSON.stringify(sortHorseList(pureHorseList)));
+    originalHorseList = await getJSONFile(everyHorseLink);
+    fs.writeFileSync(everyHorseBackupFile, JSON.stringify(sortHorseList(originalHorseList)));
     console.log("Horselist retreived!\n");
   } catch (err) {
     console.log("Unable to get new horselist. Here's the error:");
@@ -166,7 +169,7 @@ const fetchHorseList = async () => {
       console.log("Backup file used!\n");
     } else return false;
   }
-  horseList = pureHorseList
+  horseList = originalHorseList
     .filter(e=>e.match(horseDomainRegex)) //filters to those that will match the next regex
     .map(e=>e.match(horseDomainRegex)[0]); //removes the .horse
   horseList = sortHorseList(horseList);
@@ -295,7 +298,10 @@ const main = async () => {
   const unvisitedHorses = getUnvisitedHorses();
   if (success) {
     if (firstRun || unvisitedHorses.length > 0) {
-      console.log("First run detected! Removing the rotation cooldown...\n");
+      if (firstRun)
+        console.log("First run detected! Removing the rotation cooldown...\n");
+      else if (unvisitedHorses.length > 0)
+        console.log(`New site${unvisitedHorses.length>1?"s":""} added to the list! Quickly visiting...\n`);
       while (unvisitedHorses.length > 0) {
         await horseRotate(unvisitedHorses.shift());
       }
