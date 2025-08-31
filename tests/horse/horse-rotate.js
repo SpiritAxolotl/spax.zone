@@ -198,6 +198,7 @@ const horseRotate = async (params={sld:"", firstRun:false}) => {
     switch (status) {
       case "redirect":
         targetHorse.redirect = updates.redirect;
+        consoleVerdict += `s to ${updates.redirect}`;
         break;
       case "registered":
         consoleVerdict += " but IP-less";
@@ -247,26 +248,30 @@ const horseRotate = async (params={sld:"", firstRun:false}) => {
         return response.text();
       }
       return horseUpdate("down", {status: response.status});
-    }).then((text) => {
-      if (text && text !== "") {
+    }).then((html) => {
+      if (html && html !== "") {
         /*let quirksMode = false;
         if (!text.match(/^\s*<!DOCTYPE HTML>/i)
           || !text.match(/^\s*<html>[\s\S]*<head>[\s\S]*<\/head>[\s\S]*<body>[\s\S]*<\/body>[\s\S]*<\/html>/i)) {
           quirksMode = true;
         }*/
-        document = parseHTML(text).document;
+        document = parseHTML(html).document;
         const url = new URL(fetchResponse.url);
-        if (text.includes(`<script>window.onload=function(){window.location.href="/lander"}</script>`)
+        if (html.includes(`<script>window.onload=function(){window.location.href="/lander"}</script>`)
         || (url.pathname.startsWith("/lander") && document.querySelector(`body > #root:empty`))
         || (url.pathname.startsWith("/defaultsite") && document.querySelector(`body > #partner:empty`))) {
           return horseUpdate("blank");
+        }
+        const detectMetaRedirect = html.match(/<meta\s+http-equiv=Refresh\s+content="\d+;\s*url=(.+?)"\s*>/i);
+        if (detectMetaRedirect !== null) {
+          return horseUpdate("redirect", {redirect: detectMetaRedirect[1]});
         }
         const isParked = detectParkedDomain(document, params.sld);
         if (isParked) {
           return horseUpdate("parked");
         }
         return horseUpdate("actual");
-      } else if (text === "") {
+      } else if (html === "") {
         return horseUpdate("blank");
       }
     }).catch((e) => {
@@ -352,11 +357,12 @@ if (require.main === module) {
   let debugDomain = "";
   let rebuildCache = false;
   //first arg is the nodejs binary, second is the script path
-  if (process.argv.length > 1 && process.argv[2].match(/^\-\w+/)) {
+  console.log(process.argv.length);
+  if (process.argv.length >= 3 && process.argv[2].match(/^\-\w+/)) {
     const args = [...new Set(process.argv[2].substring(1).split(""))];
     if (args.includes("r")) { //rebuild cache
       rebuildCache = true;
-    } else if (args.includes("s")) {
+    } else if (args.includes("s") && process.argv[3]) {
       debugDomain = process.argv[3].replace(/\.horse$/, "");
     }
   }
