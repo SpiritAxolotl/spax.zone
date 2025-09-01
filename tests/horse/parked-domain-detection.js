@@ -7,9 +7,10 @@ const detectParkedDomain = (document=parseHTML(defaultHTML).document, sld) => {
   const tests = [
     _ => document.title === `${domain} - ${sld} Resources and Information.`,
     _ => document.title === `${domain} is coming soon`,
+    _ => document.title === `porkbun.com | parked domain`,
     _ => document.querySelector(`#plBanner > img[alt="Namecheap banner"]`) !== null,
     _ => document.querySelector(`#dn-default > h1`)?.textContent === domain,
-    _ => document.body.outerHTML.match(/parked/ig)?.length >= 2,
+    _ => (document.head.outerHTML + document.body.outerHTML).match(/parked/ig)?.length >= 2,
   ];
   return tests.some(test=>{
     try {
