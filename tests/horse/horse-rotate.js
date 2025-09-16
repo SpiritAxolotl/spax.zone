@@ -192,7 +192,7 @@ const horseRotate = async (params={sld:"", firstRun:false}) => {
   
   // using documentation from https://docs.google.com/document/d/1Nsv52MvSjbLb2PCpHlat0gkzw0EvtSgpKHu4mk0MnrA/edit
   const archiveHorse = async (targetHorse="") => {
-    if (!ARCHIVE_ACCESS_KEY || !ARCHIVE_SECRET_KEY) return;
+    if (!ARCHIVE_ACCESS_KEY || !ARCHIVE_SECRET_KEY || firstRun || params.sld) return;
     try {
       const headers = new Headers({
         "Accept": "application/json",
