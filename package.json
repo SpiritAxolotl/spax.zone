@@ -11,6 +11,7 @@
     "watch": "vite build --watch"
   },
   "dependencies": {
+    "dotenv": "^17.2.2",
     "linkedom": "^0.18.5",
     "sass": "^1.79.5",
     "toad-scheduler": "^3.0.1",
