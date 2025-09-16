@@ -1,4 +1,5 @@
 const fs = require("fs");
+require("dotenv").config();
 const { ToadScheduler, SimpleIntervalJob, Task, AsyncTask } = require("toad-scheduler");
 const { parseHTML } = require("linkedom");
 const { defaultHTML, detectParkedDomain } = require("./parked-domain-detection.js");
@@ -17,6 +18,8 @@ const everyHorseBackupFile = `${dataDirectory}/every_horse.json`;
  * WILL NOT HAVE .horse AFTER EVERY LINK
  */
 let horseList = ["every"];
+const ARCHIVE_ACCESS_KEY = process.env.HORSE_ROTATE_ARCHIVE_ACCESS_KEY;
+const ARCHIVE_SECRET_KEY = process.env.HORSE_ROTATE_ARCHIVE_SECRET_KEY;
 
 const horseDataFilepath = `${dataDirectory}/horse_data.json`;
 
@@ -131,7 +134,7 @@ const sortHorseList = (list=[]) => {
 const incrementProgress = (sld="") => {
   if (sld !== "") return sortedHorseDataKeys.indexOf(sld);
   const len = sortedHorseDataKeys.length;
-  let p = Math.round(progress * len);
+  let p = Math.round(progress * len); //integer value of percentage (___/length)
   while (sortedHorseDataKeys[p].status === "dead" && !horseList.includes(sortedHorseDataKeys[p]))
     p++; //skip dead horses
   progress = ((p+1)%len)/len;
@@ -187,6 +190,36 @@ const fetchHorseList = async () => {
 const horseRotate = async (params={sld:"", firstRun:false}) => {
   let p = 0;
   
+  // using documentation from https://docs.google.com/document/d/1Nsv52MvSjbLb2PCpHlat0gkzw0EvtSgpKHu4mk0MnrA/edit
+  const archiveHorse = async (targetHorse="") => {
+    if (!ARCHIVE_ACCESS_KEY || !ARCHIVE_SECRET_KEY) return;
+    try {
+      const headers = new Headers({
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "User-Agent": `Spax's Periodic Horse Domain Archive (${repoLink})`,
+        "Authorization": `${ARCHIVE_ACCESS_KEY}:${ARCHIVE_SECRET_KEY}`,
+        "if_not_archived_within": "90d", //3 months
+        "delay_wb_availability": 1,
+        "capture_all": 1,
+        "capture_outlinks": 1,
+        "capture_screenshot": 1,
+        "skip_first_archive": 1
+      });
+      
+      const response = await fetch("https://web.archive.org/save", {
+        method: "POST",
+        headers: headers,
+        body: `url=http://${targetHorse}.horse`
+      });
+      if (response.ok)
+        return await response.json();
+    } catch (err) {
+      //throw err;
+    }
+    //in future have a thing that says whether it archived a page. it'll silently archive for now
+  };
+  
   const horseUpdate = (status="", updates={}) => {
     horseData[horseList[p]] ??= {};
     const targetHorse = horseData[horseList[p]];
@@ -217,6 +250,7 @@ const horseRotate = async (params={sld:"", firstRun:false}) => {
     
     fs.writeFileSync(`./${horseDataFilepath}`, JSON.stringify(horseData));
     console.log(`Verdict: ${consoleVerdict}\n`);
+    archiveHorse(targetHorse); //make this a promise in future
   };
   
   const specifiedDomain = typeof params.sld === "string" && params.sld.length > 0;
