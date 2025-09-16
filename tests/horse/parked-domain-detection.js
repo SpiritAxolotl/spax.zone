@@ -15,9 +15,9 @@ const detectParkedDomain = (document=parseHTML(defaultHTML).document, sld) => {
   return tests.some(test=>{
     try {
       return test();
-    } catch (e) {
-      if (e)
-      console.error(`Error on parked domain test ${tests.indexOf(test) + 1}:\n`, e);
+    } catch (error) {
+      if (error)
+      console.error(`Error on parked domain test ${tests.indexOf(test) + 1}:\n`, error.name + ":", error.message);
       return false;
     }
   });
