@@ -108,6 +108,7 @@
   }
   [hover] {
     text-decoration: underline wavy var(--g2);
+    cursor: help;
   }
   [hover]:is(:hover, :active, :focus) {
     position: relative;
