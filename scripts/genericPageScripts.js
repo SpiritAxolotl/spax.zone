@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const { readPage } = require("./utils.js");
 
-const blacklist = ["main2.html"];
+const metadataBlacklist = ["main2.html"];
 
 const defaultTags = {
   "meta": [
@@ -60,7 +60,8 @@ const propertyIsGeneric = (tagname, tag) => {
   }
 };
 
-const addMetadata = (document) => {
+const addMetadata = (document, file) => {
+  if (file !== undefined && metadataBlacklist.includes(file)) return;
   const head = document.head;
   const leadingSpaces = (head.innerHTML.match(/^[\r\n]*( *)/)?.[1] ?? "").length;
   const createAndAddTag = (tagname, properties) => {
@@ -92,6 +93,18 @@ const addMetadata = (document) => {
   }
 };
 
+const buttonsTargetBlank = (document, file) => {
+  const buttonLinks = document.querySelectorAll(`#buttons a:has(img)`);
+  if (buttonLinks === null) return;
+  for (const a of buttonLinks) {
+    if (a.getAttribute("target") === null) {
+      a.setAttribute("target", "_blank");
+    }
+  }
+};
+
+const scripts = [addMetadata, buttonsTargetBlank];
+
 (async () => {
   try {
     const files = await fs.promises.readdir(filepath);
@@ -100,9 +113,16 @@ const addMetadata = (document) => {
       const file = files[i];
       const fullpath = path.join(filepath, file);
       const stat = await fs.promises.stat(fullpath);
-      if (stat.isFile() && file.endsWith(".html") && !blacklist.includes(file)) {
+      if (stat.isFile() && file.endsWith(".html")) {
         const { document } = await readPage(fullpath);
-        addMetadata(document);
+        //in future probably a good idea to have a fallback to the previous document state in case one of the scripts runs into a problem
+        for (const func of scripts) {
+          try {
+          func(document, file);
+          } catch(e) {
+            console.error(e);
+          }
+        }
         fs.writeFileSync(fullpath, document.toString());
       }
     }
