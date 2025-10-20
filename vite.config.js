@@ -59,8 +59,8 @@ function customBuildPlugin() {
         process.chdir(".build");
         
         // Run your Node.js scripts from the build directory
-        await execAsync("node ../scripts/addpagemetadata.js");
-        console.log("✓ addpagemetadata.js completed");
+        await execAsync("node ../scripts/genericPageScripts.js");
+        console.log("✓ genericPageScripts.js completed");
         
         await execAsync("node ../scripts/buildDEPdialogue.js");
         console.log("✓ buildDEPdialogue.js completed");
