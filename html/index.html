@@ -24,6 +24,30 @@
         height: 72px;
       }
     }
+    #buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    #buttons > div {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 4px;
+      a {
+        display: block;
+      }
+      img {
+        image-rendering: pixelated;
+        font-size: 10px;
+        letter-spacing: 0px;
+        white-space: pre;
+      }
+      &.\38 8x31 > a, &.\38 8x31 > img { /*"88x31" class that needs to be escaped properly because thanks css*/
+        width: 88px;
+        height: 31px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -75,7 +99,8 @@
   <article who="nahua" emotion="neutral">
     I've also linked some 88x31 buttons for my friends' sites and other miscellaneous things.
   </article>
-  <article class="buttons" id="buttons">
+  <article id="buttons">
+    <div class="88x31">
     <a href="https://cyber.dabamos.de/88x31/">
       <img src="/buttons/88x31.gif" alt="88x31 buttons">
     </a>
@@ -92,7 +117,7 @@
       <img src="/buttons/paws.png" alt="made with my own two paws">
     </a>
     <a href="/nsfw">
-      <img src="/buttons/noclick.gif" alt="don't click" hover="you will regret this">
+        <img src="/buttons/noclick.gif" alt="don't click" title="you will regret this">
     </a>
     <a href="https://mykocalico.neocities.org/buttons">
       <img src="/buttons/cohost.gif" alt="i was on cohost!">
@@ -199,6 +224,12 @@
     <a href="https://lucastheguy.nekoweb.org/">
       <img src="https://lucastheguy.nekoweb.org/images/button.gif" alt="lucas.nekoweb.org">
     </a>
+    </div>
+    <div class="miscbuttons">
+      <a href="https://sexfm.live/">
+        <img style="width:150px; height:20px;" src="https://sexfm.live/ilovesexfm.gif" alt="sexfm.live">
+      </a>
+    </div>
   </article>
   <article who="nahua" emotion="bashful" id="spaxzone-button">
     And don't forget to add my own button to your site!<br>

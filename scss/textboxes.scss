@@ -196,26 +196,6 @@
     align-self: end;
   }
   
-  &.buttons {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 4px;
-    a {
-      display: block;
-    }
-    img {
-      image-rendering: pixelated;
-      font-size: 10px;
-      letter-spacing: 0px;
-      white-space: pre;
-    }
-    a, img {
-      width: 88px;
-      height: 31px;
-    }
-  }
-  
   .highlight {
     display: inline-block;
     width: 100%;
