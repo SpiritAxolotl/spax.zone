@@ -94,12 +94,17 @@ const addMetadata = (document, file) => {
 };
 
 const buttonsTargetBlank = (document, file) => {
-  const buttonLinks = document.querySelectorAll(`#buttons a:has(img)`);
+  const buttonLinks = [...document.querySelectorAll(`#buttons a:has(img)`)];
   if (buttonLinks === null) return;
+  const spaxzoneButton = document.querySelector(`#spaxzone-button a:has(img)`);
+  if (spaxzoneButton !== null) buttonLinks.push(spaxzoneButton);
   for (const a of buttonLinks) {
     if (a.getAttribute("target") === null) {
       a.setAttribute("target", "_blank");
     }
+  }
+  if (spaxzoneButton !== null) {
+    document.querySelector(`#spaxzone-button textarea`).textContent = spaxzoneButton.outerHTML;
   }
 };
 
