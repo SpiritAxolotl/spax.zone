@@ -10,6 +10,13 @@
     .punishment {
       color: var(--b1);
     }
+    /*this one is so hacked together but i dont even care it's so funny*/
+    @media only screen and (max-width: 645px) {
+      #github-activity > img {
+        height: 100%;
+        width: calc(100% - 115px) !important;
+      }
+    }
     #eggbug-eggring table {
       width: 100%;
     }
@@ -103,7 +110,7 @@
     Yeah right.<br>
     Look at those gaps in your Github activity.<br>
   </article>
-  <article who="claire" emotion="neutral">
+  <article who="claire" emotion="neutral" id="github-activity">
     <img style="width: 100%;" class="bilinear" src="https://cdn.spax.zone/github_activity_oct2025.png">
   </article>
   <article who="nahua" emotion="angry">
