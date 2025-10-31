@@ -140,6 +140,12 @@ function scssCompilePlugin() {
         await execAsync("sass scss/experimental.scss:css/experimental.css --silence-deprecation=mixed-decls");
         console.log("✓ experimental.scss compiled");
         
+        await execAsync("sass scss/variables.scss:css/variables.css --silence-deprecation=mixed-decls");
+        console.log("✓ variables.scss compiled");
+        
+        await execAsync("sass scss/textboxes.scss:css/textboxes.css --silence-deprecation=mixed-decls");
+        console.log("✓ textboxes.scss compiled");
+        
         await execAsync("sass scss/depfont.scss:css/depfont.css --silence-deprecation=mixed-decls");
         console.log("✓ depfont.scss compiled");
         
