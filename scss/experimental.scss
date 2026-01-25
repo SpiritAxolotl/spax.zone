@@ -41,7 +41,6 @@ body {
   display: flex;
   flex-flow: column;
   align-items: center;
-  margin: 5px 0;
   gap: 5px;
   @include font-smoothing(never);
   background: url("/images/bg/background_yoki.png") center 0px/960px repeat fixed var(--g3);
@@ -92,6 +91,10 @@ article {
   @include customfaces();
 }
 
+body article:first-of-type {
+  margin-top: 5px;
+}
+
 .underline {
   text-decoration: underline;
 }
@@ -106,6 +109,10 @@ article {
 
 body [title] {
   cursor: help;
+}
+
+.red {
+  color: var(--r1);
 }
 
 details {
