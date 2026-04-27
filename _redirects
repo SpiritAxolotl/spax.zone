@@ -24,3 +24,22 @@
 /html/* /:splat
 /tests/* /:splat
 /redirects/* /:splat
+
+/images/spax/* images/faces/spax/:splat
+/images/yoki/* images/faces/yoki/:splat
+/images/aimottle/* images/faces/aimottle/:splat
+/images/caina/* images/faces/caina/:splat
+/images/charles/* images/faces/charles/:splat
+/images/claire/* images/faces/claire/:splat
+/images/dragon/* images/faces/dragon/:splat
+/images/este/* images/faces/este/:splat
+/images/fountain/* images/faces/fountain/:splat
+/images/harp/* images/faces/harp/:splat
+/images/hero/* images/faces/hero/:splat
+/images/prince/* images/faces/prince/:splat
+/images/tem/* images/faces/tem/:splat
+/images/tigertaur/* images/faces/tigertaur/:splat
+/images/woof/* images/faces/woof/:splat
+/images/yoki/* images/faces/yoki/:splat
+/images/youngeryoki/* images/faces/youngeryoki/:splat
+/images/zera/* images/faces/zera/:splat
