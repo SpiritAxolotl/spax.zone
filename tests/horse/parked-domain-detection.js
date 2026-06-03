@@ -23,7 +23,8 @@ const detectParkedDomain = (dom=parseHTML(defaultHTML), sld) => {
     _ => document.querySelector(`img[src="//assets.squarespace.com/universal/images-v6/parking-page/backgrounds/img101-landscape.jpg"]`),
     _ => document.querySelector(`p[style="width: 100%; margin: auto; display: table; text-align: center; vertical-align: middle; font: 400 16px/90vh 'Proxima Nova', 'Lato', sans-serif;"]`),
     _ => document.querySelector(`meta[content="NOW"][name="expires"]`),
-    _ => window.getComputedStyle(document.body).backgroundImage.match(/Parking\.jpg/i),
+    //_ => window.getComputedStyle(document.body).backgroundImage.match(/Parking\.jpg/i),
+    _ => document.querySelector(`[id^="Parking_2023"]`),
     _ => document.querySelector(`#GODADDY_FREEMIUM_AD`)
   ];
   return tests.some(test => {
