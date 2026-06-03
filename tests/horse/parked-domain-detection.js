@@ -2,13 +2,14 @@ const { parseHTML } = require("linkedom");
 
 const defaultHTML = "<!DOCTYPE HTML><html><head></head><body></body></html>";
 
-const detectParkedDomain = (document=parseHTML(defaultHTML).document, sld) => {
+const detectParkedDomain = (dom=parseHTML(defaultHTML), sld) => {
+  const { document, window } = dom;
   const domain = `${sld}.horse`;
   const icons = [
     "//img.sedoparking.com/templates/logos/sedo_logo.png",
     "/__ovh/common/img/favicon.ico",
     "https://custom.rebrandly.com/img/rb_favicon_rounded.ico"
-  ]
+  ];
   const tests = [
     _ => document?.title?.includes(`${sld} Resources and Information.`),
     _ => document?.title?.includes(`${sld}.horse is coming soon`),
@@ -22,7 +23,7 @@ const detectParkedDomain = (document=parseHTML(defaultHTML).document, sld) => {
     _ => document.querySelector(`img[src="//assets.squarespace.com/universal/images-v6/parking-page/backgrounds/img101-landscape.jpg"]`),
     _ => document.querySelector(`p[style="width: 100%; margin: auto; display: table; text-align: center; vertical-align: middle; font: 400 16px/90vh 'Proxima Nova', 'Lato', sans-serif;"]`),
     _ => document.querySelector(`meta[content="NOW"][name="expires"]`),
-    _ => getComputedStyle(document.body).backgroundImage.match(/Parking\.jpg/i),
+    _ => window.getComputedStyle(document.body).backgroundImage.match(/Parking\.jpg/i),
     _ => document.querySelector(`#GODADDY_FREEMIUM_AD`)
   ];
   return tests.some(test => {

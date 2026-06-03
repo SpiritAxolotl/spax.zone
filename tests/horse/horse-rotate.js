@@ -289,7 +289,8 @@ const horseRotate = async (params={sld:"", firstRun:false}) => {
           || !text.match(/^\s*<html>[\s\S]*<head>[\s\S]*<\/head>[\s\S]*<body>[\s\S]*<\/body>[\s\S]*<\/html>/i)) {
           quirksMode = true;
         }*/
-        document = parseHTML(html).document;
+        const dom = parseHTML(html);
+        document = dom.document;
         const url = new URL(fetchResponse.url);
         if (html.includes(`<script>window.onload=function(){window.location.href="/lander"}</script>`)
         || (url.pathname.startsWith("/lander") && document.querySelector(`body > #root:empty`))
@@ -300,7 +301,7 @@ const horseRotate = async (params={sld:"", firstRun:false}) => {
         if (detectMetaRedirect !== null) {
           return horseUpdate("redirect", {redirect: detectMetaRedirect[1]});
         }
-        const isParked = detectParkedDomain(document, params.sld);
+        const isParked = detectParkedDomain(dom, params.sld);
         if (isParked) {
           return horseUpdate("parked");
         }
