@@ -1,23 +1,3 @@
-const checkProtocol = async (domain) => {
-  let https = false;
-  const headers = new Headers({
-    "Access-Control-Allow-Origin": "*"
-  });
-  try {
-    const httpsResponse = await fetch(`https://${domain}`, {
-      method: "HEAD",
-      headers: headers,
-      mode: "cors",
-      credentials: "omit"
-    });
-    if (httpsResponse.ok)
-      https = true;
-  } catch (error) {}
-  
-  if (https) return "https";
-  return "http";
-}
-
 const readJSONFile = async (link) => {
   try {
     const response = await fetch(link);
@@ -29,8 +9,7 @@ const readJSONFile = async (link) => {
     
     return json;
   } catch (error) {
-    console.error("Error:", error.message);
-    return [];
+    console.error(error);
   }
 };
 
@@ -41,12 +20,18 @@ const main = async () => {
   });
   //const horseLinks = await readJSONFile("https://api.spax.zone/every_horse.json");
   //const horseLinksLength = horseLinks.length;
-  const horseData = await readJSONFile("https://api.spax.zone/horse_data.json");
-  const horseLinks = Object.keys(horseData).filter(sld=>horseData[sld].status === "actual");
-  const horseLinksLength = horseLinks.length;
   const visiting = document.querySelector(`#visiting`);
   const button = document.querySelector(`#horsebutton`);
   const whatThisIs = document.querySelector(`#whatthisis`);
+  
+  const horseData = await readJSONFile("https://api.spax.zone/horse_data.json");
+  if (!horseData) {
+    visiting.textContent = "Error when fetching from the horse list. Sorry!";
+    visiting.style.opacity = 1;
+    return;
+  }
+  const horseLinks = Object.keys(horseData).filter(sld=>horseData[sld].status === "actual");
+  const horseLinksLength = horseLinks.length;
   const random = (arr) => {
     return Math.floor(Math.random()*arr.length);
   };

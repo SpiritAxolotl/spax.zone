@@ -77,7 +77,7 @@ const getJSONFile = async (link) => {
     if (response.ok)
       return await response.json();
   } catch (err) {
-    throw err;
+    throw err; //lmao
   }
 };
 

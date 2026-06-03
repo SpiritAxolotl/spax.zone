@@ -5,19 +5,23 @@ const defaultHTML = "<!DOCTYPE HTML><html><head></head><body></body></html>";
 const detectParkedDomain = (document=parseHTML(defaultHTML).document, sld) => {
   const domain = `${sld}.horse`;
   const tests = [
-    _ => document.title === `${domain} - ${sld} Resources and Information.`,
-    _ => document.title === `${domain} is coming soon`,
-    _ => document.title === `porkbun.com | parked domain`,
+    _ => document?.title === `${domain} - ${sld} Resources and Information.`,
+    _ => document?.title === `${domain} is coming soon`,
+    _ => document?.title === `porkbun.com | parked domain`,
     _ => document.querySelector(`#plBanner > img[alt="Namecheap banner"]`) !== null,
     _ => document.querySelector(`#dn-default > h1`)?.textContent === domain,
-    _ => (document.head.outerHTML + document.body.outerHTML).match(/parked/ig)?.length >= 2,
+    _ => (document?.head?.outerHTML + document?.body?.outerHTML).match(/parked/ig)?.length >= 2,
   ];
-  return tests.some(test=>{
-    try {
-      return test();
-    } catch (error) {
-      if (error)
-      console.error(`Error on parked domain test ${tests.indexOf(test) + 1}:\n`, error.name + ":", error.message);
+  return tests.some(test => {
+    if (document.head && document.body) {
+      try {
+        return test();
+      } catch (error) {
+        if (error)
+        console.log(`Error on parked domain test ${tests.indexOf(test) + 1}:\n`, error.name + ":", error.message);
+        return false;
+      }
+    } else {
       return false;
     }
   });
