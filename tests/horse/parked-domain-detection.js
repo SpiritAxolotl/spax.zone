@@ -25,7 +25,8 @@ const detectParkedDomain = (dom=parseHTML(defaultHTML), sld) => {
     _ => document.querySelector(`meta[content="NOW"][name="expires"]`),
     //_ => window.getComputedStyle(document.body).backgroundImage.match(/Parking\.jpg/i),
     _ => document.querySelector(`[id^="Parking_2023"]`),
-    _ => document.querySelector(`#GODADDY_FREEMIUM_AD`)
+    _ => document.querySelector(`#GODADDY_FREEMIUM_AD`),
+    _ => document.querySelector(`meta[http-equiv="Refresh"][content="0;url=defaultsite"]`) //this one is blank
   ];
   return tests.some(test => {
     if (document.head && document.body) {
