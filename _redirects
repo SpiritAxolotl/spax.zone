@@ -25,6 +25,10 @@
 /tests/* /:splat
 /redirects/* /:splat
 
+/fonts/* /assets/fonts/:splat
+/images/* /assets/:splat
+/audio/* /assets/audio/:splat
+
 /images/spax/* images/faces/spax/:splat
 /images/yoki/* images/faces/yoki/:splat
 /images/aimottle/* images/faces/aimottle/:splat
