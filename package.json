@@ -2,17 +2,12 @@
   "name": "spax.zone",
   "version": "1.0.0",
   "scripts": {
-    "dev": "npm run build && npm run serve-dev",
-    "serve-dev": "vite --config vite.dev.config.js",
-    "serve": "vite preview",
-    "build": "vite build",
-    "watch": "vite build --watch"
+    
   },
   "dependencies": {
     "dotenv": "^17.2.2",
     "linkedom": "^0.18.5",
     "sass": "^1.100.0",
-    "toad-scheduler": "^3.0.1",
-    "vite": "^6.3.5"
+    "toad-scheduler": "^3.0.1"
   }
 }
