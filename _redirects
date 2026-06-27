@@ -1,12 +1,13 @@
 /main /
 /html/main /
 /sitelist /pagelist
-/allspaxfaces /allcustomfaces
+/allspaxfaces /allnahuafaces
 /allcustomfaces /allnahuafaces
-/horse /horse/
 /ref /nahua-ref-sheet
 /images/buttons/button.gif /buttons/spaxdotzone.gif
 /buttons/button.gif /buttons/spaxdotzone.gif
+/css/experimental.css /css/game.css
+/scss/experimental.scss /scss/game.scss
 
 /af https://artfight.net/~Spaxolotl
 /artfight https://artfight.net/~Spaxolotl
@@ -25,25 +26,25 @@
 /tests/* /:splat
 /redirects/* /:splat
 
+/assets/spax/* assets/faces/spax/:splat
+/assets/yoki/* assets/faces/yoki/:splat
+/assets/aimottle/* assets/faces/aimottle/:splat
+/assets/caina/* assets/faces/caina/:splat
+/assets/charles/* assets/faces/charles/:splat
+/assets/claire/* assets/faces/claire/:splat
+/assets/dragon/* assets/faces/dragon/:splat
+/assets/este/* assets/faces/este/:splat
+/assets/fountain/* assets/faces/fountain/:splat
+/assets/harp/* assets/faces/harp/:splat
+/assets/hero/* assets/faces/hero/:splat
+/assets/prince/* assets/faces/prince/:splat
+/assets/tem/* assets/faces/tem/:splat
+/assets/tigertaur/* assets/faces/tigertaur/:splat
+/assets/woof/* assets/faces/woof/:splat
+/assets/yoki/* assets/faces/yoki/:splat
+/assets/youngeryoki/* assets/faces/youngeryoki/:splat
+/assets/zera/* assets/faces/zera/:splat
+
 /fonts/* /assets/fonts/:splat
 /images/* /assets/:splat
 /audio/* /assets/audio/:splat
-
-/images/spax/* images/faces/spax/:splat
-/images/yoki/* images/faces/yoki/:splat
-/images/aimottle/* images/faces/aimottle/:splat
-/images/caina/* images/faces/caina/:splat
-/images/charles/* images/faces/charles/:splat
-/images/claire/* images/faces/claire/:splat
-/images/dragon/* images/faces/dragon/:splat
-/images/este/* images/faces/este/:splat
-/images/fountain/* images/faces/fountain/:splat
-/images/harp/* images/faces/harp/:splat
-/images/hero/* images/faces/hero/:splat
-/images/prince/* images/faces/prince/:splat
-/images/tem/* images/faces/tem/:splat
-/images/tigertaur/* images/faces/tigertaur/:splat
-/images/woof/* images/faces/woof/:splat
-/images/yoki/* images/faces/yoki/:splat
-/images/youngeryoki/* images/faces/youngeryoki/:splat
-/images/zera/* images/faces/zera/:splat
