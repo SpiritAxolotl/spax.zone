@@ -5,14 +5,14 @@
   background-image: url($url);
 }
 
-$default-face: "/images/faces/Unknown.png";
+$default-face: "/assets/faces/Unknown.png";
 
 article[who]::before {
   @include face($default-face);
 }
 
 @function face-url($character, $emotion) {
-  @return "/images/faces/#{string.to-lower-case($character)}/#{$emotion}.png";
+  @return "/assets/faces/#{string.to-lower-case($character)}/#{$emotion}.png";
 }
 
 @mixin character-face($character-case, $emotions...) {

@@ -4,7 +4,7 @@ const fs = require("fs");
 const { readPage } = require("./utils.js");
 
 const targetPage = "./allnahuafaces.html";
-const directory = "./images/faces/nahua/";
+const directory = "./assets/faces/nahua/";
 
 const { document } = await readPage(targetPage);
 fs.writeFileSync(targetPage, _ => {

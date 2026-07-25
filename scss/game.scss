@@ -43,7 +43,7 @@ body {
   align-items: center;
   gap: 5px;
   @include font-smoothing(never);
-  background: url("/images/bg/background_yoki.png") center 0px/960px repeat fixed var(--g3);
+  background: url("/assets/bg/background_yoki.png") center 0px/960px repeat fixed var(--g3);
   image-rendering: pixelated;
   
   &.threads {
@@ -120,7 +120,7 @@ details {
   & > summary {
     cursor: pointer;
     &::marker, &::-webkit-details-marker {
-      //content: url("/images/misc/next_arrow.png");
+      //content: url("/assets/misc/next_arrow.png");
       content: "> ";
       color: var(--g2);
     }

@@ -10,10 +10,12 @@ cp -r ./buttons/ .build/
 cp -r ./scss/ .build/
 cp -r ./data/ .build/
 cp robots.txt .build/
+cp _redirects .build/
 cd .build
 
 #mv ./html/* .
 #mv ./tests/* .
+mkdir css
 sass scss/game.scss:css/game.css
 sass scss/depfont.scss:css/depfont.css
 sass scss/customfaces.scss:css/customfaces.css

@@ -33,14 +33,14 @@ const defaultTags = {
     },
     {
       "property": "og:image",
-      "content": "https://spax.zone/images/faces/nahua/Neutral.png",
+      "content": "https://spax.zone/assets/faces/nahua/Neutral.png",
       "type": "image/png"
     }
   ],
   "link": [
     {
       "rel": "icon",
-      "href": "/images/icons/Nahua_Neutral.png"
+      "href": "/assets/icons/Nahua_Neutral.png"
     }
   ]
 };
