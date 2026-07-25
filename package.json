@@ -2,7 +2,7 @@
   "name": "spax.zone",
   "version": "1.0.0",
   "scripts": {
-    
+    "build": ""
   },
   "dependencies": {
     "dotenv": "^17.2.2",
