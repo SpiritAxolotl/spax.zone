@@ -1,6 +1,7 @@
 {
   "name": "spax.zone",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
     "build": "./build.sh"
   },
