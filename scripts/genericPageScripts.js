@@ -1,6 +1,6 @@
-const fs = require("fs");
-const path = require("path");
-const { readPage } = require("./utils.js");
+import fs from "node:fs";
+import path from "node:path";
+import { readPage } from "./utils.js";
 
 const metadataBlacklist = ["main2.html"];
 

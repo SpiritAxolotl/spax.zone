@@ -1,4 +1,6 @@
-class Timer {
+//don't tell past me about console.time()
+
+export class Timer {
   constructor(what, announce=true) {
     this.start(what, announce);
   }
@@ -13,5 +15,3 @@ class Timer {
       console.log(`It took ${(this.endTime - this.startTime) / 1000}s to ${what}.`);
   }
 }
-
-module.exports = { Timer };

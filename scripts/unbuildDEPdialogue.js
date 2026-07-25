@@ -1,7 +1,7 @@
 /* for use when developing to make my life easier */
-const fs = require('fs');
-const { targetPage } = require("./buildDEPdialogue.js");
-const { readPage } = require("./utils.js");
+import fs from "node:fs";
+import { targetPage } from "./buildDEPdialogue.js";
+import { readPage } from "./utils.js";
 
 const unbuild = async () => {
   const { document } = await readPage(targetPage);
@@ -10,5 +10,4 @@ const unbuild = async () => {
   fs.writeFileSync(targetPage, document.toString());
 };
 
-if (require.main === module)
-  unbuild();
+unbuild();

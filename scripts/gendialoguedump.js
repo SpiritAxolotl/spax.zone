@@ -76,5 +76,4 @@ const main = async () => {
   fs.writeFileSync("./data/dep_event_dump.json", JSON.stringify(finalJSON));
 };
 
-if (require.main === module)
-  main();
+main();

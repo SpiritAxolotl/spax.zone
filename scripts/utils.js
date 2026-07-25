@@ -1,9 +1,9 @@
-const fs = require('fs');
-const { parseHTML } = require('linkedom');
+import fs from "node:fs";
+import { parseHTML } from "linkedom";
 
-const readPage = async (page) => {
+export const readPage = (page) => {
   try {
-    const html = await fs.promises.readFile(page, "utf8");
+    const html = fs.readFileSync(page, "utf8");
     const dom = parseHTML(html);
     return dom;
   } catch (err) {
@@ -11,5 +11,3 @@ const readPage = async (page) => {
     throw err;
   }
 };
-
-module.exports = { readPage };

@@ -1,8 +1,8 @@
-const fs = require('fs');
-const { readPage } = require('./utils.js');
-const { Timer } = require('./timer.js');
+import fs from "node:fs";
+import { readPage } from "./utils.js";
+import { Timer } from "./timer.js";
 
-const targetPage = "./DEPalldialogue.html";
+export const targetPage = "./DEPalldialogue.html";
 const eventDump = "./data/dep_event_dump.json";
 
 const allDialogue = {};
@@ -241,7 +241,7 @@ const escapeHTMLString = (unsafe) => {
   return unsafe.replaceAll(/"|\s/g, "");
 };
 
-const clearArea = (document) => {
+export const clearArea = (document) => {
   const timer = new Timer("clearing the area");
   //document.querySelectorAll(`#buildbelowme ~ :not(#buildaboveme):not(#buildaboveme ~ *)`)
   //  .forEach(e=>e.remove());
@@ -320,7 +320,7 @@ const buildHTML = (document) => {
 
 /* utils */
 
-const textboxEquals = (a,b) => {
+export const textboxEquals = (a,b) => {
   if (typeof (a.file * b.file) === "number" && a.file !== b.file)
     return false;
   if (a.who !== b.who || a.emotion !== b.emotion)
@@ -333,7 +333,4 @@ const textboxEquals = (a,b) => {
   return true;
 };
 
-if (require.main === module)
-  main();
-
-module.exports = { targetPage, clearArea, textboxEquals };
+main();

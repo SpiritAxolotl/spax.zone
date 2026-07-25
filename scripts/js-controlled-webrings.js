@@ -5,10 +5,10 @@ most of my webpages static. This js file is my attempt at maximizing their compa
 by running the js before the site is deployed.
 */
 
-const { readPage } = require("./utils.js");
-const fs = require("fs");
-const { createHash } = require("crypto");
-const vm = require("vm");
+import { readPage } from "./utils.js";
+import fs from "node:fs";
+import { createHash } from "node:crypto";
+import vm from "vm";
 
 const targetPage = "./index.html";
 const randomURL = "https://random.spax.zone/webrings";
@@ -166,5 +166,4 @@ const build = async () => {
   }
 };
 
-if (require.main === module)
-  build();
+build();
