@@ -1,11 +1,19 @@
 # a better script will be written soon
 rm -rf .build
 mkdir .build
-rsync -a . .build --exclude .build --exclude=".*" --exclude=node_modules
+# rsync -a . .build --exclude .build --exclude=".*" --exclude=node_modules
+cp -r ./html/* .build
+cp -r ./tests/* .build
+cp -r ./js/ .build/
+cp -r ./assets/ .build/
+cp -r ./buttons/ .build/
+cp -r ./scss/ .build/
+cp -r ./data/ .build/
+cp robots.txt .build/
 cd .build
 
-mv ./html/* .
-mv ./tests/* .
+#mv ./html/* .
+#mv ./tests/* .
 sass scss/game.scss:css/game.css
 sass scss/depfont.scss:css/depfont.css
 sass scss/customfaces.scss:css/customfaces.css
